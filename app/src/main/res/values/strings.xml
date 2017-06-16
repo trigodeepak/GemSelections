@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">GemSelections</string>
+    <string name="tv_payment_1">
+        YOU MAY DEPOSIT <b>CHEQUE OR DD </b> ELECTRONIC TRANSFER TO: \n\n
+        Khanna Gems Private Limited,\n
+        Punjab and Sindh Bank,\n
+        <b>A/c No. 08681300000642</b>\n
+        <b>IFSC Code: PSIB0000963</b>
+    </string>
+    <string name="tv_payment_2">
+        PAY BY USING\n
+        <b>www.paypal.com</b>\n
+        to\n
+        <b>care@khannagems.com</b>
+    </string>
+    <string name="tv_payment_3">
+        SEND A CHEQUE IN FAVOUR OF\n
+        <b>Khanna Gems Private Limited</b>\n\n
+        SHOP NO. 8, A-3 DDA MARKET\n
+        Janakpuri,\n
+        New Delhi - 110058\n
+        (Near St. Marks School)
+    </string>
+    <string name="delivery_message">We deliver anywhere in the World.\n\n
+    Through the 25 years of its existence Gem Selections has consistently delivered quality and that too at most reasonable
+    prices.</string>
 </resources>
