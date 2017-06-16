@@ -21,6 +21,8 @@
                 android:layout_height="wrap_content"
                 android:text="Payment Methods"
                 android:id="@+id/tv_paymentMethods"
+                android:clickable="true"
+                android:onClick="payment_method_click"
                 android:padding="@dimen/home_links_padding"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -33,6 +35,8 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/home_links_padding"
                 android:text="Testimonials"
+                android:clickable="true"
+                android:onClick="testimonials_click"
                 android:id="@+id/tv_testimonials"/>
         </LinearLayout>
         <LinearLayout
@@ -45,6 +49,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_aboutShipment"
                 android:padding="@dimen/home_links_padding"
+                android:clickable="true"
+                android:onClick="about_shipment_click"
                 android:text="About Shipment"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -58,6 +64,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_astrology"
                 android:text="Astrology"
+                android:clickable="true"
+                android:onClick="astrology_click"
                 android:padding="@dimen/home_links_padding"
                 />
             <TextView
@@ -65,24 +73,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_puja"
                 android:text="Puja"
+                android:clickable="true"
+                android:onClick="puja_click"
                 android:padding="@dimen/home_links_padding"
                 />
         </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </LinearLayout>
