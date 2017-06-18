@@ -18,7 +18,7 @@
             android:textAlignment="center"
             android:textSize="18sp"
             android:text="@string/tv_payment_1"
-            android:background="#e2e2e2"/>
+            android:background="#f1efef"/>
 
         <TextView
             android:layout_marginTop="15dp"
@@ -28,7 +28,7 @@
             android:textAlignment="center"
             android:textSize="18sp"
             android:text="@string/tv_payment_2"
-            android:background="#e2e2e2"/>
+            android:background="#f1efef"/>
         <TextView
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
@@ -37,14 +37,32 @@
             android:textAlignment="center"
             android:textSize="18sp"
             android:text="@string/tv_payment_3"
-            android:background="#e2e2e2"/>
+            android:background="#f1efef"/>
 
-        <Button
-            android:id="@+id/ok_button"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_marginTop="15dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OK" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/ok_button"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:text="OK" />
+            <Button
+                android:id="@+id/buy"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:text="BUY NOW"/>
+
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

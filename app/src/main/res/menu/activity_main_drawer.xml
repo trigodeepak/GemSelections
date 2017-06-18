@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+        <item
+            android:id="@+id/nav_jewel"
+            android:icon="@drawable/ic_jewel"
+            android:title="Jewellery"/>
+        <item
+            android:id="@+id/nav_rudraksha"
+            android:title="Rudraksha"/>
+        <item
+            android:id="@+id/nav_handicrafts"
+            android:title="Handicrafts"/>
+        <item
+            android:id="@+id/nav_ittar"
+            android:icon="@drawable/ic_ittr"
+            android:title="Ittar"/>
+        <item
+            android:id="@+id/nav_yantra"
+            android:title="Yantra"/>
+        <item
+            android:id="@+id/nav_kavach"
+            android:title="Kavach"/>
+        <item
+            android:id="@+id/nav_saphatic"
+            android:title="Saphatic Items"/>
+        <item
+            android:id="@+id/nav_semi_precious_gems"
+            android:title="Semi Precious Gems"/>
+        <item
+            android:id="@+id/nav_diamond"
+            android:icon="@drawable/ic_diamond"
+            android:title="Diamond"/>
+
+    </group>
+
+    <item android:title="Contact">
+        <menu>
+            <item
+                android:id="@+id/nav_call"
+                android:icon="@drawable/ic_call"
+                android:title="Call Us"/>
+            <item
+                android:id="@+id/nav_mail"
+                android:icon="@drawable/ic_email"
+                android:title="Mail Us"/>
+            <item
+                android:id="@+id/nav_visit"
+                android:icon="@drawable/ic_store"
+                android:title="Visit Us"/>
+            <item
+                android:id="@+id/nav_fb_page"
+                android:icon="@drawable/ic_fb"
+                android:title="Find Us on Facebook"
+                />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/ac_buy_now"
+        android:title="BUY NOW"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/ac_payment_methods"
+        android:title="Payment Methods"/>
+
+    <item
+        android:title="Govt. Lab  Certificates">
+        <menu>
+            <item
+                android:id="@+id/ac_natural_sapphire"
+                android:title="Natural Sapphire"/>
+            <item
+                android:id="@+id/ac_treated_sapphire"
+                android:title="Treated Sapphire"/>
+            <item
+                android:id="@+id/ac_heated_sapphire"
+                android:title="Heated Sapphire"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/ac_testimonials"
+        android:title="Testimonials"/>
+    <item
+        android:id="@+id/ac_shipment"
+        android:title="About Shipment"/>
+    <item
+        android:title="Membership">
+        <menu>
+            <item
+                android:id="@+id/ac_aima"
+                android:title="ALL INDIA MANAGEMENT ASSOCIATIONS"/>
+            <item
+                android:id="@+id/ac_idi"
+                android:title="INDIAN DIAMOND INSTITUTE"/>
+            <item
+                android:id="@+id/ac_sgi"
+                android:title="SURAT GEMOLOGY INSTITUE"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/ac_astro"
+        android:title="Astrology"/>
+    <item
+        android:id="@+id/ac_puja"
+        android:title="Puja"/>
+    <item
+        android:id="@+id/ac_faq"
+        android:title="FAQs"/>
+
+    <item android:title="About">
+        <menu>
+            <item
+                android:id="@+id/ac_about_us"
+                android:title="About Us"/>
+            <item
+                android:id="@+id/ac_management"
+                android:title="Management Team"/>
+            <item
+                android:id="@+id/ac_pankaj"
+                android:title="Pankaj Khanna"/>
+            <item
+                android:id="@+id/ac_khanna_gems"
+                android:title="Khanna Gems Pvt. Ltd."/>
+            <item
+                android:id="@+id/ac_sonipat"
+                android:title="Sonipat"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/ac_exit"
+        android:title="Exit"/>
+</menu>

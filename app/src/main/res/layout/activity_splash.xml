@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nikhil3000.gemselections.Splash"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/splash_image"
+        android:padding="3dp"
+        android:background="@drawable/imageview"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_above="@+id/splash_appname"
+        android:layout_marginBottom="50dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/splash_appname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerInParent="true"
+        android:textSize="60sp"
+        android:text="Gem\nSelections"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="serif"
+        android:layout_below="@+id/splash_appname"
+        android:text="@string/tag_1"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:fontFamily="serif"
+        android:layout_alignParentBottom="true"
+        android:text="\u00A9 www.gemselections.com"/>
+</RelativeLayout>
