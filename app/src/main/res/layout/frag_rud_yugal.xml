@@ -29,6 +29,7 @@
         <ImageView
             android:layout_marginTop="10dp"
             android:id="@+id/akarshan_vridhi"
+            android:padding="10dp"
             android:background="@drawable/imageview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

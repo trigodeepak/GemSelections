@@ -34,6 +34,8 @@ public class Rudraksha extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        display_selected_item(R.id.nav_rud_home);
     }
 
     @Override

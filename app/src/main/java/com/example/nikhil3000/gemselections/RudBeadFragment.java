@@ -110,7 +110,7 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
             is = getActivity().getAssets().open("images/rudraksha/fifteen-mukhi-rudraksha.jpg");
             _15.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/rudraksha/sixteen-mukhi-rudraksha.jpg");
+            is = getActivity().getAssets().open("images/rudraksha/sixteen-mukhi-rudraksha.gif");
             _16.setImageBitmap(BitmapFactory.decodeStream(is));
 
             is = getActivity().getAssets().open("images/rudraksha/seventeen-mukhi-rudraksha.jpg");
@@ -128,7 +128,7 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
             is = getActivity().getAssets().open("images/rudraksha/twentyone-mukhi-rudraksha.jpg");
             _21.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/rudraksha/trijuti-rudraksha.jpg");
+            is = getActivity().getAssets().open("images/rudraksha/trijuti-rudraksha.gif");
             _trijuti.setImageBitmap(BitmapFactory.decodeStream(is));
 
             is = getActivity().getAssets().open("images/rudraksha/ganesh-rudraksha.jpg");
@@ -171,6 +171,75 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         if(v==_1){
             show_dialog("ONE MUKHI", R.string.bead_1);
+        }
+        if(v==_2){
+            show_dialog("TWO MUKHI", R.string.bead_2);
+        }
+        if(v==_3){
+            show_dialog("THREE MUKHI", R.string.bead_3);
+        }
+        if(v==_4){
+            show_dialog("FOUR MUKHI", R.string.bead_4);
+        }
+        if(v==_5){
+            show_dialog("FIVE MUKHI", R.string.bead_5);
+        }
+        if(v==_6){
+            show_dialog("SIX MUKHI", R.string.bead_6);
+        }
+        if(v==_7){
+            show_dialog("SEVEN MUKHI", R.string.bead_7);
+        }
+        if(v==_8){
+            show_dialog("EIGHT MUKHI", R.string.bead_8);
+        }
+        if(v==_9){
+            show_dialog("NINE MUKHI", R.string.bead_9);
+        }
+        if(v==_10){
+            show_dialog("TEN MUKHI", R.string.bead_10);
+        }
+        if(v==_11){
+            show_dialog("ELEVEN MUKHI", R.string.bead_11);
+        }
+        if(v==_12){
+            show_dialog("TWELVE MUKHI", R.string.bead_12);
+        }
+        if(v==_13){
+            show_dialog("THIRTEEN MUKHI", R.string.bead_13);
+        }
+        if(v==_14){
+            show_dialog("FOURTEEN MUKHI", R.string.bead_14);
+        }
+        if(v==_15){
+            show_dialog("FIFTEEN MUKHI", R.string.bead_15);
+        }
+        if(v==_16){
+            show_dialog("SIXTEEN MUKHI", R.string.bead_16);
+        }
+        if(v==_17){
+            show_dialog("SEVENTEEN MUKHI", R.string.bead_17);
+        }
+        if(v==_18){
+            show_dialog("EIGHTEEN MUKHI", R.string.bead_18);
+        }
+        if(v==_19){
+            show_dialog("NINETEEN MUKHI", R.string.bead_19);
+        }
+        if(v==_20){
+            show_dialog("TWENTY MUKHI", R.string.bead_20);
+        }
+        if(v==_21){
+            show_dialog("TWENTY ONE MUKHI", R.string.bead_21);
+        }
+        if(v==_trijuti){
+            show_dialog("TRIJUTI", R.string.bead_trijuti);
+        }
+        if(v==_ganesh){
+            show_dialog("GANESH", R.string.bead_ganesh);
+        }
+        if(v==_gauri){
+            show_dialog("GAURI SHANKER", R.string.bead_gauri);
         }
     }
 }
