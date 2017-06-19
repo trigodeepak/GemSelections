@@ -11,17 +11,17 @@ import android.view.ViewGroup;
  * Created by anonymous on 18/6/17.
  */
 
-public class VisitUsFragment extends Fragment {
+public class RudFAQ extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_visit_us, container, false);
+        View view = inflater.inflate(R.layout.frag_rud_faq, container, false);
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Visit Us");
+        getActivity().setTitle("FAQs");
     }
 }

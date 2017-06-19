@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            getSupportFragmentManager().popBackStack("MainActivity", 0);
         }
 
-        getSupportFragmentManager().popBackStack("MainActivity", 0);
     }
 
     @Override
@@ -173,7 +173,22 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.ac_exit:
-                finish();
+
+                new AlertDialog.Builder(MainActivity.this)
+                        .setMessage("Do you really want to exit?")
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .create().show();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -357,6 +372,12 @@ public class MainActivity extends AppCompatActivity
                     fragment = new HomeFragment();
                 break;
 
+            case R.id.nav_rudraksha:
+                    startActivity(
+                            new Intent(MainActivity.this, Rudraksha.class)
+                    );
+                break;
+
             case R.id.nav_call:
 
                 new AlertDialog.Builder(MainActivity.this)
@@ -398,7 +419,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_visit:
-                    fragment = new VisitUsFragment();
+                    fragment = new MainVisitUsFragment();
                 break;
 
             case R.id.nav_fb_page:
@@ -409,15 +430,15 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.ac_about_us:
-                    fragment = new AboutUsFragment();
+                    fragment = new MainAboutUsFragment();
                 break;
 
             case R.id.ac_management:
-                    fragment = new ManagementFragment();
+                    fragment = new MainManagementFragment();
                 break;
 
             case R.id.ac_sonipat:
-                    fragment = new SonipatFragment();
+                    fragment = new MainSonipatFragment();
                 break;
 
         }

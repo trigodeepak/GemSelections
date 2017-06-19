@@ -7,10 +7,6 @@
             android:icon="@drawable/ic_home"
             android:title="Home"/>
         <item
-            android:id="@+id/nav_jewel"
-            android:icon="@drawable/ic_jewel"
-            android:title="Jewellery"/>
-        <item
             android:id="@+id/nav_rudraksha"
             android:title="Rudraksha"/>
         <item
@@ -30,12 +26,19 @@
             android:id="@+id/nav_saphatic"
             android:title="Saphatic Items"/>
         <item
+            android:id="@+id/nav_precious_gems"
+            android:title="Precious Gems"/>
+        <item
             android:id="@+id/nav_semi_precious_gems"
             android:title="Semi Precious Gems"/>
         <item
             android:id="@+id/nav_diamond"
             android:icon="@drawable/ic_diamond"
             android:title="Diamond"/>
+        <item
+            android:id="@+id/nav_jewel"
+            android:icon="@drawable/ic_jewel"
+            android:title="Jewellery"/>
 
     </group>
 

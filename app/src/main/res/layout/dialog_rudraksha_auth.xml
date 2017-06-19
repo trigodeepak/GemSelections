@@ -9,21 +9,13 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
 
-        <ImageView
-            android:id="@+id/dialog_pankaj_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"/>
         <TextView
-            android:layout_marginTop="10dp"
             android:textColor="#666"
             android:textSize="16sp"
             android:fontFamily="serif"
-            android:layout_below="@id/dialog_pankaj_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/_pankaj"/>
-
+            android:text="@string/_rud_auth"/>
 
     </RelativeLayout>
 </ScrollView>

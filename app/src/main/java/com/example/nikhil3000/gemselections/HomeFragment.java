@@ -48,12 +48,11 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         load_Images();
+        getActivity().setTitle("Gem Selections:Home");
     }
 
     private void load_Images() {
         InputStream is = null;
-
-        getActivity().setTitle("Gem Selections:Home");
 
         try {
             is = getActivity().getAssets().open("images/precious-gems/Purple-sapphire.jpg");
@@ -61,9 +60,54 @@ public class HomeFragment extends Fragment {
 
             is = getActivity().getAssets().open("images/precious-gems/Emerald.jpg");
             panna.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/peela-pukhraj.jpg");
+            pukhraj.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/Indian-Ruby.jpg");
+            manik.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/Blue-Sapphire.jpg");
+            neelam.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/Gomedh.jpg");
+            gomed.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/pink-sapphire.jpg");
+            gulabi.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/Pitambari-neelam.jpg");
+            pitambari.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/Cats-Eye.jpg");
+            lehsunia.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/Pearl.jpg");
+            moti.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/Red-Coral.jpg");
+            moonga.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/diamond.jpg");
+            heera.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/White-Sapphire.jpg");
+            safed.setImageBitmap(BitmapFactory.decodeStream(is));
+
+            is = getActivity().getAssets().open("images/precious-gems/green-sapphire.jpg");
+            hara.setImageBitmap(BitmapFactory.decodeStream(is));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void baingani_click(View view){
+
+    }
+
+    public void panna_click(View view){
 
     }
 

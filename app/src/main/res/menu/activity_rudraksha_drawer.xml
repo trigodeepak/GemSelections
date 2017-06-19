@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_rud_home"
+            android:title="Rudraksha:Home"/>
+        <item
+            android:id="@+id/nav_rud_bead"
+            android:title="Rudraksha Beads"/>
+        <item
+            android:id="@+id/nav_rud_mala"
+            android:title="Rudraksha Mala"/>
+        <item
+            android:id="@+id/nav_rud_bracelet"
+            android:title="Rudraksha Bracelets"/>
+        <item
+            android:id="@+id/nav_rud_yugal"
+            android:title="Rudraksha Yugal"/>
+    </group>
+
+    <item android:title="Extras">
+        <menu>
+            <item
+                android:id="@+id/nav_rud_mantra"
+                android:title="Mantras for rudraksha" />
+            <item
+                android:id="@+id/nav_rud_how"
+                android:title="How to wear" />
+            <item
+                android:id="@+id/nav_rud_authenticity"
+                android:title="Authenticity" />
+            <item
+                android:id="@+id/nav_rud_faq"
+                android:title="FAQs" />
+        </menu>
+    </item>
+
+</menu>

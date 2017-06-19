@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
  * Created by anonymous on 18/6/17.
  */
 
-public class SonipatFragment extends Fragment {
+public class MainSonipatFragment extends Fragment {
     private WebView webView;
 
     @Nullable

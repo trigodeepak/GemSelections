@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/_rud_banner3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal1"
+            android:fontFamily="serif"/>
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/akarshan_vridhi"
+            android:background="@drawable/imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal2"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal3"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal4"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal5"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal6"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal7"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal8"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal9"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal10"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal11"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal12"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal13"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal14"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal15"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal16"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/_yugal17"
+            android:fontFamily="serif"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="#777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/_yugal18"
+            android:fontFamily="serif"/>
+    </LinearLayout>
+</ScrollView>
+
