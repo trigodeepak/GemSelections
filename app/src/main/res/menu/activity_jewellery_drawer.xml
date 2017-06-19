@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Studded Silver">
+        <menu>
+            <group
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_silver_pendant"
+                    android:title="Silver Pendant"
+                    />
+                <item
+                    android:id="@+id/nav_silver_earring"
+                    android:title="Silver Earring"
+                    />
+                <item
+                    android:id="@+id/nav_silver_set"
+                    android:title="Silver Set"
+                    />
+                <item
+                    android:id="@+id/nav_silver_broaches"
+                    android:title="Silver Broaches"
+                    />
+                <item
+                    android:id="@+id/nav_silver_bracelets"
+                    android:title="Silver Bracelets"
+                    />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:title="Beads">
+        <menu>
+            <item
+                android:id="@+id/nav_beads_precious"
+                android:title="Precious Beads"/>
+            <item
+                android:id="@+id/nav_beads_semi_precious"
+                android:title="Semi Precious Beads"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/nav_carved_gemstone"
+        android:title="Carved Gemstones"/>
+
+</menu>

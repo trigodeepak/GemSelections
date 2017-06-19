@@ -27,10 +27,36 @@
         <activity
             android:name=".FAQs"
             android:label="Frequently Asked Questions"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Rudraksha"
             android:label="@string/title_activity_rudraksha"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Ittar"
+            android:label="Ittar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Handicrafts"
+            android:label="@string/title_activity_handicrafts"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Jewellery"
+            android:label="@string/title_activity_jewellery"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

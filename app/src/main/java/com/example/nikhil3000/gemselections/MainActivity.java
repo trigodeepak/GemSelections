@@ -377,6 +377,23 @@ public class MainActivity extends AppCompatActivity
                             new Intent(MainActivity.this, Rudraksha.class)
                     );
                 break;
+            case R.id.nav_ittar:
+                startActivity(
+                        new Intent(MainActivity.this, Ittar.class)
+                );
+                break;
+
+            case R.id.nav_handicrafts:
+                startActivity(
+                        new Intent(MainActivity.this, Handicrafts.class)
+                );
+                break;
+
+            case R.id.nav_jewel:
+                startActivity(
+                        new Intent(MainActivity.this, Jewellery.class)
+                );
+                break;
 
             case R.id.nav_call:
 
@@ -411,10 +428,8 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_mail:
-                String uritext = "care@khannagems.com";
-                Uri uri = Uri.parse(uritext);
                 Intent intent1 = new Intent(Intent.ACTION_SENDTO);
-                intent1.setData(uri);
+                intent1.setDataAndType(Uri.parse("care@khannagems.com"),Intent.EXTRA_EMAIL);
                 startActivity(Intent.createChooser(intent1, "Mail Via..."));
                 break;
 

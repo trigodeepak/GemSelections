@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_hand_pots"
+            android:title="Decorated Gold Plated Pots"/>
+        <item
+            android:id="@+id/nav_hand_clocks"
+            android:title="Gold Painted Marbel Clocks"/>
+        <item
+            android:id="@+id/nav_hand_plates"
+            android:title="Gold Painted Plates and Tiles"/>
+        <item
+            android:id="@+id/nav_hand_gifts"
+            android:title="Handicraft Gifts"/>
+        <item
+            android:id="@+id/nav_hand_spiritual"
+            android:title="Other Spiritual Items"/>
+        <item
+            android:id="@+id/nav_hand_spi_gifts"
+            android:title="Spiritual Gifts"/>
+        <item
+            android:id="@+id/nav_hand_black"
+            android:title="Black Stone"/>
+        <item
+            android:id="@+id/nav_hand_soap"
+            android:title="Soap Stone"/>
+        <item
+            android:id="@+id/nav_hand_table"
+            android:title="Spiritual Table Top"/>
+    </group>
+
+</menu>
