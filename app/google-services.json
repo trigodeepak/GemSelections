@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "980508632732",
+    "firebase_url": "https://gemselections-add52.firebaseio.com",
+    "project_id": "gemselections-add52",
+    "storage_bucket": "gemselections-add52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980508632732:android:eebd373df0501d22",
+        "android_client_info": {
+          "package_name": "com.example.nikhil3000.gemselections"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980508632732-tfr27qc90v70919irl5auntk6b877j56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nikhil3000.gemselections",
+            "certificate_hash": "eac6f7d7b69eed5fb97710939810456c3b806193"
+          }
+        },
+        {
+          "client_id": "980508632732-jcrhup9fi0df4099uprodrglv3icova7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmWYEKmjkfRxnSdxVu-Q4UEipSqWuc3Co"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980508632732-jcrhup9fi0df4099uprodrglv3icova7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

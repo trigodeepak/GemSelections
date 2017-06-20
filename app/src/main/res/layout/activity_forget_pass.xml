@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/side_nav_bar"
+    tools:context="com.example.nikhil3000.gemselections.ForgetPassActivity">
+    <EditText
+        android:id="@+id/_frgtEmail"
+        android:padding="10dp"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext"
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"
+        android:fontFamily="serif"
+        android:textAlignment="center"
+        android:hint="Email"
+        android:drawableLeft="@drawable/ic_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <Button
+        android:id="@+id/_forgetButton"
+        android:text="SEND PASSWORD RESET EMAIL"
+        android:fontFamily="sans-serif"
+        android:textSize="16sp"
+        android:textColor="#fff"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button1"/>
+</LinearLayout>

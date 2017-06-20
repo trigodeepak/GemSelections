@@ -10,8 +10,14 @@
             android:id="@+id/nav_rudraksha"
             android:title="Rudraksha"/>
         <item
+            android:id="@+id/nav_japamala"
+            android:title="Japa Mala"/>
+        <item
             android:id="@+id/nav_handicrafts"
             android:title="Handicrafts"/>
+        <item
+            android:id="@+id/nav_stoneidols"
+            android:title="Stone Idols"/>
         <item
             android:id="@+id/nav_ittar"
             android:icon="@drawable/ic_ittr"
@@ -31,6 +37,9 @@
         <item
             android:id="@+id/nav_semi_precious_gems"
             android:title="Semi Precious Gems"/>
+        <item
+            android:id="@+id/nav_birthstone"
+            android:title="Birthstones"/>
         <item
             android:id="@+id/nav_diamond"
             android:icon="@drawable/ic_diamond"
@@ -61,6 +70,20 @@
                 android:icon="@drawable/ic_fb"
                 android:title="Find Us on Facebook"
                 />
+        </menu>
+    </item>
+
+    <item
+        android:title="Spread The Word!">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@android:drawable/ic_menu_share"
+                android:title="Share"/>
+            <item
+                android:id="@+id/nav_rate"
+                android:title="Rate App"
+                android:icon="@drawable/ic_star"/>
         </menu>
     </item>
 

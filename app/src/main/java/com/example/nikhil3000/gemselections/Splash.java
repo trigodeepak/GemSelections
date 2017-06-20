@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,10 +18,16 @@ public class Splash extends AppCompatActivity {
 
     private TextView Splash;
     private ImageView Logo;
+    private CheckFirstTime firstTime;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        firstTime = new CheckFirstTime();
+        if(firstTime.isFirstTime(Splash.this)){
+            new InternetConnectivity(Splash.this);
+        }
 
         Splash = (TextView)findViewById(R.id.splash_appname);
         Logo = (ImageView)findViewById(R.id.splash_image);

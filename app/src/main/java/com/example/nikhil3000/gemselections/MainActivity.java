@@ -1,6 +1,7 @@
 package com.example.nikhil3000.gemselections;
 
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -24,7 +25,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,12 +41,22 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private View header;
+    private TextView _displayName, _displayEmail;
+    private Button _login, _logout;
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -50,6 +66,46 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        header = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        _displayName = (TextView)header.findViewById(R.id.DisplayName);
+        _displayEmail = (TextView)header.findViewById(R.id.DisplayEmail);
+        _login = (Button)header.findViewById(R.id.main_login);
+        _logout = (Button)header.findViewById(R.id.main_logout);
+        _logout.setEnabled(false);
+
+        _logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
+        _login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(
+                        new Intent(MainActivity.this, LoginActivity.class)
+                );
+            }
+        });
+
+        if(mUser != null){
+            _displayName.setText(mUser.getDisplayName());
+            _displayEmail.setText(mUser.getEmail());
+            _login.setEnabled(false);
+            _logout.setEnabled(true);
+        }else {
+            if(!_login.isEnabled()){
+                _login.setEnabled(true);
+            }
+            if(_logout.isEnabled()){
+                _logout.setEnabled(false);
+            }
+        }
+
 
         display_selected_item(R.id.nav_home);
     }
@@ -383,6 +439,18 @@ public class MainActivity extends AppCompatActivity
                 );
                 break;
 
+            case R.id.nav_japamala:
+                    fragment = new MainJapaMalaFragment();
+                break;
+
+            case R.id.nav_stoneidols:
+                    fragment = new MainStoneIdolFragment();
+                break;
+
+            case R.id.nav_saphatic:
+                    fragment = new MainSphatikFragment();
+                break;
+
             case R.id.nav_handicrafts:
                 startActivity(
                         new Intent(MainActivity.this, Handicrafts.class)
@@ -428,8 +496,10 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_mail:
+                String uritext = "mailto:care@khannagems.com";
+                Uri uri = Uri.parse(uritext);
                 Intent intent1 = new Intent(Intent.ACTION_SENDTO);
-                intent1.setDataAndType(Uri.parse("care@khannagems.com"),Intent.EXTRA_EMAIL);
+                intent1.setData(uri);
                 startActivity(Intent.createChooser(intent1, "Mail Via..."));
                 break;
 
@@ -456,6 +526,30 @@ public class MainActivity extends AppCompatActivity
                     fragment = new MainSonipatFragment();
                 break;
 
+            case R.id.nav_share:
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String body = getString(R.string.Share);
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT,"Get Gemselections on your phone!!!");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, body);
+                startActivity(Intent.createChooser(sharingIntent,"Share Via.."));
+                break;
+
+            case R.id.nav_rate:
+
+                Uri uri1 = Uri.parse("market://details?id=tech.iosd.gemselections");
+                Intent play_store = new Intent(Intent.ACTION_VIEW);
+                play_store.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY|Intent.FLAG_ACTIVITY_NEW_DOCUMENT|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try {
+                    play_store.setData(uri1);
+                    startActivity(play_store);
+                }catch (ActivityNotFoundException e){
+                    uri = Uri.parse("http://play.google.com/store/apps/details?id=tech.iosd.gemselections");
+                    play_store.setData(uri);
+                    startActivity(play_store);
+                }
+
+                break;
         }
 
         if(fragment!=null){
