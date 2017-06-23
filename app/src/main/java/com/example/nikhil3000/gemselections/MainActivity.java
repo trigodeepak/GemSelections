@@ -447,6 +447,10 @@ public class MainActivity extends AppCompatActivity
                     fragment = new MainStoneIdolFragment();
                 break;
 
+            case R.id.nav_kavach:
+                    fragment = new MainKavachFragment();
+                break;
+
             case R.id.nav_saphatic:
                     fragment = new MainSphatikFragment();
                 break;
@@ -455,6 +459,26 @@ public class MainActivity extends AppCompatActivity
                 startActivity(
                         new Intent(MainActivity.this, Handicrafts.class)
                 );
+                break;
+
+            case R.id.nav_birthstone:
+                    fragment = new MainBirthstoneFragment();
+                break;
+
+            case R.id.nav_semi_precious_gems:
+                    fragment = new MainSemiPreciousGems();
+                break;
+
+            case R.id.nav_precious_gems:
+                    Toast.makeText(getApplicationContext(), "Section Not Found! :/", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_yantra:
+                    Toast.makeText(getApplicationContext(), "Section Not Found! :/", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_diamond:
+                    Toast.makeText(getApplicationContext(), "Section Not Found! :/", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.nav_jewel:

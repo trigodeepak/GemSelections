@@ -14,7 +14,7 @@ public class InternetConnectivity extends BroadcastReceiver {
 
     private ConnectivityManager manager;
     private boolean state1, state2;
-    public boolean STATUS=true;
+    public boolean STATUS;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -26,7 +26,6 @@ public class InternetConnectivity extends BroadcastReceiver {
     }
 
     public InternetConnectivity(Context context) {
-        super();
         STATUS = isInternetAvailable(context);
     }
 
