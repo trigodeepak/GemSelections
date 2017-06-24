@@ -87,7 +87,7 @@
             android:label="Forget Password" />
         <activity
             android:name=".WebViewActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
