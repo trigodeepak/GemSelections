@@ -1,5 +1,390 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PANNA MALA"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/beads_panna"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Emerald Beads)"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RUBY MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_ruby"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Ruby Beads)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NEELAM MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_neelam"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Sapphire Beads)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MULTI COLORED MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_multi"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Multi Colored Mala)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MOTI MALA"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/beads_pearl"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Pearl Beads)"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LAL TOURMALINE MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_red_tourmaline"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Red Tourmaline Rubellite Beads)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NEELI MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_iolite"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Iolite Beads)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HARA GARNET MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_green_garnet"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Green Garnet Beads)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MULTI TOURMALINE MALA"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/beads_multi_tourmaline"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Multi Tourmaline Beads)"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PERIDOT MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_peridot"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Peridot Beads)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GREEN TOURMALINE MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_green_tourmaline"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Green Tourmaline Beads)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TANZANITE MALA"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/beads_tanzanite"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Tanzanite Beads)"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</LinearLayout>
 </ScrollView>
