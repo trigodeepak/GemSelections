@@ -32,16 +32,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private ProgressDialog dialog;
 
-    private InternetConnectivity connectivity;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-
-        connectivity = new InternetConnectivity();
 
         _email = (EditText)findViewById(R.id.email);
         _email.setOnFocusChangeListener(this);
@@ -92,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             login_ready = false;
             _password.setError("Password length should be greater than 6 characters");
         }
-        if(!connectivity.STATUS){
+        if(!InternetConnectivity.STATUS){
             Toast toast = Toast.makeText(LoginActivity.this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();

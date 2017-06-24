@@ -2078,4 +2078,9 @@ Size: 4\" x 2\"
         Mobile no.: 09213932017, \n09999136878
     </string>
 
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+    <string name="frag_home_2">More About GemSelections</string>
+
 </resources>
