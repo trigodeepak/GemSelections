@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:layout_marginTop="10dp"
+            android:text="Our Present Address is:"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textIsSelectable="true"
+            android:fontFamily="serif"
+            android:text="@string/address"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:textColor="#f24"
+            android:textIsSelectable="true"
+            android:fontFamily="serif"
+            android:text="Locate On Google Maps:"
+            />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/map_visit"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Locate"
+            android:background="@drawable/button1"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:textIsSelectable="true"
+            android:fontFamily="serif"
+            android:textColor="#f24"
+            android:textAlignment="center"
+            android:text="Directions from Janakpuri West Metro Station: "
+            />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/map_dir"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Get Directions"
+            android:background="@drawable/button1"/>
+
+    </LinearLayout>
+</ScrollView>

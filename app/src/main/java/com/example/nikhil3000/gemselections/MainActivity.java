@@ -23,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -133,11 +134,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id){
             case R.id.ac_buy_now:
+
                 startActivity(
-                        Intent.createChooser(
-                                new Intent(Intent.ACTION_VIEW)
-                                        .setData(Uri.parse("http://khannagems.com")), "Open Shopping page via..."
-                        )
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "http://khannagems.com")
+                                .putExtra("parent", "MainActivity")
+
                 );
                 break;
 
@@ -185,19 +187,17 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.ac_astro:
                 startActivity(
-                        Intent.createChooser(
-                                new Intent(Intent.ACTION_VIEW)
-                                        .setData(Uri.parse("http://www.astropankaj.com")), "Open www.astropankaj.com via..."
-                        )
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "http://www.astropankaj.com")
+                                .putExtra("parent", "MainActivity")
                 );
                 break;
 
             case R.id.ac_puja:
                 startActivity(
-                        Intent.createChooser(
-                                new Intent(Intent.ACTION_VIEW)
-                                        .setData(Uri.parse("http://www.vedmandirtrust.com")), "Open Ved Mandir Trust via..."
-                        )
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "http://www.vedmandirtrust.com")
+                                .putExtra("parent", "MainActivity")
                 );
 
                 break;
@@ -225,7 +225,11 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.ac_sonipat:
-                    display_selected_item(R.id.ac_sonipat);
+                startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "http://en.wikipedia.org/wiki/Sonipat")
+                                .putExtra("parent", "MainActivity")
+                );
                 break;
 
             case R.id.ac_exit:
@@ -313,8 +317,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 startActivity(
-                        new Intent(Intent.ACTION_VIEW)
-                                .setData(Uri.parse("http://www.khannagems.com"))
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "http://www.khannagems.com")
+                                .putExtra("parent", "MainActivity")
                 );
             }
         });
@@ -533,8 +538,9 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.nav_fb_page:
                     startActivity(
-                            new Intent(Intent.ACTION_VIEW)
-                            .setData(Uri.parse("http://www.facebook.com/GemSelections.in/"))
+                            new Intent(MainActivity.this, WebViewActivity.class)
+                                    .putExtra("URL", "http://www.facebook.com/GemSelections.in/")
+                                    .putExtra("parent", "MainActivity")
                     );
                 break;
 
@@ -544,10 +550,6 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.ac_management:
                     fragment = new MainManagementFragment();
-                break;
-
-            case R.id.ac_sonipat:
-                    fragment = new MainSonipatFragment();
                 break;
 
             case R.id.nav_share:

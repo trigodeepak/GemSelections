@@ -1188,7 +1188,7 @@ KETU    :    SHAMA (Attars/Ittars)\n\t</b>
         \nIdol Price : Rs. 450/-</b>
     </string>
     <string name="kavach_head">We deal in following \'kavach\' products</string>
-    <string name="kavach_nazar" >
+    <string name="kavach_nazar">
         \tNazar Suraksha Kavach to ward off the evil eye,\n\n\t
 Evil eye is a look that is believed by all cultures to be able to cause injury or bad luck on the person at whom it is directed for reasons of envy or dislike.
 \n\n\t
@@ -1226,7 +1226,7 @@ The use of these protects one from evil eye and bad luck. People of all ages sho
         \t<b>Durga Kavach</b> is a powerful Kavach for attaining desires, to remove difficulties and to conquer enemies. <b>Durga Kavach</b> bestows wealth and property and protects the person from all sorts of dangers.Worship of this Kavach as per Adhayaya 4 sloka 17 of Durga Saptashati removes poverty. It also gives results when used in neck, arm or on body. <b>Durga Kavach</b> is most famous Kavach is very effective. If used with faith it is the most powerful Kavach.\n\n\t
         <b>Durga Kavach</b> is of Shri Durga Ambe Maa. <b>Durga Kavach</b> is worshipped particularly during Navratras and on Ashtami tithi . <b>Durga Kavach</b> is a powerful Kavach for attaining desires, to remove difficulties and to conquer enemies <b>Durga Kavach</b> bestows wealth and property and protects the person from all sorts of dangers. It also gives result when used in neck, arm or on body. Kavach can be defined as visual mantras which have been used since the days of Yajur Veda and Brahminical Text to remove the malefic effects of certain evil forces (Rakshisi Shakti) and to Strengthen the positive forces (Davik Shakti) 
     </string>
-    <string name="kavach_hanuman" >
+    <string name="kavach_hanuman">
         \tFearless and Powerful – Capable of taking on full armies single handily but still devoted and disciplined. This is the nature of Hanuman Kavach It has the powers of the wind god (Pawan putra). Regular puja of Hanuman Kavach fasting on Tuesday and placing a Shri Hanuman Kavach both at the place of worship and in one’s sitting room brings fearless nature, all the evil forces remain at bey and the person is victorious in all his pursuits.
     </string>
     <string name="kavach_shani">
@@ -1303,7 +1303,7 @@ To determine weather a Birthstone is original is not possible for a lay man so t
     </string>
     <string name="semi1">We have the best collection of precious and semi precious gemstones. Select one from the options below to find more about it.</string>
 
-    <string name="handpot1" >
+    <string name="handpot1">
         <b>Code : HGL 01</b>
 \n\n
 A Candle Holder  made of marble with rich colours including 24 k Gold.  A beautiful piece for decoration or for gifting.
@@ -1315,7 +1315,7 @@ Height   :  5 "
 \n\n
 Price  :  Rs 750.00/-
     </string>
-    <string name="handpot2" >
+    <string name="handpot2">
         <b>Code : HGL 02</b>
 \n\n
 A flower pot  made of marble with rich Colours including 24 k Gold.  A beautiful piece to own or gift.
@@ -1328,7 +1328,7 @@ Breadth  :  4.5 "
 \n\n
 Price  :  RS 3250.00
     </string>
-    <string name="handpot3" >
+    <string name="handpot3">
         <b>Code : HGL 03</b>
 \n\n
 A flower pot made of marble with rich Colours including 24 k Gold.  A beautiful piece for decoration and for gifting.
@@ -1341,7 +1341,7 @@ Breadth  :  5.5 "
 \n\n
 Price  :  Rs 3250.00/-
     </string>
-    <string name="handpot4" >
+    <string name="handpot4">
         <b>Code : HGL 04</b>
 \n\n
 A flower pot made of marble with rich Colours including 24 k Gold.  A beautiful piece for decoration and for gifting.
@@ -1354,7 +1354,7 @@ Breadth  :  4 "
 \n\n
 Price  :  Rs 3250.00/-
     </string>
-    <string name="handpot5" >
+    <string name="handpot5">
         <b>Code : HGL 05</b>
 \n\n
 A Container made of marble with rich Colours including 24 k Gold.  A beautiful piece for decoration and for gifting.
@@ -1367,7 +1367,7 @@ Breadth  :  3 "
 \n\n
 Price  :  1350.00
     </string>
-    <string name="handpot6" >
+    <string name="handpot6">
         <b>Code : HGL 06</b>
 \n\n
 A Container made of marble with rich Colours including 24 k Gold.  A beautiful piece for decoration and for gifting.
@@ -1380,7 +1380,7 @@ Breadth  :  3 "
 \n\n
 Price  :  Rs 850.00/-
     </string>
-    <string name="handpot7" >
+    <string name="handpot7">
         <b>Code : HGL 07</b>
 \n\n
 A Container made of marble with rich Colours including 24 k Gold.  A beautiful piece for decoration and for gifting.
@@ -1393,7 +1393,7 @@ Breadth  :  5 "
 \n\n
 Price  : Rs 1650.00/-
     </string>
-    <string name="handpot8" >
+    <string name="handpot8">
         <b>Code : HGL 08</b>
 \n\n
 A Container made of marble with rich Colours including 24 k Gold.  A beautiful piece for decoration and for gifting.
@@ -1406,7 +1406,7 @@ Breadth  : 4.5 "
 \n\n
 Price  :  1650.00
     </string>
-    <string name="handpot9" >
+    <string name="handpot9">
         <b>Code : HGL 09</b>
 \n\n
 A Container made of marble with rich Colours including 24 k Gold.  A beautiful piece for decoration and for gifting.
@@ -1420,7 +1420,7 @@ Breadth  :  4 "
 Price  :  Rs 1350.00/-
     </string>
 
-    <string name="handclock1" >
+    <string name="handclock1">
     <u><b>Marble mobile holder with beautiful watch in it.
 (Code - MMW01)</b></u>
 \n\n
@@ -1432,7 +1432,7 @@ Weight: 600 Grams
 \n\n
 Size:  4.5\" x 4\"
     </string>
-    <string name="handclock2" >
+    <string name="handclock2">
         <u><b>Marble mobile holder with beautiful watch in it.
 (Code - MMW02)</b></u>
 \n\n
@@ -1444,7 +1444,7 @@ Weight: 600 Grams
 \n\n
 Size:  4.5\" x 4\"
     </string>
-    <string name="handclock3" >
+    <string name="handclock3">
         <u><b>Marble decoration item with watch in it.
 (Code - MMW03)</b></u>
 \n\n
@@ -1456,7 +1456,7 @@ Weight: 830 Grams
 \n\n
 Size:  7\" x 6\"
     </string>
-    <string name="handclock4" >
+    <string name="handclock4">
         <u><b>Marble decoration item with watch in it.
 (Code - MMW04)
 </b></u>\n\n
@@ -1468,7 +1468,7 @@ Weight: 630 Grams
 \n\n
 Size: 3.5\" x 3\"
     </string>
-    <string name="handclock5" >
+    <string name="handclock5">
        <u><b> Marble decoration item with watch in it.
 (Code - MMW05)</b></u>
 \n\n
@@ -1481,7 +1481,7 @@ Weight: 360 Grams
 Size: 5.5\" x 1.5\"
     </string>
 
-    <string name="handplate1" >
+    <string name="handplate1">
         <b>CODE: GPP01</b>
 \n\nWhite marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
 \n\n
@@ -1492,7 +1492,7 @@ Height  :  7 "\n
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate2" >
+    <string name="handplate2">
         <b>CODE: GPP02</b>
 \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1505,7 +1505,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate3" >
+    <string name="handplate3">
     <b>CODE: GPP03</b>
 \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1518,7 +1518,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate4" >
+    <string name="handplate4">
         <b>CODE: GPP04</b>
 \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1531,7 +1531,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate5" >
+    <string name="handplate5">
         <b>CODE: GPP05</b>
         \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1544,7 +1544,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate6" >
+    <string name="handplate6">
         <b>CODE: GPP06</b>
         \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1557,7 +1557,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate7" >
+    <string name="handplate7">
         <b>CODE: GPP07</b>
 \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1570,7 +1570,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate8" >
+    <string name="handplate8">
         <b>CODE: GPP08</b>
         \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1583,7 +1583,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate9" >
+    <string name="handplate9">
         <b>CODE: GPP09</b>
         \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1596,7 +1596,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate10" >
+    <string name="handplate10">
         <b>CODE: GPP10</b>
         \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1609,7 +1609,7 @@ Breadth  5 "
 \n\n
 Price  :  600.00
     </string>
-    <string name="handplate11" >
+    <string name="handplate11">
         <b>CODE: GPP11</b>
         \n\n
 White marble tile with a beautiful hand painting of musical instrument.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1636,54 +1636,54 @@ Breadth  5 "
 Price  :  600.00
     </string>
 
-    <string name="handgift1" >
+    <string name="handgift1">
         <b>LORD GANESHA PLATE (6" DIA) WITH WOODEN STAND \nCODE: ASG 01.</b>\n\n
 This beautiful plate is a perfect showpiece and a item which can be gifted.
 \n\n
 Rs. 600.00
     </string>
-    <string name="handgift2" >
+    <string name="handgift2">
         <b>FRAMED LORD GANESHA PLATE OF MARBLE (9" DIA) \nCODE: ASG 02</b>
 \n\n
 A work of artisans of Rajasthan this Marble plate of 9 inch diameter with hand painted image of Lord Genesha.  Colors used are rich and permanent and includes an extensive use of 22 k gold in colors. (Framed in exclusive Italian frame is ready to be hanged from walls or placed on a pedestal)
 \n\n
 Rs. 1800.00
     </string>
-    <string name="handgift3" >
+    <string name="handgift3">
     <b>FRAMED LORD GANESHA PLATE OF MARBLE (6" DIA) \nCODE: ASG 03</b>
 \n\n
 A work of artisans of Rajasthan this Marble plate of 6 inch diameter with hand painted image of Lord Genesha.  Colors used are rich and permanent and includes an extensive use of 22 k gold in colours. (Framed in exclusive Italian frame is ready to be hanged from walls or placed on a pedestal)
 \n\n
 Rs. 1100.00
     </string>
-    <string name="handgift4" >
+    <string name="handgift4">
         <b>FRAMED LORD GANESHA PLATE OF MARBLE WITH JALI (9" DIA)  \nCODE: ASG 04.</b>
 \n\n
 A work of artisans of Rajasthan this exclusive marble plate with beautiful Jali work has a picture of Lord Ganesha painted on it.  The colors used are rich and includes the extensive use of 22 k Gold. (Framed in exclusive Italian frame is ready to be hanged from walls or placed on a pedestal)
         \n\nRs. 2100.00
     </string>
-    <string name="handgift5" >
+    <string name="handgift5">
         <b>FRAMED LORD KRISHNA PLATE OF MARBLE WITH JALI (9" DIA) \nCODE: ASG05.</b>
 \n\n
 A work of artisans of Rajasthan this exclusive marble plate with beautiful Jali work has a picture of Lord Krishna painted on it.  The colors used are rich and includes the extensive use of 22 k Gold. (Framed in exclusive Italian frame is ready to be hanged from walls or placed on a pedestal)
 \n\n
 Rs.2100.00
     </string>
-    <string name="handgift6" >
+    <string name="handgift6">
        <b> FRAMED LORD HANUMANJI TILE OF MARBLE 7\"/4\". \nCODE: ASG 06.</b>
 \n\n
 A work of artisans of Rajasthan than this Marble Tile of 7\"/4\" inch diameter with hand painted image of Lord Hanumanji.  Colors used are rich and permanent and includes an extensive use of 22 k gold in colors. (Framed in exclusive Italian frame is ready to be hanged from walls or placed on a pedestal)
 \n\n
 Rs. 1100.00
     </string>
-    <string name="handgift7" >
+    <string name="handgift7">
         <b>FRAMED TILE OF LORD KRISHNA AND RADHA OF MARBLE 7\"/4\". \nCODE: ASG 07.</b>
 \n\n
 A work of artisans of Rajasthan than this Marble Tile of 7\"/4\" inch diameter with hand painted image of Lord Krishna and Radha.  Colors used are rich and permanent and includes an extensive use of 22 k gold in colors. (Framed in exclusive Italian frame is ready to be hanged from walls or placed on a pedestal)
 \n\n
 Rs. 1100.00
     </string>
-    <string name="handgift8" >
+    <string name="handgift8">
         <b>CODE: ASG 08</b>
 \n\n
 White marble plate with a beautiful hand painting of Sai Baba.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1693,7 +1693,7 @@ Weight  : 850 gm.
 Size       :  9 inch
 \n\nRate       :   1200.00
     </string>
-    <string name="handgift9" >
+    <string name="handgift9">
        <b>CODE: ASG 09</b>
 \n\n
 White marble plate with a beautiful hand painting of Jesus Crist.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1704,7 +1704,7 @@ Size       :  6 inch
 \n\n
 Rate       :  600.00
     </string>
-    <string name="handgift10" >
+    <string name="handgift10">
         <b>CODE: ASG 10</b>
 \n\n
 White marble tile with a beautiful hand painting of Jesus Crist.  The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1715,7 +1715,7 @@ Size:7\"  /  5\"
 \n\n
 Rate: 450.00
     </string>
-    <string name="handgift11" >
+    <string name="handgift11">
         <b>CODE: ASG 11</b>
 \n\n
 White marble tile with a beautiful hand painting of Jesus Christ. The Colours used are permanent and include 24 k gold.  It can be hanged from a wall or else can be placed on a table using a stand.
@@ -1726,13 +1726,13 @@ Size: 7\"  /  5\"
 Rate: 450.00
     </string>
 
-    <string name="handspi1" >
+    <string name="handspi1">
     <b>Undercut Elephant (Code : OSI 01)</b>
 \n\n
 Elephant (Undercut ) Elephant Indra the King of Devas rode to victories on his famous Elephant “ Eravat ”. In South India where the ancient Indian tradition is still seen intact we see a lot of elephants in temples and in all ceremonies. Elephant is seen as a symbol of prosperity and wealth in Hindu system. When you place a pair of elephants in your house or place of work prosperity in all forms ‘ Aishwariya ’ starts coming to your house. When you gift this to someone it implies that you are wishing all round prosperity and happiness. Having many elephants is a sign of Royalty .
 
     </string>
-    <string name="handspi2" >
+    <string name="handspi2">
         <b>Elephant Pair (Soap Stone) \n(Code : OSI 02)
 (With Hand Painting)</b>
 \n\n
@@ -1740,7 +1740,7 @@ Elephant Pair Indra the King of Devas rode to victories on his famous Elephant \
 \n\n
 <b>Rs. 400.00</b>
     </string>
-    <string name="handspi3" >
+    <string name="handspi3">
         <b>Elephant Pair (Soap Stone) \n(Code : OSI 03)
 \n
 (With Inlay Work)</b>
@@ -1749,14 +1749,14 @@ Elephant Pair Indra the King of Devas rode to victories on his famous Elephant \
 \n\n
 Rs. 450.00
     </string>
-    <string name="handspi4" >
+    <string name="handspi4">
         <b>Pair of Owl (Under Cut) \n(Code : OSI 04)</b>
 \n\n
 Pair of Owl ( Under Cut ) Pair of Owl is the vehicle \" Wahan \" of Laxmiji the Goddess of wealth. Keeping a pair of Owls in the cash box above the place where valuables of the family are kept also brings goodluck and wealth. Under the Tantrik system if a pair of Owls made of stone is kept wrapped in a red cloth along with sindoor, kewara and saffron hidden under the bed of the head of the family then sudden inflow of wealth starts. <b>Length : 5.5 cm Height : 7 cm Breadth : 4 cm Weight : 140 gm Material Used : Soap Stone</b>
 \n\n
 <b>Rs. 300</b>
     </string>
-    <string name="handspi5" >
+    <string name="handspi5">
       <b>Pair of Frog (Under Cut)\n(Code : OSI 05)</b>
 \n\n
 Pair of Frog ( Undercut ) Pair of Frog Frogs come out of hibernation when rains are expected , rains bring bumper harvests and all round prosperity. Keeping figures of frogs is considered to be auspicious for the householder \" Griasth \". All round wealth and recognition comes quickly to people who keep a pair of frogs in there house or work place. A pair of frogs also makes a wise gift as the person who gets this gift gains tremendously. <b>Length : 10 cm Height : 3 cm Breadth : 6.5 cm Weight : 280 gm Material Used : Soap Stone.</b>
@@ -1772,7 +1772,7 @@ Pair of Frog ( Undercut ) Pair of Frog Frogs come out of hibernation when rains 
     <string name="size6">4\"</string>
     <string name="size7">5\"</string>
 
-    <string name="handspigift1" >
+    <string name="handspigift1">
     <b>Code: (HGI 01)</b>
 \n\n
 White marble plate Rajasthani lady in build.  Beautiful hand painting with original and gold colors.  Used for decoration piece.
@@ -1781,7 +1781,7 @@ Weight: 850.00gms\n\n
 Size: 9 inch\n\n
 Rate: 600.00
     </string>
-    <string name="handspigift2" >
+    <string name="handspigift2">
 <b>Code: (HGI 02)</b>
 \n\n
 White marble plate Queen of Rajasthan in build. Beautiful hand painting with original and gold colors. Used for decoration piece.\n\n
@@ -1789,7 +1789,7 @@ Weight: 850.00gms\n\n
 Size: 9 inch\n\n
 Rate: 600.00
     </string>
-    <string name="handspigift3" >
+    <string name="handspigift3">
 <b>Code: (HGI 03)</b>
 \n\n
 White marble tile pair of birds in builds.  Beautiful hand painting.  Original colors are used.  Used as a decoration piece.\n\n
@@ -1797,7 +1797,7 @@ White marble tile pair of birds in builds.  Beautiful hand painting.  Original c
 Size: 7\" x 5\"\n\n
 Rate: 450.00
     </string>
-    <string name="handspigift4" >
+    <string name="handspigift4">
 <b>Code: (HGI 04)</b>
 \n\n
 White marble tile pair of birds in builds.  Beautiful hand painting.  Original colors are used.  Used as a decoration piece.\n\n
@@ -1805,7 +1805,7 @@ Weight: 290.00gms\n\n
 Size: 7\" x 5\"\n\n
 Rate: 450.00
     </string>
-    <string name="handspigift5" >
+    <string name="handspigift5">
 <b>Code: (HGI 05)</b>
 \n\n
 White marble tile pair of birds in builds.  Beautiful hand painting.  Original colors are used.  Used as a decoration piece.\n\n
@@ -1813,7 +1813,7 @@ Weight: 290.00gms\n\n
 Size: 7\" x 5\"\n\n
 Rate: 450.00
     </string>
-    <string name="handspigift6" >
+    <string name="handspigift6">
 <b>Code: (HGI 06)</b>
 \n\n
 White marble tile pair of birds in builds.  Beautiful hand painting.  Original colors are used. Can be Used as a decoration piece or place in stand.\n\n
@@ -1821,7 +1821,7 @@ Weight: 290.00gms\n\n
 Size: 7\" x 5\"\n\n
 Rate: 450.00
     </string>
-    <string name="handspigift7" >
+    <string name="handspigift7">
 <b>Code: (HGI 07)</b>
 \n\n
 White marble tile. Beautiful Rajasthani lady in build.  Beautiful hand painting with original colors.  Can be used as a wall hanging or kept in a stand.\n\n
@@ -1829,7 +1829,7 @@ White marble tile. Beautiful Rajasthani lady in build.  Beautiful hand painting 
 Size: 7\" x 5\"\n\n
 Rate: 450.00
     </string>
-    <string name="handspigift8" >
+    <string name="handspigift8">
 <b>Code: (HGI 08)</b>
 \n\n
 White marble tile colored camel in build. Camel is the symbol of Rajasthan means of transport.  Beautiful hand painting with original colors.  Can be used as a decoration piece or wall hanging.
@@ -1840,7 +1840,7 @@ Size: 6\" x 4\"
 \n\n
 Rate: 450.00
     </string>
-    <string name="handspigift9" >
+    <string name="handspigift9">
 <b>Code: (HGI 09)</b>
 \n\n
 White marble tile symbol of prosperity Elephant is in build.  Beautiful hand painting with original colors.  Can be used as a decoration piece or wall hanging.        \n\n
@@ -1850,7 +1850,7 @@ Size: 6\" x 4\"
 \n\n
 Rate: 450.00
     </string>
-    <string name="handspigift10" >
+    <string name="handspigift10">
         <b>Code: (HGI 10)</b>
 \n\n
 White marble tile symbol of power horse is in build.  Beautiful hand painting with original colors.  Can be used as a decoration piece or wall hanging.\n\n
@@ -1861,7 +1861,7 @@ Size: 6\" x 4\"
 Rate: 450.00
     </string>
 
-    <string name="handblack1" >
+    <string name="handblack1">
     <u><b>Pair Paper weight with beautiful Inlay work
 \n
 Code : ASG 01</b></u>
@@ -1874,7 +1874,7 @@ Weight: 230 Grams
 \n\n
 Size:  2\"
     </string>
-    <string name="handblack2" >
+    <string name="handblack2">
         <u><b>Beautiful Paper holder with Inlay work
 \n
 Code : ASG 02</b></u>
@@ -1887,7 +1887,7 @@ Weight: 850 Grams
 \n\n
 Size:  4.5\" x 4\"
     </string>
-    <string name="handblack3" >
+    <string name="handblack3">
         <u><b>Beautiful Pen and Visiting Card Holder with Inlay work
 \n
 Code : ASG 03</b></u>
@@ -1900,7 +1900,7 @@ Weight: 430 Grams
 \n\n
 Size:  4\" x 3\"
     </string>
-    <string name="handblack4" >
+    <string name="handblack4">
         <u><b>Beautiful Pen Holder with Inlay work
 \n
 Code : ASG 04
@@ -1913,7 +1913,7 @@ Weight: 400 Grams
 \n\n
 Size:  4\" x 2\"
     </string>
-    <string name="handblack5" >
+    <string name="handblack5">
        <u><b> Beautiful Visiting Card Holder with Inlay work
 \n
 Code : ASG 05</b></u>
@@ -1927,7 +1927,7 @@ Weight: 225 Grams
 Size: 4\" x 2\"
     </string>
 
-    <string name="handsoap1" >
+    <string name="handsoap1">
     <u><b>Pen Stand with Beautiful Inlay work.
 \n
 Code : TSS 01</b></u>
@@ -1940,7 +1940,7 @@ Weight: 400 Grams
 \n\n
 Size:  4\" x 2\"
     </string>
-    <string name="handsoap2" >
+    <string name="handsoap2">
         <u><b>Coaster with Beautiful Inlay work.
 \n
 Code : TSS 02</b></u>
@@ -1953,7 +1953,7 @@ Weight: 600 Grams
 \n\n
 Size:  4\" x 5\"
     </string>
-    <string name="handsoap3" >
+    <string name="handsoap3">
         <u><b>Visiting Card Holder with Beautiful Inlay work.
 \n
 Code : TSS 03</b></u>
@@ -1966,7 +1966,7 @@ Weight: 225 Grams
 \n\n
 Size:  4\" x 2\"
     </string>
-    <string name="handsoap4" >
+    <string name="handsoap4">
         <u><b>Pen Stand and Visiting Card Holder with Inlay work.
 \n
 Code : TSS 04
@@ -1979,7 +1979,7 @@ Weight: 380 Grams
 \n\n
 Size:  4\" x 3\"
     </string>
-    <string name="handsoap5" >
+    <string name="handsoap5">
        <u><b> Paper Holder with Beautiful Inlay work.
 \n
 Code : TSS 05</b></u>
@@ -1992,7 +1992,7 @@ Weight: 850 Grams
 \n\n
 Size: 4\" x 3\"
     </string>
-    <string name="handsoap6" >
+    <string name="handsoap6">
        <u><b> Pair Paper weight with beautiful Inlay work
 \n
 Code : TSS 06</b></u>
@@ -2006,7 +2006,7 @@ Weight: 230 Grams
 Size: 2\"
     </string>
 
-    <string name="handtable1" >
+    <string name="handtable1">
     <u><b>PEN STAND WITH LORD GANESHA PAINTING.
 \n
 (CODE: TTS 01)</b></u>
@@ -2019,7 +2019,7 @@ Weight: 400 Grams
 \n\n
 Size:  4\" x 2\"
     </string>
-    <string name="handtable2" >
+    <string name="handtable2">
         <u><b>COASTER SET WITH SITTING LORD GANESHA.
 
 (CODE: TTS 02)</b></u>
@@ -2032,7 +2032,7 @@ Weight: 610 Grams
 \n\n
 Size:  4\" x 5\"
     </string>
-    <string name="handtable3" >
+    <string name="handtable3">
         <u><b>COASTER SET WITH RECLINING LORD GANESHA.
 \n
 (CODE: TTS 03)</b></u>
@@ -2045,7 +2045,7 @@ Weight: 610 Grams
 \n\n
 Size:  4\" x 5\"
     </string>
-    <string name="handtable4" >
+    <string name="handtable4">
         <u><b>VISITING CARD HOLDER WITH LORD GANESHA.
 \n
 (CODE: TTS 04)
@@ -2058,7 +2058,7 @@ Weight: 225 Grams
 \n\n
 Size:  4\" x 2\"
     </string>
-    <string name="handtable5" >
+    <string name="handtable5">
        <u><b>VISITING CARD HOLDER WITH LORD GANESHA.
 \n
 (CODE: TTS 05)</b></u>
@@ -2070,6 +2070,12 @@ Rs: 150/-
 Weight: 225 Grams
 \n\n
 Size: 4\" x 2\"
+    </string>
+
+    <string name="address">
+        Shop No. 8 and 11, A-3 DDA MARKET, \n(Near St. Mark\'s School),\n  Janakpuri,\n New Delhi - 110058
+        \n\n
+        Mobile no.: 09213932017, \n09999136878
     </string>
 
 </resources>

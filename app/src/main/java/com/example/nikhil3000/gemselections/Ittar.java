@@ -44,11 +44,9 @@ public class Ittar extends AppCompatActivity {
 
             case R.id.ac_ittr_buy:
                     startActivity(
-                            Intent.createChooser(
-                                    new Intent(Intent.ACTION_VIEW)
-                                            .setData(Uri.parse("http://www.khannagems.com"))
-                                    , "Open Shopping Page via..."
-                            )
+                            new Intent(Ittar.this, WebViewActivity.class)
+                            .putExtra("URL","http://www.khannagems.com")
+                            .putExtra("parent", "Ittar")
                     );
                 break;
 

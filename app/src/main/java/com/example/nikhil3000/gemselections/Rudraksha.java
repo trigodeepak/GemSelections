@@ -61,11 +61,9 @@ public class Rudraksha extends AppCompatActivity
 
         if (id == R.id.ac_rud_buy) {
             startActivity(
-                    Intent.createChooser(
-                            new Intent(Intent.ACTION_VIEW)
-                                    .setData(Uri.parse("http://khannagems.com/index.php/rudraksha.html")),
-                            "Open Shopping Page via...."
-                    )
+                    new Intent(Rudraksha.this, WebViewActivity.class)
+                        .putExtra("URL","http://khannagems.com/index.php/rudraksha.html")
+                        .putExtra("parent","Rudraksha")
             );
             return true;
         }

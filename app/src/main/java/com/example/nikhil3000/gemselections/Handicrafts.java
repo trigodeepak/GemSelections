@@ -40,11 +40,9 @@ public class Handicrafts extends AppCompatActivity
         switch (item.getItemId()){
             case R.id.ac_hand_buy:
                     startActivity(
-                            Intent.createChooser(
-                                    new Intent(Intent.ACTION_VIEW)
-                                    .setData(Uri.parse("http://khannagems.com")),
-                                    "Open Shopping Page Via..."
-                            )
+                            new Intent(Handicrafts.this, WebViewActivity.class)
+                                    .putExtra("URL","http://khannagems.com")
+                                    .putExtra("parent","Handicrafts")
                     );
                 return true;
         }

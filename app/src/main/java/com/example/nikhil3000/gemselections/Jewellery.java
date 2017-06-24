@@ -58,11 +58,9 @@ public class Jewellery extends AppCompatActivity
 
         if (id == R.id.ac_jewel_buy) {
             startActivity(
-                    Intent.createChooser(
-                            new Intent(Intent.ACTION_VIEW)
-                                    .setData(Uri.parse("http://khannagems.com")),
-                            "Open Shopping Page Via..."
-                    )
+                    new Intent(Jewellery.this, WebViewActivity.class)
+                        .putExtra("URL","http://khannagems.com")
+                        .putExtra("parent","Jewellery")
             );
             return true;
         }

@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,9 +23,10 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        CheckFirstTime firstTime = new CheckFirstTime();
 
-        if(new CheckFirstTime().isFirstTime(Splash.this)){
-            new InternetConnectivity(Splash.this);
+        if(firstTime.isFirstTime(getApplicationContext())){
+            InternetConnectivity connectivity = new InternetConnectivity(getApplicationContext());
         }
 
         Splash = (TextView)findViewById(R.id.splash_appname);

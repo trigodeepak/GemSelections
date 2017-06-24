@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(v == _forgetPass){
             try{
-                _forgetPass.animate().translationY(5f).setDuration(300).start();
+                _forgetPass.animate().translationY(8f).setDuration(300).start();
                 Thread.sleep(300);
                 }
                 catch (InterruptedException e)
@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             dialog.dismiss();
 
                             if(!task.isSuccessful()){
-                                Snackbar.make(getCurrentFocus(), "Login Failed. Check Email/Password", Snackbar.LENGTH_SHORT)
+                                Snackbar.make(getCurrentFocus(), "Login Failed. Check Email/Password", Snackbar.LENGTH_LONG)
                                         .setAction("TRY AGAIN", new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {

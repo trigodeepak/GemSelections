@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.Toast;
 
 /**
  * Created by anonymous on 20/6/17.
@@ -18,7 +19,15 @@ public class InternetConnectivity extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
         STATUS = isInternetAvailable(context);
+
+        //Just for test
+        if(!STATUS){
+            Toast.makeText(context.getApplicationContext(), "Internet Not Available", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context.getApplicationContext(), "Internet Available", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public InternetConnectivity(){
@@ -29,10 +38,21 @@ public class InternetConnectivity extends BroadcastReceiver {
         STATUS = isInternetAvailable(context);
     }
 
+    /*private boolean isOnline(Context context) {
+        manager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = manager.getActiveNetworkInfo();
+
+        return (info !=null && info.isConnected());
+    }*/
+
     public boolean isInternetAvailable(Context context){
         manager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
         state1 = (manager.getNetworkInfo(0).getState()== NetworkInfo.State.CONNECTED);
         state2 = (manager.getNetworkInfo(1).getState() == NetworkInfo.State.CONNECTED);
-        return state1 || state2;
+        if(state1 == true || state2== true){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
