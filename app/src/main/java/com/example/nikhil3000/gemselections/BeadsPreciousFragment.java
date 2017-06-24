@@ -66,12 +66,12 @@ public class BeadsPreciousFragment extends Fragment {
 
             is = getActivity().getAssets().open("images/precious_beads/moti-beads.jpg");
             moti.setImageBitmap(BitmapFactory.decodeStream(is));
-//////////////////
+
             is = getActivity().getAssets().open("images/precious_beads/red-tourmaline-beads.jpg");
             red.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/precious_beads/iolite-beads.jpg");
             iolite.setImageBitmap(BitmapFactory.decodeStream(is));
-///
+
             is = getActivity().getAssets().open("images/precious_beads/green-garnet-beads.jpg");
             green_garnet.setImageBitmap(BitmapFactory.decodeStream(is));
 
