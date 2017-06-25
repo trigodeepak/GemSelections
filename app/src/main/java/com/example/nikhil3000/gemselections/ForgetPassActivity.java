@@ -52,7 +52,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
             ready = false;
             _email.setError("Email address not correct");
         }
-        if(!InternetConnectivity.STATUS){
+        if(!InternetConnectivity.ISCONNECTED){
             Toast toast = Toast.makeText(ForgetPassActivity.this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();

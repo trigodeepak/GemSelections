@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             login_ready = false;
             _password.setError("Password length should be greater than 6 characters");
         }
-        if(!InternetConnectivity.STATUS){
+        if(!InternetConnectivity.ISCONNECTED){
             Toast toast = Toast.makeText(LoginActivity.this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();

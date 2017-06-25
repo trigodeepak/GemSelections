@@ -17,6 +17,8 @@ import android.view.MenuItem;
 public class Jewellery extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private boolean ISHOMESHOWN;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +42,18 @@ public class Jewellery extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-            getSupportFragmentManager().popBackStack("Jewellery", 0);
+        }
+        else {
+            if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
+                getSupportFragmentManager().popBackStack();
+                if (ISHOMESHOWN) {
+                    super.onBackPressed();
+                } else {
+                    display_selected_item(R.id.nav_home);
+                }
+            }else{
+                super.onBackPressed();
+            }
         }
     }
 
@@ -80,6 +91,8 @@ public class Jewellery extends AppCompatActivity
 
     private void display_selected_item(int id) {
         Fragment fragment = null;
+
+        ISHOMESHOWN = id == R.id.nav_silver_pendant;
 
         switch (id){
 
@@ -119,7 +132,7 @@ public class Jewellery extends AppCompatActivity
         if(fragment!=null){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.jewellery_container, fragment);
-            fragmentTransaction.addToBackStack("Jewellery");
+            fragmentTransaction.addToBackStack("Jewel");
             fragmentTransaction.commit();
         }
 
