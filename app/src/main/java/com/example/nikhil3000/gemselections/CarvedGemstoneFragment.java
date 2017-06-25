@@ -1,6 +1,8 @@
 package com.example.nikhil3000.gemselections;
 
+import android.app.ProgressDialog;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +21,11 @@ import java.io.InputStream;
 
 public class CarvedGemstoneFragment extends Fragment {
 
-    private ImageView go1, go2, go3, go4, go5, go6, go7, go8, go9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34, g35, g36, g37, g38, g39, g40, g41, g42, g43, g44, g45, g46, g47, g48, g49, g50, g51, g52;
+    private ImageView go1, go2, go3, go4, go5, go6, go7, go8, go9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20;
+
+    //Do not use. Memory to be saved. Not enough memory to allocate all
+    /* g21, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34, g35, g36, g37, g38, g39, g40, g41, g42, g43, g44, g45, g46, g47, g48, g49, g50, g51, g52;*/
+
 
     @Nullable
     @Override
@@ -35,6 +42,7 @@ public class CarvedGemstoneFragment extends Fragment {
         go8 = (ImageView) view.findViewById(R.id.g08);
         go9 = (ImageView) view.findViewById(R.id.g09);
         g10 = (ImageView) view.findViewById(R.id.g10);
+        g11 = (ImageView) view.findViewById(R.id.g11);
         g12 = (ImageView) view.findViewById(R.id.g12);
         g13 = (ImageView) view.findViewById(R.id.g13);
         g14 = (ImageView) view.findViewById(R.id.g14);
@@ -44,7 +52,9 @@ public class CarvedGemstoneFragment extends Fragment {
         g18 = (ImageView) view.findViewById(R.id.g18);
         g19 = (ImageView) view.findViewById(R.id.g19);
         g20 = (ImageView) view.findViewById(R.id.g20);
-        g21 = (ImageView) view.findViewById(R.id.g21);
+
+        //DO NOT USE
+        /*g21 = (ImageView) view.findViewById(R.id.g21);
         g22 = (ImageView) view.findViewById(R.id.g22);
         g23 = (ImageView) view.findViewById(R.id.g23);
         g24 = (ImageView) view.findViewById(R.id.g24);
@@ -76,22 +86,18 @@ public class CarvedGemstoneFragment extends Fragment {
         g50 = (ImageView) view.findViewById(R.id.g50);
         g51 = (ImageView) view.findViewById(R.id.g51);
         g52 = (ImageView) view.findViewById(R.id.g52);
-
+        */
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        getActivity().setTitle("Carved Gemstones");
         load_Images();
-        getActivity().setTitle("Carved Gemstone");
-
-
     }
-
     private void load_Images() {
-        InputStream is = null;
+        InputStream is;
 
         try {
             is = getActivity().getAssets().open("images/carving-gems/carved-amethyst.jpg");
@@ -135,7 +141,7 @@ public class CarvedGemstoneFragment extends Fragment {
             is = getActivity().getAssets().open("images/carving-gems/carved-image-12.jpg");
             g20.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-images-13.jpg");
-            g21.setImageBitmap(BitmapFactory.decodeStream(is));
+            /*g21.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-lepiz-lazuli.jpg");
             g22.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-stone.jpg");
@@ -197,11 +203,13 @@ public class CarvedGemstoneFragment extends Fragment {
             is = getActivity().getAssets().open("images/carving-gems/Gems-carving-history.jpg");
             g51.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/gemstone-carving.jpg");
-            g52.setImageBitmap(BitmapFactory.decodeStream(is));
-
+            g52.setImageBitmap(BitmapFactory.decodeStream(is));*/
 
         } catch (IOException e) {
             e.printStackTrace();
+        }catch (OutOfMemoryError error){
+            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
 }

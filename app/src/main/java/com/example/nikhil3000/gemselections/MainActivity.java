@@ -504,7 +504,7 @@ public class MainActivity extends AppCompatActivity
                     fragment = new MainSemiPreciousGems();
                 break;
 
-            case R.id.nav_precious_gems:
+            case R.id.nav_triangular_gems:
                     Toast.makeText(getApplicationContext(), "Section Not Found! :/", Toast.LENGTH_SHORT).show();
                 break;
 

@@ -36,6 +36,7 @@ public class BeadsSemiPreFragment extends Fragment {
         go8 = (ImageView) view.findViewById(R.id.g08);
         go9 = (ImageView) view.findViewById(R.id.g09);
         g10 = (ImageView) view.findViewById(R.id.g10);
+        g11 = (ImageView) view.findViewById(R.id.g11);
         g12 = (ImageView) view.findViewById(R.id.g12);
         g13 = (ImageView) view.findViewById(R.id.g13);
         g14 = (ImageView) view.findViewById(R.id.g14);
@@ -78,7 +79,7 @@ public class BeadsSemiPreFragment extends Fragment {
     }
 
     private void load_Images() {
-        InputStream is = null;
+        InputStream is;
 
         try {
             is = getActivity().getAssets().open("images/beads-images/amehtyst-round-shape.jpg");
