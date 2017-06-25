@@ -17,6 +17,7 @@ import android.view.MenuItem;
 public class Handicrafts extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private boolean ISHOMESHOWN=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +61,18 @@ public class Handicrafts extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-            getSupportFragmentManager().popBackStack("Handicraft", 0);
+        }
+        else {
+            if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
+                getSupportFragmentManager().popBackStack();
+                if (ISHOMESHOWN) {
+                    super.onBackPressed();
+                } else {
+                    display_selected_item(R.id.nav_home);
+                }
+            }else{
+                super.onBackPressed();
+            }
         }
     }
 
@@ -79,6 +89,7 @@ public class Handicrafts extends AppCompatActivity
     private void display_selected_item(int id) {
 
         Fragment fragment = null;
+        ISHOMESHOWN = id == R.id.nav_hand_pots;
 
         switch (id){
             case R.id.nav_hand_pots:
@@ -113,7 +124,7 @@ public class Handicrafts extends AppCompatActivity
         if(fragment!=null){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.handicraft_container, fragment);
-            fragmentTransaction.addToBackStack("Handicrafts");
+            fragmentTransaction.addToBackStack("Hand");
             fragmentTransaction.commit();
         }
 

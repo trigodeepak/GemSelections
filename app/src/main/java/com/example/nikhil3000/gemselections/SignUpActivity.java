@@ -106,7 +106,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             signup_ready=false;
             _contact.setError("Enter A Valid Mobile Number");
         }
-        if(!InternetConnectivity.STATUS){
+        if(!InternetConnectivity.ISCONNECTED){
             Toast toast = Toast.makeText(SignUpActivity.this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();

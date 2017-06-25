@@ -25,8 +25,8 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         CheckFirstTime firstTime = new CheckFirstTime();
 
-        if(firstTime.isFirstTime(getApplicationContext())){
-            new InternetConnectivity(getApplicationContext());
+        if(firstTime.isFirstTime(Splash.this)){
+            new InternetConnectivity(Splash.this);
         }
 
         Splash = (TextView)findViewById(R.id.splash_appname);

@@ -5,12 +5,18 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,10 +29,67 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
 
     private ImageView _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _trijuti, _ganesh, _gauri;
 
+    private YouTubePlayer OneMukhiPlayer, GauriPlayer;
+    private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
+    private static final int RECOVERY_REQUEST = 1;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_rud_beads,container ,false);
+
+        YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
+
+        youTubePlayerFragment.initialize(DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
+
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+
+                if (!wasRestored) {
+                    OneMukhiPlayer = player;
+                    OneMukhiPlayer.cueVideo("vnP0lyisxAs");
+                }
+
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
+                if (arg1.isUserRecoverableError()) {
+                    arg1.getErrorDialog(getActivity(), RECOVERY_REQUEST).show();
+                } else {
+                    String error = String.format(getString(R.string.player_error), arg1.toString());
+                    Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.add(R.id.yt_onemuki, youTubePlayerFragment).commit();
+
+        YouTubePlayerSupportFragment youTubePlayerFragment1 = YouTubePlayerSupportFragment.newInstance();
+        youTubePlayerFragment1.initialize(DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
+
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+
+                if (!wasRestored) {
+                    GauriPlayer = player;
+                    GauriPlayer.cueVideo("SbLQHuaeH_Q");
+                }
+
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
+                if (arg1.isUserRecoverableError()) {
+                    arg1.getErrorDialog(getActivity(), RECOVERY_REQUEST).show();
+                } else {
+                    String error = String.format(getString(R.string.player_error), arg1.toString());
+                    Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        FragmentTransaction transaction1 = getChildFragmentManager().beginTransaction();
+        transaction1.add(R.id.yt_gauri, youTubePlayerFragment1).commit();
 
         _1 = (ImageView)view.findViewById(R.id.rud_bead_one);
         _1.setOnClickListener(this);
