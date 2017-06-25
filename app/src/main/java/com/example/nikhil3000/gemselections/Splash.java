@@ -19,6 +19,7 @@ public class Splash extends AppCompatActivity {
 
     private TextView Splash;
     private ImageView Logo;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

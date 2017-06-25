@@ -61,7 +61,7 @@ public class BeadsPreciousFragment extends Fragment {
             is = getActivity().getAssets().open("images/precious_beads/sapphire.jpg");
             sapphire.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/precious_beads/multi-colour-beads.jpg");
+            is = getActivity().getAssets().open("images/precious_beads/multi-colour-beads.JPG");
             multi_color.setImageBitmap(BitmapFactory.decodeStream(is));
 
             is = getActivity().getAssets().open("images/precious_beads/moti-beads.jpg");
@@ -78,7 +78,7 @@ public class BeadsPreciousFragment extends Fragment {
             is = getActivity().getAssets().open("images/precious_beads/multi-tourmaline-beads.jpg");
             multi.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/precious_beads/peridot-beads.jpg");
+            is = getActivity().getAssets().open("images/precious_beads/peridot-beads.JPG");
             peridot.setImageBitmap(BitmapFactory.decodeStream(is));
 
             is = getActivity().getAssets().open("images/precious_beads/green-tourmaline-beads.jpg");
