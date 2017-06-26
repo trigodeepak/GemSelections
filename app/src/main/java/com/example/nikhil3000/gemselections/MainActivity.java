@@ -505,7 +505,11 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_triangular_gems:
-                    Toast.makeText(getApplicationContext(), "Section Not Found! :/", Toast.LENGTH_SHORT).show();
+                    fragment = new TriangularGemsFragment();
+                break;
+
+            case R.id.nav_cabochon_gems:
+                    fragment = new MainCabochonFragment();
                 break;
 
             case R.id.nav_yantra:
