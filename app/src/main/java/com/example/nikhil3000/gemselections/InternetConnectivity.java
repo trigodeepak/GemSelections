@@ -12,7 +12,7 @@ import android.net.NetworkInfo;
 
 public class InternetConnectivity extends BroadcastReceiver {
 
-    public static boolean ISCONNECTED=false;
+    public static boolean ISCONNECTED=true;
 
     @Override
     public void onReceive(Context context, Intent intent) {

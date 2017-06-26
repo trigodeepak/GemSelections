@@ -18,18 +18,25 @@ import java.io.InputStream;
  * Created by anonymous on 25/6/17.
  */
 
-public class AmethystFragment extends Fragment {
+public class Opal extends Fragment {
 
-    private ImageView img;
+    private ImageView img1,img2,img3;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.amethyst, container, false);
-        img = (ImageView)view.findViewById(R.id.amethyst_img);
+        View view = inflater.inflate(R.layout.opal, container, false);
+        img1 = (ImageView)view.findViewById(R.id.opal1);
+        img2 = (ImageView)view.findViewById(R.id.opal2);
+        img3 = (ImageView)view.findViewById(R.id.opal3);
+        InputStream is;
         try {
-            InputStream is = getActivity().getAssets().open("images/semi-precious-gems/Amethist.jpg");
-            img.setImageBitmap(BitmapFactory.decodeStream(is));
+            is = getActivity().getAssets().open("images/semi-precious-gems/whiteopal.img.jpg");
+            img1.setImageBitmap(BitmapFactory.decodeStream(is));
+            is = getActivity().getAssets().open("images/semi-precious-gems/Opal.jpg");
+            img2.setImageBitmap(BitmapFactory.decodeStream(is));
+            is = getActivity().getAssets().open("images/semi-precious-gems/Blackfireopal.img.jpg");
+            img3.setImageBitmap(BitmapFactory.decodeStream(is));
         } catch (IOException e) {
             e.printStackTrace();
         }

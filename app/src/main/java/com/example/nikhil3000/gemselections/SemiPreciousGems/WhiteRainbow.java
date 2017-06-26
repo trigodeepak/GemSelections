@@ -18,17 +18,17 @@ import java.io.InputStream;
  * Created by anonymous on 25/6/17.
  */
 
-public class AmethystFragment extends Fragment {
+public class WhiteRainbow extends Fragment {
 
     private ImageView img;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.amethyst, container, false);
-        img = (ImageView)view.findViewById(R.id.amethyst_img);
+        View view = inflater.inflate(R.layout.whiterainbow, container, false);
+        img = (ImageView)view.findViewById(R.id.whiterainbow_img);
         try {
-            InputStream is = getActivity().getAssets().open("images/semi-precious-gems/Amethist.jpg");
+            InputStream is = getActivity().getAssets().open("images/semi-precious-gems/White-Rainbow.jpg");
             img.setImageBitmap(BitmapFactory.decodeStream(is));
         } catch (IOException e) {
             e.printStackTrace();

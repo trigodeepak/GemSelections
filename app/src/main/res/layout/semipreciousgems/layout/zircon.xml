@@ -5,13 +5,13 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/amethyst_img"
         android:layout_gravity="center_horizontal"
+        android:id="@+id/zircon_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:text="Amethyst (Katela) : Jamunia"
+        android:text="Zircon"
         android:textStyle="bold"
         android:fontFamily="serif"
         android:textColor="#555"
@@ -21,20 +21,10 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:text="@string/amethyst"
+        android:text="@string/zircon"
         android:fontFamily="serif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"/>
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:text="@string/amethyst2"
-        android:fontFamily="serif"
-        android:textColor="#56f"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"/>
 
 </LinearLayout>
