@@ -24,7 +24,6 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
 
     private String email;
 
-    private InternetConnectivity connectivity;
     private FirebaseAuth mAuth;
 
     @Override
@@ -33,8 +32,6 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_forget_pass);
 
         mAuth = FirebaseAuth.getInstance();
-        connectivity = new InternetConnectivity();
-
         _email = (EditText)findViewById(R.id._frgtEmail);
         _submit = (Button)findViewById(R.id._forgetButton);
         _submit.setOnClickListener(this);
@@ -55,7 +52,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
             ready = false;
             _email.setError("Email address not correct");
         }
-        if(!connectivity.STATUS){
+        if(!InternetConnectivity.ISCONNECTED){
             Toast toast = Toast.makeText(ForgetPassActivity.this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();

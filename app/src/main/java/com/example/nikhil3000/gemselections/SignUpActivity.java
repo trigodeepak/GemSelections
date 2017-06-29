@@ -28,7 +28,6 @@ import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private InternetConnectivity connectivity;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
@@ -51,7 +50,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference();
-        connectivity = new InternetConnectivity();
 
         _sign_up = (Button)findViewById(R.id._signup_button);
         _sign_up.setOnClickListener(this);
@@ -108,7 +106,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             signup_ready=false;
             _contact.setError("Enter A Valid Mobile Number");
         }
-        if(!connectivity.STATUS){
+        if(!InternetConnectivity.ISCONNECTED){
             Toast toast = Toast.makeText(SignUpActivity.this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();

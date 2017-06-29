@@ -1,6 +1,7 @@
 package com.example.nikhil3000.gemselections;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -19,6 +21,7 @@ import android.view.WindowManager;
 public class Rudraksha extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private boolean ISHOMESHOWN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +46,18 @@ public class Rudraksha extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-            getSupportFragmentManager().popBackStack("Rudraksha", 0);
+        }
+        else {
+            if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
+                getSupportFragmentManager().popBackStack();
+                if (ISHOMESHOWN) {
+                    super.onBackPressed();
+                } else {
+                    display_selected_item(R.id.nav_home);
+                }
+            }else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -85,6 +97,8 @@ public class Rudraksha extends AppCompatActivity
 
         Fragment fragment = null;
 
+        ISHOMESHOWN = id == R.id.nav_rud_home;
+
         switch (id) {
 
             case R.id.nav_rud_home:
@@ -119,14 +133,8 @@ public class Rudraksha extends AppCompatActivity
         if(fragment!=null){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.rudraksha_container, fragment);
-            fragmentTransaction.addToBackStack("Rudraksha");
+            fragmentTransaction.addToBackStack("Rudra");
             fragmentTransaction.commit();
-
-            //getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment)
-            //        .commit();
-
-            //int homeFragmentIdentifier = fragmentTransaction.commit();
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

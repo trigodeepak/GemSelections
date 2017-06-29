@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/lemontopaz_img"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Lemon Topaz"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:textColor="#555"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="@string/lemontopaz"
+        android:fontFamily="serif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="@string/lemontopaz2"
+        android:fontFamily="serif"
+        android:textColor="#56f"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"/>
+
+</LinearLayout>

@@ -19,14 +19,15 @@ public class Splash extends AppCompatActivity {
 
     private TextView Splash;
     private ImageView Logo;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         CheckFirstTime firstTime = new CheckFirstTime();
 
-        if(firstTime.isFirstTime(getApplicationContext())){
-            InternetConnectivity connectivity = new InternetConnectivity(getApplicationContext());
+        if(firstTime.isFirstTime(Splash.this)){
+            new InternetConnectivity(Splash.this);
         }
 
         Splash = (TextView)findViewById(R.id.splash_appname);

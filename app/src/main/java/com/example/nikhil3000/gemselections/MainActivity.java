@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,10 +24,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,8 +45,11 @@ public class MainActivity extends AppCompatActivity
     private TextView _displayName, _displayEmail;
     private Button _login, _logout;
 
+    private boolean ISHOMESHOWN;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
+
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        fragmentManager = getSupportFragmentManager();
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -117,8 +121,32 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
-            getSupportFragmentManager().popBackStack("MainActivity", 0);
+            if(fragmentManager.getBackStackEntryCount()!=0){
+                fragmentManager.popBackStack();
+                if(ISHOMESHOWN){
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setMessage("Do you really want to exit?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .setTitle("Exit App")
+                            .create().show();
+                }else
+                {
+                    display_selected_item(R.id.nav_home);
+                }
+            }else {
+                super.onBackPressed();
+            }
         }
 
     }
@@ -428,9 +456,11 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
 
+        ISHOMESHOWN = id == R.id.nav_home;
         switch (id){
             case R.id.nav_home:
                     fragment = new HomeFragment();
+                ISHOMESHOWN =true;
                 break;
 
             case R.id.nav_rudraksha:
@@ -474,12 +504,16 @@ public class MainActivity extends AppCompatActivity
                     fragment = new MainSemiPreciousGems();
                 break;
 
-            case R.id.nav_precious_gems:
-                    Toast.makeText(getApplicationContext(), "Section Not Found! :/", Toast.LENGTH_SHORT).show();
+            case R.id.nav_triangular_gems:
+                    fragment = new TriangularGemsFragment();
+                break;
+
+            case R.id.nav_cabochon_gems:
+                    fragment = new MainCabochonFragment();
                 break;
 
             case R.id.nav_yantra:
-                    Toast.makeText(getApplicationContext(), "Section Not Found! :/", Toast.LENGTH_SHORT).show();
+                    fragment = new MainYantraFragment();
                 break;
 
             case R.id.nav_diamond:
@@ -579,16 +613,10 @@ public class MainActivity extends AppCompatActivity
         }
 
         if(fragment!=null){
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container, fragment);
-            fragmentTransaction.addToBackStack("MainActivity");
+            fragmentTransaction.addToBackStack("Main");
             fragmentTransaction.commit();
-
-            //getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment)
-            //        .commit();
-
-            //int homeFragmentIdentifier = fragmentTransaction.commit();
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

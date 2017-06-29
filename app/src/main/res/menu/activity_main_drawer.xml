@@ -32,11 +32,14 @@
             android:id="@+id/nav_saphatic"
             android:title="Saphatic Items"/>
         <item
-            android:id="@+id/nav_precious_gems"
-            android:title="Precious Gems"/>
+            android:id="@+id/nav_triangular_gems"
+            android:title="Triangular Gemstones"/>
         <item
             android:id="@+id/nav_semi_precious_gems"
-            android:title="Semi Precious Gems"/>
+            android:title="Semi Precious Gemstones"/>
+        <item
+            android:id="@+id/nav_cabochon_gems"
+            android:title="Cabochon Gemsstones"/>
         <item
             android:id="@+id/nav_birthstone"
             android:title="Birthstones"/>
