@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        app:showAsAction="always"
+        android:title="BUY NOW"
+        android:id="@+id/ac_buy_pukhraj"/>
+
+    <item
+        android:title="Govt. Lab  Certificates">
+        <menu>
+            <item
+                android:id="@+id/ac_natural_pukhraj"
+                android:title="Natural Sapphire"/>
+            <item
+                android:id="@+id/ac_treated_pukhraj"
+                android:title="Treated Sapphire"/>
+            <item
+                android:id="@+id/ac_heated_pukhraj"
+                android:title="Heated Sapphire"/>
+        </menu>
+    </item>
+
+    <item
+        android:title="Pukhraj Astrology"
+        android:id="@+id/ac_pukhraj_astro"/>
+
+</menu>

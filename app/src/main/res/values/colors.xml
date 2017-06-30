@@ -15,4 +15,8 @@
     <color name="colorPrimaryDark3">#3152B1</color>
     <color name="colorPrimary3">#5585CF</color>
     <color name="colorAccent3">#ff4368</color>
+
+    <color name="colorPrimaryDark4">#514657</color>
+    <color name="colorPrimary4">#87536A</color>
+    <color name="colorAccent4">#ff4368</color>
 </resources>

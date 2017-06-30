@@ -126,6 +126,32 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.nikhil3000.gemselections.MainActivity" />
         </activity>
+        <activity
+            android:label="Pukhraj"
+            android:parentActivityName=".MainActivity"
+            android:name=".Pukhraj.PukhrajActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
+        <activity
+            android:label="Gomed"
+            android:theme="@style/GomedTheme"
+            android:parentActivityName=".MainActivity"
+            android:name=".Gomed.GomedActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
+        <activity
+            android:label="Cat\'s Eye"
+            android:theme="@style/EmeraldTheme"
+            android:parentActivityName=".MainActivity"
+            android:name=".Lehsunia.LehsuniaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

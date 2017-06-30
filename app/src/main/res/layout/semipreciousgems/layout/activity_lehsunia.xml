@@ -3,17 +3,17 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".Neelam.NeelamActivity"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.nikhil3000.gemselections.Lehsunia.LehsuniaActivity">
     <Toolbar
-        android:id="@+id/neelam_toolbar"
+        android:id="@+id/lehsunia_toolbar"
         android:layout_width="match_parent"
         android:elevation="5dp"
         android:layout_height="56dp"
-        android:background="@color/colorPrimary3"
+        android:background="@color/colorPrimary1"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:popupTheme="@style/AppTheme.PopupOverlay"
-        tools:targetApi="LOLLIPOP"></Toolbar>
+        tools:targetApi="LOLLIPOP"/>
 
     <ScrollView
         android:padding="10dp"
@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/neelam_banner"
+                android:id="@+id/lehsunia_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -34,13 +34,14 @@
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/neelam_head"
+                android:textStyle="bold"
+                android:text="LEHSUNIA | CAT\'s EYE"
                 android:textSize="20dp"
-                android:textColor="@color/colorPrimaryDark3"
+                android:textColor="@color/colorPrimaryDark1"
                 />
 
             <com.google.android.youtube.player.YouTubePlayerView
-                android:id="@+id/neelam_video"
+                android:id="@+id/lehsunia_video"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
@@ -58,7 +59,7 @@
             <Spinner
                 android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
-                android:id="@+id/neelam_spinner"
+                android:id="@+id/lehsunia_spinner"
                 android:layout_width="match_parent"
                 android:background="@drawable/spinner"
                 android:layout_height="wrap_content"></Spinner>
@@ -72,44 +73,8 @@
                 android:layout_height="wrap_content"
                 android:text="Weight AVAILABLE \n2.25 rati to 11.25 rati"/>
 
-            <TextView
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:textStyle="italic"
-                android:fontFamily="serif"
-                android:textSize="16sp"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"
-                android:text="Select Quality to know price \n\t\t1. CEYLON NEELAM:"/>
-
-            <Spinner
-                android:layout_margin="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/spinner"
-                android:id="@+id/neelam_spinner2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></Spinner>
-
-            <TextView
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:textStyle="italic"
-                android:fontFamily="serif"
-                android:textSize="16sp"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"
-                android:text="\t\t2. BANGKOK NEELAM:"/>
-
-            <Spinner
-                android:layout_margin="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/spinner"
-                android:id="@+id/neelam_spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></Spinner>
-
             <FrameLayout
-                android:id="@+id/neelam_container"
+                android:id="@+id/lehsunia_container"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></FrameLayout>

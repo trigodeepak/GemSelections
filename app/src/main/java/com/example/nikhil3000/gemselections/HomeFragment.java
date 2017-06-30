@@ -20,7 +20,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nikhil3000.gemselections.Emerald.EmeraldActivity;
+import com.example.nikhil3000.gemselections.Gomed.GomedActivity;
+import com.example.nikhil3000.gemselections.Lehsunia.LehsuniaActivity;
 import com.example.nikhil3000.gemselections.Neelam.NeelamActivity;
+import com.example.nikhil3000.gemselections.Pukhraj.PukhrajActivity;
 import com.example.nikhil3000.gemselections.Ruby.RubyActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -88,13 +91,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         baingani = (ImageView) view.findViewById(R.id.home_baingani);   baingani.setOnClickListener(this);
         panna = (ImageView) view.findViewById(R.id.home_panna);     panna.setOnClickListener(this);
-        pukhraj = (ImageView) view.findViewById(R.id.home_stonePukhraj);
+        pukhraj = (ImageView) view.findViewById(R.id.home_stonePukhraj);    pukhraj.setOnClickListener(this);
         manik = (ImageView) view.findViewById(R.id.home_manik); manik.setOnClickListener(this);
         neelam = (ImageView) view.findViewById(R.id.home_neelam);   neelam.setOnClickListener(this);
-        gomed = (ImageView) view.findViewById(R.id.home_gomed);
+        gomed = (ImageView) view.findViewById(R.id.home_gomed);     gomed.setOnClickListener(this);
         gulabi = (ImageView) view.findViewById(R.id.home_gulabi);       gulabi.setOnClickListener(this);
         pitambari = (ImageView) view.findViewById(R.id.home_pitambari);     pitambari.setOnClickListener(this);
-        lehsunia = (ImageView) view.findViewById(R.id.home_lehsunia);
+        lehsunia = (ImageView) view.findViewById(R.id.home_lehsunia);       lehsunia.setOnClickListener(this);
         moti = (ImageView) view.findViewById(R.id.home_moti);   moti.setOnClickListener(this);
         moonga = (ImageView) view.findViewById(R.id.home_moonga);   moonga.setOnClickListener(this);
         heera = (ImageView) view.findViewById(R.id.home_heera);
@@ -240,6 +243,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         if(v == neelam){
             startActivity(
                     new Intent(getActivity(), NeelamActivity.class)
+            );
+        }
+        if(v == pukhraj){
+            startActivity(
+                    new Intent(getActivity(), PukhrajActivity.class)
+            );
+        }
+        if(v == gomed){
+            startActivity(
+                    new Intent(getActivity(), GomedActivity.class)
+            );
+        }
+        if(v ==lehsunia){
+            startActivity(
+                    new Intent(getActivity(),LehsuniaActivity.class)
             );
         }
     }
