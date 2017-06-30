@@ -140,8 +140,8 @@ public class CarvedGemstoneFragment extends Fragment {
             g19.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-image-12.jpg");
             g20.setImageBitmap(BitmapFactory.decodeStream(is));
-           // is = getActivity().getAssets().open("images/carving-gems/carved-images-13.jpg");
-            /*g21.setImageBitmap(BitmapFactory.decodeStream(is));
+            /*is = getActivity().getAssets().open("images/carving-gems/carved-images-13.jpg");
+            g21.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-lepiz-lazuli.jpg");
             g22.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-stone.jpg");
