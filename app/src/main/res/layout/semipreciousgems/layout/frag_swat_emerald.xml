@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/swat_emerald_banner"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#555"
+        android:text="@string/swat_emerald"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:textStyle="italic"
+        android:fontFamily="serif"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="Select Quality to know price:"/>
+
+    <Spinner
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/spinner"
+        android:id="@+id/emerald_swat_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Spinner>
+
+</LinearLayout>

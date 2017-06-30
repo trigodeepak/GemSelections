@@ -15,7 +15,11 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Splash"
             android:theme="@style/AppTheme.NoActionBar">
@@ -26,11 +30,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FAQs"
+            android:name=".FAQsActivity"
             android:label="Frequently Asked Questions"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".Rudraksha"
+            android:name=".Rudraksha.Rudraksha"
             android:label="@string/title_activity_rudraksha"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -47,7 +51,7 @@
                 android:value="com.example.nikhil3000.gemselections.MainActivity" />
         </activity>
         <activity
-            android:name=".Handicrafts"
+            android:name=".Handicrafts.Handicrafts"
             android:label="@string/title_activity_handicrafts"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -88,6 +92,40 @@
         <activity
             android:name=".WebViewActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MoongaActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
+        <activity
+            android:label="Emerald"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/EmeraldTheme"
+            android:name=".Emerald.EmeraldActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
+        <activity
+            android:label="Ruby"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/RubyTheme"
+            android:name=".Ruby.RubyActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
+        <activity
+            android:label="Neelam"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/NeelamTheme"
+            android:name=".Neelam.NeelamActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nikhil3000.gemselections.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

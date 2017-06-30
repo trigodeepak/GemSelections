@@ -7,6 +7,24 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="EmeraldTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary1</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark1</item>
+        <item name="colorAccent">@color/colorAccent1</item>
+    </style>
+
+    <style name="RubyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary2</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark2</item>
+        <item name="colorAccent">@color/colorAccent2</item>
+    </style>
+
+    <style name="NeelamTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary3</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark3</item>
+        <item name="colorAccent">@color/colorAccent3</item>
+    </style>
+
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -22,4 +40,5 @@
     <style name="Toolbar1title">
         <item name="android:textSize">12sp</item>
     </style>
+
 </resources>

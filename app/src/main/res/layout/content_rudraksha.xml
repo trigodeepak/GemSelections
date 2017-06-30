@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:orientation="vertical"
-    tools:context="com.example.nikhil3000.gemselections.Rudraksha"
+    tools:context="com.example.nikhil3000.gemselections.Rudraksha.Rudraksha"
     tools:showIn="@layout/app_bar_rudraksha">
 
     <FrameLayout

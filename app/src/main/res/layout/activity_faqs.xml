@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context="com.example.nikhil3000.gemselections.FAQs">
+    tools:context="com.example.nikhil3000.gemselections.FAQsActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -43,6 +43,24 @@
             android:textColor="#444"
             android:fontFamily="serif"
             android:text="@string/faq4"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:text="Q. How to take care of pearls?"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:fontFamily="serif"
+            android:text="@string/pearl_care"/>
 
         <TextView
             android:layout_marginTop="10dp"

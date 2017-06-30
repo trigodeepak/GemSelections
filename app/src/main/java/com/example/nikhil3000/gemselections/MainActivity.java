@@ -29,6 +29,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nikhil3000.gemselections.Handicrafts.Handicrafts;
+import com.example.nikhil3000.gemselections.Rudraksha.Rudraksha;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -232,7 +234,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.ac_faq:
                     startActivity(
-                            new Intent(MainActivity.this, FAQs.class)
+                            new Intent(MainActivity.this, FAQsActivity.class)
                     );
                 break;
 
@@ -400,13 +402,13 @@ public class MainActivity extends AppCompatActivity
 
                 try{
                     fos = new FileOutputStream(file);
-
                     imgcpy.compress(Bitmap.CompressFormat.JPEG, 90, fos);
 
                 }catch (Exception e){
                     e.printStackTrace();
                 }finally {
                     try{
+                        assert fos != null;
                         fos.flush();
                         fos.close();
                         final String path = file.getAbsolutePath();
@@ -512,12 +514,20 @@ public class MainActivity extends AppCompatActivity
                     fragment = new MainCabochonFragment();
                 break;
 
+            case R.id.nav_faq:
+
+                startActivity(
+                        new Intent(MainActivity.this, FAQsActivity.class)
+                );
+
+                break;
+
             case R.id.nav_yantra:
                     fragment = new MainYantraFragment();
                 break;
 
             case R.id.nav_diamond:
-                    Toast.makeText(getApplicationContext(), "Section Not Found! :/", Toast.LENGTH_SHORT).show();
+                    fragment = new MainDiamondFragment();
                 break;
 
             case R.id.nav_jewel:
