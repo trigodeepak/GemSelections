@@ -2,4 +2,418 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MOON STONE"
+                    android:textAlignment="center"/>
+
+                <ImageView
+                    android:id="@+id/g01"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB01\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MOON STONE"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/g02"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB02\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight=".5"
+                android:clickable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="BLUE TOPAZ AND EMERALD"
+                        android:textAlignment="center"/>
+
+                    <ImageView
+                        android:id="@+id/g03"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Code : SB03\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="GOLDEN TOPAZ"
+                        android:textAlignment="center"/>
+                    <ImageView
+                        android:id="@+id/g04"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Code : SB04\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout><LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BLUE TOPAZ AND RUBY"
+                    android:textAlignment="center"/>
+
+                <ImageView
+                    android:id="@+id/g05"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB05\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LEPIS LAZULI"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/g06"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB06\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout><LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BLACK STAR"
+                    android:textAlignment="center"/>
+
+                <ImageView
+                    android:id="@+id/g07"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB07\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AMETHIST"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/g08"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB08\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout><LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GOLDEN TOPAZ"
+                    android:textAlignment="center"/>
+
+                <ImageView
+                    android:id="@+id/g09"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB09\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AMETHYST"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/g10"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB10\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout><LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GARNET"
+                    android:textAlignment="center"/>
+
+                <ImageView
+                    android:id="@+id/g11"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB11\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MOON STONE"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/g12"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB12\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout><LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight=".5"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BLACK STAR AND ZIRCON"
+                    android:textAlignment="center"/>
+
+                <ImageView
+                    android:id="@+id/g13"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Code : SB13\nPurity – 92.56.\nColour – Silver\nPlating - Rodiam"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        </LinearLayout>
+</LinearLayout>
 </ScrollView>
