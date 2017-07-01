@@ -144,7 +144,7 @@ public class OrrisaGomed extends Fragment {
                                     }
                                 })
                                 .create().show();
-                    }catch (IOException e){
+                    }catch (Exception e){
                         e.printStackTrace();
                         Toast.makeText(getActivity().getApplicationContext(), "Could Not Save Image", Toast.LENGTH_LONG).show();
                     }

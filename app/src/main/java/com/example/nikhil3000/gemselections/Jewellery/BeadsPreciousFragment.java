@@ -1,4 +1,4 @@
-package com.example.nikhil3000.gemselections;
+package com.example.nikhil3000.gemselections.Jewellery;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.nikhil3000.gemselections.R;
 
 import java.io.IOException;
 import java.io.InputStream;

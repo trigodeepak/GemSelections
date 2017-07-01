@@ -38,19 +38,19 @@ public class HandTableFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Spiritual/small-images/Pen-Stand-TTS-01.jpg");
+            is = getActivity().getAssets().open("images/table-top-spiritual-item/Pen-Stand-TTS-01.jpg");
             _1.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Spiritual/small-images/Coaster-Set-TTS-02.jpg");
+            is = getActivity().getAssets().open("images/table-top-spiritual-item/Coaster-Set-TTS-02.jpg");
             _2.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Spiritual/small-images/Coaster-Set-TTS-03.jpg");
+            is = getActivity().getAssets().open("images/table-top-spiritual-item/Coaster-Set-TTS-03.jpg");
             _3.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Spiritual/small-images/Visiting-Card-Holder-TTS-04.jpg");
+            is = getActivity().getAssets().open("images/table-top-spiritual-item/Visiting-Card-Holder-TTS-04.jpg");
             _4.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Spiritual/small-images/Visiting-Card-Holder-TTS05.JPG");
+            is = getActivity().getAssets().open("images/table-top-spiritual-item/Visiting-Card-Holder-TTS05.jpg");
             _5.setImageBitmap(BitmapFactory.decodeStream(is));
 
         }catch (IOException e){

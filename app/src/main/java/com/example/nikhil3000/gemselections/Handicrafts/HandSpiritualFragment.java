@@ -25,7 +25,7 @@ public class HandSpiritualFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_hand_spi_gifts, container, false);
+        View view = inflater.inflate(R.layout.frag_hand_spi, container, false);
         _1 = (ImageView)view.findViewById(R.id.handspi1);
         _2 = (ImageView)view.findViewById(R.id.handspi2);
         _3 = (ImageView)view.findViewById(R.id.handspi3);
@@ -38,22 +38,24 @@ public class HandSpiritualFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/Other%20Spiritual%20Itmes/small-images/Undercut-Elephant-Pair-OSI-01.jpg");
+            is = getActivity().getAssets().open("images/other-spiritual-items/Undercut-Elephant-Pair-OSI-01.jpg");
             _1.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Other%20Spiritual%20Itmes/small-images/Elephant-Pair-OSI-02.jpg");
+            is = getActivity().getAssets().open("images/other-spiritual-items/Elephant-Pair-OSI-02.jpg");
             _2.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Other%20Spiritual%20Itmes/small-images/Elephant-Pair-OSI-03.jpg");
+            is = getActivity().getAssets().open("images/other-spiritual-items/Elephant-Pair-OSI-03.jpg");
             _3.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Other%20Spiritual%20Itmes/small-images/Undercut-Owl-OSI04.jpg");
+            is = getActivity().getAssets().open("images/other-spiritual-items/Undercut-Owl-OSI04.jpg");
             _4.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Other%20Spiritual%20Itmes/small-images/Undercut-Frog%20-OSI05.jpg");
+            is = getActivity().getAssets().open("images/other-spiritual-items/Undercut-Frog-OSI05.jpg");
             _5.setImageBitmap(BitmapFactory.decodeStream(is));
 
         }catch (IOException e){
+            e.printStackTrace();
+        }catch (OutOfMemoryError e){
             e.printStackTrace();
         }
     }

@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.example.nikhil3000.gemselections.MainActivity;
 import com.example.nikhil3000.gemselections.R;
 import com.example.nikhil3000.gemselections.WebViewActivity;
 
@@ -51,9 +52,12 @@ public class Rudraksha extends AppCompatActivity
             if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
                 getSupportFragmentManager().popBackStack();
                 if (ISHOMESHOWN) {
-                    super.onBackPressed();
+                    startActivity(
+                            new Intent(Rudraksha.this, MainActivity.class)
+                    );
+                    finish();
                 } else {
-                    display_selected_item(R.id.nav_home);
+                    display_selected_item(R.id.nav_rud_home);
                 }
             }else {
                 super.onBackPressed();

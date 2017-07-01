@@ -1,7 +1,6 @@
-package com.example.nikhil3000.gemselections;
+package com.example.nikhil3000.gemselections.Jewellery;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -13,6 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.nikhil3000.gemselections.MainActivity;
+import com.example.nikhil3000.gemselections.R;
+import com.example.nikhil3000.gemselections.WebViewActivity;
 
 public class Jewellery extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,9 +50,12 @@ public class Jewellery extends AppCompatActivity
             if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
                 getSupportFragmentManager().popBackStack();
                 if (ISHOMESHOWN) {
-                    super.onBackPressed();
+                    startActivity(
+                            new Intent(Jewellery.this, MainActivity.class)
+                    );
+                    finish();
                 } else {
-                    display_selected_item(R.id.nav_home);
+                    display_selected_item(R.id.nav_silver_pendant);
                 }
             }else{
                 super.onBackPressed();

@@ -44,31 +44,31 @@ public class HandPotsFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/Candle-Holder-HGL01.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/Candle-Holder-HGL01.jpg");
             _1.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/Flower-Pot-HGL02.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/Flower-Pot-HGL02.jpg");
             _2.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/Flower-Pot-HGL03.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/Flower-Pot-HGL03.jpg");
             _3.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/FlowerPot-HGL04.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/FlowerPot-HGL04.jpg");
             _4.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/Marble-Glass-HGL-05.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/Marble-Glass-HGL-05.jpg");
             _5.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/Flower-Pot-HGL06.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/Flower-Pot-HGL06.jpg");
             _6.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/Flower-pot-HGL07.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/Flower-pot-HGL07.jpg");
             _7.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/Flower-Pot-HGL08.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/Flower-Pot-HGL08.jpg");
             _8.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Decoration%20Items%20-%20Gold%20Painted/small-images/Flower-Pot-HGL09.jpg");
+            is = getActivity().getAssets().open("images/decorationitems/Flower-Pot-HGL09.jpg");
             _9.setImageBitmap(BitmapFactory.decodeStream(is));
 
             is = getActivity().getAssets().open("images/handicrafts.jpg");

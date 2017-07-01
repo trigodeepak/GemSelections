@@ -38,19 +38,19 @@ public class HandClocksFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/Gold%20Painted%20-%20Marble%20Clocks/small-image/Marble-Mobile-Holder-MMW-01.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-marble-clocks/Marble-Mobile-Holder-MMW-01.jpg");
             _1.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold%20Painted%20-%20Marble%20Clocks/small-image/Marble-Mobile-Holder-MMW-02.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-marble-clocks/Marble-Mobile-Holder-MMW-02.jpg");
             _2.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold%20Painted%20-%20Marble%20Clocks/small-image/Marble-Decoration-MMW-03.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-marble-clocks/Marble-Decoration-MMW-03.jpg");
             _3.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold%20Painted%20-%20Marble%20Clocks/small-image/Marble-Decoration-MMW-04.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-marble-clocks/Marble-Decoration-MMW-04.jpg");
             _4.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold%20Painted%20-%20Marble%20Clocks/small-image/Marble-Decoration-MMW-05.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-marble-clocks/Marble-Decoration-MMW-05.jpg");
             _5.setImageBitmap(BitmapFactory.decodeStream(is));
 
         }catch (IOException e){

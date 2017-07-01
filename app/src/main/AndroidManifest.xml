@@ -60,7 +60,7 @@
                 android:value="com.example.nikhil3000.gemselections.MainActivity" />
         </activity>
         <activity
-            android:name=".Jewellery"
+            android:name=".Jewellery.Jewellery"
             android:label="@string/title_activity_jewellery"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -76,7 +76,7 @@
         </receiver>
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".AuthRelated.LoginActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -84,10 +84,10 @@
                 android:value="com.example.nikhil3000.gemselections.MainActivity" />
         </activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".AuthRelated.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ForgetPassActivity"
+            android:name=".AuthRelated.ForgetPassActivity"
             android:label="Forget Password" />
         <activity
             android:name=".WebViewActivity"

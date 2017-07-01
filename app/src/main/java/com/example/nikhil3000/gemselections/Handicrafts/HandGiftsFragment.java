@@ -44,37 +44,37 @@ public class HandGiftsFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-01-GANESHA.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-01-GANESHA.jpg");
             _1.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-02-GANESHA.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-02-GANESHA.jpg");
             _2.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-03-GANESHA.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-03-GANESHA.jpg");
             _3.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-04-GANESHA.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-04-GANESHA.jpg");
             _4.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-05-KRISHANA.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-05-KRISHANA.jpg");
             _5.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-06-HANUMAN.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-06-HANUMAN.jpg");
             _6.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-07-RADHA%20KRISHNA.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-07-RADHA-KRISHNA.jpg");
             _7.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-08-Sai-Baba.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-08-Sai-Baba.jpg");
             _8.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-09-JesusCrist.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-09-JesusCrist.jpg");
             _9.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-10-Jesus-Crist.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-10-Jesus-Crist.jpg");
             _10.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Spiritual%20Gifts/small-images/ASG-11-Jesus-Crist.jpg");
+            is = getActivity().getAssets().open("images/spiritual-gifts/ASG-11-Jesus-Crist.jpg");
             _11.setImageBitmap(BitmapFactory.decodeStream(is));
 
         }catch (IOException e){

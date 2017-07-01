@@ -43,34 +43,34 @@ public class HandSpiGiftsFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Plate-HGI-01.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Plate-HGI-01.jpg");
             _1.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Plate-02.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Plate-02.jpg");
             _2.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Tile-HGI03.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Tile-HGI03.jpg");
             _3.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Tile-HGI04.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Tile-HGI04.jpg");
             _4.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Tile-HGI05.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Tile-HGI05.jpg");
             _5.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Tile-HGI06.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Tile-HGI06.jpg");
             _6.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Tile-HGI07.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Tile-HGI07.jpg");
             _7.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Tile-HGI08.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Tile-HGI08.jpg");
             _8.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Tile-HGI09.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Tile-HGI09.jpg");
             _9.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Handicraft%20Gifts%20-%20Birds%20-%20Animals%20-%20Lady%20Figures/small-images/Marble-Tile-HGI-10.jpg");
+            is = getActivity().getAssets().open("images/hand-spi-gifts/Marble-Tile-HGI-10.jpg");
             _10.setImageBitmap(BitmapFactory.decodeStream(is));
         }catch (IOException e){
             e.printStackTrace();

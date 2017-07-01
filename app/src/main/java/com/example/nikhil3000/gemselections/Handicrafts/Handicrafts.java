@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.nikhil3000.gemselections.MainActivity;
 import com.example.nikhil3000.gemselections.R;
 import com.example.nikhil3000.gemselections.WebViewActivity;
 
@@ -68,9 +69,12 @@ public class Handicrafts extends AppCompatActivity
             if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
                 getSupportFragmentManager().popBackStack();
                 if (ISHOMESHOWN) {
-                    super.onBackPressed();
+                    startActivity(
+                            new Intent(Handicrafts.this, MainActivity.class)
+                    );
+                    finish();
                 } else {
-                    display_selected_item(R.id.nav_home);
+                    display_selected_item(R.id.nav_hand_pots);
                 }
             }else{
                 super.onBackPressed();

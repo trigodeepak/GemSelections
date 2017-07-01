@@ -39,22 +39,22 @@ public class HandSoapFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Soap%20Stone/small-images/Pen-Stand-Inlay-TSS-01.jpg");
+            is = getActivity().getAssets().open("images/table-top-soap-stone/Pen-Stand-Inlay-TSS-01.jpg");
             _1.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Soap%20Stone/small-images/Coaster-Inlay-work-TSS-02.jpg");
+            is = getActivity().getAssets().open("images/table-top-soap-stone/Coaster-Inlay-work-TSS-02.jpg");
             _2.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Soap%20Stone/small-images/Visiting-Card-Holder-TSS-03.jpg");
+            is = getActivity().getAssets().open("images/table-top-soap-stone/Visiting-Card-Holder-TSS-03.jpg");
             _3.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Soap%20Stone/small-images/Pen-Stand-Visiting-Card-Holder-TSS-04.jpg");
+            is = getActivity().getAssets().open("images/table-top-soap-stone/Pen-Stand-Visiting-Card-Holder-TSS-04.jpg");
             _4.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Soap%20Stone/small-images/Paper-Holder-TSS-05.jpg");
+            is = getActivity().getAssets().open("images/table-top-soap-stone/Paper-Holder-TSS-05.jpg");
             _5.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Table%20Top%20Items%20-%20Soap%20Stone/small-images/Paper-Weight0-TSS-06.jpg");
+            is = getActivity().getAssets().open("images/table-top-soap-stone/Paper-Weight0-TSS-06.jpg");
             _6.setImageBitmap(BitmapFactory.decodeStream(is));
 
         }catch (IOException e){

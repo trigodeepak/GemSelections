@@ -29,7 +29,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nikhil3000.gemselections.AuthRelated.LoginActivity;
 import com.example.nikhil3000.gemselections.Handicrafts.Handicrafts;
+import com.example.nikhil3000.gemselections.Jewellery.Jewellery;
 import com.example.nikhil3000.gemselections.Rudraksha.Rudraksha;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -432,7 +434,7 @@ public class MainActivity extends AppCompatActivity
                                     }
                                 })
                                 .create().show();
-                    }catch (IOException e){
+                    }catch (Exception e){
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Could Not Save Image", Toast.LENGTH_LONG).show();
                     }
@@ -469,6 +471,7 @@ public class MainActivity extends AppCompatActivity
                     startActivity(
                             new Intent(MainActivity.this, Rudraksha.class)
                     );
+                    finish();
                 break;
             case R.id.nav_ittar:
                 startActivity(
@@ -496,6 +499,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(
                         new Intent(MainActivity.this, Handicrafts.class)
                 );
+                finish();
                 break;
 
             case R.id.nav_birthstone:
@@ -534,6 +538,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(
                         new Intent(MainActivity.this, Jewellery.class)
                 );
+                finish();
                 break;
 
             case R.id.nav_call:

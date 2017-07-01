@@ -239,7 +239,7 @@ public class PukhrajActivity extends YouTubeBaseActivity implements YouTubePlaye
                                     }
                                 })
                                 .create().show();
-                    }catch (IOException e){
+                    }catch (Exception e){
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Could Not Save Image", Toast.LENGTH_LONG).show();
                     }

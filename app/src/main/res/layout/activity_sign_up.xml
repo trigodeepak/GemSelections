@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.nikhil3000.gemselections.SignUpActivity">
+        tools:context="com.example.nikhil3000.gemselections.AuthRelated.SignUpActivity">
         <EditText
             android:id="@+id/_signupname"
             android:padding="10dp"

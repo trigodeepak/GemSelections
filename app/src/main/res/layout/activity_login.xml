@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp"
     android:background="@drawable/side_nav_bar"
-    tools:context="com.example.nikhil3000.gemselections.LoginActivity">
+    tools:context="com.example.nikhil3000.gemselections.AuthRelated.LoginActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

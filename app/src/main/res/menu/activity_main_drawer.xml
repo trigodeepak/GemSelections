@@ -39,7 +39,7 @@
             android:title="Semi Precious Gemstones"/>
         <item
             android:id="@+id/nav_cabochon_gems"
-            android:title="Cabochon Gemsstones"/>
+            android:title="Cabochon Gemstones"/>
         <item
             android:id="@+id/nav_birthstone"
             android:title="Birthstones"/>

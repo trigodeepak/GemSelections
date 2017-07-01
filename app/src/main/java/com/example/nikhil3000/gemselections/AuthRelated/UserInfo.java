@@ -1,4 +1,4 @@
-package com.example.nikhil3000.gemselections;
+package com.example.nikhil3000.gemselections.AuthRelated;
 
 /**
  * Created by anonymous on 20/6/17.

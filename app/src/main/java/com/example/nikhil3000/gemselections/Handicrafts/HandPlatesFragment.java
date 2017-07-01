@@ -44,40 +44,40 @@ public class HandPlatesFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP01.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP01.jpg");
             _1.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP02.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP02.jpg");
             _2.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP03.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP03.jpg");
             _3.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/MarbleTile-GPP-04.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/MarbleTile-GPP-04.jpg");
             _4.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/MarbleTile-GPP-05.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/MarbleTile-GPP-05.jpg");
             _5.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP-06.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP-06.jpg");
             _6.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP-07.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP-07.jpg");
             _7.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP-08.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP-08.jpg");
             _8.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP-09.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP-09.jpg");
             _9.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP-10.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP-10.jpg");
             _10.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP-11.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP-11.jpg");
             _11.setImageBitmap(BitmapFactory.decodeStream(is));
 
-            is = getActivity().getAssets().open("images/Gold Painted - Marble Clocks/small-images/Marble-Tile-GPP-12.jpg");
+            is = getActivity().getAssets().open("images/gold-painted-plates-tiels/Marble-Tile-GPP-12.jpg");
             _12.setImageBitmap(BitmapFactory.decodeStream(is));
         }catch (IOException e){
             e.printStackTrace();
