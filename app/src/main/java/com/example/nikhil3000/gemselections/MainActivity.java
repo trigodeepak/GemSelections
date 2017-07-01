@@ -271,6 +271,7 @@ public class MainActivity extends AppCompatActivity
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                display_selected_item(R.id.nav_home);
                                 dialog.dismiss();
                             }
                         })
