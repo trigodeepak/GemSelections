@@ -1,5 +1,6 @@
 package com.example.nikhil3000.gemselections.Jewellery;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,10 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.nikhil3000.gemselections.R;
+import com.example.nikhil3000.gemselections.WebViewActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,17 +24,26 @@ import java.io.InputStream;
 
 public class CarvedGemstoneFragment extends Fragment {
 
-    private ImageView go1, go2, go3, go4, go5, go6, go7, go8, go9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20;
+    private ImageView go1, go2, go3, go4, go5, go6, go7, go8, go9, g10;//, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20;
 
     //Do not use. Memory to be saved. Not enough memory to allocate all
     /* g21, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34, g35, g36, g37, g38, g39, g40, g41, g42, g43, g44, g45, g46, g47, g48, g49, g50, g51, g52;*/
 
-
+    private Button more;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_carved_gemstone, container, false);
 
+        more = (Button)view.findViewById(R.id.carved_gem);
+        more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), WebViewActivity.class)
+                .putExtra("URL","http://gemselections.in/carvedgemstone.html")
+                .putExtra("parent","Jewellery"));
+            }
+        });
         go1 = (ImageView) view.findViewById(R.id.g01);
         go2 = (ImageView) view.findViewById(R.id.g02);
         go3 = (ImageView) view.findViewById(R.id.g03);
@@ -42,7 +54,8 @@ public class CarvedGemstoneFragment extends Fragment {
         go8 = (ImageView) view.findViewById(R.id.g08);
         go9 = (ImageView) view.findViewById(R.id.g09);
         g10 = (ImageView) view.findViewById(R.id.g10);
-        g11 = (ImageView) view.findViewById(R.id.g11);
+        //DO NOT USE
+        /*g11 = (ImageView) view.findViewById(R.id.g11);
         g12 = (ImageView) view.findViewById(R.id.g12);
         g13 = (ImageView) view.findViewById(R.id.g13);
         g14 = (ImageView) view.findViewById(R.id.g14);
@@ -52,9 +65,7 @@ public class CarvedGemstoneFragment extends Fragment {
         g18 = (ImageView) view.findViewById(R.id.g18);
         g19 = (ImageView) view.findViewById(R.id.g19);
         g20 = (ImageView) view.findViewById(R.id.g20);
-
-        //DO NOT USE
-        /*g21 = (ImageView) view.findViewById(R.id.g21);
+        g21 = (ImageView) view.findViewById(R.id.g21);
         g22 = (ImageView) view.findViewById(R.id.g22);
         g23 = (ImageView) view.findViewById(R.id.g23);
         g24 = (ImageView) view.findViewById(R.id.g24);
@@ -120,7 +131,7 @@ public class CarvedGemstoneFragment extends Fragment {
             go9.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-gemstone-rings.jpg");
             g10.setImageBitmap(BitmapFactory.decodeStream(is));
-            is = getActivity().getAssets().open("images/carving-gems/carved-golden-topaz.jpg");
+            /*is = getActivity().getAssets().open("images/carving-gems/carved-golden-topaz.jpg");
             g11.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-image.jpg");
             g12.setImageBitmap(BitmapFactory.decodeStream(is));
@@ -140,7 +151,7 @@ public class CarvedGemstoneFragment extends Fragment {
             g19.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-image-12.jpg");
             g20.setImageBitmap(BitmapFactory.decodeStream(is));
-            /*is = getActivity().getAssets().open("images/carving-gems/carved-images-13.jpg");
+            is = getActivity().getAssets().open("images/carving-gems/carved-images-13.jpg");
             g21.setImageBitmap(BitmapFactory.decodeStream(is));
             is = getActivity().getAssets().open("images/carving-gems/carved-lepiz-lazuli.jpg");
             g22.setImageBitmap(BitmapFactory.decodeStream(is));

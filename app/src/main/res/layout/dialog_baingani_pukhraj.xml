@@ -14,15 +14,39 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/_button"
-            android:textSize="18sp"
+
+        <LinearLayout
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="center_horizontal"
-            android:text="BUY NOW"
-            android:background="@drawable/button"/>
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/_button"
+                android:textSize="18sp"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:fontFamily="serif"
+                android:text="BUY NOW"
+                android:background="@drawable/button"/>
+
+            <Button
+                android:id="@+id/_video"
+                android:layout_margin="5dp"
+                android:textSize="18sp"
+                android:fontFamily="serif"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="VIEW VIDEO"
+                android:background="@drawable/button"/>
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/_text"
             android:layout_marginTop="20dp"

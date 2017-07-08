@@ -32,7 +32,7 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
 
     private ImageView _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _trijuti, _ganesh, _gauri;
 
-    private YouTubePlayer OneMukhiPlayer, GauriPlayer;
+    private YouTubePlayer MainPlayer;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
     private static final int RECOVERY_REQUEST = 1;
 
@@ -49,13 +49,12 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
 
                 if (!wasRestored) {
-                    OneMukhiPlayer = player;
-                    OneMukhiPlayer.cueVideo("vnP0lyisxAs");
-                    OneMukhiPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
+                    MainPlayer = player;
+                    MainPlayer.cueVideo("Qd1hHh_vEkA");
+                    MainPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                         @Override
                         public void onFullscreen(boolean b) {
                             if(!b){
-                                //YPlayer.setFullscreen(false);
                                 if(getActivity().getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT)
                                 {
                                     getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -78,45 +77,7 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
             }
         });
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.yt_onemuki, youTubePlayerFragment).commit();
-
-        YouTubePlayerSupportFragment youTubePlayerFragment1 = YouTubePlayerSupportFragment.newInstance();
-        youTubePlayerFragment1.initialize(DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
-
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
-
-                if (!wasRestored) {
-                    GauriPlayer = player;
-                    GauriPlayer.cueVideo("SbLQHuaeH_Q");
-                    GauriPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
-                        @Override
-                        public void onFullscreen(boolean b) {
-                            if(!b){
-                                //YPlayer.setFullscreen(false);
-                                if(getActivity().getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT)
-                                {
-                                    getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                                }
-                            }
-                        }
-                    });
-                }
-
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
-                if (arg1.isUserRecoverableError()) {
-                    arg1.getErrorDialog(getActivity(), RECOVERY_REQUEST).show();
-                } else {
-                    String error = String.format(getString(R.string.player_error), arg1.toString());
-                    Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        FragmentTransaction transaction1 = getChildFragmentManager().beginTransaction();
-        transaction1.add(R.id.yt_gauri, youTubePlayerFragment1).commit();
+        transaction.add(R.id.rud_bead_main, youTubePlayerFragment).commit();
 
         _1 = (ImageView)view.findViewById(R.id.rud_bead_one);
         _1.setOnClickListener(this);

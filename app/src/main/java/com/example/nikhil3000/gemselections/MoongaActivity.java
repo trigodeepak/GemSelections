@@ -2,27 +2,50 @@ package com.example.nikhil3000.gemselections;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.nikhil3000.gemselections.Ruby.RubyActivity;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MoongaActivity extends AppCompatActivity implements View.OnClickListener{
+public class MoongaActivity extends YouTubeBaseActivity implements View.OnClickListener, YouTubePlayer.OnInitializedListener {
 
     private Button buy_coral;
     private ImageView italian, srilankan, jap;
+
+    private YouTubePlayerView playerView;
+    private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
+    private static final int RECOVERY_REQUEST = 1;
+
+    private android.widget.Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moonga);
+
+        toolbar = (android.widget.Toolbar) findViewById(R.id.coral_toolbar);
+        setActionBar(toolbar);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        playerView = (YouTubePlayerView)findViewById(R.id.coral_video);
+        playerView.initialize(DEVELOPER_KEY, this);
 
         buy_coral = (Button)findViewById(R.id.buy_coral);
         buy_coral.setOnClickListener(
@@ -92,5 +115,46 @@ public class MoongaActivity extends AppCompatActivity implements View.OnClickLis
 
         t1.setText(getString(content1));
         t2.setText(getString(content2));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RECOVERY_REQUEST) {
+
+            getYouTubePlayerProvider().initialize(DEVELOPER_KEY, this);
+        }
+    }
+
+    protected YouTubePlayer.Provider getYouTubePlayerProvider() {
+        return playerView;
+    }
+
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+        if(!b){
+            youTubePlayer.cueVideo("IE2taW6_Xi4");
+            youTubePlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
+                @Override
+                public void onFullscreen(boolean b) {
+                    if(!b){
+                        //youTubePlayer.setFullscreen(false);
+                        if(getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT)
+                        {
+                            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+        if (youTubeInitializationResult.isUserRecoverableError()) {
+            youTubeInitializationResult.getErrorDialog(MoongaActivity.this, RECOVERY_REQUEST).show();
+        } else {
+            String error = String.format(getString(R.string.player_error), youTubeInitializationResult.toString());
+            Toast.makeText(MoongaActivity.this, error, Toast.LENGTH_LONG).show();
+        }
     }
 }

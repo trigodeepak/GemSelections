@@ -19,6 +19,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,9 +32,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nikhil3000.gemselections.Adapters.ConnectAdapter;
 import com.example.nikhil3000.gemselections.AuthRelated.LoginActivity;
 import com.example.nikhil3000.gemselections.Handicrafts.Handicrafts;
 import com.example.nikhil3000.gemselections.Jewellery.Jewellery;
+import com.example.nikhil3000.gemselections.Lists.ConnectOptions;
 import com.example.nikhil3000.gemselections.Rudraksha.Rudraksha;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -40,6 +45,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
@@ -140,6 +147,7 @@ public class MainActivity extends AppCompatActivity
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
+                                    display_selected_item(R.id.nav_home);
                                 }
                             })
                             .setTitle("Exit App")
@@ -586,12 +594,8 @@ public class MainActivity extends AppCompatActivity
                     fragment = new MainVisitUsFragment();
                 break;
 
-            case R.id.nav_fb_page:
-                    startActivity(
-                            new Intent(MainActivity.this, WebViewActivity.class)
-                                    .putExtra("URL", "http://www.facebook.com/GemSelections.in/")
-                                    .putExtra("parent", "MainActivity")
-                    );
+            case R.id.nav_connect:
+                connect_with_us();
                 break;
 
             case R.id.ac_about_us:
@@ -637,5 +641,75 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void connect_with_us() {
+
+        String[] _options = {
+                "Facebook",
+                "Twitter",
+                "Instagram",
+                "Youtube",
+                "Linked In",
+                "Flickr",
+                "Snapchat",
+                "Pinterest",
+                "Tumblr",
+                "Stuble upon",
+                "Google Plus"
+        };
+
+        String[] _image = {
+                "icons/fb.png",
+                "icons/twitter.png",
+                "icons/insta.jpg",
+                "icons/youtube.png",
+                "icons/linkedin.png",
+                "icons/flickr.png",
+                "icons/snapchat.png",
+                "icons/pinterest-.png",
+                "icons/tumblr.png",
+                "icons/stumbleupon.png",
+                "icons/Google-plus-icon.png"
+        };
+
+        String[] _links = {
+                "https://www.facebook.com/GemSelections.in/",
+                "https://www.twitter.com/Gem_Selections",
+                "https://www.instagram.com/gemselections/",
+                "https://www.youtube.com/channel/UCt3nkzLE2NKMuwu3V0KQtbw",
+                "https://www.linkedin.com/company/khanna-gems-pvt.-limited",
+                "https://www.flickr.com/photos/gemselections/",
+                "snapchat",
+                "https://www.pinterest.com/gemselections01/",
+                "https://gemselections.tumblr.com/",
+                "https://www.stumbleupon.com/stumbler/GemSelections",
+                "https://plus.google.com/+GemSelectionsNewDelhi"
+        };
+
+        Dialog dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.dialog_connect);
+        dialog.setTitle("Connect With Us");
+
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+        params.copyFrom(dialog.getWindow().getAttributes());
+        params.width = (WindowManager.LayoutParams.MATCH_PARENT);
+        params.height = (WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setAttributes(params);
+        dialog.show();
+
+        RecyclerView view = (RecyclerView)dialog.findViewById(R.id.connect_recycler);
+        view.setHasFixedSize(true);
+        view.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        view.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));;
+
+        List<ConnectOptions> optionses = new ArrayList<>();
+        for(int i =0; i<11;i++){
+            ConnectOptions options = new ConnectOptions(_image[i],_options[i],_links[i]);
+            optionses.add(options);
+        }
+
+        ConnectAdapter adapter = new ConnectAdapter(optionses, MainActivity.this);
+        view.setAdapter(adapter);
     }
 }

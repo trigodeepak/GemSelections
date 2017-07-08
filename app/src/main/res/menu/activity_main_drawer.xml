@@ -57,8 +57,13 @@
             android:title="Frequently Asked Ques."/>
     </group>
 
-    <item android:title="Contact">
+    <item android:title="Contact Us">
         <menu>
+            <item
+                android:id="@+id/nav_connect"
+                android:icon="@drawable/ic_connect"
+                android:title="Connect With Us"
+                />
             <item
                 android:id="@+id/nav_call"
                 android:icon="@drawable/ic_call"
@@ -71,11 +76,7 @@
                 android:id="@+id/nav_visit"
                 android:icon="@drawable/ic_store"
                 android:title="Visit Us"/>
-            <item
-                android:id="@+id/nav_fb_page"
-                android:icon="@drawable/ic_fb"
-                android:title="Find Us on Facebook"
-                />
+
         </menu>
     </item>
 

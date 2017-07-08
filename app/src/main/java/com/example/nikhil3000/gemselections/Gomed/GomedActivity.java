@@ -232,7 +232,7 @@ public class GomedActivity extends YouTubeBaseActivity implements YouTubePlayer.
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         if(!b){
-            youTubePlayer.cueVideo("DQ9dWIpyNI");
+            youTubePlayer.cueVideo("DQ9dWlpyNl");
             youTubePlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                 @Override
                 public void onFullscreen(boolean b) {

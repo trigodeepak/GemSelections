@@ -91,9 +91,11 @@
             android:label="Forget Password" />
         <activity
             android:name=".WebViewActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/NeelamTheme" />
         <activity
             android:name=".MoongaActivity"
+            android:label="Red Coral"
+            android:theme="@style/CoralTheme"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

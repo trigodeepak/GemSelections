@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import com.example.nikhil3000.gemselections.Ruby.RubyActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,9 +42,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private ImageView baingani, panna, pukhraj, manik, neelam, gomed, gulabi, pitambari, lehsunia, moti, moonga, heera, safed, hara;
 
-    private YouTubePlayer YPlayer;
+    private YouTubePlayer YPlayer, YPlayer1;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
     private static final int RECOVERY_REQUEST = 1;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,7 +60,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                 if (!wasRestored) {
                     YPlayer = player;
-                    YPlayer.cueVideo("exSOLLQKZEM");
+                    YPlayer.cueVideo("0SMvY7ko5NA");
 
                     YPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                         @Override
@@ -168,8 +171,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    private void show_dialog(final String title, final int content, final String imgurl, final String onclick){
-        Dialog dialog = new Dialog(getActivity());
+    private void show_dialog(final String title, final int content, final String imgurl, final String onclick, final String video_url) {
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_baingani_pukhraj);
         dialog.setTitle(title);
 
@@ -182,32 +185,46 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         dialog.getWindow().setAttributes(params);
 
         ImageView img = (ImageView) dialog.findViewById(R.id._img);
-        try{
+        try {
             InputStream is = getActivity().getAssets().open(imgurl);
             img.setImageBitmap(BitmapFactory.decodeStream(is));
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        TextView textView = (TextView)dialog.findViewById(R.id._text);
+        TextView textView = (TextView) dialog.findViewById(R.id._text);
         textView.setText(getString(content));
 
-        Button btn = (Button)dialog.findViewById(R.id._button);
+        Button btn = (Button) dialog.findViewById(R.id._button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(
                         new Intent(getActivity(), WebViewActivity.class)
-                        .setData(Uri.parse(onclick))
+                                .putExtra("URL",onclick)
+                                .putExtra("parent", "MainActivity")
                 );
+                dialog.dismiss();
             }
         });
+
+        Button btn1 = (Button) dialog.findViewById(R.id._video);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.youtube.com/watch?v="+video_url));
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+
     }
 
     @Override
     public void onClick(View v) {
         if(v == baingani){
-            show_dialog("Baingani Pukhraj", R.string.baingani_pukhraj_text, "images/precious-gems/gems/Purple-sapphire.jpg", "http://khannagems.com/index.php/gem-stones/baingani-pukhraj.html");
+            show_dialog("Baingani Pukhraj", R.string.baingani_pukhraj_text, "images/precious-gems/gems/Purple-sapphire.jpg", "http://khannagems.com/index.php/gem-stones/baingani-pukhraj.html", "GT6d2ShkyQ4");
         }
         if(v == panna)
         {
@@ -216,19 +233,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             );
         }
         if(v == moti){
-            show_dialog("Moti | Fresh Water Pearl", R.string.moti_text, "images/Fresh-water-pearl.jpg", "http://khannagems.com/index.php/gem-stones/moti.html");
+            show_dialog("Moti | Fresh Water Pearl", R.string.moti_text, "images/Fresh-water-pearl.jpg", "http://khannagems.com/index.php/gem-stones/moti.html", "5lbgEk97vbM");
         }
         if(v == pitambari){
-            show_dialog("Pitambari Neelam", R.string.pitambari_text, "images/precious-gems/gems/Pitambari-neelam.jpg", "http://khannagems.com/index.php/gem-stones/pitambari-neelam.html");
+            show_dialog("Pitambari Neelam", R.string.pitambari_text, "images/precious-gems/gems/Pitambari-neelam.jpg", "http://khannagems.com/index.php/gem-stones/pitambari-neelam.html", "CeDODoOMGCU");
         }
         if(v == safed){
-            show_dialog("Safed Pukhraj", R.string.safed_text, "images/precious-gems/safed-pukhraj.jpg", "http://khannagems.com/index.php/gem-stones/pukhraj.html");
+            show_dialog("Safed Pukhraj", R.string.safed_text, "images/precious-gems/safed-pukhraj.jpg", "http://khannagems.com/index.php/gem-stones/pukhraj.html", "7LHUls5FNdk");
         }
         if(v == gulabi){
-            show_dialog("Gulabi Pukhraj", R.string.gulabi_text, "images/precious-gems/gems/pink-sapphire.jpg", "http://khannagems.com/index.php/gem-stones/pukhraj.html");
+            show_dialog("Gulabi Pukhraj", R.string.gulabi_text, "images/precious-gems/gems/pink-sapphire.jpg", "http://khannagems.com/index.php/gem-stones/pukhraj.html", "sgnb-nr1UHQ");
         }
         if(v == hara){
-            show_dialog("Hara Pukhraj", R.string.hara_text, "images/precious-gems/hara-pukhraj.jpg", "http://khannagems.com/index.php/gem-stones/pukhraj.html");
+            show_dialog("Hara Pukhraj", R.string.hara_text, "images/precious-gems/hara-pukhraj.jpg", "http://khannagems.com/index.php/gem-stones/pukhraj.html", "GVOcqJeG5iM");
         }
         if(v == moonga){
             startActivity(
@@ -261,4 +278,5 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             );
         }
     }
+
 }
