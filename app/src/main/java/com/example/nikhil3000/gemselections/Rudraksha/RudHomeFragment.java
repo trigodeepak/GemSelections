@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.nikhil3000.gemselections.R;
@@ -28,7 +29,6 @@ import java.io.InputStream;
 public class RudHomeFragment extends Fragment {
 
     private ImageView banner;
-
     private YouTubePlayer YPlayer;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
     private static final int RECOVERY_REQUEST = 1;
@@ -37,6 +37,10 @@ public class RudHomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_rud_home, container, false);
+
+
+        ScrollView scrollView = (ScrollView)view.findViewById(R.id.scroll);
+        scrollView.setBackground(getResources().getDrawable(R.drawable.back));
 
         YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
 

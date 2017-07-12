@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -39,6 +40,9 @@ public class MainCabochonFragment extends Fragment implements AdapterView.OnItem
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_main_cabochon, container, false);
 
+        ScrollView scrollView = (ScrollView)view.findViewById(R.id.scroll);
+        scrollView.setBackground(getResources().getDrawable(R.drawable.back));
+
         spinner = (Spinner)view.findViewById(R.id.cabochon_spinner);
         arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, options);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -51,6 +55,7 @@ public class MainCabochonFragment extends Fragment implements AdapterView.OnItem
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle("Cabochon Gems");
     }
 
     @Override

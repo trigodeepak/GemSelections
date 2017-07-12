@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +29,10 @@ public class MainKavachFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_main_kavach, container, false);
+
+        ScrollView scrollView = (ScrollView)view.findViewById(R.id.scroll);
+        scrollView.setBackground(getResources().getDrawable(R.drawable.back));
+
         image = (ImageView)view.findViewById(R.id.kavach_image);
         shop = (Button)view.findViewById(R.id.shop);
         shop.setOnClickListener(new View.OnClickListener() {

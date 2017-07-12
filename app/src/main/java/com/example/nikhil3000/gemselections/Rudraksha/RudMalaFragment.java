@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import com.example.nikhil3000.gemselections.R;
 
@@ -24,6 +25,10 @@ public class RudMalaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_rud_mala, container, false);
+
+        ScrollView scrollView = (ScrollView)view.findViewById(R.id.scroll);
+        scrollView.setBackground(getResources().getDrawable(R.drawable.back));
+
         five = (ImageView)view.findViewById(R.id.mala_five_mukhi);
         eight = (ImageView)view.findViewById(R.id.mala_eight_mukhi);
         banner = (ImageView)view.findViewById(R.id._rud_banner2);

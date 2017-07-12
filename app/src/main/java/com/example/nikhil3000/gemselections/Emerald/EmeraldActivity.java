@@ -4,12 +4,15 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nikhil3000.gemselections.R;
+import com.example.nikhil3000.gemselections.Ruby.RubyActivity;
 import com.example.nikhil3000.gemselections.WebViewActivity;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -34,14 +38,18 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 public class EmeraldActivity extends YouTubeBaseActivity implements AdapterView.OnItemSelectedListener, YouTubePlayer.OnInitializedListener {
 
     private ImageView banner;
 
+    private Bitmap img;
+    private boolean first= true;
+
     private YouTubePlayerView playerView;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
-    private static final int RECOVERY_REQUEST = 1;
+    private static final int RECOVERY_REQUEST = 2;
 
     private String[] _options =
             {
@@ -111,6 +119,9 @@ public class EmeraldActivity extends YouTubeBaseActivity implements AdapterView.
 
             getYouTubePlayerProvider().initialize(DEVELOPER_KEY, this);
         }
+        if(requestCode == 1){
+            save_image();
+        }
     }
 
     protected YouTubePlayer.Provider getYouTubePlayerProvider() {
@@ -134,9 +145,7 @@ public class EmeraldActivity extends YouTubeBaseActivity implements AdapterView.
 
         ImageView iv = (ImageView)dialog.findViewById(R.id.image_here);
         final InputStream in;
-        Bitmap img=null;
-        final Bitmap imgcpy;
-
+        img = null;
         try {
             in = getAssets().open(url);
             img = BitmapFactory.decodeStream(in);
@@ -146,64 +155,73 @@ public class EmeraldActivity extends YouTubeBaseActivity implements AdapterView.
             e.printStackTrace();
         }
 
-        imgcpy = img;
-
         final FloatingActionButton save = (FloatingActionButton)dialog.findViewById(R.id.fab_save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                File filePath = Environment.getExternalStorageDirectory();
-
-                File dir = new File(filePath.getAbsoluteFile()+"/SavedImage/");
-                dir.mkdirs();
-
-                File file = new File(dir, "image.jpg");
-
-                FileOutputStream fos=null;
-
-                try{
-                    fos = new FileOutputStream(file);
-
-                    imgcpy.compress(Bitmap.CompressFormat.JPEG, 90, fos);
-
-                }catch (Exception e){
-                    e.printStackTrace();
-                }finally {
-                    try{
-                        assert fos != null;
-                        fos.flush();
-                        fos.close();
-                        final String path = file.getAbsolutePath();
-                        new AlertDialog.Builder(EmeraldActivity.this)
-                                .setTitle("Image Saved Successfully")
-                                .setIcon(R.drawable.ic_save)
-                                .setMessage("Image saved at: "+path)
-                                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                })
-                                .setPositiveButton("Open", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Toast.makeText(getApplicationContext(), "Opening...", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                                        intent.setDataAndType(Uri.parse("file://"+path), "image/*");
-                                        startActivity(intent);
-                                    }
-                                })
-                                .create().show();
-                    }catch (Exception e){
-                        e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Could Not Save Image", Toast.LENGTH_LONG).show();
-                    }
+                if (ContextCompat.checkSelfPermission(getApplicationContext(),
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(EmeraldActivity.this,
+                            new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                }else{
+                    save_image();
                 }
             }
         });
+    }
 
+    private void save_image(){
+        final String filePath = Environment.getExternalStorageDirectory().toString();
 
+        File dir = new File(filePath + "/gemselections_images");
+        dir.mkdirs();
+
+        Random generate = new Random();
+        int n = 10000;
+        n = generate.nextInt(n);
+
+        String fName = "Image-" + n + ".jpg";
+
+        File file = new File(dir, fName);
+        if (file.exists()) {
+            n++;
+            fName = "Image-" + n*10 + ".jpg";
+            file = new File(dir, fName);
+        }
+
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            img.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+            final File finalFile = file;
+            new AlertDialog.Builder(EmeraldActivity.this)
+                    .setTitle("Image Saved Successfully")
+                    .setIcon(R.drawable.ic_save)
+                    .setMessage("Image saved at: " + file.getAbsolutePath())
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setPositiveButton("Open", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getApplicationContext(), "Opening...", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setDataAndType(Uri.parse("file://" + finalFile.getAbsolutePath()), "image/*");
+                            startActivity(intent);
+                        }
+                    })
+                    .create().show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(EmeraldActivity.this, "Could not save image", Toast.LENGTH_SHORT).show();
+        } catch (NullPointerException e) {
+            Toast.makeText(EmeraldActivity.this, "Could not save image", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -243,6 +261,7 @@ public class EmeraldActivity extends YouTubeBaseActivity implements AdapterView.
             switch (position){
                 case 0:
                     fragment = new EmeraldInfo();
+                    first = true;
                     break;
                 case 1:
                     fragment = new EmeraldCabochon();
@@ -264,8 +283,13 @@ public class EmeraldActivity extends YouTubeBaseActivity implements AdapterView.
                 getFragmentManager().beginTransaction()
                         .replace(R.id.emerald_container, fragment)
                         .commit();
-                View targetView = findViewById(R.id.emerald_container);
-                targetView.getParent().requestChildFocus(targetView,targetView);
+                if(first){
+                    first=false;
+                }else {
+                    View view1 = findViewById(R.id.emerald_container);
+                    view1.requestFocus();
+                }
+
             }
         }
         if (parent == spinner2){

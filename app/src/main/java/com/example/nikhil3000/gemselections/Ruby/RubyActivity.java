@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +15,8 @@ import android.os.Environment;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +30,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.nikhil3000.gemselections.MainActivity;
+import com.example.nikhil3000.gemselections.Pukhraj.PukhrajActivity;
 import com.example.nikhil3000.gemselections.R;
+import com.example.nikhil3000.gemselections.Rudraksha.Rudraksha;
 import com.example.nikhil3000.gemselections.WebViewActivity;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -38,6 +44,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 /**
  * Created by anonymous on 29/6/17.
@@ -45,7 +52,10 @@ import java.io.InputStream;
 
 public class RubyActivity extends YouTubeBaseActivity implements AdapterView.OnItemSelectedListener, YouTubePlayer.OnInitializedListener {
 
+    private Bitmap img;
     private ImageView banner;
+
+    boolean first = false;
 
     private YouTubePlayerView playerView;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
@@ -173,6 +183,7 @@ public class RubyActivity extends YouTubeBaseActivity implements AdapterView.OnI
 
                 case 0:
                         fragment = new RubyInfo();
+                    first = true;
                     break;
 
                 case 1:
@@ -203,8 +214,12 @@ public class RubyActivity extends YouTubeBaseActivity implements AdapterView.OnI
                 getFragmentManager().beginTransaction()
                         .replace(R.id.ruby_container, fragment)
                         .commit();
-                View targetView = findViewById(R.id.ruby_container);
-                targetView.getParent().requestChildFocus(targetView,targetView);
+                if(first){
+                    first = false;
+                }else {
+                    View targetView = findViewById(R.id.ruby_container);
+                    targetView.getParent().requestChildFocus(targetView, targetView);
+                }
             }
         }
         if(parent == spinner2){
@@ -270,9 +285,7 @@ public class RubyActivity extends YouTubeBaseActivity implements AdapterView.OnI
 
         ImageView iv = (ImageView)dialog.findViewById(R.id.image_here);
         final InputStream in;
-        Bitmap img=null;
-        final Bitmap imgcpy;
-
+        img = null;
         try {
             in = getAssets().open(url);
             img = BitmapFactory.decodeStream(in);
@@ -282,64 +295,73 @@ public class RubyActivity extends YouTubeBaseActivity implements AdapterView.OnI
             e.printStackTrace();
         }
 
-        imgcpy = img;
-
         final FloatingActionButton save = (FloatingActionButton)dialog.findViewById(R.id.fab_save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                File filePath = Environment.getExternalStorageDirectory();
-
-                File dir = new File(filePath.getAbsoluteFile()+"/SavedImage/");
-                dir.mkdirs();
-
-                File file = new File(dir, "image.jpg");
-
-                FileOutputStream fos=null;
-
-                try{
-                    fos = new FileOutputStream(file);
-
-                    imgcpy.compress(Bitmap.CompressFormat.JPEG, 90, fos);
-
-                }catch (Exception e){
-                    e.printStackTrace();
-                }finally {
-                    try{
-                        assert fos != null;
-                        fos.flush();
-                        fos.close();
-                        final String path = file.getAbsolutePath();
-                        new AlertDialog.Builder(RubyActivity.this)
-                                .setTitle("Image Saved Successfully")
-                                .setIcon(R.drawable.ic_save)
-                                .setMessage("Image saved at: "+path)
-                                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                })
-                                .setPositiveButton("Open", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Toast.makeText(getApplicationContext(), "Opening...", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                                        intent.setDataAndType(Uri.parse("file://"+path), "image/*");
-                                        startActivity(intent);
-                                    }
-                                })
-                                .create().show();
-                    }catch (Exception e){
-                        e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Could Not Save Image", Toast.LENGTH_LONG).show();
-                    }
+                if (ContextCompat.checkSelfPermission(getApplicationContext(),
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(RubyActivity.this,
+                            new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                }else{
+                    save_image();
                 }
             }
         });
+    }
 
+    private void save_image(){
+        final String filePath = Environment.getExternalStorageDirectory().toString();
 
+        File dir = new File(filePath + "/gemselections_images");
+        dir.mkdirs();
+
+        Random generate = new Random();
+        int n = 10000;
+        n = generate.nextInt(n);
+
+        String fName = "Image-" + n + ".jpg";
+
+        File file = new File(dir, fName);
+        if (file.exists()) {
+            n++;
+            fName = "Image-" + n*10 + ".jpg";
+            file = new File(dir, fName);
+        }
+
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            img.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+            final File finalFile = file;
+            new AlertDialog.Builder(RubyActivity.this)
+                    .setTitle("Image Saved Successfully")
+                    .setIcon(R.drawable.ic_save)
+                    .setMessage("Image saved at: " + file.getAbsolutePath())
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setPositiveButton("Open", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getApplicationContext(), "Opening...", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setDataAndType(Uri.parse("file://" + finalFile.getAbsolutePath()), "image/*");
+                            startActivity(intent);
+                        }
+                    })
+                    .create().show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(RubyActivity.this, "Could not save image", Toast.LENGTH_SHORT).show();
+        } catch (NullPointerException e) {
+            Toast.makeText(RubyActivity.this, "Could not save image", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -347,6 +369,10 @@ public class RubyActivity extends YouTubeBaseActivity implements AdapterView.OnI
         if (requestCode == RECOVERY_REQUEST) {
 
             getYouTubePlayerProvider().initialize(DEVELOPER_KEY, this);
+        }
+
+        if(requestCode == 1){
+            save_image();
         }
     }
 

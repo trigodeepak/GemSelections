@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +26,10 @@ public class RudYugalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_rud_yugal, container, false);
+
+        ScrollView scrollView = (ScrollView)view.findViewById(R.id.scroll);
+        scrollView.setBackground(getResources().getDrawable(R.drawable.back));
+
         akarshan = (ImageView)view.findViewById(R.id.akarshan_vridhi);
         banner = (ImageView)view.findViewById(R.id._rud_banner3);
         InputStream is;

@@ -15,16 +15,17 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class WebViewActivity extends AppCompatActivity {
 
     private WebView webView;
     private String _parent;
-    private Class parent;
-    private Toolbar toolbar;
+    //private Class parent;
+    //private Toolbar toolbar;
     private String _URL;
-    private ProgressDialog dialog;
+    private ProgressBar progressBar;
     private boolean loadingFinished = true;
     private boolean redirect = false;
 
@@ -33,16 +34,15 @@ public class WebViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        /*toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
-        dialog = new ProgressDialog(WebViewActivity.this);
-        dialog.setIndeterminate(false);
-        dialog.setMessage("Loading...");
+        progressBar = (ProgressBar)findViewById(R.id.webview_progressBar);
 
         webView = (WebView)findViewById(R.id.webview);
+        webView.setVisibility(View.GONE);
         webView.setWebViewClient(new WebViewClient(){
 
             @Override
@@ -52,15 +52,18 @@ public class WebViewActivity extends AppCompatActivity {
                 }
                 loadingFinished = false;
                 view.loadUrl(urlNew);
-                getSupportActionBar().setTitle(urlNew);
+
+                //getSupportActionBar().setTitle(urlNew);
+
                 return true;
             }
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 loadingFinished = false;
-                if(!dialog.isShowing()){
-                    dialog.show();
+                if(progressBar.getVisibility() == View.GONE){
+                    progressBar.setVisibility(View.VISIBLE);
+                    webView.setVisibility(View.GONE);
                 }
             }
 
@@ -69,9 +72,12 @@ public class WebViewActivity extends AppCompatActivity {
                 if(!redirect){
                     loadingFinished = true;
                 }
-                getSupportActionBar().setTitle(url);
+
+                //getSupportActionBar().setTitle(url);
+
                 if(loadingFinished && !redirect){
-                    dialog.dismiss();
+                    progressBar.setVisibility(View.GONE);
+                    webView.setVisibility(View.VISIBLE);
                 }else {
                     redirect = false;
                 }
@@ -82,17 +88,17 @@ public class WebViewActivity extends AppCompatActivity {
 
         if(getIntent().getExtras() != null){
             _URL = getIntent().getStringExtra("URL");
-            _parent = getIntent().getStringExtra("parent");
-            try {
-                parent = Class.forName(_parent);
+            //_parent = getIntent().getStringExtra("parent");
+            /*try {
+                //parent = Class.forName(_parent);
             } catch (ClassNotFoundException e) {
-                parent = MainActivity.class;
+                //parent = MainActivity.class;
                 e.printStackTrace();
-            }
+            }*/
         }else {
-             Snackbar.make(getCurrentFocus(), "Valid URL not found. Opening google search", Snackbar.LENGTH_SHORT).show();
-            _URL = "http://www.google.co.in";
-            parent = MainActivity.class;
+             Snackbar.make(getCurrentFocus(), "Valid URL not found. Opening Khanna Gems", Snackbar.LENGTH_SHORT).show();
+            _URL = "http://khannagems.com";
+            //parent = MainActivity.class;
         }
         webView.loadUrl(_URL);
     }
@@ -106,7 +112,7 @@ public class WebViewActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
+/*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -133,5 +139,5 @@ public class WebViewActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.webview, menu);
         return true;
     }
-
+*/
 }

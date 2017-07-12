@@ -44,15 +44,15 @@ public class SilverSetFragment extends Fragment {
         InputStream is;
 
         try {
-            is = getActivity().getAssets().open("images/silver-sets/STANS01.jpg");
+            is = getActivity().getAssets().open("images/silver-sets/STANS01.JPG");
             go1.setImageBitmap(BitmapFactory.decodeStream(is));
-            is = getActivity().getAssets().open("images/silver-sets/STANS02.jpg");
+            is = getActivity().getAssets().open("images/silver-sets/STANS02.JPG");
             go2.setImageBitmap(BitmapFactory.decodeStream(is));
-            is = getActivity().getAssets().open("images/silver-sets/STANS03.jpg");
+            is = getActivity().getAssets().open("images/silver-sets/STANS03.JPG");
             go3.setImageBitmap(BitmapFactory.decodeStream(is));
-            is = getActivity().getAssets().open("images/silver-sets/STANS04.jpg");
+            is = getActivity().getAssets().open("images/silver-sets/STANS04.JPG");
             go4.setImageBitmap(BitmapFactory.decodeStream(is));
-            is = getActivity().getAssets().open("images/silver-sets/STANS05.jpg");
+            is = getActivity().getAssets().open("images/silver-sets/STANS05.JPG.");
             go5.setImageBitmap(BitmapFactory.decodeStream(is));
 
         }catch (IOException e) {

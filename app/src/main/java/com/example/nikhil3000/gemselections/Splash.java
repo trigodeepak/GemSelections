@@ -7,10 +7,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +31,7 @@ public class Splash extends AppCompatActivity {
         Splash = (TextView)findViewById(R.id.splash_appname);
         Logo = (ImageView)findViewById(R.id.splash_image);
 
-        Splash.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Raleway/Raleway-Regular.ttf"));
+        Splash.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf"));
 
         InputStream is;
         Bitmap img;

@@ -1,9 +1,11 @@
 package com.example.nikhil3000.gemselections.Rudraksha;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,11 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nikhil3000.gemselections.R;
+import com.example.nikhil3000.gemselections.WebViewActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -201,8 +205,36 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
 
         getActivity().setTitle("Beads");
     }
-    private void show_dialog(String title, int content) {
-        Dialog dialog = new Dialog(getActivity());
+    private void show_dialog(String title, int content, final String url) {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.setTitle(title);
+        dialog.setContentView(R.layout.dialog_beads);
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.copyFrom(dialog.getWindow().getAttributes());
+
+        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        dialog.show();
+        dialog.getWindow().setAttributes(layoutParams);
+
+        TextView textView  = (TextView)dialog.findViewById(R.id.content);
+        textView.setText(getString(content));
+
+        Button button = (Button)dialog.findViewById(R.id.watch_video);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.youtube.com/watch?v="+url));
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private void show_dialog2(String title, int content) {
+        final Dialog dialog = new Dialog(getActivity());
         dialog.setTitle(title);
         dialog.setContentView(R.layout.dialog_bracelet);
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
@@ -221,76 +253,76 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if(v==_1){
-            show_dialog("ONE MUKHI", R.string.bead_1);
+            show_dialog("ONE MUKHI", R.string.bead_1, "nN6E3NHRg34");
         }
         if(v==_2){
-            show_dialog("TWO MUKHI", R.string.bead_2);
+            show_dialog("TWO MUKHI", R.string.bead_2, "nN6E3NHRg34");
         }
         if(v==_3){
-            show_dialog("THREE MUKHI", R.string.bead_3);
+            show_dialog("THREE MUKHI", R.string.bead_3,"nN6E3NHRg34");
         }
         if(v==_4){
-            show_dialog("FOUR MUKHI", R.string.bead_4);
+            show_dialog("FOUR MUKHI", R.string.bead_4,"98ZVRxKsW2Q");
         }
         if(v==_5){
-            show_dialog("FIVE MUKHI", R.string.bead_5);
+            show_dialog("FIVE MUKHI", R.string.bead_5,"98ZVRxKsW2Q");
         }
         if(v==_6){
-            show_dialog("SIX MUKHI", R.string.bead_6);
+            show_dialog("SIX MUKHI", R.string.bead_6,"98ZVRxKsW2Q");
         }
         if(v==_7){
-            show_dialog("SEVEN MUKHI", R.string.bead_7);
+            show_dialog("SEVEN MUKHI", R.string.bead_7,"lMzvQ2_chEM");
         }
         if(v==_8){
-            show_dialog("EIGHT MUKHI", R.string.bead_8);
+            show_dialog("EIGHT MUKHI", R.string.bead_8,"lMzvQ2_chEM");
         }
         if(v==_9){
-            show_dialog("NINE MUKHI", R.string.bead_9);
+            show_dialog("NINE MUKHI", R.string.bead_9,"lMzvQ2_chEM");
         }
         if(v==_10){
-            show_dialog("TEN MUKHI", R.string.bead_10);
+            show_dialog("TEN MUKHI", R.string.bead_10,"NJT5Nwxgwrs");
         }
         if(v==_11){
-            show_dialog("ELEVEN MUKHI", R.string.bead_11);
+            show_dialog("ELEVEN MUKHI", R.string.bead_11,"NJT5Nwxgwrs");
         }
         if(v==_12){
-            show_dialog("TWELVE MUKHI", R.string.bead_12);
+            show_dialog("TWELVE MUKHI", R.string.bead_12,"NJT5Nwxgwrs");
         }
         if(v==_13){
-            show_dialog("THIRTEEN MUKHI", R.string.bead_13);
+            show_dialog("THIRTEEN MUKHI", R.string.bead_13,"AH8hvGXDt1A");
         }
         if(v==_14){
-            show_dialog("FOURTEEN MUKHI", R.string.bead_14);
+            show_dialog("FOURTEEN MUKHI", R.string.bead_14,"AH8hvGXDt1A");
         }
         if(v==_15){
-            show_dialog("FIFTEEN MUKHI", R.string.bead_15);
+            show_dialog2("FIFTEEN MUKHI", R.string.bead_15);
         }
         if(v==_16){
-            show_dialog("SIXTEEN MUKHI", R.string.bead_16);
+            show_dialog2("SIXTEEN MUKHI", R.string.bead_16);
         }
         if(v==_17){
-            show_dialog("SEVENTEEN MUKHI", R.string.bead_17);
+            show_dialog2("SEVENTEEN MUKHI", R.string.bead_17);
         }
         if(v==_18){
-            show_dialog("EIGHTEEN MUKHI", R.string.bead_18);
+            show_dialog2("EIGHTEEN MUKHI", R.string.bead_18);
         }
         if(v==_19){
-            show_dialog("NINETEEN MUKHI", R.string.bead_19);
+            show_dialog2("NINETEEN MUKHI", R.string.bead_19);
         }
         if(v==_20){
-            show_dialog("TWENTY MUKHI", R.string.bead_20);
+            show_dialog2("TWENTY MUKHI", R.string.bead_20);
         }
         if(v==_21){
-            show_dialog("TWENTY ONE MUKHI", R.string.bead_21);
+            show_dialog2("TWENTY ONE MUKHI", R.string.bead_21);
         }
         if(v==_trijuti){
-            show_dialog("TRIJUTI", R.string.bead_trijuti);
+            show_dialog2("TRIJUTI", R.string.bead_trijuti);
         }
         if(v==_ganesh){
-            show_dialog("GANESH", R.string.bead_ganesh);
+            show_dialog2("GANESH", R.string.bead_ganesh);
         }
         if(v==_gauri){
-            show_dialog("GAURI SHANKER", R.string.bead_gauri);
+            show_dialog("GAURI SHANKER", R.string.bead_gauri,"AH8hvGXDt1A");
         }
     }
 }

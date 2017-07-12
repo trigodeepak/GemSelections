@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -11,9 +12,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -35,6 +38,7 @@ import android.widget.Toast;
 import com.example.nikhil3000.gemselections.Adapters.ConnectAdapter;
 import com.example.nikhil3000.gemselections.AuthRelated.LoginActivity;
 import com.example.nikhil3000.gemselections.Handicrafts.Handicrafts;
+import com.example.nikhil3000.gemselections.Ittar.Ittar;
 import com.example.nikhil3000.gemselections.Jewellery.Jewellery;
 import com.example.nikhil3000.gemselections.Lists.ConnectOptions;
 import com.example.nikhil3000.gemselections.Rudraksha.Rudraksha;
@@ -45,12 +49,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Bitmap img;
 
     private View header;
     private TextView _displayName, _displayEmail;
@@ -383,9 +391,7 @@ public class MainActivity extends AppCompatActivity
 
         ImageView iv = (ImageView)dialog.findViewById(R.id.image_here);
         final InputStream in;
-        Bitmap img=null;
-        final Bitmap imgcpy;
-
+        img = null;
         try {
             in = getAssets().open(url);
             img = BitmapFactory.decodeStream(in);
@@ -395,63 +401,88 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        imgcpy = img;
-
         final FloatingActionButton save = (FloatingActionButton)dialog.findViewById(R.id.fab_save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                File filePath = Environment.getExternalStorageDirectory();
-
-                File dir = new File(filePath.getAbsoluteFile()+"/SavedImage/");
-                dir.mkdirs();
-
-                File file = new File(dir, "image.jpg");
-
-                FileOutputStream fos=null;
-
-                try{
-                    fos = new FileOutputStream(file);
-                    imgcpy.compress(Bitmap.CompressFormat.JPEG, 90, fos);
-
-                }catch (Exception e){
-                    e.printStackTrace();
-                }finally {
-                    try{
-                        assert fos != null;
-                        fos.flush();
-                        fos.close();
-                        final String path = file.getAbsolutePath();
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Image Saved Successfully")
-                                .setIcon(R.drawable.ic_save)
-                                .setMessage("Image saved at: "+path)
-                                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                })
-                                .setPositiveButton("Open", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Toast.makeText(getApplicationContext(), "Opening...", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                                        intent.setDataAndType(Uri.parse("file://"+path), "image/*");
-                                        startActivity(intent);
-                                    }
-                                })
-                                .create().show();
-                    }catch (Exception e){
-                        e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Could Not Save Image", Toast.LENGTH_LONG).show();
-                    }
+                if (ContextCompat.checkSelfPermission(getApplicationContext(),
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                }else{
+                    save_image();
                 }
             }
         });
+    }
 
+    private void save_image(){
+        final String filePath = Environment.getExternalStorageDirectory().toString();
 
+        File dir = new File(filePath + "/gemselections_images");
+        dir.mkdirs();
+
+        Random generate = new Random();
+        int n = 10000;
+        n = generate.nextInt(n);
+
+        String fName = "Image-" + n + ".jpg";
+
+        final File file = new File(dir, fName);
+        if (file.exists()) {
+            file.delete();
+        }
+
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            img.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Image Saved Successfully")
+                    .setIcon(R.drawable.ic_save)
+                    .setMessage("Image saved at: " + file.getAbsolutePath())
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setPositiveButton("Open", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getApplicationContext(), "Opening...", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setDataAndType(Uri.parse("file://" + file.getAbsolutePath()), "image/*");
+                            startActivity(intent);
+                        }
+                    })
+                    .create().show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(MainActivity.this, "Could not save image", Toast.LENGTH_SHORT).show();
+        } catch (NullPointerException e) {
+            Toast.makeText(MainActivity.this, "Could not save image", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                {
+                    save_image();
+                }else {
+                    Toast.makeText(MainActivity.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -690,7 +721,6 @@ public class MainActivity extends AppCompatActivity
         Dialog dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.dialog_connect);
         dialog.setTitle("Connect With Us");
-
         WindowManager.LayoutParams params = new WindowManager.LayoutParams();
         params.copyFrom(dialog.getWindow().getAttributes());
         params.width = (WindowManager.LayoutParams.MATCH_PARENT);

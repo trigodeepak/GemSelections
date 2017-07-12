@@ -3,6 +3,7 @@
     package="com.example.nikhil3000.gemselections">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -43,7 +44,7 @@
                 android:value="com.example.nikhil3000.gemselections.MainActivity" />
         </activity>
         <activity
-            android:name=".Ittar"
+            android:name=".Ittar.Ittar"
             android:label="Ittar"
             android:parentActivityName=".MainActivity">
             <meta-data

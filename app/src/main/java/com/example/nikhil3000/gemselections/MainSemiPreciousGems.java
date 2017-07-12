@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 
 import com.example.nikhil3000.gemselections.SemiPreciousGems.AmethystFragment;
@@ -122,6 +123,10 @@ public class MainSemiPreciousGems extends android.support.v4.app.Fragment implem
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_semi_precious_gems, container, false);
+
+        ScrollView scrollView = (ScrollView)view.findViewById(R.id.scroll);
+        scrollView.setBackground(getResources().getDrawable(R.drawable.back));
+
         spinner = (Spinner)view.findViewById(R.id.gemstone_spinner);
         arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, _items);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
