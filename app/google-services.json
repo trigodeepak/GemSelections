@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:980508632732:android:eebd373df0501d22",
+        "mobilesdk_app_id": "1:980508632732:android:a9f24a6936c735a0",
         "android_client_info": {
-          "package_name": "com.example.nikhil3000.gemselections"
+          "package_name": "tech.iosd.gemselections"
         }
       },
       "oauth_client": [
         {
-          "client_id": "980508632732-tfr27qc90v70919irl5auntk6b877j56.apps.googleusercontent.com",
+          "client_id": "980508632732-efd42ipq47r2tso12leouomnos11gv6s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.nikhil3000.gemselections",
+            "package_name": "tech.iosd.gemselections",
             "certificate_hash": "eac6f7d7b69eed5fb97710939810456c3b806193"
           }
         },
@@ -39,6 +39,13 @@
         "appinvite_service": {
           "status": 2,
           "other_platform_oauth_client": [
+            {
+              "client_id": "980508632732-24tt276kid2qk6ar8qjgiabgg2sc5m81.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.atlas.GemSelection"
+              }
+            },
             {
               "client_id": "980508632732-jcrhup9fi0df4099uprodrglv3icova7.apps.googleusercontent.com",
               "client_type": 3

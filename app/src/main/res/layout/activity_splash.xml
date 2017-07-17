@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.nikhil3000.gemselections.Splash"
+    tools:context="tech.iosd.gemselections.Splash"
     android:padding="10dp">
 
     <ImageView

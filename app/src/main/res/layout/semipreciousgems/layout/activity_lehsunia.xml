@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.example.nikhil3000.gemselections.Lehsunia.LehsuniaActivity">
+    tools:context="tech.iosd.gemselections.Lehsunia.LehsuniaActivity">
     <Toolbar
         android:id="@+id/lehsunia_toolbar"
         android:layout_width="match_parent"

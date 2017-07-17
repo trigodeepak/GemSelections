@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/side_nav_bar"
+    tools:context="tech.iosd.gemselections.AuthRelated.SignUpActivity"
     android:padding="10dp">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.example.nikhil3000.gemselections.AuthRelated.SignUpActivity">
+        android:layout_height="wrap_content"
+        >
         <EditText
             android:id="@+id/_signupname"
             android:padding="10dp"

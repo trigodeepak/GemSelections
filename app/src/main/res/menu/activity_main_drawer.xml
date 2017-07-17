@@ -26,12 +26,13 @@
             android:id="@+id/nav_yantra"
             android:title="Yantra"/>
         <item
-            android:id="@+id/nav_kavach"
-            android:title="Kavach"/>
-        <item
             android:id="@+id/nav_saphatic"
             android:title="Saphatic Items"/>
         <item
+            android:id="@+id/nav_kavach"
+            android:title="Kavach"/>
+        <item
+            android:icon="@drawable/ic_triangle"
             android:id="@+id/nav_triangular_gems"
             android:title="Triangular Gemstones"/>
         <item
@@ -54,6 +55,7 @@
 
         <item
             android:id="@+id/nav_faq"
+            android:icon="@drawable/ic_info"
             android:title="Frequently Asked Ques."/>
     </group>
 

@@ -8,7 +8,7 @@
     android:padding="10dp"
     android:orientation="vertical"
     android:background="@drawable/side_nav_bar"
-    tools:context="com.example.nikhil3000.gemselections.AuthRelated.ForgetPassActivity">
+    tools:context="tech.iosd.gemselections.AuthRelated.ForgetPassActivity">
     <EditText
         android:id="@+id/_frgtEmail"
         android:padding="10dp"

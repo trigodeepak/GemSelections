@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.example.nikhil3000.gemselections.Gomed.GomedActivity">
+    tools:context="tech.iosd.gemselections.Gomed.GomedActivity">
     <Toolbar
         android:id="@+id/gomed_toolbar"
         android:layout_width="match_parent"
