@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,7 +54,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(tech.iosd.gemselections.R.layout.frag_main_home, container, false);
 
         TextView textView = (TextView)view.findViewById(R.id.marquee_text);
-        textView.setSelected(true);
 
         YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
 
@@ -115,6 +116,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         safed = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_safed);     safed.setOnClickListener(this);
         hara = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_hara);       hara.setOnClickListener(this);
 
+        Animation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(30);
+        anim.setStartOffset(20);
+        anim.setRepeatMode(Animation.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        textView.startAnimation(anim);
+
+        textView.setSelected(true);
         return view;
     }
 
@@ -124,7 +133,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         load_Images();
-        getActivity().setTitle("Gem Selections:Home");
+        getActivity().setTitle("Gem Selections");
     }
 
     private void load_Images() {

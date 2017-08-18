@@ -7,11 +7,18 @@
             android:icon="@drawable/ic_home"
             android:title="Home"/>
         <item
+            android:id="@+id/nav_jewel"
+            android:icon="@drawable/ic_jewel"
+            android:title="Jewellery"/>
+        <item
             android:id="@+id/nav_rudraksha"
             android:title="Rudraksha"/>
         <item
             android:id="@+id/nav_japamala"
             android:title="Japa Mala"/>
+        <item
+            android:id="@+id/nav_astro"
+            android:title="GemStones and Astrology "/>
         <item
             android:id="@+id/nav_handicrafts"
             android:title="Handicrafts"/>
@@ -48,10 +55,6 @@
             android:id="@+id/nav_diamond"
             android:icon="@drawable/ic_diamond"
             android:title="Diamond"/>
-        <item
-            android:id="@+id/nav_jewel"
-            android:icon="@drawable/ic_jewel"
-            android:title="Jewellery"/>
 
         <item
             android:id="@+id/nav_faq"

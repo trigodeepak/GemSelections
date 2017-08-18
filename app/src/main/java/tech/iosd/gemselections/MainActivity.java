@@ -508,11 +508,17 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_rudraksha:
+                    finish();
                     startActivity(
                             new Intent(MainActivity.this, Rudraksha.class)
                     );
-                    finish();
+
                 break;
+
+            case R.id.nav_astro:
+                    fragment = new MainAstrologyFragment();
+                break;
+
             case tech.iosd.gemselections.R.id.nav_ittar:
                 startActivity(
                         new Intent(MainActivity.this, Ittar.class)
@@ -536,10 +542,10 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_handicrafts:
-                startActivity(
-                        new Intent(MainActivity.this, Handicrafts.class)
-                );
                 finish();
+                startActivity(
+                    new Intent(MainActivity.this, Handicrafts.class)
+                );
                 break;
 
             case tech.iosd.gemselections.R.id.nav_birthstone:
@@ -575,10 +581,10 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_jewel:
+                finish();
                 startActivity(
                         new Intent(MainActivity.this, Jewellery.class)
                 );
-                finish();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_call:

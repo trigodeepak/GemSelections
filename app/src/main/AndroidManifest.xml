@@ -33,7 +33,12 @@
         <activity
             android:name="tech.iosd.gemselections.FAQsActivity"
             android:label="Frequently Asked Questions"
-            android:parentActivityName="tech.iosd.gemselections.MainActivity"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName="tech.iosd.gemselections.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tech.iosd.gemselections.MainActivity" />
+        </activity>
         <activity
             android:name="tech.iosd.gemselections.Rudraksha.Rudraksha"
             android:label="@string/title_activity_rudraksha"
