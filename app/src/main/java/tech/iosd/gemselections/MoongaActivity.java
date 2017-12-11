@@ -21,6 +21,8 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import java.io.IOException;
 import java.io.InputStream;
 
+import tech.iosd.gemselections.Utils.WebViewActivity;
+
 public class MoongaActivity extends YouTubeBaseActivity implements View.OnClickListener, YouTubePlayer.OnInitializedListener {
 
     private Button buy_coral;

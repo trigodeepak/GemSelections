@@ -13,8 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import tech.iosd.gemselections.MainActivity;
-import tech.iosd.gemselections.WebViewActivity;
+import tech.iosd.gemselections.MainContent.MainActivity;
+import tech.iosd.gemselections.Utils.WebViewActivity;
 
 public class Handicrafts extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

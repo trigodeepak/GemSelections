@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import tech.iosd.gemselections.WebViewActivity;
+import tech.iosd.gemselections.Utils.WebViewActivity;
 
 public class Ittar extends AppCompatActivity {
 

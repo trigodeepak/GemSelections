@@ -28,7 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import tech.iosd.gemselections.WebViewActivity;
+import tech.iosd.gemselections.Utils.WebViewActivity;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -283,7 +283,7 @@ public class PukhrajActivity extends YouTubeBaseActivity implements YouTubePlaye
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         if(!b){
-            youTubePlayer.cueVideo("mPqF4DTgEIQ");
+            youTubePlayer.cueVideo("qOPYGLh4OkM");
             youTubePlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                 @Override
                 public void onFullscreen(boolean b) {

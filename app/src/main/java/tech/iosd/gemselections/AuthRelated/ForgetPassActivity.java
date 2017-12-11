@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import tech.iosd.gemselections.InternetConnectivity;
+import tech.iosd.gemselections.Utils.InternetConnectivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

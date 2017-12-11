@@ -14,9 +14,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import tech.iosd.gemselections.Lists.ConnectOptions;
+import tech.iosd.gemselections.DataProviders.ConnectOptions;
 import tech.iosd.gemselections.R;
-import tech.iosd.gemselections.WebViewActivity;
+import tech.iosd.gemselections.Utils.WebViewActivity;
 
 import java.io.IOException;
 import java.io.InputStream;

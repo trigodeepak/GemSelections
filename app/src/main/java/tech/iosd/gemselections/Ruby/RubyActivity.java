@@ -28,7 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import tech.iosd.gemselections.WebViewActivity;
+import tech.iosd.gemselections.Utils.WebViewActivity;
 import tech.iosd.gemselections.R;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;

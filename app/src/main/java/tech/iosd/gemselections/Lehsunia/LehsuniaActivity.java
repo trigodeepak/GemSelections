@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import tech.iosd.gemselections.WebViewActivity;
+import tech.iosd.gemselections.Utils.WebViewActivity;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;

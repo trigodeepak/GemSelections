@@ -15,8 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
-import tech.iosd.gemselections.MainActivity;
-import tech.iosd.gemselections.WebViewActivity;
+import tech.iosd.gemselections.MainContent.MainActivity;
+import tech.iosd.gemselections.Utils.WebViewActivity;
 
 public class Rudraksha extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

@@ -13,6 +13,10 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.io.InputStream;
 
+import tech.iosd.gemselections.MainContent.MainActivity;
+import tech.iosd.gemselections.Utils.CheckFirstTime;
+import tech.iosd.gemselections.Utils.InternetConnectivity;
+
 public class Splash extends AppCompatActivity {
 
     private TextView Splash;

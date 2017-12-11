@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:layout_margin= "2.5dp"
+        android:id="@+id/jewel_image"
+        android:layout_width="0dp"
+        android:src="@drawable/ic_triangle"
+        android:layout_weight=".33"
+        android:layout_height="150dp" />
+    <ImageView
+        android:layout_margin = "2.5dp"
+        android:src="@drawable/ic_info"
+        android:id="@+id/jewel_image1"
+        android:layout_width="0dp"
+        android:layout_weight=".33"
+        android:layout_height="150dp" />
+    <ImageView
+        android:layout_margin = "2.5dp"
+        android:src="@drawable/ic_call"
+        android:id="@+id/jewel_image2"
+        android:layout_width="0dp"
+        android:layout_weight=".33"
+        android:layout_height="150dp" />
+
+</LinearLayout>
