@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +44,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import tech.iosd.gemselections.BuildConfig;
 import tech.iosd.gemselections.R;
 
 import static android.view.View.GONE;
@@ -202,7 +204,13 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                 File image = new File(dir, filename);
 
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(image));
+
+                Uri photoURI = FileProvider.getUriForFile(DesignOwnActivity.this,
+                        BuildConfig.APPLICATION_ID + ".provider",
+                        image);
+
+
+                intent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI);
                 intent.putExtra("return-data",true);
                 startActivityForResult(intent, 1);
                 PATH = image.getAbsolutePath();
