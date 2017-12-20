@@ -69,9 +69,7 @@
             <item
                 android:id="@+id/ac_khanna_gems"
                 android:title="Khanna Gems Pvt. Ltd."/>
-            <item
-                android:id="@+id/ac_sonipat"
-                android:title="Sonipat"/>
+
         </menu>
     </item>
 

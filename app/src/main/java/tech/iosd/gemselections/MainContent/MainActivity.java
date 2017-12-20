@@ -274,13 +274,13 @@ public class MainActivity extends AppCompatActivity
                     dialog_khanna_gems();
                 break;
 
-            case tech.iosd.gemselections.R.id.ac_sonipat:
-                startActivity(
-                        new Intent(MainActivity.this, WebViewActivity.class)
-                                .putExtra("URL", "http://en.wikipedia.org/wiki/Sonipat")
-                                .putExtra("parent", "MainActivity")
-                );
-                break;
+           // case tech.iosd.gemselections.R.id.ac_sonipat:
+               // startActivity(
+           //             new Intent(MainActivity.this, WebViewActivity.class)
+                     //           .putExtra("URL", "http://en.wikipedia.org/wiki/Sonipat")
+                  //              .putExtra("parent", "MainActivity")
+                //);
+               // break;
 
             case tech.iosd.gemselections.R.id.ac_exit:
 
