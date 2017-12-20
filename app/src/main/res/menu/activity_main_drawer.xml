@@ -12,18 +12,23 @@
             android:title="Jewellery"/>
         <item
             android:id="@+id/nav_rudraksha"
+            android:icon="@drawable/ic_rudraksha"
             android:title="Rudraksha"/>
         <item
             android:id="@+id/nav_japamala"
+            android:icon="@drawable/ic_japa_mala"
             android:title="Japa Mala"/>
         <item
             android:id="@+id/nav_astro"
+            android:icon="@drawable/ic_gemstonesandastrology"
             android:title="GemStones and Astrology "/>
         <item
             android:id="@+id/nav_handicrafts"
+            android:icon="@drawable/ic_handicrafts"
             android:title="Handicrafts"/>
         <item
             android:id="@+id/nav_stoneidols"
+            android:icon="@drawable/ic_stoneidol"
             android:title="Stone Idols"/>
         <item
             android:id="@+id/nav_ittar"
@@ -31,12 +36,15 @@
             android:title="Ittar"/>
         <item
             android:id="@+id/nav_yantra"
+            android:icon="@drawable/ic_yantra"
             android:title="Yantra"/>
         <item
             android:id="@+id/nav_saphatic"
+            android:icon="@drawable/ic_saphatikitems"
             android:title="Saphatic Items"/>
         <item
             android:id="@+id/nav_kavach"
+            android:icon="@drawable/ic_kavach"
             android:title="Kavach"/>
         <item
             android:icon="@drawable/ic_triangle"
@@ -44,12 +52,15 @@
             android:title="Triangular Gemstones"/>
         <item
             android:id="@+id/nav_semi_precious_gems"
+            android:icon="@drawable/ic_semiprecious"
             android:title="Semi Precious Gemstones"/>
         <item
             android:id="@+id/nav_cabochon_gems"
+            android:icon="@drawable/ic_cabochon"
             android:title="Cabochon Gemstones"/>
         <item
             android:id="@+id/nav_birthstone"
+            android:icon="@drawable/ic_birthstone"
             android:title="Birthstones"/>
         <item
             android:id="@+id/nav_diamond"
