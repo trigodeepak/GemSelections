@@ -120,12 +120,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         safed = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_safed);     safed.setOnClickListener(this);
         hara = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_hara);       hara.setOnClickListener(this);
 
-        Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(30);
-        anim.setStartOffset(20);
-        anim.setRepeatMode(Animation.REVERSE);
-        anim.setRepeatCount(Animation.INFINITE);
-        textView.startAnimation(anim);
+//        Animation anim = new AlphaAnimation(0.0f, 1.0f);
+//        anim.setDuration(30);
+//        anim.setStartOffset(20);
+//        anim.setRepeatMode(Animation.REVERSE);
+//        anim.setRepeatCount(Animation.INFINITE);
+//        textView.startAnimation(anim);
 
         textView.setSelected(true);
         return view;

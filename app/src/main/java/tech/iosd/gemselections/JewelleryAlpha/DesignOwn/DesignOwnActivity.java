@@ -95,7 +95,8 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         submit.setOnClickListener(this);
         if(mAuth.getCurrentUser() == null){
             //do nothing
-        }else {
+        }
+        else {
             FirebaseUser user= mAuth.getCurrentUser();
             name.setText(user.getDisplayName());
             email.setText(user.getEmail());

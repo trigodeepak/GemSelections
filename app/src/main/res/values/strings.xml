@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GemSelections</string>
+    <string name="app_name">Gem Selections</string>
     <string name="tv_payment_1">
         YOU MAY DEPOSIT <b>CHEQUE OR DD </b> ELECTRONIC TRANSFER TO: \n\n
         Khanna Gems Private Limited,\n
@@ -112,7 +112,7 @@
         \n\n
         <b><i>Our Motto: Original Gemstones always and every time.</i></b>
     </string>
-    <string name="frag_home_1"><b>Gem Selections:</b> The only organisation in India to sell each and every Gem Stone with Government Lab Certificate.</string>
+    <string name="frag_home_1"><b>Gem Selections:</b> The only Trusted Brand for Govt. Lab Certified Gemstones, Diamonds and Jewellery since 1987.</string>
     <string name="copyright">© KHANNA GEMS PVT. LTD.</string>
 
     <string name="title_activity_rudraksha">Rudraksha</string>
