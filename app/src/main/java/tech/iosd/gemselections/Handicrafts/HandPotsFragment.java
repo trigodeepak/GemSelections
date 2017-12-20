@@ -151,6 +151,6 @@ public class HandPotsFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         loadImage();
-        getActivity().setTitle("Pots");
+        getActivity().setTitle("Khanna Handicrafts");
     }
 }

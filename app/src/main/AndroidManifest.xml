@@ -60,7 +60,8 @@
             android:name="tech.iosd.gemselections.Handicrafts.Handicrafts"
             android:label="@string/title_activity_handicrafts"
             android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />

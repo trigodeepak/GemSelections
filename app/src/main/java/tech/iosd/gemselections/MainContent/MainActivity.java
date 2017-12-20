@@ -693,7 +693,7 @@ public class MainActivity extends AppCompatActivity
                 "Snapchat",
                 "Pinterest",
                 "Tumblr",
-                "Stuble upon",
+                "Stumble upon",
                 "Google Plus",
                 "VK",
                 "Follo.in",
