@@ -2,12 +2,14 @@ package tech.iosd.gemselections.MainContent;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
@@ -17,6 +19,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -456,7 +459,18 @@ public class MainActivity extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(getApplicationContext(), "Opening...", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setDataAndType(Uri.parse("file://" + file.getAbsolutePath()), "image/*");
+
+                            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                                intent.setDataAndType(Uri.parse("file://" + file.getAbsolutePath()), "image/*");
+                            }
+
+                            else{
+                                /* TODO: I Have not tested this for Nougat due to un-availability of any N device, Test it but it should work*/
+                                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                intent.setDataAndType(FileProvider.getUriForFile(getApplicationContext(),
+                                        "tech.iosd.gemselections.fileprovider",file),
+                                        "image/*");
+                            }
                             startActivity(intent);
                         }
                     })

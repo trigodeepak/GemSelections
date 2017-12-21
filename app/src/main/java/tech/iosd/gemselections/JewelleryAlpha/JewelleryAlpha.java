@@ -29,7 +29,7 @@ import tech.iosd.gemselections.Ruby.RubyActivity;
 
 public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
-    private String[] types = {"Design Your Own Jewellery", "Diamond Jewellery", "Victorian Jewellery","Gem-Studded Jewellery", "Silver Jewellery"};
+    private String[] types = {"Design Your Own Jewellery", "Diamond Jewellery", "Victorian Jewellery","Gem-Studded Jewellery"}; //, "Silver Jewellery"};
     private String[] url = {"","","","",""};
 
     private RecyclerView recyclerView;

@@ -68,7 +68,7 @@
                 android:title="Pankaj Khanna"/>
             <item
                 android:id="@+id/ac_khanna_gems"
-                android:title="Khanna Gems Pvt. Ltd."/>
+                android:title="© Khanna Gems Pvt. Ltd."/>
 
         </menu>
     </item>
