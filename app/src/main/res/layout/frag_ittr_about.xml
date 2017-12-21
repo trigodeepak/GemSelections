@@ -18,7 +18,20 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
 
-        <!-- TODO: This is looking odd, check this out-->
+        <Button
+            android:id="@+id/ittar_price_list_in_about"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:textColor="#333"
+            android:fontFamily="serif"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="Checkout our Price List!"
+            android:background="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
 
         <FrameLayout
             android:id="@+id/ittar_video"
