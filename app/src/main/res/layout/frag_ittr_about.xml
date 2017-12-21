@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scroll_ittar"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="10dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
+
         <ImageView
             android:id="@+id/ittar_banner1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            />
+            android:layout_margin="10dp" />
+
+        <!-- TODO: This is looking odd, check this out-->
+
+        <FrameLayout
+            android:id="@+id/ittar_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:textSize="16sp"
             android:text="@string/ittr_about"
-            android:textColor="#667"/>
+            android:textColor="#667"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
