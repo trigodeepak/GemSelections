@@ -2,7 +2,6 @@ package tech.iosd.gemselections.MainContent;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -523,6 +522,11 @@ public class MainActivity extends AppCompatActivity
                 ISHOMESHOWN =true;
                 break;
 
+                case R.id.nav_devInfo:                // rename this to nav_devInfo
+                fragment=new MainDeveloperInfoFragment();
+                break;
+
+
             case tech.iosd.gemselections.R.id.nav_rudraksha:
                     finish();
                     startActivity(
@@ -575,6 +579,7 @@ public class MainActivity extends AppCompatActivity
             case tech.iosd.gemselections.R.id.nav_triangular_gems:
                     fragment = new TriangularGemsFragment();
                 break;
+
 
             case tech.iosd.gemselections.R.id.nav_cabochon_gems:
                     fragment = new MainCabochonFragment();

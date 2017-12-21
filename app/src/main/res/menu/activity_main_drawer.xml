@@ -99,6 +99,11 @@
                 android:id="@+id/nav_visit"
                 android:icon="@drawable/ic_store"
                 android:title="Visit Us"/>
+            <item
+                android:id="@+id/nav_devInfo"
+
+                android:title="Developer Information"/>
+
 
         </menu>
     </item>
