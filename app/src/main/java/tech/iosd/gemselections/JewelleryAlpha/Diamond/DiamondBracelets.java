@@ -41,7 +41,7 @@ public class DiamondBracelets extends AppCompatActivity {
 
 //        String temp = "DB 980";
         StorageReference storageReference= FirebaseStorage.getInstance()
-                .getReference("/jewellery-images/diamond/bracelet/");
+                .getReference("jewellery-images/diamond/bracelet/");
         int temp= 98000;
         String[] product_code = new String[39];
 

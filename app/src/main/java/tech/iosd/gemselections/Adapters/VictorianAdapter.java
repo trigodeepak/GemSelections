@@ -57,7 +57,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        mStorageRef.child(victorianList.get(position).getCode1())
+        mStorageRef.child(victorianList.get(position).getCode1()+".png")
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -81,7 +81,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
             }
         });
 
-        mStorageRef.child(victorianList.get(position).getCode2())
+        mStorageRef.child(victorianList.get(position).getCode2()+".png")
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -104,7 +104,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
             }
         });
 
-        mStorageRef.child(victorianList.get(position).getCode3())
+        mStorageRef.child(victorianList.get(position).getCode3()+".png")
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {

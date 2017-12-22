@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +38,12 @@ public class GemStuddedRings extends AppCompatActivity {
 
     private void set_data() {
 
-        String temp = "GSR 2318";
+//        String temp = "GSR 2318";
+
+        int temp = 2318000;
+
+        StorageReference storageReference = FirebaseStorage.getInstance()
+                .getReference("jewellery-images/gem-studded/rings/");
 
         String[] product_code = new String[90];
 
@@ -49,7 +57,7 @@ public class GemStuddedRings extends AppCompatActivity {
             Victorian vic = new Victorian("","","",product_code[i],product_code[i+1],product_code[i+2]);
             victorianList.add(vic);
         }
-        adapter = new VictorianAdapter(GemStuddedRings.this, victorianList);
+        adapter = new VictorianAdapter(GemStuddedRings.this, victorianList,storageReference);
 
         recyclerView.setAdapter(adapter);
 

@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +38,16 @@ public class DiamondStuds extends AppCompatActivity {
 
     private void set_data() {
 
-        String temp = "DSS 1009";
+//        String temp = "DSS 1009";
+        int temp = 1009000;
+
+        StorageReference storageReference = FirebaseStorage.getInstance()
+                .getReference("jewellery-images/diamond/studds/");
 
         String[] product_code = new String[33];
 
         for(int i=0;i<33;i++){
-            product_code[i] = temp + String.valueOf(i+1);
+            product_code[i] ="DSS " + String.valueOf(temp + (i+1));
         }
 
         victorianList = new ArrayList<>();
@@ -49,7 +56,7 @@ public class DiamondStuds extends AppCompatActivity {
             Victorian vic = new Victorian("","","",product_code[i],product_code[i+1],product_code[i+2]);
             victorianList.add(vic);
         }
-        adapter = new VictorianAdapter(DiamondStuds.this, victorianList);
+        adapter = new VictorianAdapter(DiamondStuds.this, victorianList,storageReference);
 
         recyclerView.setAdapter(adapter);
 
