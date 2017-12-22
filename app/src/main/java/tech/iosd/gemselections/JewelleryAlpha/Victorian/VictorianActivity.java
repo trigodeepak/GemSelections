@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -64,18 +65,21 @@ public class VictorianActivity extends YouTubeBaseActivity implements YouTubePla
 
 //        String temp = "VJ 9346";
         int temp= 9346000;
-        StorageReference mStorageRef= FirebaseStorage.getInstance().getReference("jewellery-images/victorian/");
+        StorageReference mStorageRef= FirebaseStorage.getInstance()
+                .getReference("jewellery-images/victorian/");
 
-        String[] product_code = new String[135];
+        String[] product_code = new String[81];
 
-        for(int i=0;i<=134;i++){
+        for(int i=0;i<=80;i++){
             product_code[i] = "VJ " + String.valueOf(temp + (i+1));
         }
 
         victorianList = new ArrayList<>();
 
-        for (int i=0; i<135;i+=3){
+        for (int i=0; i<81;i+=3){
             Victorian vic = new Victorian("","","",product_code[i],product_code[i+1],product_code[i+2]);
+            Log.d("TAGVIC",product_code[i]);
+
             victorianList.add(vic);
         }
         adapter = new VictorianAdapter(VictorianActivity.this, victorianList,mStorageRef);

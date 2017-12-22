@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
@@ -35,11 +35,11 @@ import tech.iosd.gemselections.R;
 public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.ViewHolder> {
 
 
-    StorageReference mStorageRef ;
+    StorageReference mStorageRef;
     private Context context;
     private List<Victorian> victorianList;
 
-    public VictorianAdapter(Context context, List<Victorian> victorianList , StorageReference mStorageRef) {
+    public VictorianAdapter(Context context, List<Victorian> victorianList, StorageReference mStorageRef) {
         this.context = context;
         this.victorianList = victorianList;
         this.mStorageRef = mStorageRef;
@@ -57,13 +57,12 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        mStorageRef.child(victorianList.get(position).getCode1()+".png")
+        mStorageRef.child(victorianList.get(position).getDownloadUrl1() + ".png")
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.with(context.getApplicationContext())
                         .load(uri.toString())
-                        .centerCrop()
                         .into(holder.img1);
             }
         })
@@ -77,18 +76,20 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt(victorianList.get(position).getCode1(), victorianList.get(position).getCode1());
+                prompt(victorianList.get(position).getDownloadUrl1(), victorianList.get(position).getDownloadUrl1(),position);
             }
         });
 
-        mStorageRef.child(victorianList.get(position).getCode2()+".png")
+
+        mStorageRef.child(victorianList.get(position).getDownloadUrl2() + ".png")
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+                Log.d("TAGGER", uri.toString());
+
                 Picasso.with(context.getApplicationContext())
                         .load(uri.toString())
-                        .centerCrop()
-                        .into(holder.img1);
+                        .into(holder.img2);
             }
         })
                 .addOnFailureListener(new OnFailureListener() {
@@ -100,18 +101,17 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
         holder.img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt(victorianList.get(position).getUrl2(), victorianList.get(position).getCode2());
+                prompt(victorianList.get(position).getDownloadUrl2(), victorianList.get(position).getDownloadUrl2(),position);
             }
         });
 
-        mStorageRef.child(victorianList.get(position).getCode3()+".png")
+        mStorageRef.child(victorianList.get(position).getDownloadUrl3() + ".png")
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.with(context.getApplicationContext())
                         .load(uri.toString())
-                        .centerCrop()
-                        .into(holder.img1);
+                        .into(holder.img3);
             }
         })
                 .addOnFailureListener(new OnFailureListener() {
@@ -124,12 +124,12 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
         holder.img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt(victorianList.get(position).getUrl3(), victorianList.get(position).getCode3());
+                prompt(victorianList.get(position).getDownloadUrl3(), victorianList.get(position).getDownloadUrl3(),position);
             }
         });
     }
 
-    private void prompt(String url, String code) {
+    private void prompt(String url, String code, int position) {
 
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_order_layout);
@@ -146,7 +146,15 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
         EditText _code = (EditText) dialog.findViewById(R.id.prompt_code);
         _code.setText(code);
 
-        ImageView img = (ImageView) dialog.findViewById(R.id.prompt_image);
+        final ImageView img = (ImageView) dialog.findViewById(R.id.prompt_image);
+
+        mStorageRef.child(url+".png").getDownloadUrl()
+                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        img.setImageURI(uri);
+                    }
+                });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             img.setImageDrawable(context.getDrawable(R.drawable.ic_thankyou));
