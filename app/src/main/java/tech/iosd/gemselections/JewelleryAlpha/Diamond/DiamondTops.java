@@ -35,8 +35,8 @@ public class DiamondTops extends AppCompatActivity {
 
     private void set_data() {
 
-        String temp = "DJT 5310";
-
+//        String temp = "DJT 5310";
+        int temp = 5310000;
         String[] product_code = new String[78];
 
         for(int i=0;i<78;i++){

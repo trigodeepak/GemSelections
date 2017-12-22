@@ -61,7 +61,7 @@
         </activity>
         <activity
             android:name="tech.iosd.gemselections.Ittar.Ittar"
-            android:label="Ittar"
+            android:label="Khanna Perfumeries"
             android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

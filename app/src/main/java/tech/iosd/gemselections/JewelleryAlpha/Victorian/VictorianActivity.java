@@ -15,6 +15,8 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,12 +62,14 @@ public class VictorianActivity extends YouTubeBaseActivity implements YouTubePla
 
     private void set_data() {
 
-        String temp = "VJ 9346";
+//        String temp = "VJ 9346";
+        int temp= 9346000;
+        StorageReference mStorageRef= FirebaseStorage.getInstance().getReference("jewellery-images/victorian/");
 
         String[] product_code = new String[135];
 
         for(int i=0;i<=134;i++){
-            product_code[i] = temp + String.valueOf(i+1);
+            product_code[i] = "VJ " + String.valueOf(temp + (i+1));
         }
 
         victorianList = new ArrayList<>();
@@ -74,7 +78,7 @@ public class VictorianActivity extends YouTubeBaseActivity implements YouTubePla
             Victorian vic = new Victorian("","","",product_code[i],product_code[i+1],product_code[i+2]);
             victorianList.add(vic);
         }
-        adapter = new VictorianAdapter(VictorianActivity.this, victorianList);
+        adapter = new VictorianAdapter(VictorianActivity.this, victorianList,mStorageRef);
 
         recyclerView.setAdapter(adapter);
 
