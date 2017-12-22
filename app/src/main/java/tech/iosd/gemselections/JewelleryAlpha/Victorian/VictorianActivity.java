@@ -70,6 +70,7 @@ public class VictorianActivity extends YouTubeBaseActivity implements YouTubePla
 
         String[] product_code = new String[81];
 
+
         for(int i=0;i<=80;i++){
             product_code[i] = "VJ " + String.valueOf(temp + (i+1));
         }
