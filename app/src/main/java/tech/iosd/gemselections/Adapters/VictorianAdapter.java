@@ -152,7 +152,9 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        img.setImageURI(uri);
+                       Picasso.with(context.getApplicationContext())
+                       .load(uri.toString())
+                       .into(img);
                     }
                 });
 
