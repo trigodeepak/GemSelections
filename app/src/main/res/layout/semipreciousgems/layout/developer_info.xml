@@ -97,42 +97,44 @@
         android:layout_width="225dp"
         android:layout_height="25dp"
         android:layout_marginTop="12dp"
-        android:background="@color/blueeee"
+
         android:hint="Name"
 
-        android:textColorHint="@color/white"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dev_text" />
+        app:layout_constraintTop_toBottomOf="@+id/dev_text"
+        android:background="@drawable/round"/>
 
     <EditText
         android:id="@+id/et_message"
         android:layout_width="225dp"
         android:layout_height="128dp"
         android:layout_marginTop="32dp"
-        android:background="@color/blueeee"
+        android:background="@drawable/round"
         android:gravity="start"
         android:hint="Message"
 
-        android:textColorHint="@color/white"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_name"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:bottomLeftRadius="5dp"
+        android:bottomRightRadius="5dp"
+        android:radius="5dp"/>
 
     <EditText
         android:id="@+id/et_subject"
         android:layout_width="225dp"
         android:layout_height="25dp"
         android:layout_marginTop="4dp"
-        android:background="@color/blueeee"
+        android:background="@drawable/round"
         android:hint="Subject"
-        android:textColorHint="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_name" />
+        app:layout_constraintTop_toBottomOf="@id/et_name"
+        />
 
     <Button
         android:id="@+id/sendMailBtn"
@@ -140,9 +142,8 @@
         android:layout_width="150dp"
         android:layout_height="20dp"
         android:layout_marginTop="4dp"
-        android:background="@color/blueeee"
+        android:background="@color/colorPrimary"
         android:text="Send"
-        android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_message"

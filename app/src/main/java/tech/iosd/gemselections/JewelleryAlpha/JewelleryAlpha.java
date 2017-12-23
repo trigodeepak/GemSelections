@@ -57,7 +57,8 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
 
         recyclerView = (RecyclerView)findViewById(R.id.jewel_types);
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL));
+
         recyclerView.setLayoutManager(new LinearLayoutManager(JewelleryAlpha.this));
 
         setData();
