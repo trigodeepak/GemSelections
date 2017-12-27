@@ -6,9 +6,9 @@
         android:id="@+id/ac_buy_now"
         android:title="BUY NOW"
         app:showAsAction="always"/>
-    <item
-        android:id="@+id/ac_payment_methods"
-        android:title="Payment Methods"/>
+    <!--<item-->
+        <!--android:id="@+id/ac_payment_methods"-->
+        <!--android:title="Payment Methods"/>-->
 
     <item
         android:title="Govt. Lab  Certificates">

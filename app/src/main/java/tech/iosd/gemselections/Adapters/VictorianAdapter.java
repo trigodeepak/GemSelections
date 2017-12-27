@@ -76,7 +76,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt(victorianList.get(position).getDownloadUrl1(), victorianList.get(position).getDownloadUrl1(),position);
+                prompt(victorianList.get(position).getDownloadUrl1(), victorianList.get(position).getDownloadUrl1(), position);
             }
         });
 
@@ -101,7 +101,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
         holder.img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt(victorianList.get(position).getDownloadUrl2(), victorianList.get(position).getDownloadUrl2(),position);
+                prompt(victorianList.get(position).getDownloadUrl2(), victorianList.get(position).getDownloadUrl2(), position);
             }
         });
 
@@ -124,7 +124,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
         holder.img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt(victorianList.get(position).getDownloadUrl3(), victorianList.get(position).getDownloadUrl3(),position);
+                prompt(victorianList.get(position).getDownloadUrl3(), victorianList.get(position).getDownloadUrl3(), position);
             }
         });
     }
@@ -148,13 +148,13 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
 
         final ImageView img = (ImageView) dialog.findViewById(R.id.prompt_image);
 
-        mStorageRef.child(url+".png").getDownloadUrl()
+        mStorageRef.child(url + ".png").getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                       Picasso.with(context.getApplicationContext())
-                       .load(uri.toString())
-                       .into(img);
+                        Picasso.with(context.getApplicationContext())
+                                .load(uri.toString())
+                                .into(img);
                     }
                 });
 

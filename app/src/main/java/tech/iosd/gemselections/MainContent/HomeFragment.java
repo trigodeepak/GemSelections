@@ -14,8 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -116,7 +114,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         lehsunia = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_lehsunia);       lehsunia.setOnClickListener(this);
         moti = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_moti);   moti.setOnClickListener(this);
         moonga = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_moonga);   moonga.setOnClickListener(this);
-        heera = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_heera);
+        heera = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_heera);        heera.setOnClickListener(this);
         safed = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_safed);     safed.setOnClickListener(this);
         hara = (ImageView) view.findViewById(tech.iosd.gemselections.R.id.home_hara);       hara.setOnClickListener(this);
 
@@ -297,6 +295,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             startActivity(
                     new Intent(getActivity(),LehsuniaActivity.class)
             );
+        }
+        if (v == heera) {
+//            getActivity().getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .add(R.id.container_main,new MainDiamondFragment())
+//                    .addToBackStack("Main")
+//                    .commit();
+//            getFragmentManager().popBackStackImmediate();
+
+            startActivity(new Intent(getActivity(),ActivityForDiamonds.class));
+
+
+
         }
     }
 
