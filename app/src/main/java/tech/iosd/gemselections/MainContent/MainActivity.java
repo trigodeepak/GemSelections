@@ -531,6 +531,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_astro:
                 fragment = new MainAstrologyFragment();
                 break;
+            case R.id.gemstone_recommendation:
+                fragment=new MainGemstoneRecommendationFragment();
+                break;
 
             case tech.iosd.gemselections.R.id.nav_ittar:
                 startActivity(

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -34,6 +36,22 @@
             android:text="@string/about_us"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/software_dev"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"/>
+
+
     </LinearLayout>
 </ScrollView>
+
+
+
 
