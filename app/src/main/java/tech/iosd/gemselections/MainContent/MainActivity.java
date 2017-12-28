@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity
     private boolean ISHOMESHOWN;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
-
     private FragmentManager fragmentManager;
 
     @Override
