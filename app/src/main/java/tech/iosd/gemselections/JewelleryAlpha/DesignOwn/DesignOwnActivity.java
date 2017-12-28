@@ -76,7 +76,7 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_designown);
 
-        getActionBar().setTitle("Design Your Own Jewellery!");
+        setTitle("Design Your Own Jewellery!");
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference();
