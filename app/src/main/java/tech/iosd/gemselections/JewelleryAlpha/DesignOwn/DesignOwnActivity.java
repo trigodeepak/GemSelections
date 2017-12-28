@@ -238,10 +238,19 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
 
                 intent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI);
                 intent.putExtra("return-data",true);
-                startActivityForResult(intent, 1);
-                PATH = image.getAbsolutePath();
+                try {
+                    startActivityForResult(intent, 1);
+                    PATH = image.getAbsolutePath();
+                }
+                catch (Exception e){
+                    Toast.makeText(this, "Please allow all permissions in settings", Toast.LENGTH_SHORT).show();
+
+                }
 
                 load_image();
+            }
+            else{
+                Toast.makeText(this, "Please allow all permissions in settings", Toast.LENGTH_SHORT).show();
             }
         }
     }
