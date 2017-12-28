@@ -1,5 +1,6 @@
 package tech.iosd.gemselections.JewelleryAlpha.DesignOwn;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -194,6 +195,29 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         if(requestCode==1){
             if(grantResults[0]== PermissionChecker.PERMISSION_GRANTED){
 
+                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},3);
+
+
+            }else{
+                Toast.makeText(this, "Permission Denied. Could not proceed further", Toast.LENGTH_SHORT).show();
+                if(_submit_form.getVisibility() == View.VISIBLE){
+                    _submit_form.setVisibility(GONE);
+                    to_upload.setVisibility(GONE);
+
+                }
+            }
+        }
+        if(requestCode==2){
+            if(grantResults[0]==PermissionChecker.PERMISSION_GRANTED){
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                Bitmap mustOpen = BitmapFactory.decodeFile(PATH, options);
+                to_upload.setImageBitmap(mustOpen);
+            }
+        }
+        if(requestCode==3){
+            if(grantResults[0]==PermissionChecker.PERMISSION_GRANTED){
+
                 String path = Environment.getExternalStorageDirectory().toString() + "/GemSelections";
 
                 File dir = new File(path);
@@ -218,22 +242,6 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                 PATH = image.getAbsolutePath();
 
                 load_image();
-            }else{
-                Toast.makeText(this, "Permission Denied. Could not proceed further", Toast.LENGTH_SHORT).show();
-                if(_submit_form.getVisibility() == View.VISIBLE){
-                    _submit_form.setVisibility(GONE);
-                    to_upload.setVisibility(GONE);
-
-                }
-            }
-        }
-        if(requestCode==2){
-            if(grantResults[0]==PermissionChecker.PERMISSION_GRANTED){
-
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                Bitmap mustOpen = BitmapFactory.decodeFile(PATH, options);
-                to_upload.setImageBitmap(mustOpen);
             }
         }
     }
