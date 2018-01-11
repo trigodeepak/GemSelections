@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -72,6 +73,8 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private FragmentManager fragmentManager;
+
+    private boolean isBackPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,32 +146,22 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (fragmentManager.getBackStackEntryCount() != 0) {
-                fragmentManager.popBackStack();
-                if (fragmentManager.getBackStackEntryCount()==0) {
 
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setMessage("Do you really want to exit?")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                    display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                                }
-                            })
-                            .setTitle("Exit App")
-                            .create().show();
-                } else {
-                    display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                }
+            if (fragmentManager.getBackStackEntryCount() > 1 ) {
+                fragmentManager.popBackStack();
+
             } else {
-                super.onBackPressed();
+                new AlertDialog.Builder(this)
+                        .setTitle("Really Exit?")
+                        .setMessage("Are you sure you want to exit?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                //MainActivity.super.onBackPressed();
+                                finish();
+                            }
+                        }).create().show();
             }
         }
 
