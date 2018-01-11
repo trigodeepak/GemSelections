@@ -146,77 +146,25 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (fragmentManager.getBackStackEntryCount() != 0) {
-                fragmentManager.popBackStack(null,0);
-                fragmentManager.popBackStack(null,0);
 
-                if (fragmentManager.getBackStackEntryCount()<=1) {
-                    fragmentManager.popBackStack(null,0);
+            if (fragmentManager.getBackStackEntryCount() > 1 ) {
+                fragmentManager.popBackStack();
 
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setMessage("Do you really want to exit?")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                    display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                                }
-                            })
-                            .setTitle("Exit App")
-                            .create().show();
-                } else {
-                    display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                }
             } else {
-                super.onBackPressed();
+                new AlertDialog.Builder(this)
+                        .setTitle("Really Exit?")
+                        .setMessage("Are you sure you want to exit?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                //MainActivity.super.onBackPressed();
+                                finish();
+                            }
+                        }).create().show();
             }
         }
 
-
-/*
-    if(!isBackPressed){
-
-        new AlertDialog.Builder(MainActivity.this)
-                .setMessage("Do you really want to exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                    }
-                })
-                .setTitle("Exit App")
-                .create().show();
-        isBackPressed=true;
-    }else {
-
-        super.onBackPressed();
-    }
-
-    new CountDownTimer(3000,1000){
-
-        @Override
-        public void onTick(long l) {
-
-        }
-
-        @Override
-        public void onFinish() {
-            isBackPressed=false;
-        }
-    }.start();*/
     }
 
     @Override
