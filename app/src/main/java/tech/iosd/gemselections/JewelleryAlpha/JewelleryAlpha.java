@@ -29,7 +29,7 @@ import tech.iosd.gemselections.Ruby.RubyActivity;
 
 public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
-    private String[] types = {"Design Your Own Jewellery", "Diamond Jewellery", "Victorian Jewellery","Gem-Studded Jewellery", "Silver Jewellery"};
+    private String[] types = {"Create Your Own Jewellery", "Diamond Jewellery", "Victorian Jewellery","Gem-Studded Jewellery"}; //, "Silver Jewellery"};
     private String[] url = {"","","","",""};
 
     private RecyclerView recyclerView;
@@ -57,7 +57,8 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
 
         recyclerView = (RecyclerView)findViewById(R.id.jewel_types);
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL));
+
         recyclerView.setLayoutManager(new LinearLayoutManager(JewelleryAlpha.this));
 
         setData();
@@ -92,7 +93,7 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         if(!b){
-            youTubePlayer.cueVideo("VOixudfTvFQ");
+            youTubePlayer.cueVideo("ztD0h3PTkQc");
             youTubePlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                 @Override
                 public void onFullscreen(boolean b) {

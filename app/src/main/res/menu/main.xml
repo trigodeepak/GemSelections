@@ -6,9 +6,9 @@
         android:id="@+id/ac_buy_now"
         android:title="BUY NOW"
         app:showAsAction="always"/>
-    <item
-        android:id="@+id/ac_payment_methods"
-        android:title="Payment Methods"/>
+    <!--<item-->
+        <!--android:id="@+id/ac_payment_methods"-->
+        <!--android:title="Payment Methods"/>-->
 
     <item
         android:title="Govt. Lab  Certificates">
@@ -36,13 +36,13 @@
         <menu>
             <item
                 android:id="@+id/ac_aima"
-                android:title="ALL INDIA MANAGEMENT ASSOCIATIONS"/>
+                android:title="All India Management Association"/>
             <item
                 android:id="@+id/ac_idi"
-                android:title="INDIAN DIAMOND INSTITUTE"/>
+                android:title="India Diamond Institute"/>
             <item
                 android:id="@+id/ac_sgi"
-                android:title="SURAT GEMOLOGY INSTITUE"/>
+                android:title="Surat Gemology Institute"/>
         </menu>
     </item>
     <item
@@ -68,10 +68,8 @@
                 android:title="Pankaj Khanna"/>
             <item
                 android:id="@+id/ac_khanna_gems"
-                android:title="Khanna Gems Pvt. Ltd."/>
-            <item
-                android:id="@+id/ac_sonipat"
-                android:title="Sonipat"/>
+                android:title="© Khanna Gems Pvt. Ltd."/>
+
         </menu>
     </item>
 

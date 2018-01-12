@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "980508632732-7q9e37i90lv6kjmthdutkgo3s7krt5q5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.iosd.gemselections",
+            "certificate_hash": "5db1f616151aedcbf675eb308ccae27ac44546fc"
+          }
+        },
+        {
           "client_id": "980508632732-efd42ipq47r2tso12leouomnos11gv6s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -40,15 +48,15 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
+              "client_id": "980508632732-jcrhup9fi0df4099uprodrglv3icova7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
               "client_id": "980508632732-24tt276kid2qk6ar8qjgiabgg2sc5m81.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.atlas.GemSelection"
               }
-            },
-            {
-              "client_id": "980508632732-jcrhup9fi0df4099uprodrglv3icova7.apps.googleusercontent.com",
-              "client_type": 3
             }
           ]
         },

@@ -82,16 +82,6 @@ public class JewelTypesAdapater extends RecyclerView.Adapter<JewelTypesAdapater.
 
                         break;
 
-                    case 4:
-
-                        Toast.makeText(context, "Under Development", Toast.LENGTH_SHORT).show();
-/*
-                        context.startActivity(new Intent(
-                                context, SilverActivity.class
-                        ));
-*/
-                        break;
-
                     default:
                         Log.e("Jewel Types","Wrong item clicked");
                 }
@@ -107,7 +97,7 @@ public class JewelTypesAdapater extends RecyclerView.Adapter<JewelTypesAdapater.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView text;
-        private ImageView image;
+
         private LinearLayout linearLayout;
 
         public ViewHolder(View itemView) {
@@ -115,7 +105,6 @@ public class JewelTypesAdapater extends RecyclerView.Adapter<JewelTypesAdapater.
             super(itemView);
 
             text = (TextView)itemView.findViewById(R.id.jewel_sample_text);
-            image = (ImageView)itemView.findViewById(R.id.jewel_sample);
             linearLayout = (LinearLayout)itemView.findViewById(R.id._jeweltype_item);
         }
     }

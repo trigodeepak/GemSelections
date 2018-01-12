@@ -117,7 +117,7 @@ public class MainYantraFragment extends Fragment implements AdapterView.OnItemSe
 
                 if (!wasRestored) {
                     YPlayer = player;
-                    YPlayer.cueVideo("exSOLLQKZEM");
+                    YPlayer.cueVideo("wMaz5dZeMmg");
 
                     YPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                         @Override

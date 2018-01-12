@@ -1,7 +1,9 @@
 package tech.iosd.gemselections.JewelleryAlpha.DesignOwn;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -12,10 +14,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -43,6 +47,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import tech.iosd.gemselections.BuildConfig;
 import tech.iosd.gemselections.R;
 
 import static android.view.View.GONE;
@@ -74,6 +79,8 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_designown);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setTitle("Design Your Own Jewellery!");
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference();
@@ -93,7 +100,8 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         submit.setOnClickListener(this);
         if(mAuth.getCurrentUser() == null){
             //do nothing
-        }else {
+        }
+        else {
             FirebaseUser user= mAuth.getCurrentUser();
             name.setText(user.getDisplayName());
             email.setText(user.getEmail());
@@ -190,6 +198,29 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         if(requestCode==1){
             if(grantResults[0]== PermissionChecker.PERMISSION_GRANTED){
 
+                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},3);
+
+
+            }else{
+                Toast.makeText(this, "Permission Denied. Could not proceed further", Toast.LENGTH_SHORT).show();
+                if(_submit_form.getVisibility() == View.VISIBLE){
+                    _submit_form.setVisibility(GONE);
+                    to_upload.setVisibility(GONE);
+
+                }
+            }
+        }
+        if(requestCode==2){
+            if(grantResults[0]==PermissionChecker.PERMISSION_GRANTED){
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                Bitmap mustOpen = BitmapFactory.decodeFile(PATH, options);
+                to_upload.setImageBitmap(mustOpen);
+            }
+        }
+        if(requestCode==3){
+            if(grantResults[0]==PermissionChecker.PERMISSION_GRANTED){
+
                 String path = Environment.getExternalStorageDirectory().toString() + "/GemSelections";
 
                 File dir = new File(path);
@@ -202,28 +233,27 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                 File image = new File(dir, filename);
 
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(image));
-                intent.putExtra("return-data",true);
-                startActivityForResult(intent, 1);
-                PATH = image.getAbsolutePath();
 
-                load_image();
-            }else{
-                Toast.makeText(this, "Permission Denied. Could not proceed further", Toast.LENGTH_SHORT).show();
-                if(_submit_form.getVisibility() == View.VISIBLE){
-                    _submit_form.setVisibility(GONE);
-                    to_upload.setVisibility(GONE);
+                Uri photoURI = FileProvider.getUriForFile(DesignOwnActivity.this,
+                        BuildConfig.APPLICATION_ID + ".provider",
+                        image);
+
+
+                intent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI);
+                intent.putExtra("return-data",true);
+                try {
+                    startActivityForResult(intent, 1);
+                    PATH = image.getAbsolutePath();
+                }
+                catch (Exception e){
+                    Toast.makeText(this, "Please allow all permissions in settings", Toast.LENGTH_SHORT).show();
 
                 }
-            }
-        }
-        if(requestCode==2){
-            if(grantResults[0]==PermissionChecker.PERMISSION_GRANTED){
 
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                Bitmap mustOpen = BitmapFactory.decodeFile(PATH, options);
-                to_upload.setImageBitmap(mustOpen);
+                load_image();
+            }
+            else{
+                Toast.makeText(this, "Please allow all permissions in settings", Toast.LENGTH_SHORT).show();
             }
         }
     }

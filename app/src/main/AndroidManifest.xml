@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tech.iosd.gemselections">
+    package="tech.iosd.gemselections"
+    android:installLocation="auto">
+
+    <uses-sdk
+        android:maxSdkVersion="26"
+        android:minSdkVersion="16">
+    </uses-sdk>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-feature android:name="android.hardware.Camera"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.Camera2" android:required="false"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+
         android:theme="@style/AppTheme">
+        <provider
+            android:name=".DataProviders.MyFileProvider"
+            android:authorities="tech.iosd.gemselections.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
         <activity
-            android:name="tech.iosd.gemselections.MainContent.MainActivity"
+            android:name=".MainContent.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name="tech.iosd.gemselections.Splash"
+            android:name=".Splash"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,143 +51,140 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="tech.iosd.gemselections.MainContent.FAQsActivity"
+            android:name=".MainContent.FAQsActivity"
             android:label="Frequently Asked Questions"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="tech.iosd.gemselections.MainContent.MainActivity" />
-        </activity>
-        <activity
-            android:name="tech.iosd.gemselections.Rudraksha.Rudraksha"
-            android:label="@string/title_activity_rudraksha"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
+            android:parentActivityName=".MainContent.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
-            android:name="tech.iosd.gemselections.Ittar.Ittar"
-            android:label="Ittar"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity">
+            android:name=".Rudraksha.Rudraksha"
+            android:label="@string/title_activity_rudraksha"
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
-            android:name="tech.iosd.gemselections.Handicrafts.Handicrafts"
+            android:name=".Ittar.Ittar"
+            android:label="Khanna Perfumeries"
+            android:parentActivityName=".MainContent.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tech.iosd.gemselections.MainContent.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Handicrafts.Handicrafts"
             android:label="@string/title_activity_handicrafts"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
+            android:parentActivityName=".MainContent.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
 
-        <receiver android:name="tech.iosd.gemselections.Utils.InternetConnectivity">
+        <receiver android:name=".Utils.InternetConnectivity">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name="tech.iosd.gemselections.AuthRelated.LoginActivity"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
+            android:name=".AuthRelated.LoginActivity"
+            android:parentActivityName=".MainContent.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
-            android:name="tech.iosd.gemselections.AuthRelated.SignUpActivity"
+            android:name=".AuthRelated.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="tech.iosd.gemselections.AuthRelated.ForgetPassActivity"
+            android:name=".AuthRelated.ForgetPassActivity"
             android:label="Forget Password" />
         <activity
-            android:name="tech.iosd.gemselections.Utils.WebViewActivity"
+            android:name=".Utils.WebViewActivity"
             android:theme="@style/NeelamTheme" />
         <activity
-            android:name="tech.iosd.gemselections.MoongaActivity"
+            android:name=".MoongaActivity"
             android:label="Red Coral"
-            android:theme="@style/CoralTheme"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity">
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/CoralTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
+            android:name=".Emerald.EmeraldActivity"
             android:label="Emerald"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
-            android:theme="@style/EmeraldTheme"
-            android:name="tech.iosd.gemselections.Emerald.EmeraldActivity">
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/EmeraldTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
+            android:name=".Ruby.RubyActivity"
             android:label="Ruby"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
-            android:theme="@style/RubyTheme"
-            android:name="tech.iosd.gemselections.Ruby.RubyActivity">
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/RubyTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
+            android:name=".Neelam.NeelamActivity"
             android:label="Neelam"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
-            android:theme="@style/NeelamTheme"
-            android:name="tech.iosd.gemselections.Neelam.NeelamActivity">
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/NeelamTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
+            android:name=".Pukhraj.PukhrajActivity"
             android:label="Pukhraj"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
-            android:name="tech.iosd.gemselections.Pukhraj.PukhrajActivity">
+            android:parentActivityName=".MainContent.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
+            android:name=".Gomed.GomedActivity"
             android:label="Gomed"
-            android:theme="@style/GomedTheme"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
-            android:name="tech.iosd.gemselections.Gomed.GomedActivity">
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/GomedTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
         <activity
-            android:label="Cat\'s Eye"
-            android:theme="@style/EmeraldTheme"
-            android:parentActivityName="tech.iosd.gemselections.MainContent.MainActivity"
-            android:name="tech.iosd.gemselections.Lehsunia.LehsuniaActivity">
+            android:name=".Lehsunia.LehsuniaActivity"
+            android:label="Cat\&apos;s Eye"
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/EmeraldTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
-
         <activity
-            android:theme="@style/AppTheme"
             android:name=".JewelleryAlpha.JewelleryAlpha"
             android:label="Jewellery"
             android:parentActivityName=".MainContent.MainActivity"
-            >
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainContent.MainActivity" />
         </activity>
         <activity
-            android:theme="@style/AppTheme"
             android:name=".JewelleryAlpha.DesignOwn.DesignOwnActivity"
-            android:label="Design You Own Jewellery!"
+            android:label="Design Your Own Jewellery!"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
-            >
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.JewelleryAlpha" />
@@ -175,129 +192,136 @@
         <activity
             android:name=".JewelleryAlpha.Victorian.VictorianActivity"
             android:label="Victorian Jewellery"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".JewelleryAlpha.JewelleryAlpha">
+            android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.JewelleryAlpha" />
         </activity>
-
-        <activity android:name=".JewelleryAlpha.Diamond.DiamondActivity"
+        <activity
+            android:name=".JewelleryAlpha.Diamond.DiamondActivity"
             android:label="Diamond Jewellery"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.JewelleryAlpha" />
-
         </activity>
-        <activity android:name=".JewelleryAlpha.GemStudded.GemStuddedActivity"
+        <activity
+            android:name=".JewelleryAlpha.GemStudded.GemStuddedActivity"
             android:label="Gem Studded Jewellery"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.JewelleryAlpha" />
-
         </activity>
-
-
-        <activity android:name=".JewelleryAlpha.Diamond.DiamondSets"
+        <activity
+            android:name=".JewelleryAlpha.Diamond.DiamondSets"
             android:label="Diamond Sets"
             android:parentActivityName=".JewelleryAlpha.Diamond.DiamondActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.Diamond.DiamondActivity" />
         </activity>
-        <activity android:name=".JewelleryAlpha.Diamond.DiamondPendants"
+        <activity
+            android:name=".JewelleryAlpha.Diamond.DiamondPendants"
             android:label="Diamond Pendants"
             android:parentActivityName=".JewelleryAlpha.Diamond.DiamondActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.Diamond.DiamondActivity" />
         </activity>
-        <activity android:name=".JewelleryAlpha.Diamond.DiamondTops"
+        <activity
+            android:name=".JewelleryAlpha.Diamond.DiamondTops"
             android:label="Diamond Tops"
             android:parentActivityName=".JewelleryAlpha.Diamond.DiamondActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.Diamond.DiamondActivity" />
         </activity>
-        <activity android:name=".JewelleryAlpha.Diamond.DiamondRings"
+        <activity
+            android:name=".JewelleryAlpha.Diamond.DiamondRings"
             android:label="Diamond Rings"
             android:parentActivityName=".JewelleryAlpha.Diamond.DiamondActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.Diamond.DiamondActivity" />
         </activity>
-        <activity android:name=".JewelleryAlpha.Diamond.DiamondBracelets"
+        <activity
+            android:name=".JewelleryAlpha.Diamond.DiamondBracelets"
             android:label="Diamond Bracelets"
             android:parentActivityName=".JewelleryAlpha.Diamond.DiamondActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.Diamond.DiamondActivity" />
         </activity>
-        <activity android:name=".JewelleryAlpha.Diamond.DiamondNosePin"
+        <activity
+            android:name=".JewelleryAlpha.Diamond.DiamondNosePin"
             android:label="Diamond Nose Pins"
             android:parentActivityName=".JewelleryAlpha.Diamond.DiamondActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.Diamond.DiamondActivity" />
         </activity>
-        <activity android:name=".JewelleryAlpha.Diamond.DiamondStuds"
+        <activity
+            android:name=".JewelleryAlpha.Diamond.DiamondStuds"
             android:label="Diamond Studded Jewellery"
             android:parentActivityName=".JewelleryAlpha.Diamond.DiamondActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.Diamond.DiamondActivity" />
         </activity>
-        
-        <activity android:name=".JewelleryAlpha.GemStudded.GemStuddedSets"
+        <activity
+            android:name=".JewelleryAlpha.GemStudded.GemStuddedSets"
             android:label="Gem Studded Sets"
             android:parentActivityName=".JewelleryAlpha.GemStudded.GemStuddedActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.GemStudded.GemStuddedActivity" />
-
         </activity>
-        <activity android:name=".JewelleryAlpha.GemStudded.GemStuddedPendants"
+        <activity
+            android:name=".JewelleryAlpha.GemStudded.GemStuddedPendants"
             android:label="Gem Studded Pendants"
             android:parentActivityName=".JewelleryAlpha.GemStudded.GemStuddedActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.GemStudded.GemStuddedActivity" />
-
         </activity>
-        <activity android:name=".JewelleryAlpha.GemStudded.GemStuddedTops"
+        <activity
+            android:name=".JewelleryAlpha.GemStudded.GemStuddedTops"
             android:label="Gem Studded Tops"
             android:parentActivityName=".JewelleryAlpha.GemStudded.GemStuddedActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.GemStudded.GemStuddedActivity" />
-
         </activity>
-        <activity android:name=".JewelleryAlpha.GemStudded.GemStuddedRings"
+        <activity
+            android:name=".JewelleryAlpha.GemStudded.GemStuddedRings"
             android:label="Gem Studded Rings"
             android:parentActivityName=".JewelleryAlpha.GemStudded.GemStuddedActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.GemStudded.GemStuddedActivity" />
-
         </activity>
-        <activity android:name=".JewelleryAlpha.GemStudded.GemStuddedBracelet"
+        <activity
+            android:name=".JewelleryAlpha.GemStudded.GemStuddedBracelet"
             android:label="Gem Studded Bracelets"
             android:parentActivityName=".JewelleryAlpha.GemStudded.GemStuddedActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JewelleryAlpha.GemStudded.GemStuddedActivity" />
-
         </activity>
 
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity android:name=".MainContent.ActivityForDiamonds"></activity>
     </application>
 
 </manifest>

@@ -8,7 +8,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,6 +19,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -35,16 +38,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import tech.iosd.gemselections.Adapters.ConnectAdapter;
-import tech.iosd.gemselections.AuthRelated.LoginActivity;
-import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
-import tech.iosd.gemselections.R;
-import tech.iosd.gemselections.Rudraksha.Rudraksha;
-import tech.iosd.gemselections.Handicrafts.Handicrafts;
-import tech.iosd.gemselections.Ittar.Ittar;
-import tech.iosd.gemselections.DataProviders.ConnectOptions;
-import tech.iosd.gemselections.Utils.WebViewActivity;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -55,6 +48,16 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import tech.iosd.gemselections.Adapters.ConnectAdapter;
+import tech.iosd.gemselections.AuthRelated.LoginActivity;
+import tech.iosd.gemselections.DataProviders.ConnectOptions;
+import tech.iosd.gemselections.Handicrafts.Handicrafts;
+import tech.iosd.gemselections.Ittar.Ittar;
+import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
+import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Rudraksha.Rudraksha;
+import tech.iosd.gemselections.Utils.WebViewActivity;
 
 
 public class MainActivity extends AppCompatActivity
@@ -69,8 +72,9 @@ public class MainActivity extends AppCompatActivity
     private boolean ISHOMESHOWN;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
-
     private FragmentManager fragmentManager;
+
+    private boolean isBackPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,10 +98,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         header = navigationView.inflateHeaderView(tech.iosd.gemselections.R.layout.nav_header_main);
-        _displayName = (TextView)header.findViewById(tech.iosd.gemselections.R.id.DisplayName);
-        _displayEmail = (TextView)header.findViewById(tech.iosd.gemselections.R.id.DisplayEmail);
-        _login = (Button)header.findViewById(tech.iosd.gemselections.R.id.main_login);
-        _logout = (Button)header.findViewById(tech.iosd.gemselections.R.id.main_logout);
+        _displayName = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayName);
+        _displayEmail = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayEmail);
+        _login = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_login);
+        _logout = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_logout);
         _logout.setEnabled(false);
 
         _logout.setOnClickListener(new View.OnClickListener() {
@@ -118,16 +122,16 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        if(mUser != null){
+        if (mUser != null) {
             _displayName.setText(mUser.getDisplayName());
             _displayEmail.setText(mUser.getEmail());
             _login.setEnabled(false);
             _logout.setEnabled(true);
-        }else {
-            if(!_login.isEnabled()){
+        } else {
+            if (!_login.isEnabled()) {
                 _login.setEnabled(true);
             }
-            if(_logout.isEnabled()){
+            if (_logout.isEnabled()) {
                 _logout.setEnabled(false);
             }
         }
@@ -142,32 +146,22 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if(fragmentManager.getBackStackEntryCount()!=0){
+
+            if (fragmentManager.getBackStackEntryCount() > 1 ) {
                 fragmentManager.popBackStack();
-                if(ISHOMESHOWN){
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setMessage("Do you really want to exit?")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                    display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                                }
-                            })
-                            .setTitle("Exit App")
-                            .create().show();
-                }else
-                {
-                    display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                }
-            }else {
-                super.onBackPressed();
+
+            } else {
+                new AlertDialog.Builder(this)
+                        .setTitle("Really Exit?")
+                        .setMessage("Are you sure you want to exit?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                //MainActivity.super.onBackPressed();
+                                finish();
+                            }
+                        }).create().show();
             }
         }
 
@@ -182,7 +176,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id){
+        switch (id) {
             case tech.iosd.gemselections.R.id.ac_buy_now:
 
                 startActivity(
@@ -193,15 +187,15 @@ public class MainActivity extends AppCompatActivity
                 );
                 break;
 
-            case tech.iosd.gemselections.R.id.ac_payment_methods:
-                payment_options();
-                break;
+//            case tech.iosd.gemselections.R.id.ac_payment_methods:
+//                payment_options();
+//                break;
 
             case tech.iosd.gemselections.R.id.ac_natural_sapphire:
-                    display_image("images/lab-certificate.jpg", "Natural Sapphire");
+                display_image("images/lab-certificate.jpg", "Natural Sapphire");
                 break;
             case tech.iosd.gemselections.R.id.ac_treated_sapphire:
-                    display_image("images/Treated-Sapphire.jpg", "Treated Sapphire");
+                display_image("images/Treated-Sapphire.jpg", "Treated Sapphire");
                 break;
             case tech.iosd.gemselections.R.id.ac_heated_sapphire:
                 display_image("images/Heated-Sapphire.jpg", "Heated Sapphire");
@@ -253,34 +247,34 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.ac_faq:
-                    startActivity(
-                            new Intent(MainActivity.this, FAQsActivity.class)
-                    );
+                startActivity(
+                        new Intent(MainActivity.this, FAQsActivity.class)
+                );
                 break;
 
             case tech.iosd.gemselections.R.id.ac_about_us:
-                    display_selected_item(tech.iosd.gemselections.R.id.ac_about_us);
+                display_selected_item(tech.iosd.gemselections.R.id.ac_about_us);
                 break;
 
             case tech.iosd.gemselections.R.id.ac_management:
-                    display_selected_item(tech.iosd.gemselections.R.id.ac_management);
+                display_selected_item(tech.iosd.gemselections.R.id.ac_management);
                 break;
 
             case tech.iosd.gemselections.R.id.ac_pankaj:
-                    dialog_pankaj();
+                dialog_pankaj();
                 break;
 
             case tech.iosd.gemselections.R.id.ac_khanna_gems:
-                    dialog_khanna_gems();
+                dialog_khanna_gems();
                 break;
 
-            case tech.iosd.gemselections.R.id.ac_sonipat:
-                startActivity(
-                        new Intent(MainActivity.this, WebViewActivity.class)
-                                .putExtra("URL", "http://en.wikipedia.org/wiki/Sonipat")
-                                .putExtra("parent", "MainActivity")
-                );
-                break;
+            // case tech.iosd.gemselections.R.id.ac_sonipat:
+            // startActivity(
+            //             new Intent(MainActivity.this, WebViewActivity.class)
+            //           .putExtra("URL", "http://en.wikipedia.org/wiki/Sonipat")
+            //              .putExtra("parent", "MainActivity")
+            //);
+            // break;
 
             case tech.iosd.gemselections.R.id.ac_exit:
 
@@ -332,12 +326,12 @@ public class MainActivity extends AppCompatActivity
         dialog.show();
         dialog.getWindow().setAttributes(layoutParams);
 
-        ImageView img = (ImageView)dialog.findViewById(tech.iosd.gemselections.R.id.dialog_pankaj_image);
+        ImageView img = (ImageView) dialog.findViewById(tech.iosd.gemselections.R.id.dialog_pankaj_image);
         InputStream is;
-        try{
+        try {
             is = getAssets().open("images/pankaj-khanna.jpg");
             img.setImageBitmap(BitmapFactory.decodeStream(is));
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -356,14 +350,14 @@ public class MainActivity extends AppCompatActivity
         dialog.show();
         dialog.getWindow().setAttributes(layoutParams);
 
-        Button OK = (Button)dialog.findViewById(tech.iosd.gemselections.R.id.ok_button);
+        Button OK = (Button) dialog.findViewById(tech.iosd.gemselections.R.id.ok_button);
         OK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
-        Button Buy = (Button)dialog.findViewById(tech.iosd.gemselections.R.id.buy);
+        Button Buy = (Button) dialog.findViewById(tech.iosd.gemselections.R.id.buy);
         Buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -391,7 +385,7 @@ public class MainActivity extends AppCompatActivity
         dialog.show();
         dialog.getWindow().setAttributes(layoutParams);
 
-        ImageView iv = (ImageView)dialog.findViewById(tech.iosd.gemselections.R.id.image_here);
+        ImageView iv = (ImageView) dialog.findViewById(tech.iosd.gemselections.R.id.image_here);
         final InputStream in;
         img = null;
         try {
@@ -403,7 +397,7 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        final FloatingActionButton save = (FloatingActionButton)dialog.findViewById(tech.iosd.gemselections.R.id.fab_save);
+        final FloatingActionButton save = (FloatingActionButton) dialog.findViewById(tech.iosd.gemselections.R.id.fab_save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -412,14 +406,14 @@ public class MainActivity extends AppCompatActivity
                         android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this,
                             new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                }else{
+                } else {
                     save_image();
                 }
             }
         });
     }
 
-    private void save_image(){
+    private void save_image() {
         final String filePath = Environment.getExternalStorageDirectory().toString();
 
         File dir = new File(filePath + "/gemselections_images");
@@ -456,7 +450,16 @@ public class MainActivity extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(getApplicationContext(), "Opening...", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setDataAndType(Uri.parse("file://" + file.getAbsolutePath()), "image/*");
+
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                                intent.setDataAndType(Uri.parse("file://" + file.getAbsolutePath()), "image/*");
+                            } else {
+                                /* TODO: I Have not tested this for Nougat due to un-availability of any N device, Test it but it should work*/
+                                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                intent.setDataAndType(FileProvider.getUriForFile(getApplicationContext(),
+                                        "tech.iosd.gemselections.fileprovider", file),
+                                        "image/*");
+                            }
                             startActivity(intent);
                         }
                     })
@@ -470,16 +473,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case 1: {
-
                 if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     save_image();
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
                 }
                 return;
@@ -503,22 +503,26 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         ISHOMESHOWN = id == tech.iosd.gemselections.R.id.nav_home;
-        switch (id){
+        switch (id) {
             case tech.iosd.gemselections.R.id.nav_home:
-                    fragment = new HomeFragment();
-                ISHOMESHOWN =true;
+                fragment = new HomeFragment();
+                ISHOMESHOWN = true;
                 break;
 
+
             case tech.iosd.gemselections.R.id.nav_rudraksha:
-                    finish();
-                    startActivity(
-                            new Intent(MainActivity.this, Rudraksha.class)
-                    );
+                finish();
+                startActivity(
+                        new Intent(MainActivity.this, Rudraksha.class)
+                );
 
                 break;
 
             case R.id.nav_astro:
-                    fragment = new MainAstrologyFragment();
+                fragment = new MainAstrologyFragment();
+                break;
+            case R.id.gemstone_recommendation:
+                fragment=new MainGemstoneRecommendationFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_ittar:
@@ -528,42 +532,43 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_japamala:
-                    fragment = new MainJapaMalaFragment();
+                fragment = new MainJapaMalaFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_stoneidols:
-                    fragment = new MainStoneIdolFragment();
+                fragment = new MainStoneIdolFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_kavach:
-                    fragment = new MainKavachFragment();
+                fragment = new MainKavachFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_saphatic:
-                    fragment = new MainSphatikFragment();
+                fragment = new MainSphatikFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_handicrafts:
                 finish();
                 startActivity(
-                    new Intent(MainActivity.this, Handicrafts.class)
+                        new Intent(MainActivity.this, Handicrafts.class)
                 );
                 break;
 
             case tech.iosd.gemselections.R.id.nav_birthstone:
-                    fragment = new MainBirthstoneFragment();
+                fragment = new MainBirthstoneFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_semi_precious_gems:
-                    fragment = new MainSemiPreciousGems();
+                fragment = new MainSemiPreciousGems();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_triangular_gems:
-                    fragment = new TriangularGemsFragment();
+                fragment = new TriangularGemsFragment();
                 break;
 
+
             case tech.iosd.gemselections.R.id.nav_cabochon_gems:
-                    fragment = new MainCabochonFragment();
+                fragment = new MainCabochonFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_faq:
@@ -575,11 +580,11 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_yantra:
-                    fragment = new MainYantraFragment();
+                fragment = new MainYantraFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_diamond:
-                    fragment = new MainDiamondFragment();
+                fragment = new MainDiamondFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_jewel:
@@ -629,7 +634,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_visit:
-                    fragment = new MainVisitUsFragment();
+                fragment = new MainVisitUsFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_connect:
@@ -637,31 +642,31 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.ac_about_us:
-                    fragment = new MainAboutUsFragment();
+                fragment = new MainAboutUsFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.ac_management:
-                    fragment = new MainManagementFragment();
+                fragment = new MainManagementFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_share:
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 String body = getString(tech.iosd.gemselections.R.string.Share);
-                sharingIntent.putExtra(Intent.EXTRA_SUBJECT,"Get Gemselections on your phone!!!");
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Get Gemselections on your phone!!!");
                 sharingIntent.putExtra(Intent.EXTRA_TEXT, body);
-                startActivity(Intent.createChooser(sharingIntent,"Share Via.."));
+                startActivity(Intent.createChooser(sharingIntent, "Share Via.."));
                 break;
 
             case tech.iosd.gemselections.R.id.nav_rate:
 
                 Uri uri1 = Uri.parse("market://details?id=tech.iosd.gemselections");
                 Intent play_store = new Intent(Intent.ACTION_VIEW);
-                play_store.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                play_store.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 try {
                     play_store.setData(uri1);
                     startActivity(play_store);
-                }catch (ActivityNotFoundException e){
+                } catch (ActivityNotFoundException e) {
                     uri = Uri.parse("http://play.google.com/store/apps/details?id=tech.iosd.gemselections");
                     play_store.setData(uri);
                     startActivity(play_store);
@@ -670,9 +675,9 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
 
-        if(fragment!=null){
+        if (fragment != null) {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(tech.iosd.gemselections.R.id.container, fragment);
+            fragmentTransaction.replace(tech.iosd.gemselections.R.id.container_main, fragment);
             fragmentTransaction.addToBackStack("Main");
             fragmentTransaction.commit();
         }
@@ -693,7 +698,7 @@ public class MainActivity extends AppCompatActivity
                 "Snapchat",
                 "Pinterest",
                 "Tumblr",
-                "Stuble upon",
+                "Stumble upon",
                 "Google Plus",
                 "VK",
                 "Follo.in",
@@ -744,14 +749,15 @@ public class MainActivity extends AppCompatActivity
         dialog.getWindow().setAttributes(params);
         dialog.show();
 
-        RecyclerView view = (RecyclerView)dialog.findViewById(tech.iosd.gemselections.R.id.connect_recycler);
+        RecyclerView view = (RecyclerView) dialog.findViewById(tech.iosd.gemselections.R.id.connect_recycler);
         view.setHasFixedSize(true);
         view.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        view.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));;
+        view.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
+        ;
 
         List<ConnectOptions> optionses = new ArrayList<>();
-        for(int i =0; i<13;i++){
-            ConnectOptions options = new ConnectOptions(_image[i],_options[i],_links[i]);
+        for (int i = 0; i < 13; i++) {
+            ConnectOptions options = new ConnectOptions(_image[i], _options[i], _links[i]);
             optionses.add(options);
         }
 
