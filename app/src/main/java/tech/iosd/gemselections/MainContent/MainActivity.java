@@ -2,6 +2,7 @@ package tech.iosd.gemselections.MainContent;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -686,6 +687,8 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
     }
 
+
+
     private void connect_with_us() {
 
         String[] _options = {
@@ -723,7 +726,7 @@ public class MainActivity extends AppCompatActivity
         };
 
         String[] _links = {
-                "https://www.facebook.com/GemSelections.in/",
+                "https://www.facebook.com/184419964907681/",
                 "https://www.twitter.com/Gem_Selections",
                 "https://www.instagram.com/gemselections/",
                 "https://www.youtube.com/channel/UCt3nkzLE2NKMuwu3V0KQtbw",
