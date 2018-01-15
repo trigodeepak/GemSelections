@@ -70,9 +70,10 @@ public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ViewHold
 
                         if(current!=6&& current!=0) open_link(list.get(current).getLink());
                         else if(current==0) {
-                             newFacebookIntent(context.getPackageManager(), "https://www.facebook.com/Gemselections.in");
-
+                            Intent facebookIntent = getOpenFacebookIntent(context);
+                            context.startActivity(facebookIntent);
                         }
+
                         else{
                             new AlertDialog.Builder(context)
                                     .setTitle("Snapchat")
@@ -91,17 +92,15 @@ public class ConnectAdapter extends RecyclerView.Adapter<ConnectAdapter.ViewHold
                 }
         );
     }
-    public static Intent newFacebookIntent(PackageManager pm, String url) {
-        Uri uri = Uri.parse(url);
+
+    public  Intent getOpenFacebookIntent(Context context) {
+
         try {
-            ApplicationInfo applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0);
-            if (applicationInfo.enabled) {
-                // http://stackoverflow.com/a/24547437/1048340
-                uri = Uri.parse("fb://facewebmodal/f?href=" + url);
-            }
-        } catch (PackageManager.NameNotFoundException ignored) {
+            context.getPackageManager().getPackageInfo("com.facebook.katana", 0);
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/184419964907681"));
+        } catch (Exception e) {
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Gemselection.in"));
         }
-        return new Intent(Intent.ACTION_VIEW, uri);
     }
     private void open_link(String link) {
         context.startActivity(new Intent(context, WebViewActivity.class)
