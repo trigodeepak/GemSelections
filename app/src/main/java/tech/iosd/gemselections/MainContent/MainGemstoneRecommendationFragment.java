@@ -50,7 +50,7 @@ public class MainGemstoneRecommendationFragment extends Fragment {
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
     private static final int RECOVERY_REQUEST = 1;
 
-    private EditText dateOfBirth;
+    private EditText dateOfBirth,  phoneNumber;
 
     @Nullable
     @Override
@@ -90,6 +90,7 @@ public class MainGemstoneRecommendationFragment extends Fragment {
         final EditText placeOfBirth=view.findViewById(R.id.et_place_of_birth);
         final EditText timeOfBirth=view.findViewById(R.id.time_of_birth);
         dateOfBirth = (EditText) view.findViewById(R.id.et_date_of_birth);
+        phoneNumber = (EditText) view.findViewById(R.id.et_phone_number);
         Button send=view.findViewById(R.id.sendMailBtn);
 
         dateOfBirth.setOnClickListener(new View.OnClickListener() {
@@ -112,11 +113,12 @@ public class MainGemstoneRecommendationFragment extends Fragment {
                 String sendMessageMail=message.getText().toString();
                 String sendplaceOfBirth=placeOfBirth.getText().toString();
                 String sendDateOfBirth= dateOfBirth.getText().toString();
+                String sendPhoneNumber = phoneNumber.getText().toString();
                 try {
                     Intent intent = new Intent(Intent.ACTION_SENDTO); // it's not ACTION_SEND
                  //   intent.setType("text/plain");
                     intent.putExtra(Intent.EXTRA_SUBJECT, " Gemstone Recommendation user name:" + " " + sendMailName);
-                    intent.putExtra(Intent.EXTRA_TEXT, "Place of Birth:" + sendplaceOfBirth + "\n"+"Time of birth:"+sendtimeOfBirth +"\n" +"Date of Birth: " +sendDateOfBirth + "Questions:" + sendMessageMail);
+                    intent.putExtra(Intent.EXTRA_TEXT, "Place of Birth:" + sendplaceOfBirth + "\n"+"Time of birth:"+sendtimeOfBirth +"\n"+"Phone Number: "+sendPhoneNumber+"\n" +"Date of Birth: " +sendDateOfBirth + "Questions:" + sendMessageMail);
                     intent.setData(Uri.parse("mailto:aradikhanna@gmail.com"));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(Intent.createChooser(intent, "Mail Via..."));
