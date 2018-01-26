@@ -51,6 +51,7 @@ import java.util.List;
 import java.util.Random;
 
 import tech.iosd.gemselections.Adapters.ConnectAdapter;
+import tech.iosd.gemselections.Astro_RemediesFragment;
 import tech.iosd.gemselections.AuthRelated.LoginActivity;
 import tech.iosd.gemselections.DataProviders.ConnectOptions;
 import tech.iosd.gemselections.Handicrafts.Handicrafts;
@@ -521,6 +522,9 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.nav_astro:
                 fragment = new MainAstrologyFragment();
+                break;
+            case R.id.nav_astro_remedies:
+                fragment = new Astro_RemediesFragment();
                 break;
             case R.id.gemstone_recommendation:
                 fragment=new MainGemstoneRecommendationFragment();
