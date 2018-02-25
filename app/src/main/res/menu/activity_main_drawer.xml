@@ -79,7 +79,9 @@
             android:id="@+id/nav_kavach"
             android:icon="@drawable/ic_kavach"
             android:title="Kavach"/>
-
+<item
+    android:id="@+id/nav_sarva_mannokaamna_prapti_yugal"
+    android:title="Sarva Mannokaamna Prapti Yugal"/>
 
 
         <item

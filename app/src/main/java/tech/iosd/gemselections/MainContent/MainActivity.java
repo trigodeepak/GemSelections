@@ -584,6 +584,9 @@ public class MainActivity extends AppCompatActivity
                 );
 
                 break;
+            case R.id.nav_sarva_mannokaamna_prapti_yugal:
+                fragment=new SarvaManokaamnaPraptiYugal();
+                break;
 
             case tech.iosd.gemselections.R.id.nav_yantra:
                 fragment = new MainYantraFragment();
