@@ -596,6 +596,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new MainDiamondFragment();
                 break;
 
+            case R.id.nav_daily_recommendations:
+                fragment = new DailyRecommendationsFragment();
+                break;
+
             case tech.iosd.gemselections.R.id.nav_jewel:
                 startActivity(
                         new Intent(MainActivity.this, JewelleryAlpha.class)
@@ -682,6 +686,8 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 break;
+
+
         }
 
         if (fragment != null) {

@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +19,6 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
-import java.awt.font.TextAttribute;
-
 import tech.iosd.gemselections.Adapters.SarvaManokaamnaPraptiYugalSliderAdapter;
 import tech.iosd.gemselections.R;
 
@@ -29,10 +26,10 @@ import tech.iosd.gemselections.R;
  * A simple {@link Fragment} subclass.
  */
 public class SarvaManokaamnaPraptiYugal extends Fragment {
-private TextView textView;
-    private YouTubePlayer YPlayer;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
     private static final int RECOVERY_REQUEST = 1;
+    private TextView textView;
+    private YouTubePlayer YPlayer;
 
 
     public SarvaManokaamnaPraptiYugal() {
@@ -44,20 +41,20 @@ private TextView textView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_sarva_manokaamna_prapti_yugal, container, false);
-textView=view.findViewById(R.id.yuText);
-String content="1. Get all your desires fulfilled."+"\n"+
-       " 2. Overcome all the troubles in your life."+"\n"+
-       " 3. Get blessings of Lord Shiva.\n"+
-       " 4. Empower Jupiter (brahaspati) in your Horoscope.\n";
+        View view = inflater.inflate(R.layout.fragment_sarva_manokaamna_prapti_yugal, container, false);
+        textView = view.findViewById(R.id.yuText);
+        String content = "1. Get all your desires fulfilled." + "\n" +
+                " 2. Overcome all the troubles in your life." + "\n" +
+                " 3. Get blessings of Lord Shiva.\n" +
+                " 4. Empower Jupiter (brahaspati) in your Horoscope.\n";
 
-                textView.setText(content
-     );
+        textView.setText(content
+        );
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.yugal_slider_recycler);
         SarvaManokaamnaPraptiYugalSliderAdapter aadapter = new SarvaManokaamnaPraptiYugalSliderAdapter(SarvaManokaamnaPraptiYugal.this.getActivity(), ModelSarvaManokaamnaPraptiYugalSlider.getObList());
         recyclerView.setAdapter(aadapter);
 
-         LinearLayoutManager layoutManager = new LinearLayoutManager(SarvaManokaamnaPraptiYugal.this.getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(SarvaManokaamnaPraptiYugal.this.getActivity());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -74,10 +71,9 @@ String content="1. Get all your desires fulfilled."+"\n"+
                     YPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                         @Override
                         public void onFullscreen(boolean b) {
-                            if(!b){
+                            if (!b) {
                                 //YPlayer.setFullscreen(false);
-                                if(getActivity().getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT)
-                                {
+                                if (getActivity().getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT) {
                                     getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                                 }
                             }
@@ -101,12 +97,13 @@ String content="1. Get all your desires fulfilled."+"\n"+
         transaction.add(R.id.yugal_vid, youTubePlayerFragment).commit();
         return view;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Sarva Mannokaamna Prapti Yugal");
     }
 
-    }
+}
 
 
