@@ -2,7 +2,6 @@ package tech.iosd.gemselections.MainContent;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         header = navigationView.inflateHeaderView(R.layout.nav_header_main);
-        header.setPadding(10,10,10,10);
+        header.setPadding(10, 10, 10, 10);
         _displayName = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayName);
         _displayEmail = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayEmail);
         _login = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_login);
@@ -150,7 +148,7 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
 
-            if (fragmentManager.getBackStackEntryCount() > 1 ) {
+            if (fragmentManager.getBackStackEntryCount() > 1) {
                 fragmentManager.popBackStack();
 
             } else {
@@ -528,7 +526,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new Astro_RemediesFragment();
                 break;
             case R.id.gemstone_recommendation:
-                fragment=new MainGemstoneRecommendationFragment();
+                fragment = new MainGemstoneRecommendationFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_ittar:
@@ -585,7 +583,7 @@ public class MainActivity extends AppCompatActivity
 
                 break;
             case R.id.nav_sarva_mannokaamna_prapti_yugal:
-                fragment=new SarvaManokaamnaPraptiYugal();
+                fragment = new SarvaManokaamnaPraptiYugal();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_yantra:
@@ -687,7 +685,6 @@ public class MainActivity extends AppCompatActivity
 
                 break;
 
-
         }
 
         if (fragment != null) {
@@ -698,10 +695,9 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
         }
 
-        DrawerLayout drawer =  findViewById(tech.iosd.gemselections.R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
-
 
 
     private void connect_with_us() {
@@ -771,7 +767,6 @@ public class MainActivity extends AppCompatActivity
         view.setHasFixedSize(true);
         view.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         view.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
-        ;
 
         List<ConnectOptions> optionses = new ArrayList<>();
         for (int i = 0; i < 13; i++) {
