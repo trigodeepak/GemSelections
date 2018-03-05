@@ -539,6 +539,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new MainJapaMalaFragment();
                 break;
 
+            case R.id.nav_daily_horoscopes:
+                fragment = new DailyHoroscopesFragment();
+                break;
+
             case tech.iosd.gemselections.R.id.nav_stoneidols:
                 fragment = new MainStoneIdolFragment();
                 break;

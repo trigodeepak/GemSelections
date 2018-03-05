@@ -8,7 +8,8 @@ import java.io.Serializable;
  * Created by anubhavmalik on 06/03/18.
  */
 
-public class PredictionResponse implements Serializable{
+public class NextPredictionResponse implements Serializable{
+
     @SerializedName("sun_sign")
     private String sunSign;
 
@@ -16,15 +17,16 @@ public class PredictionResponse implements Serializable{
     private String predictionDate;
 
     @SerializedName("prediction")
-    private PredictionModel predictionModel;
+    private String prediction;
 
-    public PredictionResponse() {
+    public NextPredictionResponse() {
     }
 
-    public PredictionResponse(String sunSign, String predictionDate, PredictionModel predictionModel) {
+    public NextPredictionResponse(String sunSign, String predictionDate, String prediction) {
+
         this.sunSign = sunSign;
         this.predictionDate = predictionDate;
-        this.predictionModel = predictionModel;
+        this.prediction = prediction;
     }
 
     public String getSunSign() {
@@ -43,11 +45,11 @@ public class PredictionResponse implements Serializable{
         this.predictionDate = predictionDate;
     }
 
-    public PredictionModel getPredictionModel() {
-        return predictionModel;
+    public String getPrediction() {
+        return prediction;
     }
 
-    public void setPredictionModel(PredictionModel predictionModel) {
-        this.predictionModel = predictionModel;
+    public void setPrediction(String prediction) {
+        this.prediction = prediction;
     }
 }

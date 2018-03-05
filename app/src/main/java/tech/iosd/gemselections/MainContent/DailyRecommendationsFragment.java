@@ -48,7 +48,7 @@ public class DailyRecommendationsFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setCancelable(false);
+        progressDialog.setCancelable(true);
         progressDialog.setTitle("Loading ...");
         progressDialog.setMessage("Fetching the latest details for you...");
         progressDialog.show();

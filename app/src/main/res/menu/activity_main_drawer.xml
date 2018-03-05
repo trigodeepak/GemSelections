@@ -27,6 +27,10 @@
             android:icon="@drawable/ic_daily_recommendations"
             android:title="Daily Recommendations" />
         <item
+            android:id="@+id/nav_daily_horoscopes"
+            android:icon="@drawable/ic_daily_recommendations"
+            android:title="Daily Horoscopes"/>
+        <item
             android:id="@+id/nav_cabochon_gems"
             android:icon="@drawable/ic_cabochon"
             android:title="Cabochon Gemstones" />
