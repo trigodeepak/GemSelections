@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,7 +68,7 @@ public class SarvaManokaamnaPraptiYugal extends Fragment {
 
                 if (!wasRestored) {
                     YPlayer = player;
-                    YPlayer.cueVideo("TCWMjYKcvpY");
+                    YPlayer.cueVideo("T_lWZcwEvjI");
                     YPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                         @Override
                         public void onFullscreen(boolean b) {
@@ -95,7 +96,11 @@ public class SarvaManokaamnaPraptiYugal extends Fragment {
         });
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.yugal_vid, youTubePlayerFragment).commit();
+
+
         return view;
+
+
     }
 
     @Override
