@@ -694,10 +694,11 @@ public class MainActivity extends AppCompatActivity
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(tech.iosd.gemselections.R.id.container_main, fragment);
             fragmentTransaction.addToBackStack("Main");
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // Will show transitioning as fragments change
             fragmentTransaction.commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 

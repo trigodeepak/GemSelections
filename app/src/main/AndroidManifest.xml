@@ -341,7 +341,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
-            >
+
         </activity>
         <activity
             android:name=".Pukhraj.GulabiPukhraj"
