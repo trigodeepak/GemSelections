@@ -200,7 +200,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
                 Toast.makeText(context, "Sending Request", Toast.LENGTH_SHORT).show();
                 Log.d("TAGER", "Sending Request");
                 Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 
                 if (sharedPreferences.getBoolean(SharedPreferencesUtils.prefsLoggedIn, false)) {
