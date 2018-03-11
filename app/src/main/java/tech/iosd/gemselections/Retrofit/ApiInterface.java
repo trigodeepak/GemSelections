@@ -15,7 +15,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.WeeklyPredictionResponse;
 
 public interface ApiInterface {
 
-    public static final String HEADER_TOKEN = "Basic NjAxNjk2Ojg1MTBlNTM3YmNjNDI0ZTE1NGEzODYwZTcwZTkyMjA5"; //follow convention if using somewhere else
+    String HEADER_TOKEN = "Basic NjAxNjk2Ojg1MTBlNTM3YmNjNDI0ZTE1NGEzODYwZTcwZTkyMjA5"; //follow convention if using somewhere else
 
     @POST("sun_sign_prediction/daily/{horoscope}")
     Call<PredictionResponse> getTodaysHoroscope (

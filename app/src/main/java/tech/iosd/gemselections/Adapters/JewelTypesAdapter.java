@@ -7,10 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -18,7 +16,6 @@ import tech.iosd.gemselections.DataProviders.JewelTypes;
 import tech.iosd.gemselections.JewelleryAlpha.DesignOwn.DesignOwnActivity;
 import tech.iosd.gemselections.JewelleryAlpha.Diamond.DiamondActivity;
 import tech.iosd.gemselections.JewelleryAlpha.GemStudded.GemStuddedActivity;
-import tech.iosd.gemselections.JewelleryAlpha.Silver.SilverActivity;
 import tech.iosd.gemselections.JewelleryAlpha.Victorian.VictorianActivity;
 import tech.iosd.gemselections.R;
 
@@ -26,12 +23,12 @@ import tech.iosd.gemselections.R;
  * Created by anonymous on 19/8/17.
  */
 
-public class JewelTypesAdapater extends RecyclerView.Adapter<JewelTypesAdapater.ViewHolder>{
+public class JewelTypesAdapter extends RecyclerView.Adapter<JewelTypesAdapter.ViewHolder>{
 
     private Context context;
     private List<JewelTypes> typesList;
 
-    public JewelTypesAdapater(Context context, List<JewelTypes> typesList) {
+    public JewelTypesAdapter(Context context, List<JewelTypes> typesList) {
         this.context = context;
         this.typesList = typesList;
     }
