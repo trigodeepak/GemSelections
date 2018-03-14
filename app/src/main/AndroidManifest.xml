@@ -370,7 +370,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
-        <activity android:name=".Pukhraj.SafedPukhraj"
+        <activity
+            android:name=".Pukhraj.SafedPukhraj"
             android:label="White Sapphire"
             android:parentActivityName=".MainContent.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -380,6 +381,10 @@
 
 
         </activity>
+
+        <meta-data
+            android:name="com.urbanairship.autopilot"
+            android:value="com.example.SampleAutopilot" />
     </application>
 
 </manifest>
