@@ -39,6 +39,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.urbanairship.Autopilot;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -80,6 +81,11 @@ int k=0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(tech.iosd.gemselections.R.layout.activity_main);
+
+        Autopilot autopilot = new Autopilot();
+        autopilot.allowEarlyTakeOff(getApplicationContext());
+//        autopilot.takeOff();
+
         Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
         setSupportActionBar(toolbar);
 
