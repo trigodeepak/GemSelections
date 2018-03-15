@@ -14,6 +14,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -28,7 +37,7 @@ import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.InternetConnectivity;
 import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener,GoogleApiClient.OnConnectionFailedListener{
 
     private FirebaseAuth mAuth;
     private EditText _email, _password;
@@ -40,6 +49,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ProgressDialog dialog;
 
     private SharedPreferences sharedPreferences;
+    private SignInButton _googleLogin;
+    GoogleApiClient mGoogleApiClient;
+    private static final int RC_SIGN_IN = 101;
+    GoogleSignInClient mGoogleSignInClient;
+    GoogleSignInOptions gso;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +76,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         _forgetPass.setOnClickListener(this);
 
         sharedPreferences = getSharedPreferences(SharedPreferencesUtils.prefsUserName, MODE_PRIVATE);
+
+        _googleLogin= (SignInButton) findViewById(R.id.btn_google_login);
+        _googleLogin.setOnClickListener(this);
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        mGoogleApiClient=new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,gso).build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+
+
     }
 
     @Override
     public void onClick(View v) {
+
+        if (v == _googleLogin) {
+            GoogleSignIn();
+        }
+
         if (v == _login) {
             loginfunc();
         }
@@ -84,6 +116,57 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(LoginActivity.this, ForgetPassActivity.class));
         }
     }
+
+    private void GoogleSignIn() {
+
+        Boolean loginReady=true;
+        if (!InternetConnectivity.ISCONNECTED) {
+            Toast toast = Toast.makeText(LoginActivity.this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            loginReady = false;
+        }
+        if(loginReady==true){
+            Intent intent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+            startActivityForResult(intent,RC_SIGN_IN);
+        }}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleResult(result);
+        }
+
+
+    }
+
+    private void handleResult(GoogleSignInResult result){
+
+        if(result.isSuccess()){
+            GoogleSignInAccount account = result.getSignInAccount();
+            String name=account.getDisplayName();
+            String email=account.getEmail();
+            Intent i=new Intent(LoginActivity.this, MainActivity.class);
+            Bundle bundle=new Bundle();
+            bundle.putString("GoogleUserName", name);
+            bundle.putString("GoogleEmail",email);
+
+
+
+            i.putExtras(bundle);
+
+
+            startActivity(i);
+
+            finish();
+        }
+
+    }
+
 
     private void loginfunc() {
         email = _email.getText().toString();
@@ -181,5 +264,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         }
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }

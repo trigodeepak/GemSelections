@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
     private FragmentManager fragmentManager;
 
     private boolean isBackPressed = false;
-
+int k=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, tech.iosd.gemselections.R.string.navigation_drawer_open, tech.iosd.gemselections.R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -104,14 +104,38 @@ public class MainActivity extends AppCompatActivity
         _login = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_login);
         _logout = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_logout);
         _logout.setEnabled(false);
+        final Intent intent = getIntent();
+        if (intent.hasExtra("GoogleUserName")) {
+            Bundle extras = getIntent().getExtras();
+            _displayName.setText(extras.getString("GoogleUserName"));
+            _displayEmail.setText(extras.getString("GoogleEmail"));
+            _login.setEnabled(false);
+            _logout.setEnabled(true);
+            k = 1;
+
+        }
 
         _logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (k == 1) {
+
+
+
+                    _login.setEnabled(true);
+                    _logout.setEnabled(false);
+
+                    _displayName.setText("Gem Selections");
+                    _displayEmail.setText("(A Unit of khanna Gems Pvt. Limited)");
+                    drawer.closeDrawers();
+                    k=0;
+                }
+if(mUser != null){
                 mAuth.signOut();
                 Intent intent = getIntent();
                 finish();
-                startActivity(intent);
+                startActivity(intent);}
             }
         });
         _login.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +146,7 @@ public class MainActivity extends AppCompatActivity
                 );
             }
         });
-
+if(k==0){
         if (mUser != null) {
             _displayName.setText(mUser.getDisplayName());
             _displayEmail.setText(mUser.getEmail());
@@ -135,7 +159,7 @@ public class MainActivity extends AppCompatActivity
             if (_logout.isEnabled()) {
                 _logout.setEnabled(false);
             }
-        }
+        }}
 
 
         display_selected_item(tech.iosd.gemselections.R.id.nav_home);
