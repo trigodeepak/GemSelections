@@ -41,6 +41,10 @@ Cleavage : None
 </b>
 
     </string>
+    <string name="facebook_app_id">212370842842907</string>
+    <string name="fb_login_protocol_scheme">fb212370842842907</string>
+
+
 
     <string name="amethyst2">
         <b>Weight : INR</b>\n
