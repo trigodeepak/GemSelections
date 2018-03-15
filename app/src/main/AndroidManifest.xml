@@ -385,6 +385,7 @@
         <meta-data
             android:name="com.urbanairship.autopilot"
             android:value="com.example.SampleAutopilot" />
+
     </application>
 
 </manifest>
