@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -18,10 +17,9 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import tech.iosd.gemselections.Adapters.JewelTypesAdapater;
+import tech.iosd.gemselections.Adapters.JewelTypesAdapter;
 import tech.iosd.gemselections.DataProviders.JewelTypes;
 import tech.iosd.gemselections.R;
-import tech.iosd.gemselections.Ruby.RubyActivity;
 
 /**
  * Created by anonymous on 19/8/17.
@@ -33,7 +31,7 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
     private String[] url = {"","","","",""};
 
     private RecyclerView recyclerView;
-    private JewelTypesAdapater adapater;
+    private JewelTypesAdapter adapater;
     private List<JewelTypes> typesList;
 
     private YouTubePlayerView playerView;
@@ -73,7 +71,7 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
             data = new JewelTypes(types[i], url[i]);
             typesList.add(data);
         }
-        adapater = new JewelTypesAdapater(JewelleryAlpha.this, typesList);
+        adapater = new JewelTypesAdapter(JewelleryAlpha.this, typesList);
         recyclerView.setAdapter(adapater);
 
     }

@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -50,6 +49,7 @@ import java.util.List;
 import java.util.Random;
 
 import tech.iosd.gemselections.Adapters.ConnectAdapter;
+import tech.iosd.gemselections.Astro_RemediesFragment;
 import tech.iosd.gemselections.AuthRelated.LoginActivity;
 import tech.iosd.gemselections.DataProviders.ConnectOptions;
 import tech.iosd.gemselections.Handicrafts.Handicrafts;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
     private FragmentManager fragmentManager;
 
     private boolean isBackPressed = false;
-
+int k=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, tech.iosd.gemselections.R.string.navigation_drawer_open, tech.iosd.gemselections.R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -97,20 +97,45 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(tech.iosd.gemselections.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        header = navigationView.inflateHeaderView(tech.iosd.gemselections.R.layout.nav_header_main);
+        header = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        header.setPadding(10, 10, 10, 10);
         _displayName = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayName);
         _displayEmail = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayEmail);
         _login = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_login);
         _logout = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_logout);
         _logout.setEnabled(false);
+        final Intent intent = getIntent();
+        if (intent.hasExtra("GoogleUserName")) {
+            Bundle extras = getIntent().getExtras();
+            _displayName.setText(extras.getString("GoogleUserName"));
+            _displayEmail.setText(extras.getString("GoogleEmail"));
+            _login.setEnabled(false);
+            _logout.setEnabled(true);
+            k = 1;
+
+        }
 
         _logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (k == 1) {
+
+
+
+                    _login.setEnabled(true);
+                    _logout.setEnabled(false);
+
+                    _displayName.setText("Gem Selections");
+                    _displayEmail.setText("(A Unit of khanna Gems Pvt. Limited)");
+                    drawer.closeDrawers();
+                    k=0;
+                }
+if(mUser != null){
                 mAuth.signOut();
                 Intent intent = getIntent();
                 finish();
-                startActivity(intent);
+                startActivity(intent);}
             }
         });
         _login.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +146,7 @@ public class MainActivity extends AppCompatActivity
                 );
             }
         });
-
+if(k==0){
         if (mUser != null) {
             _displayName.setText(mUser.getDisplayName());
             _displayEmail.setText(mUser.getEmail());
@@ -134,7 +159,7 @@ public class MainActivity extends AppCompatActivity
             if (_logout.isEnabled()) {
                 _logout.setEnabled(false);
             }
-        }
+        }}
 
 
         display_selected_item(tech.iosd.gemselections.R.id.nav_home);
@@ -147,7 +172,7 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
 
-            if (fragmentManager.getBackStackEntryCount() > 1 ) {
+            if (fragmentManager.getBackStackEntryCount() > 1) {
                 fragmentManager.popBackStack();
 
             } else {
@@ -521,8 +546,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_astro:
                 fragment = new MainAstrologyFragment();
                 break;
+            case R.id.nav_astro_remedies:
+                fragment = new Astro_RemediesFragment();
+                break;
             case R.id.gemstone_recommendation:
-                fragment=new MainGemstoneRecommendationFragment();
+                fragment = new MainGemstoneRecommendationFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_ittar:
@@ -533,6 +561,10 @@ public class MainActivity extends AppCompatActivity
 
             case tech.iosd.gemselections.R.id.nav_japamala:
                 fragment = new MainJapaMalaFragment();
+                break;
+
+            case R.id.nav_daily_horoscopes:
+                fragment = new DailyHoroscopesFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_stoneidols:
@@ -578,6 +610,9 @@ public class MainActivity extends AppCompatActivity
                 );
 
                 break;
+            case R.id.nav_sarva_mannokaamna_prapti_yugal:
+                fragment = new SarvaManokaamnaPraptiYugal();
+                break;
 
             case tech.iosd.gemselections.R.id.nav_yantra:
                 fragment = new MainYantraFragment();
@@ -585,6 +620,10 @@ public class MainActivity extends AppCompatActivity
 
             case tech.iosd.gemselections.R.id.nav_diamond:
                 fragment = new MainDiamondFragment();
+                break;
+
+            case R.id.nav_daily_recommendations:
+                fragment = new DailyRecommendationsFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_jewel:
@@ -673,18 +712,21 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 break;
+
         }
 
         if (fragment != null) {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(tech.iosd.gemselections.R.id.container_main, fragment);
             fragmentTransaction.addToBackStack("Main");
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // Will show transitioning as fragments change
             fragmentTransaction.commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
 
     private void connect_with_us() {
 
@@ -723,7 +765,7 @@ public class MainActivity extends AppCompatActivity
         };
 
         String[] _links = {
-                "https://www.facebook.com/GemSelections.in/",
+                "https://www.facebook.com/184419964907681/",
                 "https://www.twitter.com/Gem_Selections",
                 "https://www.instagram.com/gemselections/",
                 "https://www.youtube.com/channel/UCt3nkzLE2NKMuwu3V0KQtbw",
@@ -753,7 +795,6 @@ public class MainActivity extends AppCompatActivity
         view.setHasFixedSize(true);
         view.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         view.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
-        ;
 
         List<ConnectOptions> optionses = new ArrayList<>();
         for (int i = 0; i < 13; i++) {

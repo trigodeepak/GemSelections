@@ -1,6 +1,5 @@
 package tech.iosd.gemselections.JewelleryAlpha.DesignOwn;
 
-import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -40,7 +39,6 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -198,7 +196,7 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         if(requestCode==1){
             if(grantResults[0]== PermissionChecker.PERMISSION_GRANTED){
 
-                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},3);
+                ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.CAMERA},3);
 
 
             }else{
@@ -266,3 +264,5 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
 
 
 }
+
+
