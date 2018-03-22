@@ -20,6 +20,7 @@ import java.util.List;
 import tech.iosd.gemselections.Adapters.JewelTypesAdapter;
 import tech.iosd.gemselections.DataProviders.JewelTypes;
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Utils.Banner;
 
 /**
  * Created by anonymous on 19/8/17.
@@ -32,7 +33,7 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
 
     private RecyclerView recyclerView;
     private JewelTypesAdapter adapater;
-    private List<JewelTypes> typesList;
+    private List<Banner> typesList;
 
     private YouTubePlayerView playerView;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
@@ -67,10 +68,17 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
         typesList = new ArrayList<>();
         JewelTypes data;
 
-        for(int i=0; i<types.length; ++i){
+        /*for(int i=0; i<types.length; ++i){
             data = new JewelTypes(types[i], url[i]);
             typesList.add(data);
-        }
+        }*/
+
+        typesList.add(new Banner( getDrawable(R.drawable.category_create_your_own_cewellery),"Create Your Own Jewellery"));
+        typesList.add(new Banner( getDrawable(R.drawable.category_diamond_jewellery),"Diamond Jewellery"));
+        typesList.add(new Banner( getDrawable(R.drawable.category_victorian_jewellery_),"Victorian Jewellery"));
+        typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Gem-Studded Jewellery"));
+
+
         adapater = new JewelTypesAdapter(JewelleryAlpha.this, typesList);
         recyclerView.setAdapter(adapater);
 

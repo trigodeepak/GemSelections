@@ -54,9 +54,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:11.6.2'
     implementation 'com.facebook.android:facebook-login:[4,5)'
 
-
     // implementation files('libs/PGSDK_V2.1.jar')
 }
+
 
 
 
