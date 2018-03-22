@@ -301,6 +301,13 @@ if(k==0){
             //);
             // break;
 
+            case R.id.return_policy:
+                startActivity(new Intent(
+                        MainActivity.this,ReturnPolicyActivity.class
+                ));
+
+                break;
+
             case tech.iosd.gemselections.R.id.ac_exit:
 
                 new AlertDialog.Builder(MainActivity.this)
