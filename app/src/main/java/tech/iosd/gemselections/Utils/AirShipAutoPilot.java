@@ -38,9 +38,9 @@ public class AirShipAutoPilot extends Autopilot {
 
     }
 
-    @Nullable
-    @Override
-    public AirshipConfigOptions createAirshipConfigOptions(@NonNull Context context) {
+//    @Nullable
+//    @Override
+//    public AirshipConfigOptions createAirshipConfigOptions(@NonNull Context context) {
 
 //        AirshipConfigOptions options = new AirshipConfigOptions.Builder()
 //                .setDevelopmentAppKey("Your Development App Key")
@@ -55,8 +55,8 @@ public class AirShipAutoPilot extends Autopilot {
 //                .build();
 //
 //        return options;
-
-        return super.createAirshipConfigOptions(context);
-
-    }
+//
+//        return super.createAirshipConfigOptions(context);
+//
+//    }
 }

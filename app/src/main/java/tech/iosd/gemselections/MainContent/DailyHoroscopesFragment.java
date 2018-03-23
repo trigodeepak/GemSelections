@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import tech.iosd.gemselections.R;
-import tech.iosd.gemselections.Retrofit.ApiInterface;
+import tech.iosd.gemselections.Retrofit.PredictionsApiInterface;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.NextPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PredictionResponse;
@@ -35,7 +34,7 @@ public class DailyHoroscopesFragment extends Fragment {
     Button sunSignButton, spanButton, getHoroscopeButton;
     TextView titleTextView, detailsTextView;
     Retrofit retrofit;
-    ApiInterface apiInterface;
+    PredictionsApiInterface predictionsApiInterface;
 
     String[] sunSignList = {"Aries (Mar. 21–Apr. 19)\n",
             "Taurus (Apr. 20–May 20)\n",
@@ -73,7 +72,7 @@ public class DailyHoroscopesFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        apiInterface = retrofit.create(ApiInterface.class);
+        predictionsApiInterface = retrofit.create(PredictionsApiInterface.class);
 
 
         sunSignButton.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +164,7 @@ public class DailyHoroscopesFragment extends Fragment {
     private void getTodayHoroscope(final String sunSign) {
 
 
-        Call<PredictionResponse> call = apiInterface.getTodaysHoroscope(ApiInterface.HEADER_TOKEN, sunSign);
+        Call<PredictionResponse> call = predictionsApiInterface.getTodaysHoroscope(PredictionsApiInterface.HEADER_TOKEN, sunSign);
 
         call.enqueue(new Callback<PredictionResponse>() {
             @SuppressLint("SetTextI18n")
@@ -195,7 +194,7 @@ public class DailyHoroscopesFragment extends Fragment {
 
     private void getNextHoroscope(final String sunSign){
 
-        Call<NextPredictionResponse> call = apiInterface.getNextHoroscope(ApiInterface.HEADER_TOKEN,sunSign);
+        Call<NextPredictionResponse> call = predictionsApiInterface.getNextHoroscope(PredictionsApiInterface.HEADER_TOKEN,sunSign);
 
         call.enqueue(new Callback<NextPredictionResponse>() {
             @Override
@@ -218,7 +217,7 @@ public class DailyHoroscopesFragment extends Fragment {
 
     private void getPreviousHoroscope(final String sunSign){
 
-        Call<NextPredictionResponse> call = apiInterface.getPreviousHoroscope(ApiInterface.HEADER_TOKEN,sunSign);
+        Call<NextPredictionResponse> call = predictionsApiInterface.getPreviousHoroscope(PredictionsApiInterface.HEADER_TOKEN,sunSign);
 
         call.enqueue(new Callback<NextPredictionResponse>() {
             @Override
@@ -241,7 +240,7 @@ public class DailyHoroscopesFragment extends Fragment {
 
     private void getWeeklyHoroscope(final String sunSign){
 
-        Call<WeeklyPredictionResponse> call = apiInterface.getWeeklyHoroscope(ApiInterface.HEADER_TOKEN,sunSign);
+        Call<WeeklyPredictionResponse> call = predictionsApiInterface.getWeeklyHoroscope(PredictionsApiInterface.HEADER_TOKEN,sunSign);
 
         call.enqueue(new Callback<WeeklyPredictionResponse>() {
             @Override
@@ -265,7 +264,7 @@ public class DailyHoroscopesFragment extends Fragment {
 
     private void getMonthlyHoroscope(final String sunSign){
 
-        Call<MonthlyPredictionResponse> call = apiInterface.getMonthlyHoroscope(ApiInterface.HEADER_TOKEN,sunSign);
+        Call<MonthlyPredictionResponse> call = predictionsApiInterface.getMonthlyHoroscope(PredictionsApiInterface.HEADER_TOKEN,sunSign);
 
         call.enqueue(new Callback<MonthlyPredictionResponse>() {
             @Override

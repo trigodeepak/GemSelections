@@ -64,19 +64,17 @@ import tech.iosd.gemselections.Utils.WebViewActivity;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    int k = 0;
     private Bitmap img;
-
     private View header;
     private TextView _displayName, _displayEmail;
     private Button _login, _logout;
-
     private boolean ISHOMESHOWN;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private FragmentManager fragmentManager;
-
     private boolean isBackPressed = false;
-int k=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,20 +126,20 @@ int k=0;
                 if (k == 1) {
 
 
-
                     _login.setEnabled(true);
                     _logout.setEnabled(false);
 
                     _displayName.setText("Gem Selections");
                     _displayEmail.setText("(A Unit of khanna Gems Pvt. Limited)");
                     drawer.closeDrawers();
-                    k=0;
+                    k = 0;
                 }
-if(mUser != null){
-                mAuth.signOut();
-                Intent intent = getIntent();
-                finish();
-                startActivity(intent);}
+                if (mUser != null) {
+                    mAuth.signOut();
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
+                }
             }
         });
         _login.setOnClickListener(new View.OnClickListener() {
@@ -152,20 +150,21 @@ if(mUser != null){
                 );
             }
         });
-if(k==0){
-        if (mUser != null) {
-            _displayName.setText(mUser.getDisplayName());
-            _displayEmail.setText(mUser.getEmail());
-            _login.setEnabled(false);
-            _logout.setEnabled(true);
-        } else {
-            if (!_login.isEnabled()) {
-                _login.setEnabled(true);
+        if (k == 0) {
+            if (mUser != null) {
+                _displayName.setText(mUser.getDisplayName());
+                _displayEmail.setText(mUser.getEmail());
+                _login.setEnabled(false);
+                _logout.setEnabled(true);
+            } else {
+                if (!_login.isEnabled()) {
+                    _login.setEnabled(true);
+                }
+                if (_logout.isEnabled()) {
+                    _logout.setEnabled(false);
+                }
             }
-            if (_logout.isEnabled()) {
-                _logout.setEnabled(false);
-            }
-        }}
+        }
 
 
         display_selected_item(tech.iosd.gemselections.R.id.nav_home);
