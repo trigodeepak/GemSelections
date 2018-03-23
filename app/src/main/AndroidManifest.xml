@@ -404,7 +404,12 @@
             android:label="Return Policy"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainContent.FaqIntentAcitivity"></activity>
+        <activity android:name=".MainContent.FaqIntentAcitivity" />
+        <activity
+            android:name=".MainContent.NewWebView"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_new_web_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
