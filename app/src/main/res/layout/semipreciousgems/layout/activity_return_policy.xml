@@ -9,7 +9,7 @@
     >
 
     <Toolbar
-        android:id="@+id/jewel_toolbar"
+        android:id="@+id/return_toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@color/colorPrimary"
@@ -31,7 +31,7 @@
             >
 
             <com.google.android.youtube.player.YouTubePlayerView
-                android:id="@+id/jewellery_video"
+                android:id="@+id/return_video"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
@@ -46,24 +46,7 @@
                 android:textSize="18sp"
                 android:fontFamily="serif"
                 android:textColor="#000"
-                android:text="Why to buy Jewellery from Gem Selections App?"/>
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:fontFamily="serif"
-                android:text="\t1. You can design your own jewellery using our app.\n\n\t2. Gem Selections is the only organisation in India to sell Govt. Lab Certified GemStones, Diamonds and Jewellery.\n\n\t3. Buy Jewellery at real - time Gold and Silver rates using the Gem Selections App."/>
-
-            <GridView
-                android:id="@+id/grid_jwellery"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:footerDividersEnabled="false"
-                android:numColumns="1"
-                android:padding="1dp"/>
+                android:text="To know about return Policy of Gem selections: khanna Gems private limited watch the video"/>
 
 
         </LinearLayout>

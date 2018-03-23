@@ -54,13 +54,13 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:11.6.2'
     implementation 'com.facebook.android:facebook-login:[4,5)'
 
-
     // implementation files('libs/PGSDK_V2.1.jar')
     compile 'com.urbanairship.android:urbanairship-sdk:9.0.+'
     compile 'com.google.android.gms:play-services-gcm:11.8.0'
 
     compile 'com.google.android.gms:play-services-location:11.8.0'
 }
+
 
 
 
