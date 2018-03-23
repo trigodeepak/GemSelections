@@ -40,6 +40,7 @@ public class FAQsActivity extends YouTubeBaseActivity implements YouTubePlayer.O
                 .putExtra("title", R.string.faq1).putExtra("text" , R.string.faq2));
 
 
+
             }
         });
 
