@@ -58,6 +58,7 @@ import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Rudraksha.Rudraksha;
 import tech.iosd.gemselections.Utils.WebViewActivity;
+import tech.iosd.gemselections.abhimantrit.Abhimantrit;
 
 
 public class MainActivity extends AppCompatActivity
@@ -536,6 +537,9 @@ if(k==0){
 
         ISHOMESHOWN = id == tech.iosd.gemselections.R.id.nav_home;
         switch (id) {
+            case R.id.nav_abhimantrit:
+                fragment = new Abhimantrit();
+                break;
             case tech.iosd.gemselections.R.id.nav_home:
                 fragment = new HomeFragment();
                 ISHOMESHOWN = true;

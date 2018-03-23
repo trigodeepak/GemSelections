@@ -2076,9 +2076,30 @@ Size: 4\" x 2\"
         Shop No. 8 and 11, A-3 DDA MARKET, \n(Near St. Mark\'s School),\n  Janakpuri,\n New Delhi - 110058
     </string>
 
+
+
+
     <string name="player_error">Error initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
+
+    <string name="faq5">
+        How to take care of pearls?
+    </string>
+
+    <string name="faq6">
+       <b><u>\t1. Keep away from chemicals:</u></b> Always keep Pearls away from chemicals which may be in the form of perfumes other makeup products, hair sprays and styling gels.
+\n\n\t
+<b><u>2. Wear them last – remove them first:</u></b> Always wear pearls in the last part of your dress up and remove them first of all.
+\n\n\t
+<b><u>3. Wipe then before storing them:</u></b>	Whip your pearls with a moist cotton and cloth and then always store them in pure cotton cloth (normal) away from heat and dust.
+\n\n\t
+<b><u>4. Jewellery cleaners and detergents should be avoided:</u></b> Near use Jewellery cleaners or detergents to wash Pearls they should just be washed with plain water or salt water.
+\n\n\t
+<b><u>5. Use dry cotton cloth for polish:</u></b> You can use dry cotton cloth for bringing shine to sour pearls.
+
+    </string>
+
 
     <string name="faq1">
         How to wear Gems?
@@ -2092,10 +2113,10 @@ Then to recharge it take it off one week before Mahashivratri day and follow the
 \n\n
 <b>PEARL SHOULD NOT BE DIPPED IN GHEE INSTEAD IT SHOULD BE DIPPED IN GANGA JAL ONLY.</b>
     </string>
-    <string name="faq5">
+    <string name="faq7">
         How to identify sapphire?
     </string>
-    <string name="faq6">
+    <string name="faq8">
 The most effective substitute for natural sapphire are Golden Topaz, Iolite, Kyanite, Tourmaline, Blue Spinel and Synthetic Sapphire, and methods for detecting the differences between the natural and the manufactured stone needs to be discussed.
 \n\n
 Golden Topaz, Iolite, Kyanite, Tourmaline and Blue Spinel are much light in weight so it is not very difficult to differentiate between these Gemstones and a Sapphire, especially if these are in loose form. The difficulty arises when one is faced with a Synthetic Gemstone.
@@ -2134,10 +2155,10 @@ By wearing Gemstones, we start the process of absorbing additional Cosmic rays o
 \n\n
 Wearing the Gemstones that are favourable for you will improve your AURA the people that come in contact with you will start having a different impression about you. This process will always lead to better standing in the Society, Company, Family and so on.?
     </string>
-    <string name="faq13">
+    <string name="faq15">
         Important things regarding purchase of gemstones.
     </string>
-    <string name="faq14">
+    <string name="faq16">
         Gemstones are extremely expensive and it is very difficult to differentiate between genuine and fake gemstones. At the same time, there are many unscrupulous elements out there who cheat unsuspecting people by selling them fake stones or blemished stones at exorbitant prices. This is the reason it is necessary to be very careful when you BUY GEMS. Always buy gemstones from a reputed and respected jeweler. At the same time, if you buy gemstones in India, you should always insist on a certificate proving that they are genuine and that they are worth the amount that is being charged to you. These certificates are provided by reputed and reliable organizations and they are ample proof of the quality of the gemstones.
 \n\n
 When people buy gems each person has their own preferences, some people prefer stones that have a perfect cut, while others simply go for the gemstones which are brilliant in color and clarity. Some occasions like weddings demand that the gemstones used in the jewelry should complement the ensemble as a whole. There are other parameters as well on the basis of which gemstones are distinguished. The precious gemstones are the best and the most expensive. These gemstones have always been the preference of connoisseurs and are exquisite. It is quite difficult to buy these gemstones at an affordable price whether you buy gemstones in India or anywhere in the world.
@@ -2165,10 +2186,10 @@ When you actually go to buy a Gemstone you should see the following factors:
 \n\t<b>C. Luster:</b> A stone to come in the category of a Precious Gem should have LUSTER. The more lustrous a GEM – rarer it is and hence more costly.
 \n\t<b>D. Colour: </b>The colour is a very important criterion. The colour should be eye pleasing.
     </string>
-    <string name="faq7">
+    <string name="faq9">
         Things to keep in mind while buying a gemstone.
     </string>
-    <string name="faq8">
+    <string name="faq10">
         If you want to buy gemstones you need to be really careful because a lot of people can dupe you with inferior quality gemstones. Also when you plan to buy gems, you should always buy natural gemstones. This is because although artificial gemstones are easily available in the market and they are cheaper that natural gemstones, they just don’t have the sparkle and brilliance that natural gemstones do. Instead of buying artificial gemstones it will be a good idea to buy semi precious stones which may not be as good and exquisite as the real stones but they are at least the real thing.
 \n\n
 When you buy gemstones you should keep in mind that natural gemstones are nature’s gift to mankind. They are taken out of the earth by mining process. Most people have this misconception that natural gemstones are exorbitantly priced, but that is not the case. The price of gemstones is decided based on the quality, desirability and availability. When you buy natural gemstones you should keep in mind that certain gemstones are sold at affordable rates because they are abundantly available in nature. The quality of a gemstone is determined keeping in mind its color and brilliance and the number of inclusions it has.
@@ -2179,10 +2200,10 @@ Now the question is where to find natural gemstones. Usually the reputed and wel
 \n\n
 These online stores, have a reputation of their own and they provide client testimonials which give you an idea about their reliability. At the same time you have a lot of choice on the internet to compare the prices offered by different stores and choose the ones that appear to be the most reasonable. Many of these online stores also provide certifications from reliable bodies that prove the quality and genuineness of the stones. Hence you can rest assured that you will not be cheated.
     </string>
-    <string name="faq9">
+    <string name="faq11">
         Purchasing Gems Online.
     </string>
-    <string name="faq10">
+    <string name="faq12">
 Internet is making the world a small place. You can get best of Goods and Services sitting in the comfort of your house. The rare merchandise that can not be possibly be procured in small towns and other far off areas can be procured on Internet through Online Shopping facility.
 \n\n
 Gem or Gemstones as they are known can be purchased through Online medium as they are easily send by Post/ Courier and the system of Insurance helps to keep both the seller and the buyer safe.
@@ -2198,10 +2219,10 @@ Gem Selections, is in the field of Online Sale of Gemstones since 2002 when onli
 So, next time you plan to <b>BUY GEMS ONLINE</b>, trust none other than <b>Gem Selections</b> to give you the best always and everytime.
 
     </string>
-    <string name="faq11">
+    <string name="faq13">
         Where to Buy Gemstones in Delhi?
     </string>
-    <string name="faq12">
+    <string name="faq14">
         Delhi has thousands of Shops selling Gemstones. Mostly we find posters outside Gold Shops informing the passers by that Gemstones like – Panna, Pukhraj, Gomed, Moti, Moonga, Lahsunia, Neelam, Manik are available.
 \n\n
 Most of these Shops are just trying to en cash the boom in the demand of Gemstones. The expertise in Gemstones is generally missing. They are just trading points – buying from some supplier and selling it to customers who are buying due to the trust they have on the Gold Shop.

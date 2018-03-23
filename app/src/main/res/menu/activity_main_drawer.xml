@@ -138,4 +138,9 @@
         </menu>
     </item>
 
+    <item android:title="Abhimantrit"
+
+        android:id="@+id/nav_abhimantrit"
+        android:icon="@drawable/ic_info">
+    </item>
 </menu>

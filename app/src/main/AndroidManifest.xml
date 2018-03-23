@@ -399,11 +399,12 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainContent.ReturnPolicyActivity"
+        <activity
+            android:name=".MainContent.ReturnPolicyActivity"
             android:label="Return Policy"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
-            ></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainContent.FaqIntentAcitivity"></activity>
     </application>
 
 </manifest>
