@@ -55,10 +55,12 @@ import tech.iosd.gemselections.AuthRelated.LoginActivity;
 import tech.iosd.gemselections.DataProviders.ConnectOptions;
 import tech.iosd.gemselections.Handicrafts.Handicrafts;
 import tech.iosd.gemselections.Ittar.Ittar;
+import tech.iosd.gemselections.JewelleryAlpha.DiamondStudded.DiamondStudded;
 import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Rudraksha.Rudraksha;
 import tech.iosd.gemselections.Utils.WebViewActivity;
+import tech.iosd.gemselections.abhimantrit.Abhimantrit;
 
 
 public class MainActivity extends AppCompatActivity
@@ -86,6 +88,9 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
         setSupportActionBar(toolbar);
+       /** startActivity(new Intent(
+                MainActivity.this, DiamondStudded.class
+        ));*/
 
         fragmentManager = getSupportFragmentManager();
 
@@ -541,6 +546,9 @@ public class MainActivity extends AppCompatActivity
 
         ISHOMESHOWN = id == tech.iosd.gemselections.R.id.nav_home;
         switch (id) {
+            case R.id.nav_abhimantrit:
+                fragment = new Abhimantrit();
+                break;
             case tech.iosd.gemselections.R.id.nav_home:
                 fragment = new HomeFragment();
                 ISHOMESHOWN = true;
