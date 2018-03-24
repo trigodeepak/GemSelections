@@ -17,6 +17,7 @@ import java.util.List;
 import tech.iosd.gemselections.DataProviders.JewelTypes;
 import tech.iosd.gemselections.JewelleryAlpha.DesignOwn.DesignOwnActivity;
 import tech.iosd.gemselections.JewelleryAlpha.Diamond.DiamondActivity;
+import tech.iosd.gemselections.JewelleryAlpha.DiamondStudded.DiamondStudded;
 import tech.iosd.gemselections.JewelleryAlpha.GemStudded.GemStuddedActivity;
 import tech.iosd.gemselections.JewelleryAlpha.Victorian.VictorianActivity;
 import tech.iosd.gemselections.R;
@@ -83,6 +84,10 @@ public class JewelTypesAdapter extends RecyclerView.Adapter<JewelTypesAdapter.Vi
 
                         break;
 
+                    case 4:
+                        context.startActivity(new Intent(
+                                context, DiamondStudded.class
+                        ));
                     default:
                         Log.e("Jewel Types","Wrong item clicked");
                 }

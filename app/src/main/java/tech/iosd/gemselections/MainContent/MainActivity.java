@@ -84,9 +84,9 @@ int k=0;
         setContentView(tech.iosd.gemselections.R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
         setSupportActionBar(toolbar);
-        startActivity(new Intent(
+       /** startActivity(new Intent(
                 MainActivity.this, DiamondStudded.class
-        ));
+        ));*/
 
         fragmentManager = getSupportFragmentManager();
 
