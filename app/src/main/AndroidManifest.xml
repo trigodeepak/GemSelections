@@ -411,7 +411,7 @@
             android:label="@string/title_activity_new_web_view"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".JewelleryAlpha.DiamondStudded.DiamondStudded"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme.Base1"
             android:label="Diamond Studded"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
             />
