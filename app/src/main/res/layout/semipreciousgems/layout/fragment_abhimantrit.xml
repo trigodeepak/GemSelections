@@ -45,8 +45,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="Watch the video playlist of Abhimantarit stones at Khanna Gems."
+                        android:textAppearance="@style/MessageCenter.Item.Title.TextAppearance" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="At Gem Selections: Khanna Gems, our entire inventory after being certified by Govt. Lab is Abhimantarit, i.e Pranna Pratisttha Puja is done for each and every Gemstone. Its believed in Vedic Astrology Gemstones provides Astrological benefits only after proper Abhimantaran.\n \n Gemstones are abhimantrit  in order to purify the gemstone and remove all the negative energies from it. It is essential to abhimantrit every gemstone as it travels through a lot of procedures like mining, cutting, packaging, testing, cargo, etc ,before reaching the wearer, there are chances that the gemstone may get some negative energies transferred to it.Therefore it is very important to purify it and make it ready to give only the positive results.  At Gem Selections: Khanna Gems, our entire inventory after being certified by Govt. Lab is Abhimantarit, i.e Pranna Pratisttha Puja is done for each and every Gemstone."
-                        android:textAlignment="center" />
+                        android:textAppearance="@style/MessageCenter.MessageNotSelected.TextAppearance" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
