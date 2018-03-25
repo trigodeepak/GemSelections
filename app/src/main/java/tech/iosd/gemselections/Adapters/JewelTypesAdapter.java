@@ -84,10 +84,10 @@ public class JewelTypesAdapter extends RecyclerView.Adapter<JewelTypesAdapter.Vi
 
                         break;
 
-                    case 4:
-                        context.startActivity(new Intent(
-                                context, DiamondStudded.class
-                        ));
+//                    case 4:
+//                        context.startActivity(new Intent(
+//                                context, DiamondStudded.class
+//                        ));
                     default:
                         Log.e("Jewel Types","Wrong item clicked");
                 }

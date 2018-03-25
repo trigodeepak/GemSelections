@@ -77,7 +77,7 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
         typesList.add(new Banner( getDrawable(R.drawable.category_diamond_jewellery),"Diamond Jewellery"));
         typesList.add(new Banner( getDrawable(R.drawable.category_victorian_jewellery_),"Victorian Jewellery"));
         typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Gem-Studded Jewellery"));
-        typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Diamond Studded Jewellery"));
+//        typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Diamond Studded Jewellery"));
 
 
         adapater = new JewelTypesAdapter(JewelleryAlpha.this, typesList);

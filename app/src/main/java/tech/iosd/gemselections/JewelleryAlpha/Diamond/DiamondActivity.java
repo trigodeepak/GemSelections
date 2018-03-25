@@ -25,6 +25,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import java.util.ArrayList;
 
 import tech.iosd.gemselections.Adapters.BannerArrayAdapter;
+import tech.iosd.gemselections.JewelleryAlpha.DiamondStudded.DiamondStudded;
 import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Banner;
@@ -56,6 +57,7 @@ public class DiamondActivity extends YouTubeBaseActivity implements YouTubePlaye
         arraylist.add(new Banner( getDrawable(R.drawable.diamond_bracelets),"Diamond Bracelets"));
         arraylist.add(new Banner( getDrawable(R.drawable.diamond_nose_pin),"Diamond Nose Pins"));
         arraylist.add(new Banner( getDrawable(R.drawable.diamond_studs),"Diamond Studs"));
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_accessories),"Diamond Studded"));
 
 
         GridView gridView;
@@ -123,6 +125,11 @@ public class DiamondActivity extends YouTubeBaseActivity implements YouTubePlaye
                         startActivity(new Intent(
                                 DiamondActivity.this, DiamondStuds.class
                         ));
+
+                        break;
+                    case 7:
+
+                        startActivity(new Intent(DiamondActivity.this , DiamondStudded.class));
 
                         break;
                 }
