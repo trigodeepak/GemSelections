@@ -13,7 +13,7 @@ public class PaytmApiClient {
 
     public Retrofit getRetrofit() {
         if (retrofit == null) {
-            String BASE_URL = "";
+            String BASE_URL = "https://checksumpaytm.herokuapp.com/";
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())

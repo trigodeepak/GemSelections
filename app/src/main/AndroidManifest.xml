@@ -53,6 +53,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".MainContent.FAQsActivity"
@@ -416,7 +417,7 @@
             android:label="Diamond Studded"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
             />
-            ></activity>
+
 
         <activity
             android:name="com.paytm.pgsdk.PaytmPGActivity"
@@ -429,12 +430,9 @@
 
         <activity android:name=".PaytmActivity"
             android:theme="@style/Theme.AppCompat">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

@@ -1,26 +1,20 @@
 package tech.iosd.gemselections.Retrofit;
 
 import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
 import tech.iosd.gemselections.Retrofit.ResponseModels.Checksum;
+import tech.iosd.gemselections.Retrofit.ResponseModels.Paytm;
 
 /**
  * Created by anubhavmalik on 23/03/18.
  */
 
 public interface PaytmApiInterface {
-    @FormUrlEncoded
-    @POST("generateChecksum.php")
+
+
+    @POST("generate_checksum")
     Call<Checksum> getChecksum(
-            @Field("MID") String mId,
-            @Field("ORDER_ID") String orderId,
-            @Field("CUST_ID") String custId,
-            @Field("CHANNEL_ID") String channelId,
-            @Field("TXN_AMOUNT") String txnAmount,
-            @Field("WEBSITE") String website,
-            @Field("CALLBACK_URL") String callbackUrl,
-            @Field("INDUSTRY_TYPE_ID") String industryTypeId
+            @Body Paytm paytm
     );
 }

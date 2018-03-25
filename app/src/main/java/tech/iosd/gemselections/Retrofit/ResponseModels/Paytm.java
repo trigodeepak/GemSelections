@@ -12,6 +12,9 @@ import java.util.UUID;
 
 public class Paytm {
 
+//    @SerializedName("REQUEST_TYPE")
+//    String requestType;
+
     @SerializedName("MID")
     String mId;
 
@@ -36,19 +39,14 @@ public class Paytm {
     @SerializedName("INDUSTRY_TYPE_ID")
     String industryTypeId;
 
-    public Paytm(String mId, String channelId, String txnAmount, String website, String callBackUrl, String industryTypeId) {
-        this.mId = mId;
-        this.orderId = generateString();
-        this.custId = generateString();
-        this.channelId = channelId;
-        this.txnAmount = txnAmount;
-        this.website = website;
-        this.callBackUrl = callBackUrl;
-        this.industryTypeId = industryTypeId;
+    @SerializedName("CHECKSUMHASH")
+    String checksumHash;
 
-        Log.d("orderId", orderId);
-        Log.d("customerId", custId);
-    }
+    @SerializedName("MOBILE_NO")
+    String mobileNumber;
+
+    @SerializedName("EMAIL")
+    String email;
 
     public String getmId() {
         return mId;
@@ -61,6 +59,42 @@ public class Paytm {
     public String getCustId() {
         return custId;
     }
+
+//    public String getChecksumHash() {
+//        return checksumHash;
+//    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Paytm(String mId, String orderId, String custId, String channelId, String txnAmount, String website, String callBackUrl, String industryTypeId,/*String checksumHash,*/ String mobileNumber, String email) {
+
+//        this.requestType =requestType;
+        this.mId = mId;
+        this.orderId = orderId;
+        this.custId = custId;
+        this.channelId = channelId;
+        this.txnAmount = txnAmount;
+        this.website = website;
+        this.callBackUrl = callBackUrl;
+        this.industryTypeId = industryTypeId;
+//        this.checksumHash = checksumHash;
+        this.mobileNumber = mobileNumber;
+        this.email = email;
+
+        Log.d("orderId", orderId);
+        Log.d("customerId", custId);
+
+    }
+
+//    public String getRequestType() {
+//        return requestType;
+//    }
 
     public String getChannelId() {
         return channelId;
@@ -82,13 +116,17 @@ public class Paytm {
         return industryTypeId;
     }
 
+    public String getChecksumHash() {
+        return checksumHash;
+    }
+
     /*
-    * The following method we are using to generate a random string everytime
-    * As we need a unique customer id and order id everytime
-    * For real scenario you can implement it with your own application logic
-    * */
-    private String generateString() {
-        String uuid = UUID.randomUUID().toString();
+        * The following method we are using to generate a random string everytime
+        * As we need a unique customer id and order id everytime
+        * For real scenario you can implement it with your own application logic
+        * */
+    public static String generateString() {
+        String uuid = UUID.randomUUID().toString()+"KhannaGemSelectionsAndroidApp";
         return uuid.replaceAll("-", "");
     }
 }

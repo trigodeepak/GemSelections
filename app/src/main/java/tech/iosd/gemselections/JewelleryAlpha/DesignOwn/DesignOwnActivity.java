@@ -2,6 +2,7 @@ package tech.iosd.gemselections.JewelleryAlpha.DesignOwn;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +18,7 @@ import android.support.v4.content.FileProvider;
 import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -46,7 +48,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import tech.iosd.gemselections.BuildConfig;
+import tech.iosd.gemselections.Models.CreateOwnModel;
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 
 import static android.view.View.GONE;
 
@@ -69,8 +73,12 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
 
-    private FirebaseStorage storage;
+    private StorageReference photoRef;
     private StorageReference mStorageRef;
+
+    Uri uri ;
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -81,10 +89,9 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         setTitle("Design Your Own Jewellery!");
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
-        mRef = mDatabase.getReference();
-        storage = FirebaseStorage.getInstance();
+        mRef = mDatabase.getReference().child("createownjewellery");
 
-        mStorageRef = storage.getReference("orders");
+        sharedPreferences = getSharedPreferences(SharedPreferencesUtils.sharedPreferencesName,MODE_PRIVATE);
 
         _submit_form = (LinearLayout)findViewById(R.id.submit_form);
         to_upload = (ImageView)findViewById(R.id.custom_design_img);
@@ -117,16 +124,21 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         }
 
         if(v == submit){
-            String __name  = name.getText().toString();
-            String __email = email.getText().toString();
-            String __mobile = phone.getText().toString();
+            final String __name  = name.getText().toString();
+            final String __email = email.getText().toString();
+            final String __mobile = phone.getText().toString();
 
-            if(!__name.isEmpty() && isEmailValid(__email)){
+            if(!__name.isEmpty() && isEmailValid(__email) && !__mobile.isEmpty()){
 
                 try{
 
+                    mStorageRef = FirebaseStorage.getInstance().getReference().child("orders");
+                    photoRef = mStorageRef.child(System.currentTimeMillis()+"");
+
                     InputStream is = new FileInputStream(new File(PATH));
-                    UploadTask uploadTask = mStorageRef.putStream(is);
+                    UploadTask uploadTask = photoRef.putStream(is);
+
+
                     uploadTask.addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
@@ -135,7 +147,7 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                                             new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
-
+//
                                                 }
                                             })
                                     .show();
@@ -143,7 +155,29 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                     }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            if(task.isSuccessful()) {
+                                Log.d("TAGGER",task.getResult().toString());
+                                CreateOwnModel createOwnModel = new CreateOwnModel(__name
+                                        , task.getResult().getDownloadUrl().toString()
+                                        ,__email
+                                        ,__mobile);
 
+                                mRef.push().setValue(createOwnModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful())
+                                            show_greet();
+
+                                    }
+                                });
+//                                    public CreateOwnModel(String user_name, String image_url, String user_email, String user_umber) {
+//
+//                                this.user_name = user_name;
+//                                this.image_url = image_url;
+//                                this.user_email = user_email;
+//                                this.user_umber = user_umber;
+//                            }
+                            }
                         }
                     });
 
@@ -151,7 +185,6 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
 
                 }
 
-                show_greet();
 
             }else {
                 Toast.makeText(DesignOwnActivity.this, "Enter Valid Credentials", Toast.LENGTH_SHORT).show();

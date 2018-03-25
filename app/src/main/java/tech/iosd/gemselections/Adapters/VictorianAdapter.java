@@ -141,6 +141,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
         });
     }
 
+    String imgUrl;
     private void prompt(final String url, final String code, final int position) {
 
         final Dialog dialog = new Dialog(context);
@@ -179,6 +180,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        imgUrl =uri.toString();
                         Picasso.with(context.getApplicationContext())
                                 .load(uri.toString())
                                 .into(img);
@@ -208,7 +210,7 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
 //                    Log.d("TAGER", "Firebase called");
                     OrderModel orderModel = new OrderModel(simpleDateFormat.format(calendar.getTime())
                             , code
-                            , url
+                            , imgUrl
                             , prompt_remarks.getText().toString()
                             , "Pending"
                             , sharedPreferences.getString(SharedPreferencesUtils.prefsUserEmail, "")
@@ -235,9 +237,9 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
 //                                                .setIcon(R.drawable.ic_thankyou)
 //                                                .setTitle("THANK YOU")
 //                                                .create().show();
-//                                        Log.d("TAGER", "Firebase Success");
+                                        Log.d("TAGER", "Firebase Success");
 
-                                        Toast.makeText(context, "Thank You. We have received your requirement.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(context, "Thank You. We have received your requirements.", Toast.LENGTH_LONG).show();
                                     }
                                 }
                             })
@@ -254,14 +256,14 @@ public class VictorianAdapter extends RecyclerView.Adapter<VictorianAdapter.View
                     dialog.dismiss();
 
                     Log.d("TAGER", "Failed");
-                    Snackbar.make(phoneEditText, "Please log in to place an order.", Snackbar.LENGTH_LONG)
+                    Snackbar.make(img, "Please log in to place an order.", Snackbar.LENGTH_LONG)
                             .setAction("Login", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     context.startActivity(new Intent(context, LoginActivity.class));
                                 }
                             });
-                    Toast.makeText(context, "Not sent.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Not sent. Please log in.", Toast.LENGTH_SHORT).show();
 
 //                    progressDialog.dismiss();
 
