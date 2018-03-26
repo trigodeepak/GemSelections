@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by anubhavmalik on 26/03/18.
  */
-
+//https://json.astrologyapi.com/v1/tropical_transits/daily
 public class DailyTransitsResponse {
     @SerializedName("transit_date")
     @Expose

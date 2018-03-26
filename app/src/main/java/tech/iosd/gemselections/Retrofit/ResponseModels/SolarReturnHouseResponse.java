@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by anubhavmalik on 26/03/18.
  */
-
+//https://json.astrologyapi.com/v1/solar_return_house_cusps
 public class SolarReturnHouseResponse {
 
     @SerializedName("planet_name")

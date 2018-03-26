@@ -6,23 +6,27 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by anubhavmalik on 26/03/18.
  */
-//https://json.astrologyapi.com/v1/solar_return_planet_aspects
-public class SolarReturnPlanetsResponse {
+
+public class First {
+
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("fullDegree")
+    @SerializedName("full_degree")
     @Expose
     private double fullDegree;
-    @SerializedName("normDegree")
+    @SerializedName("norm_degree")
     @Expose
     private double normDegree;
     @SerializedName("speed")
     @Expose
     private long speed;
-    @SerializedName("isRetro")
+    @SerializedName("is_retro")
     @Expose
-    private boolean isRetro;
+    private String isRetro;
+    @SerializedName("sign_id")
+    @Expose
+    private long signId;
     @SerializedName("sign")
     @Expose
     private String sign;
@@ -62,12 +66,20 @@ public class SolarReturnPlanetsResponse {
         this.speed = speed;
     }
 
-    public boolean isIsRetro() {
+    public String getIsRetro() {
         return isRetro;
     }
 
-    public void setIsRetro(boolean isRetro) {
+    public void setIsRetro(String isRetro) {
         this.isRetro = isRetro;
+    }
+
+    public long getSignId() {
+        return signId;
+    }
+
+    public void setSignId(long signId) {
+        this.signId = signId;
     }
 
     public String getSign() {
@@ -85,4 +97,5 @@ public class SolarReturnPlanetsResponse {
     public void setHouse(long house) {
         this.house = house;
     }
+
 }

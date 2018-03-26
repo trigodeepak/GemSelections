@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by anubhavmalik on 26/03/18.
  */
-
+//https://json.astrologyapi.com/v1/western_chart_data
 public class WesternChartResponse {
     @SerializedName("houses")
     @Expose

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by anubhavmalik on 26/03/18.
  */
-
+//https://json.astrologyapi.com/v1/life_forecast_report/tropical
 public class LifeForecastResponse {
 
     @SerializedName("life_forecast")

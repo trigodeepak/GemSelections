@@ -1,5 +1,6 @@
 package tech.iosd.gemselections.Retrofit.ResponseModels;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -7,19 +8,22 @@ import java.util.List;
 /**
  * Created by anubhavmalik on 26/03/18.
  */
-//htps://json.astrologyapi.com/v1/western_horoscope
-public class WesternHoroscopeResponse {
+
+public class Composite {
     @SerializedName("planets")
+    @Expose
     private List<Planet> planets = null;
     @SerializedName("houses")
+    @Expose
     private List<House> houses = null;
     @SerializedName("ascendant")
+    @Expose
     private double ascendant;
     @SerializedName("midheaven")
+    @Expose
     private double midheaven;
-    @SerializedName("vertex")
-    private double vertex;
     @SerializedName("aspects")
+    @Expose
     private List<Aspect> aspects = null;
 
     public List<Planet> getPlanets() {
@@ -52,14 +56,6 @@ public class WesternHoroscopeResponse {
 
     public void setMidheaven(double midheaven) {
         this.midheaven = midheaven;
-    }
-
-    public double getVertex() {
-        return vertex;
-    }
-
-    public void setVertex(double vertex) {
-        this.vertex = vertex;
     }
 
     public List<Aspect> getAspects() {
