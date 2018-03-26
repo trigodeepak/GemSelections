@@ -44,7 +44,7 @@ public class AstrologyActivity extends AppCompatActivity {
 
         typesList.add(new Banner(getResources().getDrawable(R.drawable.category_create_your_own_cewellery), "Match Making"));
         typesList.add(new Banner(getResources().getDrawable(R.drawable.category_diamond_jewellery), "Western Astrology"));
-        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_victorian_jewellery_), "Vedic Astrology"));
+//        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_victorian_jewellery_), "Vedic Astrology"));
         typesList.add(new Banner(getResources().getDrawable(R.drawable.category_gem_studded_jewellery), "Daily Horoscopes"));
 //        typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Diamond Studded Jewellery"));
 

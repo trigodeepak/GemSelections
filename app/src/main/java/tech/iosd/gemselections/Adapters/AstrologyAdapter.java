@@ -22,6 +22,8 @@ import tech.iosd.gemselections.JewelleryAlpha.DesignOwn.DesignOwnActivity;
 import tech.iosd.gemselections.JewelleryAlpha.Diamond.DiamondActivity;
 import tech.iosd.gemselections.JewelleryAlpha.GemStudded.GemStuddedActivity;
 import tech.iosd.gemselections.JewelleryAlpha.Victorian.VictorianActivity;
+import tech.iosd.gemselections.MainContent.AstrologyActivity;
+import tech.iosd.gemselections.MainContent.WesternAstrologyActivity;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Banner;
 
@@ -67,7 +69,7 @@ public class AstrologyAdapter extends RecyclerView.Adapter<tech.iosd.gemselectio
 
                     case 1:
                         context.startActivity(new Intent(
-                                context, DiamondActivity.class
+                                context, WesternAstrologyActivity.class
                         ));
 
                         break;

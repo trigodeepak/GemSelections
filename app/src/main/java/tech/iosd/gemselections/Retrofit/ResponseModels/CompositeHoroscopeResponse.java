@@ -19,6 +19,9 @@ public class CompositeHoroscopeResponse {
     @SerializedName("composite")
     @Expose
     private Composite composite;
+    @SerializedName("synastry")
+    @Expose
+    private Synastry synastry;
 
     public List<First> getFirst() {
         return first;
@@ -42,6 +45,14 @@ public class CompositeHoroscopeResponse {
 
     public void setComposite(Composite composite) {
         this.composite = composite;
+    }
+
+    public Synastry getSynastry() {
+        return synastry;
+    }
+
+    public void setSynastry(Synastry synastry) {
+        this.synastry = synastry;
     }
 
 }
