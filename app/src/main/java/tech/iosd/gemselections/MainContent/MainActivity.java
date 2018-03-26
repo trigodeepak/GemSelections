@@ -28,6 +28,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +41,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.urbanairship.Autopilot;
+import com.urbanairship.UAirship;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -59,6 +61,7 @@ import tech.iosd.gemselections.JewelleryAlpha.DiamondStudded.DiamondStudded;
 import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Rudraksha.Rudraksha;
+import tech.iosd.gemselections.Utils.SampleAirshipReceiver;
 import tech.iosd.gemselections.Utils.WebViewActivity;
 import tech.iosd.gemselections.abhimantrit.Abhimantrit;
 
@@ -68,13 +71,16 @@ public class MainActivity extends AppCompatActivity
 
     int k = 0;
     private Bitmap img;
+
     private View header;
     private TextView _displayName, _displayEmail;
     private Button _login, _logout;
+
     private boolean ISHOMESHOWN;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private FragmentManager fragmentManager;
+
     private boolean isBackPressed = false;
 
     @Override
@@ -131,6 +137,7 @@ public class MainActivity extends AppCompatActivity
                 if (k == 1) {
 
 
+
                     _login.setEnabled(true);
                     _logout.setEnabled(false);
 
@@ -139,12 +146,11 @@ public class MainActivity extends AppCompatActivity
                     drawer.closeDrawers();
                     k = 0;
                 }
-                if (mUser != null) {
-                    mAuth.signOut();
-                    Intent intent = getIntent();
-                    finish();
-                    startActivity(intent);
-                }
+if(mUser != null){
+                mAuth.signOut();
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);}
             }
         });
         _login.setOnClickListener(new View.OnClickListener() {
@@ -155,21 +161,20 @@ public class MainActivity extends AppCompatActivity
                 );
             }
         });
-        if (k == 0) {
-            if (mUser != null) {
-                _displayName.setText(mUser.getDisplayName());
-                _displayEmail.setText(mUser.getEmail());
-                _login.setEnabled(false);
-                _logout.setEnabled(true);
-            } else {
-                if (!_login.isEnabled()) {
-                    _login.setEnabled(true);
-                }
-                if (_logout.isEnabled()) {
-                    _logout.setEnabled(false);
-                }
+if(k==0){
+        if (mUser != null) {
+            _displayName.setText(mUser.getDisplayName());
+            _displayEmail.setText(mUser.getEmail());
+            _login.setEnabled(false);
+            _logout.setEnabled(true);
+        } else {
+            if (!_login.isEnabled()) {
+                _login.setEnabled(true);
             }
-        }
+            if (_logout.isEnabled()) {
+                _logout.setEnabled(false);
+            }
+        }}
 
 
         display_selected_item(tech.iosd.gemselections.R.id.nav_home);

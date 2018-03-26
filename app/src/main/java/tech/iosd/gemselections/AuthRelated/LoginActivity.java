@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -49,27 +51,31 @@ import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.InternetConnectivity;
 import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener, GoogleApiClient.OnConnectionFailedListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener,GoogleApiClient.OnConnectionFailedListener{
 
-    public static final String TAG = "facelog";
-    private static final int RC_SIGN_IN = 101;
+    private FirebaseAuth mAuth;
+    private EditText _email, _password;
+    private Button _login, _signup,btFb;
+    private TextView _forgetPass;
+
+    private String email, password;
+
+    private ProgressDialog dialog;
+
+    private SharedPreferences sharedPreferences;
+    private SignInButton _googleLogin;
     GoogleApiClient mGoogleApiClient;
+    private static final int RC_SIGN_IN = 101;
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
+    private CallbackManager mCallbackManager;
+    public static final String TAG = "facelog";
     LoginButton loginButton;
     Context context;
     FirebaseUser currentUser;
-    int n = 0;
+    int n=0;
     FirebaseUser user;
-    private FirebaseAuth mAuth;
-    private EditText _email, _password;
-    private Button _login, _signup, btFb;
-    private TextView _forgetPass;
-    private String email, password;
-    private ProgressDialog dialog;
-    private SharedPreferences sharedPreferences;
-    private SignInButton _googleLogin;
-    private CallbackManager mCallbackManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,19 +98,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         sharedPreferences = getSharedPreferences(SharedPreferencesUtils.prefsUserName, MODE_PRIVATE);
 
-        _googleLogin = (SignInButton) findViewById(R.id.btn_google_login);
+        _googleLogin= (SignInButton) findViewById(R.id.btn_google_login);
         _googleLogin.setOnClickListener(this);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        mGoogleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
+        mGoogleApiClient=new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,gso).build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 //btFb=findViewById(R.id.fblogin);
 //btFb.setOnClickListener(this);
 //fb login
 
-        loginButton = findViewById(R.id.login_button_fb);
+        loginButton=findViewById(R.id.login_button_fb);
         //loginButton.setOnClickListener(this);
         mCallbackManager = CallbackManager.Factory.create();
         loginButton = findViewById(R.id.login_button_fb);
@@ -114,7 +120,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onSuccess(LoginResult loginResult) {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
-                n = 1;
+                n=1;
             }
 
             @Override
@@ -169,22 +175,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
 
+
     }
 
     private void GoogleSignIn() {
 
-        Boolean loginReady = true;
+        Boolean loginReady=true;
         if (!InternetConnectivity.ISCONNECTED) {
             Toast toast = Toast.makeText(LoginActivity.this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             loginReady = false;
         }
-        if (loginReady == true) {
+        if(loginReady==true){
             Intent intent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-            startActivityForResult(intent, RC_SIGN_IN);
-        }
-    }
+            startActivityForResult(intent,RC_SIGN_IN);
+        }}
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -195,24 +201,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleResult(result);
         }
-        if (user != null) {
-            mCallbackManager.onActivityResult(requestCode, resultCode, data);
+if(user !=null) {
+    mCallbackManager.onActivityResult(requestCode, resultCode, data);
 
-        }
+}
 
 
     }
 
-    private void handleResult(GoogleSignInResult result) {
+    private void handleResult(GoogleSignInResult result){
 
-        if (result.isSuccess()) {
+        if(result.isSuccess()){
             GoogleSignInAccount account = result.getSignInAccount();
-            String name = account.getDisplayName();
-            String email = account.getEmail();
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            Bundle bundle = new Bundle();
+            String name=account.getDisplayName();
+            String email=account.getEmail();
+            Intent i=new Intent(LoginActivity.this, MainActivity.class);
+            Bundle bundle=new Bundle();
             bundle.putString("GoogleUserName", name);
-            bundle.putString("GoogleEmail", email);
+            bundle.putString("GoogleEmail",email);
+
 
 
             i.putExtras(bundle);
@@ -275,7 +282,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                                 FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-                                String name = "";
+                                String name="";
                                 String contact = "";
 
                                 if (firebaseUser != null) {
@@ -366,7 +373,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            user = mAuth.getCurrentUser();
+                             user = mAuth.getCurrentUser();
                             updateUI();
                         } else {
                             // If sign in fails, display a message to the user.

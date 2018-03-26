@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.urbanairship.AirshipConfigOptions;
 import com.urbanairship.Autopilot;
@@ -21,9 +22,13 @@ import tech.iosd.gemselections.R;
 public class AirShipAutoPilot extends Autopilot {
 
 
+    private static final String TAG ="channel" ;
+
     @Override
     public void onAirshipReady(UAirship airship) {
         airship.getPushManager().setUserNotificationsEnabled(true);
+        String channelId = UAirship.shared().getPushManager().getChannelId();
+        Log.d(TAG, "onAirshipReady: "+ channelId);
 
         if (Build.VERSION.SDK_INT >= 26) {
             Context context = UAirship.getApplicationContext();
@@ -32,15 +37,17 @@ public class AirShipAutoPilot extends Autopilot {
             NotificationChannel channel = new NotificationChannel("customChannel",
                     context.getString(R.string.custom_channel_name),
                     NotificationManager.IMPORTANCE_DEFAULT);
+            UAirship.shared().getPushManager().setUserNotificationsEnabled(true);
+            Log.d(TAG, "onAirshipReady: working autopilot");
 
             notificationManager.createNotificationChannel(channel);
         }
 
     }
 
-//    @Nullable
-//    @Override
-//    public AirshipConfigOptions createAirshipConfigOptions(@NonNull Context context) {
+    @Nullable
+    @Override
+    public AirshipConfigOptions createAirshipConfigOptions(@NonNull Context context) {
 
 //        AirshipConfigOptions options = new AirshipConfigOptions.Builder()
 //                .setDevelopmentAppKey("Your Development App Key")
@@ -55,6 +62,12 @@ public class AirShipAutoPilot extends Autopilot {
 //                .build();
 //
 //        return options;
+        String channelId = UAirship.shared().getPushManager().getChannelId();
+        Log.d(TAG, "onAirshipReady: "+ channelId);
+
+        return super.createAirshipConfigOptions(context);
+
+    }
 //
 //        return super.createAirshipConfigOptions(context);
 //
