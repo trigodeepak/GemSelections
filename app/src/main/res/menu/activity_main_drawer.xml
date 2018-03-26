@@ -26,6 +26,10 @@
             android:id="@+id/nav_daily_recommendations"
             android:icon="@drawable/ic_daily_recommendations"
             android:title="Daily Recommendations" />
+
+        <item android:title="Abhimantrit"
+            android:id="@+id/nav_abhimantrit"
+            android:icon="@drawable/ic_info"/>
         <item
             android:id="@+id/nav_daily_horoscopes"
             android:icon="@drawable/ic_daily_recommendations"
@@ -138,9 +142,4 @@
         </menu>
     </item>
 
-    <item android:title="Abhimantrit"
-
-        android:id="@+id/nav_abhimantrit"
-        android:icon="@drawable/ic_info">
-    </item>
 </menu>
