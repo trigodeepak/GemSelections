@@ -1,110 +1,56 @@
 package tech.iosd.gemselections.MainContent;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import tech.iosd.gemselections.Adapters.AstrologyAdapter;
+import tech.iosd.gemselections.Adapters.JewelTypesAdapter;
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Utils.Banner;
 
-public class AstrologyActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class AstrologyActivity extends AppCompatActivity {
+    RecyclerView recyclerView;
+    private List<Banner> typesList;
+    private AstrologyAdapter adapater;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_astrology);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+        recyclerView = findViewById(R.id.astrology_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL));
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        setData();
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+    private void setData() {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.astrology, menu);
-        return true;
-    }
+        typesList = new ArrayList<>();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        /*for(int i=0; i<types.length; ++i){
+            data = new JewelTypes(types[i], url[i]);
+            typesList.add(data);
+        }*/
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_create_your_own_cewellery), "Match Making"));
+        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_diamond_jewellery), "Western Astrology"));
+        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_victorian_jewellery_), "Vedic Astrology"));
+        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_gem_studded_jewellery), "Daily Horoscopes"));
+//        typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Diamond Studded Jewellery"));
 
-        return super.onOptionsItemSelected(item);
-    }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        adapater = new AstrologyAdapter(this, typesList);
+        recyclerView.setAdapter(adapater);
 
-        if (id == R.id.nav_western_astrology) {
-
-            // Handle the camera action
-        } else if (id == R.id.nav_vedic_astrology) {
-
-        } else if (id == R.id.nav_daily_horoscopes) {
-
-        } else if (id == R.id.nav_match_making) {
-
-        } else if (id == R.id.nav_hindu_calendar) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    private void setFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        if (fragmentManager.getFragments().isEmpty())
-            fragmentManager.beginTransaction()
-                    .add(R.id.main_astrology_container, fragment)
-                    .addToBackStack("astro")
-                    .commit();
-        else
-            fragmentManager.beginTransaction()
-                    .replace(R.id.main_astrology_container, fragment)
-                    .addToBackStack("astro")
-                    .commit();
     }
 }

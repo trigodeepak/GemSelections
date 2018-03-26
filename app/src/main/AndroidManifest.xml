@@ -26,9 +26,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <meta-data android:name="tech.iosd.gemselections.Utils.AirShipAutoPilot"
-            android:value="tech.iosd.gemselections.Utils.AirShipAutoPilot"/>
+        <meta-data
+            android:name="tech.iosd.gemselections.Utils.AirShipAutoPilot"
+            android:value="tech.iosd.gemselections.Utils.AirShipAutoPilot" />
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
         <provider
@@ -57,7 +57,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainContent.FAQsActivity"
@@ -385,8 +384,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tech.iosd.gemselections.MainContent.MainActivity" />
         </activity>
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -397,6 +398,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -425,30 +427,24 @@
             android:screenOrientation="portrait" />
 
         <receiver
-            android:name="tech.iosd.gemselections.Utils.SampleAirshipReceiver"
+            android:name=".Utils.SampleAirshipReceiver"
             android:exported="false">
-
             <intent-filter>
-                <action android:name="com.urbanairship.push.CHANNEL_UPDATED"/>
-                <action android:name="com.urbanairship.push.OPENED"/>
-                <action android:name="com.urbanairship.push.DISMISSED"/>
-                <action android:name="com.urbanairship.push.RECEIVED"/>
+                <action android:name="com.urbanairship.push.CHANNEL_UPDATED" />
+                <action android:name="com.urbanairship.push.OPENED" />
+                <action android:name="com.urbanairship.push.DISMISSED" />
+                <action android:name="com.urbanairship.push.RECEIVED" />
 
-                <category android:name="${applicationId}"/>
+                <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
-        <activity android:name=".PaytmActivity"
-            android:theme="@style/Theme.AppCompat">
-
-        </activity>
 
         <activity
             android:name=".PaytmActivity"
-            android:theme="@style/Theme.AppCompat"></activity>
-        <activity
-            android:name=".MainContent.AstrologyActivity"
-            android:label="@string/title_activity_astrology"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity android:name=".MainContent.AstrologyActivity" />
+        <activity android:name=".MainContent.WesternAstrologyActivity"></activity>
     </application>
 
 </manifest>

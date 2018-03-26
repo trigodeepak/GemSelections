@@ -28,7 +28,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,7 +40,6 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.urbanairship.Autopilot;
-import com.urbanairship.UAirship;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -57,11 +55,10 @@ import tech.iosd.gemselections.AuthRelated.LoginActivity;
 import tech.iosd.gemselections.DataProviders.ConnectOptions;
 import tech.iosd.gemselections.Handicrafts.Handicrafts;
 import tech.iosd.gemselections.Ittar.Ittar;
-import tech.iosd.gemselections.JewelleryAlpha.DiamondStudded.DiamondStudded;
 import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Rudraksha.Rudraksha;
-import tech.iosd.gemselections.Utils.SampleAirshipReceiver;
+import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 import tech.iosd.gemselections.Utils.WebViewActivity;
 import tech.iosd.gemselections.abhimantrit.Abhimantrit;
 
@@ -94,9 +91,9 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
         setSupportActionBar(toolbar);
-       /** startActivity(new Intent(
-                MainActivity.this, DiamondStudded.class
-        ));*/
+        /** startActivity(new Intent(
+         MainActivity.this, DiamondStudded.class
+         ));*/
 
         fragmentManager = getSupportFragmentManager();
 
@@ -137,7 +134,6 @@ public class MainActivity extends AppCompatActivity
                 if (k == 1) {
 
 
-
                     _login.setEnabled(true);
                     _logout.setEnabled(false);
 
@@ -146,11 +142,13 @@ public class MainActivity extends AppCompatActivity
                     drawer.closeDrawers();
                     k = 0;
                 }
-if(mUser != null){
-                mAuth.signOut();
-                Intent intent = getIntent();
-                finish();
-                startActivity(intent);}
+                if (mUser != null) {
+                    mAuth.signOut();
+                    Intent intent = getIntent();
+                    getSharedPreferences(SharedPreferencesUtils.sharedPreferencesName,MODE_PRIVATE).edit().clear().apply();
+                    finish();
+                    startActivity(intent);
+                }
             }
         });
         _login.setOnClickListener(new View.OnClickListener() {
@@ -161,20 +159,21 @@ if(mUser != null){
                 );
             }
         });
-if(k==0){
-        if (mUser != null) {
-            _displayName.setText(mUser.getDisplayName());
-            _displayEmail.setText(mUser.getEmail());
-            _login.setEnabled(false);
-            _logout.setEnabled(true);
-        } else {
-            if (!_login.isEnabled()) {
-                _login.setEnabled(true);
+        if (k == 0) {
+            if (mUser != null) {
+                _displayName.setText(mUser.getDisplayName());
+                _displayEmail.setText(mUser.getEmail());
+                _login.setEnabled(false);
+                _logout.setEnabled(true);
+            } else {
+                if (!_login.isEnabled()) {
+                    _login.setEnabled(true);
+                }
+                if (_logout.isEnabled()) {
+                    _logout.setEnabled(false);
+                }
             }
-            if (_logout.isEnabled()) {
-                _logout.setEnabled(false);
-            }
-        }}
+        }
 
 
         display_selected_item(tech.iosd.gemselections.R.id.nav_home);
@@ -318,7 +317,7 @@ if(k==0){
 
             case R.id.return_policy:
                 startActivity(new Intent(
-                        MainActivity.this,ReturnPolicyActivity.class
+                        MainActivity.this, ReturnPolicyActivity.class
                 ));
 
                 break;
@@ -590,7 +589,7 @@ if(k==0){
 
             case R.id.nav_daily_horoscopes:
 //                fragment = new DailyHoroscopesFragment();
-                startActivity(new Intent(this,AstrologyActivity.class));
+                startActivity(new Intent(this, AstrologyActivity.class));
                 break;
 
             case tech.iosd.gemselections.R.id.nav_stoneidols:

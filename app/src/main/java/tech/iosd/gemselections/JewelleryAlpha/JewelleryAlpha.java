@@ -66,7 +66,7 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
     private void setData() {
 
         typesList = new ArrayList<>();
-        JewelTypes data;
+//        JewelTypes data;
 
         /*for(int i=0; i<types.length; ++i){
             data = new JewelTypes(types[i], url[i]);
