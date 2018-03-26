@@ -13,7 +13,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.WeeklyPredictionResponse;
  * Created by anubhavmalik on 04/03/18.
  */
 
-public interface PredictionsApiInterface {
+public interface AstrologyApiInterface {
 
     String HEADER_TOKEN = "Basic NjAxNjk2Ojg1MTBlNTM3YmNjNDI0ZTE1NGEzODYwZTcwZTkyMjA5"; //follow convention if using somewhere else
 

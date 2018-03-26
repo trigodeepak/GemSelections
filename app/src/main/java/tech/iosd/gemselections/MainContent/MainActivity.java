@@ -589,7 +589,8 @@ if(k==0){
                 break;
 
             case R.id.nav_daily_horoscopes:
-                fragment = new DailyHoroscopesFragment();
+//                fragment = new DailyHoroscopesFragment();
+                startActivity(new Intent(this,AstrologyActivity.class));
                 break;
 
             case tech.iosd.gemselections.R.id.nav_stoneidols:

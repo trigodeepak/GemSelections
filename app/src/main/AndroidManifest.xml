@@ -57,6 +57,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".MainContent.FAQsActivity"
@@ -398,6 +399,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
@@ -412,13 +414,11 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_new_web_view"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".JewelleryAlpha.DiamondStudded.DiamondStudded"
-            android:theme="@style/AppTheme.Base1"
+        <activity
+            android:name=".JewelleryAlpha.DiamondStudded.DiamondStudded"
             android:label="Diamond Studded"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
-            />
-
-
+            android:theme="@style/AppTheme.Base1" />
         <activity
             android:name="com.paytm.pgsdk.PaytmPGActivity"
             android:configChanges="keyboardHidden|orientation|keyboard"
@@ -442,6 +442,13 @@
 
         </activity>
 
+        <activity
+            android:name=".PaytmActivity"
+            android:theme="@style/Theme.AppCompat"></activity>
+        <activity
+            android:name=".MainContent.AstrologyActivity"
+            android:label="@string/title_activity_astrology"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

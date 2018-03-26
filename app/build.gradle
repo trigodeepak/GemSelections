@@ -54,8 +54,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:11.8.0'
     implementation 'com.facebook.android:facebook-login:[4,5)'
 
-
-
 //    compile 'com.paytm.pgsdk:pgsdk:1.0.7'
     compile 'com.paytm:pgplussdk:1.0.1'
     compile 'com.urbanairship.android:urbanairship-sdk:9.0.+'
@@ -63,6 +61,7 @@ dependencies {
 
     compile 'com.google.android.gms:play-services-location:11.8.0'
 }
+
 
 
 apply plugin: 'com.google.gms.google-services'
