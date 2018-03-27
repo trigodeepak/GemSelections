@@ -9,6 +9,7 @@ import java.util.List;
  */
 //htps://json.astrologyapi.com/v1/western_horoscope
 public class WesternHoroscopeResponse {
+
     @SerializedName("planets")
     private List<Planet> planets = null;
     @SerializedName("houses")

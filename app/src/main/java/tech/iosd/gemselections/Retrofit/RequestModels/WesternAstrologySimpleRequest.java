@@ -1,24 +1,27 @@
 package tech.iosd.gemselections.Retrofit.RequestModels;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by anubhavmalik on 27/03/18.
  */
 
 public class WesternAstrologySimpleRequest {
+    @SerializedName("day")
     int day;
-
+    @SerializedName("month")
     int month;
-
+    @SerializedName("year")
     int year;
-
+    @SerializedName("hour")
     int hour;
-
+    @SerializedName("min")
     int min;
-
+    @SerializedName("lat")
     float lat;
-
+    @SerializedName("lon")
     float lon;
-
+    @SerializedName("tzone")
     float tzone;
 
     public WesternAstrologySimpleRequest(int day, int month, int year, int hour, int min, float lat, float lon, float tzone) {

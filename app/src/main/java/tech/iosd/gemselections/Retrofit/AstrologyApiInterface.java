@@ -6,12 +6,14 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPapasamyamReportRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
 import tech.iosd.gemselections.AstrologyFragments.SunsignCompatibilityFragment;
+import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologyComplexRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CompositeHoroscopeResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.DailyTransitsResponse;
@@ -89,6 +91,7 @@ public interface AstrologyApiInterface {
             @Path("horoscope") String horoscope
     );
 
+    @Headers("Content-Type:application/json")
     @POST("western_horoscope")
     Call<WesternHoroscopeResponse> getWesternHoroscope(
             @Header("Authorization") String token,
@@ -147,13 +150,13 @@ public interface AstrologyApiInterface {
     @POST("composite_horoscope")
     Call<CompositeHoroscopeResponse> getCompositeHoroscope(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
 
     @POST("synastry_horoscope")
     Call<List<Synastry>> getSynastryHoroscope(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
 
     @POST("personality_report/tropical")
@@ -184,32 +187,32 @@ public interface AstrologyApiInterface {
     @POST("romantic_forecast_report/tropical")
     Call<RomanticForecastResponse> getRomanticForecastReport(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
 
 
     @POST("friendship_report/tropical")
     Call<FriendshipReportResponse> getFriendshipReport(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
 
     @POST("karma_destiny_report/tropical")
     Call<KarmaDestinyResponse> getKarmaReport(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
 
     @POST("love_compatibility_report/tropical")
     Call<LoveCompatibilityResponse> getLoveCompatibilityReport(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
 
     @POST("romantic_forecast_couple_report/tropical")
     Call<RomanticForecastResponse> getRomanticCoupleForecast(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
 
     @POST("zodiac_compatibility/{zodiacName}/{partnerZodiacName}")

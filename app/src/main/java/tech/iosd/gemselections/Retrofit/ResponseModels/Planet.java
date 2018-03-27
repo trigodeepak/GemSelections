@@ -19,7 +19,7 @@ public class Planet {
     private double normDegree;
     @SerializedName("speed")
     @Expose
-    private long speed;
+    private double speed;
     @SerializedName("is_retro")
     @Expose
     private String isRetro;
@@ -57,11 +57,11 @@ public class Planet {
         this.normDegree = normDegree;
     }
 
-    public long getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(long speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
