@@ -47,7 +47,7 @@ public class AstrologyActivity extends AppCompatActivity {
 //        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_victorian_jewellery_), "Vedic Astrology"));
         typesList.add(new Banner(getResources().getDrawable(R.drawable.category_gem_studded_jewellery), "Daily Horoscopes"));
 //        typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Diamond Studded Jewellery"));
-
+//typesList.add(new Banner(getResources().getDrawable(R.drawable.category_victorian_jewellery_),"Match Making"));
 
         adapater = new AstrologyAdapter(this, typesList);
         recyclerView.setAdapter(adapater);

@@ -4,14 +4,17 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CompositeHoroscopeResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.DailyTransitsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LifeForecastResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LunarMetricsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchBirthDetailResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyTransitResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.NextPredictionResponse;
@@ -205,4 +208,8 @@ public interface AstrologyApiInterface {
             @Path("partnerSunSign") String partnerSunSign,
             @Path("partnerRisingSign") String partnerRisingSign
     );
+
+    @POST("match_birth_details")
+    Call<MatchBirthDetailResponse> getMatchBirthDetailResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest
+                                                               );
 }
