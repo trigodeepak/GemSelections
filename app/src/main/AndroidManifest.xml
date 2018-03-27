@@ -445,6 +445,8 @@
 
         <activity android:name=".MainContent.AstrologyActivity" />
         <activity android:name=".MainContent.WesternAstrologyActivity"></activity>
+
+        <activity android:name=".MainContent.MatchMakingActivity"/>
     </application>
 
 </manifest>

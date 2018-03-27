@@ -4,9 +4,13 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPapasamyamReportRequest;
+import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
+import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
 import tech.iosd.gemselections.AstrologyFragments.SunsignCompatibilityFragment;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CompositeHoroscopeResponse;
@@ -16,9 +20,22 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.KarmaDestinyResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LifeForecastResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LoveCompatibilityResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LunarMetricsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchAshtakootPointsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchAstroDetailsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchBirthDetailResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchDashakootPointsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchMakingDetailedReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchMakingReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchManglikReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchObstructionsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchPercentageResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchPlanetDetailsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MatchSimpleReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyTransitResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.NextPredictionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.PapasamyamDetailsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.PartnerReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalityReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalizedPlanetPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PredictionResponse;
@@ -210,4 +227,45 @@ public interface AstrologyApiInterface {
             @Path("partnerSunSign") String partnerSunSign,
             @Path("partnerRisingSign") String partnerRisingSign
     );
+
+    @POST("match_birth_details")
+    Call<MatchBirthDetailResponse> getMatchBirthDetailResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest
+    );
+@POST("match_ashtakoot_points")
+    Call<MatchAshtakootPointsResponse> getMatchAshtakootPointsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+@POST("match_obstructions")
+    Call<MatchObstructionsResponse> getMatchObstructionsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+@POST("match_astro_detail")
+    Call<MatchAstroDetailsResponse> getMatchAstroDetailsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+@POST("match_planet_details")
+    Call<MatchPlanetDetailsResponse> getMAtchPlanetDetailsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+@POST("match_manglik_report")
+    Call<MatchManglikReportResponse> getMatchManglikReportResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+@POST("match_making_report")
+    Call<MatchMakingReportResponse> getMatchMakingReportResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+@POST("match_simple_report")
+    Call<MatchSimpleReportResponse> getMatchSimpleReportResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+@POST("match_making_detailed_report")
+    Call<MatchMakingDetailedReportResponse> getMatchMakingDetailedReportResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+
+@POST("match_dashakoot_points")
+    Call<MatchDashakootPointsResponse> getMatchMakingDashakootPointsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+@POST("match_percentage")
+    Call<MatchPercentageResponse> getMatchPercentageResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+@POST("partner_report")
+    Call<PartnerReportResponse> getPartnerReportResponse(@Header("Authorization") String token, @Body MatchMakingPartnerReport matchMakingPartnerReport);
+
+@POST("papasamyam_details")
+    Call<PapasamyamDetailsResponse> getpapaResponse(@Header("Authorization") String token, @Body MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest);
+
+
 }
