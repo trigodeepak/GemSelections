@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import tech.iosd.gemselections.AstrologyFragments.WesternListFragment;
+import tech.iosd.gemselections.AstrologyFragments.MainWesternListFragment;
 import tech.iosd.gemselections.R;
 
 public class WesternAstrologyActivity extends AppCompatActivity {
@@ -18,7 +18,7 @@ public class WesternAstrologyActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         fragmentManager.beginTransaction()
-                .add(R.id.western_astrology_container, new WesternListFragment())
+                .add(R.id.western_astrology_container, new MainWesternListFragment())
                 .addToBackStack("Main")
                 .commit();
     }

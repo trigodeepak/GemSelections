@@ -7,10 +7,14 @@ import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import tech.iosd.gemselections.AstrologyFragments.SunsignCompatibilityFragment;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CompositeHoroscopeResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.DailyTransitsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.FriendshipReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.KarmaDestinyResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LifeForecastResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.LoveCompatibilityResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LunarMetricsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyTransitResponse;
@@ -28,6 +32,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.WeeklyPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WeeklyTransitResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WesternChartResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WesternHoroscopeResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.ZodiacCompatibilityResponse;
 
 /**
  * Created by anubhavmalik on 04/03/18.
@@ -167,38 +172,38 @@ public interface AstrologyApiInterface {
 
 
     @POST("friendship_report/tropical")
-    Call<List<Synastry>> getFriendshipReport(
+    Call<FriendshipReportResponse> getFriendshipReport(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
 
     @POST("karma_destiny_report/tropical")
-    Call<PersonalityReportResponse> getKarmaReport(
+    Call<KarmaDestinyResponse> getKarmaReport(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
 
     @POST("love_compatibility_report/tropical")
-    Call<RomanticPersonalityResponse> getLoveCompatibilityReport(
+    Call<LoveCompatibilityResponse> getLoveCompatibilityReport(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
 
     @POST("romantic_forecast_couple_report/tropical")
-    Call<PersonalizedPlanetPredictionResponse> getRomanticCoupleForecast(
+    Call<RomanticForecastResponse> getRomanticCoupleForecast(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
 
     @POST("zodiac_compatibility/{zodiacName}/{partnerZodiacName}")
-    Call<LifeForecastResponse> getZodiacCompatibility(
+    Call<ZodiacCompatibilityResponse> getZodiacCompatibility(
             @Header("Authorization") String token,
             @Path("zodiacName") String zodiacName,
             @Path("partnerZodiacName") String partnerZodiacName
     );
 
     @POST("compatibility/{sunSign}/{risingSign}/{partnerSunSign}/{partnerRisingSign}")
-    Call<RomanticForecastResponse> getRomanticForecastReport(
+    Call<SunsignCompatibilityResponse> getRomanticForecastReport(
             @Header("Authorization") String token,
             @Path("sunSign") String sunSign,
             @Path("risingSign") String risingSun,

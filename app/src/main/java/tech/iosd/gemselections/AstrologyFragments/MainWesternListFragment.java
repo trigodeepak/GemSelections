@@ -19,7 +19,7 @@ import tech.iosd.gemselections.R;
  * Created by anubhavmalik on 26/03/18.
  */
 
-public class WesternListFragment extends Fragment {
+public class MainWesternListFragment extends Fragment {
 
     String[] array = {
             "Western Horoscope"
