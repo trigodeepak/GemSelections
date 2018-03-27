@@ -28,7 +28,7 @@ public class MatchMakingListFragment extends Fragment {
             , "Match Making Report"
             , "Match Simple Report"
             , "Match Making detailed Report"
-            , "Composite Match Dashakoot Points"
+            , "Match Dashakoot Points"
             , "Match percentage"
             , "Partner Report"
             , "Custom Match Profiles"
@@ -83,7 +83,7 @@ public class MatchMakingListFragment extends Fragment {
                         setFragment(new MatchMakingdetailedReportFragment());
                         break;
                     case 9:
-                        setFragment(new CompositeMatchDashakootPointsFragment());
+                        setFragment(new MatchDashakootPointsFragment());
                         break;
                     case 10:
                         setFragment(new MatchpercentageFragment());
