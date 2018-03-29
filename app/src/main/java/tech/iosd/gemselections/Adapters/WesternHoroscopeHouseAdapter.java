@@ -33,16 +33,16 @@ public class WesternHoroscopeHouseAdapter extends RecyclerView.Adapter<WesternHo
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
-        if (obList.get(position).getSign() == null) holder.signTextView.setText("");
-        else holder.signTextView.setText((obList.get(position).getSign()));
+        if (obList.get(position).getSign() == null) holder.signTextView.setText("Sign : ");
+        else holder.signTextView.setText(("Sign : " + obList.get(position).getSign()));
 
         if ((String.valueOf(obList.get(position).getHouse())) == null)
-            holder.houseTextView.setText("");
-        else holder.houseTextView.setText(obList.get(position).getHouse() + "");
+            holder.houseTextView.setText("House : ");
+        else holder.houseTextView.setText("House : " + obList.get(position).getHouse() + "");
 
         if (String.valueOf(obList.get(position).getDegree()) == null)
-            holder.degreeTextView.setText("");
-        else holder.degreeTextView.setText((obList.get(position).getDegree()) + "");
+            holder.degreeTextView.setText("Degree : ");
+        else holder.degreeTextView.setText("Degree : " + (obList.get(position).getDegree()) + "");
 
     }
 

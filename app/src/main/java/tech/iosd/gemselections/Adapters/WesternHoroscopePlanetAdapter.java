@@ -2,7 +2,6 @@ package tech.iosd.gemselections.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,34 +35,35 @@ public class WesternHoroscopePlanetAdapter extends RecyclerView.Adapter<WesternH
 
 
         if ((String.valueOf(obList.get(position).getSpeed())) == null)
-            holder.planetSpeedTextView.setText("");
-        else holder.planetSpeedTextView.setText(obList.get(position).getSpeed() + "");
+            holder.planetSpeedTextView.setText("Speed : ");
+        else holder.planetSpeedTextView.setText("Speed : " + obList.get(position).getSpeed() + "");
 
-        if (obList.get(position).getName() == null) holder.planetNameTextView.setText("");
-        else {
-            Log.d("TAGGER", "ADAPTER " + obList.get(position).getName());
-            holder.planetNameTextView.setText((obList.get(position).getName()));
-        }
+        if (obList.get(position).getName() == null)
+            holder.planetNameTextView.setText("Planet Name : ");
+        else
+            holder.planetNameTextView.setText("Planet Name : " + obList.get(position).getName());
 
         if (String.valueOf(obList.get(position).getFullDegree()) == null)
-            holder.fullDegreeTextView.setText("");
-        else holder.fullDegreeTextView.setText((obList.get(position).getFullDegree()) + "");
+            holder.fullDegreeTextView.setText("Full Degree : ");
+        else
+            holder.fullDegreeTextView.setText("Full Degree : " + (obList.get(position).getFullDegree()) + "");
 
         if (String.valueOf(obList.get(position).getNormDegree()) == null)
-            holder.normDegreeTextView.setText("");
-        else holder.normDegreeTextView.setText((obList.get(position).getNormDegree()) + "");
+            holder.normDegreeTextView.setText("Norm Degree : ");
+        else
+            holder.normDegreeTextView.setText("Norm Degree : " + (obList.get(position).getNormDegree()) + "");
 
         if (obList.get(position).getIsRetro() == null)
-            holder.retroTextView.setText("");
-        else holder.retroTextView.setText(obList.get(position).getIsRetro());
+            holder.retroTextView.setText("Retro : ");
+        else holder.retroTextView.setText("Retro : " + obList.get(position).getIsRetro());
 
         if (String.valueOf(obList.get(position).getHouse()) == null)
-            holder.houseTextView.setText("");
-        else holder.houseTextView.setText((obList.get(position).getHouse()) + "");
+            holder.houseTextView.setText("House : ");
+        else holder.houseTextView.setText("House : " + (obList.get(position).getHouse()) + "");
 
         if (obList.get(position).getSign() == null)
-            holder.signTextView.setText("");
-        else holder.signTextView.setText((obList.get(position).getSign()));
+            holder.signTextView.setText("Sign : ");
+        else holder.signTextView.setText("Sign : " + (obList.get(position).getSign()));
 
     }
 

@@ -36,20 +36,20 @@ public class WesternHoroscopeAspectAdapter extends RecyclerView.Adapter<WesternH
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position)
     {
-        if (obList.get(position).getAspectedPlanet() == null) holder.aspectedTextView.setText("");
-        else holder.aspectedTextView.setText(obList.get(position).getAspectedPlanet());
+        if (obList.get(position).getAspectedPlanet() == null) holder.aspectedTextView.setText("Aspected : ");
+        else holder.aspectedTextView.setText("Aspected : " +obList.get(position).getAspectedPlanet());
 
-        if (obList.get(position).getAspectingPlanet() == null) holder.aspectingTextView.setText("");
-        else holder.aspectingTextView.setText((obList.get(position).getAspectingPlanet()));
+        if (obList.get(position).getAspectingPlanet() == null) holder.aspectingTextView.setText("Aspecting : ");
+        else holder.aspectingTextView.setText(("Aspecting : "+ obList.get(position).getAspectingPlanet()));
 
         if((String.valueOf(obList.get(position).getDiff()))==null) holder.aspectDifferenceTextView.setText("");
-        else holder.aspectDifferenceTextView.setText(obList.get(position).getDiff()+"");
+        else holder.aspectDifferenceTextView.setText("Diff : " + obList.get(position).getDiff()+"Diff : ");
 
         if (String.valueOf(obList.get(position).getOrb())==null) holder.aspectOrbTextView.setText("");
-        else holder.aspectOrbTextView.setText((obList.get(position).getOrb())+"");
+        else holder.aspectOrbTextView.setText(("Orb : " + obList.get(position).getOrb())+"Orb : ");
 
-        if(obList.get(position).getType()==null) holder.aspectTypeTextView.setText("");
-        else holder.aspectTypeTextView.setText(obList.get(position).getType());
+        if(obList.get(position).getType()==null) holder.aspectTypeTextView.setText("Type : ");
+        else holder.aspectTypeTextView.setText("Type : " + obList.get(position).getType());
     }
 
     @Override
