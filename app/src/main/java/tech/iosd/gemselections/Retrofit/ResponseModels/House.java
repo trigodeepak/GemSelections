@@ -3,6 +3,8 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * Created by anubhavmalik on 26/03/18.
  */
@@ -12,13 +14,17 @@ public class House {
     @Expose
     private double startDegree;
     @SerializedName("end_degree")
-    private double endDegree;
-    @SerializedName("house")
     @Expose
-    private long house;
+    private double endDegree;
     @SerializedName("sign")
     @Expose
     private String sign;
+    @SerializedName("house_id")
+    @Expose
+    private long houseId;
+    @SerializedName("planets")
+    @Expose
+    private List<Planet> planets = null;
 
     public double getStartDegree() {
         return startDegree;
@@ -36,18 +42,6 @@ public class House {
         this.endDegree = endDegree;
     }
 
-    @SerializedName("degree")
-    @Expose
-    private double degree;
-
-    public long getHouse() {
-        return house;
-    }
-
-    public void setHouse(long house) {
-        this.house = house;
-    }
-
     public String getSign() {
         return sign;
     }
@@ -56,11 +50,20 @@ public class House {
         this.sign = sign;
     }
 
-    public double getDegree() {
-        return degree;
+    public long getHouseId() {
+        return houseId;
     }
 
-    public void setDegree(double degree) {
-        this.degree = degree;
+    public void setHouseId(long houseId) {
+        this.houseId = houseId;
     }
+
+    public List<Planet> getPlanets() {
+        return planets;
+    }
+
+    public void setPlanets(List<Planet> planets) {
+        this.planets = planets;
+    }
+
 }

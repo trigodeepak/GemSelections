@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,7 +37,7 @@ import tech.iosd.gemselections.Utils.Constants;
  */
 
 public class WesternHoroscopeFragment extends Fragment {
-    RecyclerView houseRecyclerView, planetRecyclerView, aspectrecyclerView;
+    RecyclerView houseRecyclerView, planetRecyclerView, aspectRecyclerView;
     WesternHoroscopePlanetAdapter westernHoroscopePlanetAdapter;
     WesternHoroscopeAspectAdapter westernHoroscopeAspectAdapter;
     WesternHoroscopeHouseAdapter westernHoroscopeHouseAdapter;
@@ -53,7 +52,7 @@ public class WesternHoroscopeFragment extends Fragment {
         View view = inflater.inflate(R.layout.western_horoscope_recycler_view, container, false);
 
         houseRecyclerView = view.findViewById(R.id.western_horoscope_house_recycler_list);
-        aspectrecyclerView = view.findViewById(R.id.western_horoscope_aspect_recycler_list);
+        aspectRecyclerView = view.findViewById(R.id.western_horoscope_aspect_recycler_list);
         planetRecyclerView = view.findViewById(R.id.western_horoscope_planet_recycler_list);
 
         AstrologyApiClient astrologyApiClient = new AstrologyApiClient();
@@ -70,7 +69,7 @@ public class WesternHoroscopeFragment extends Fragment {
         bundle = new Bundle();
         if(bundle!=null){
 
-        WesternAstrologySimpleRequest westernAstrologySimpleRequest = new WesternAstrologySimpleRequest(20,2,1992,12,12,Constants.PRIMARY_LAT,Constants.PRIMARY_LNG,Constants.TIMEZONE);
+        WesternAstrologySimpleRequest westernAstrologySimpleRequest  =  new WesternAstrologySimpleRequest(20,2,1992,12,12,Constants.PRIMARY_LAT,Constants.PRIMARY_LNG,Constants.TIMEZONE);
 //                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
 //                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
 //                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
@@ -113,8 +112,8 @@ public class WesternHoroscopeFragment extends Fragment {
 
                         aspectArrayList.addAll(response.body().getAspects());
                         westernHoroscopeAspectAdapter = new WesternHoroscopeAspectAdapter(getContext(), aspectArrayList);
-                        aspectrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                        aspectrecyclerView.setAdapter(westernHoroscopeAspectAdapter);
+                        aspectRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        aspectRecyclerView.setAdapter(westernHoroscopeAspectAdapter);
                     }
                     westernHoroscopeAspectAdapter.notifyDataSetChanged();
                     westernHoroscopePlanetAdapter.notifyDataSetChanged();
@@ -127,6 +126,7 @@ public class WesternHoroscopeFragment extends Fragment {
 
                 Log.d("TAGGER","RESPONSE FAILURE");
                 Log.d("TAGGER",t.getMessage());
+                Snackbar.make(houseRecyclerView,"PLEASE RETRY",Snackbar.LENGTH_INDEFINITE);
 
                 progressDialog.dismiss();
             }

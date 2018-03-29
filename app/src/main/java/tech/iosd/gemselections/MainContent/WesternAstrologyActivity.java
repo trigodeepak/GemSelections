@@ -19,7 +19,7 @@ public class WesternAstrologyActivity extends AppCompatActivity {
 
         fragmentManager.beginTransaction()
                 .add(R.id.western_astrology_container, new MainWesternListFragment())
-                .addToBackStack("Main")
+//                .addToBackStack("Main")
                 .commit();
     }
 
