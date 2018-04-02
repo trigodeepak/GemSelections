@@ -112,13 +112,13 @@ public interface AstrologyApiInterface {
     @POST("tropical_transits/weekly")
     Call<WeeklyTransitResponse> getWeeklyTransit(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologySimpleRequestTwo westernAstrologySimpleRequestTwo
     );
 
     @POST("tropical_transits/monthly")
     Call<MonthlyTransitResponse> getMonthlyTransit(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologySimpleRequestTwo westernAstrologySimpleRequestTwo
     );
 
     @POST("solar_return_details")
@@ -138,7 +138,6 @@ public interface AstrologyApiInterface {
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
-
 
     @POST("lunar_metrics")
     Call<LunarMetricsResponse> getLunarMetrics(

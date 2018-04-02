@@ -21,7 +21,7 @@ public class WeeklyTransitResponse {
     private String ascendant;
     @SerializedName("moon_phase")
     @Expose
-    private Object moonPhase;
+    private List<MoonPhase> moonPhase;
     @SerializedName("transit_relation")
     @Expose
     private List<TransitRelation> transitRelation = null;
@@ -53,11 +53,11 @@ public class WeeklyTransitResponse {
         this.ascendant = ascendant;
     }
 
-    public Object getMoonPhase() {
+    public List<MoonPhase> getMoonPhase() {
         return moonPhase;
     }
 
-    public void setMoonPhase(Object moonPhase) {
+    public void setMoonPhase(List<MoonPhase> moonPhase) {
         this.moonPhase = moonPhase;
     }
 
