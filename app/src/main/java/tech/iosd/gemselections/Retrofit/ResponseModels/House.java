@@ -14,17 +14,33 @@ public class House {
     @Expose
     private double startDegree;
     @SerializedName("end_degree")
-    @Expose
     private double endDegree;
+    @SerializedName("house")
+    @Expose
+    private long house;
     @SerializedName("sign")
     @Expose
     private String sign;
-    @SerializedName("house_id")
+    @SerializedName("degree")
     @Expose
-    private long houseId;
+    private double degree;
     @SerializedName("planets")
     @Expose
     private List<Planet> planets = null;
+
+
+    public House() {
+    }
+
+    public House(double startDegree, double endDegree, long house, String sign, double degree, List<Planet> planets) {
+
+        this.startDegree = startDegree;
+        this.endDegree = endDegree;
+        this.house = house;
+        this.sign = sign;
+        this.degree = degree;
+        this.planets = planets;
+    }
 
     public double getStartDegree() {
         return startDegree;
@@ -42,6 +58,14 @@ public class House {
         this.endDegree = endDegree;
     }
 
+    public long getHouse() {
+        return house;
+    }
+
+    public void setHouse(long house) {
+        this.house = house;
+    }
+
     public String getSign() {
         return sign;
     }
@@ -50,12 +74,12 @@ public class House {
         this.sign = sign;
     }
 
-    public long getHouseId() {
-        return houseId;
+    public double getDegree() {
+        return degree;
     }
 
-    public void setHouseId(long houseId) {
-        this.houseId = houseId;
+    public void setDegree(double degree) {
+        this.degree = degree;
     }
 
     public List<Planet> getPlanets() {
@@ -65,5 +89,4 @@ public class House {
     public void setPlanets(List<Planet> planets) {
         this.planets = planets;
     }
-
 }

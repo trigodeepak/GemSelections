@@ -43,10 +43,10 @@ public class WesternHoroscopeAspectAdapter extends RecyclerView.Adapter<WesternH
         else holder.aspectingTextView.setText(("Aspecting : "+ obList.get(position).getAspectingPlanet()));
 
         if((String.valueOf(obList.get(position).getDiff()))==null) holder.aspectDifferenceTextView.setText("");
-        else holder.aspectDifferenceTextView.setText("Diff : " + obList.get(position).getDiff()+"Diff : ");
+        else holder.aspectDifferenceTextView.setText("Diff : " + obList.get(position).getDiff());
 
         if (String.valueOf(obList.get(position).getOrb())==null) holder.aspectOrbTextView.setText("");
-        else holder.aspectOrbTextView.setText(("Orb : " + obList.get(position).getOrb())+"Orb : ");
+        else holder.aspectOrbTextView.setText(("Orb : " + obList.get(position).getOrb()));
 
         if(obList.get(position).getType()==null) holder.aspectTypeTextView.setText("Type : ");
         else holder.aspectTypeTextView.setText("Type : " + obList.get(position).getType());

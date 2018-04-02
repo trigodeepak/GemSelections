@@ -4,7 +4,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -12,9 +11,9 @@ import retrofit2.http.Path;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPapasamyamReportRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
-import tech.iosd.gemselections.AstrologyFragments.SunsignCompatibilityFragment;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologyComplexRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
+import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequestTwo;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CompositeHoroscopeResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.DailyTransitsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.FriendshipReportResponse;
@@ -107,7 +106,7 @@ public interface AstrologyApiInterface {
     @POST("tropical_transits/daily")
     Call<DailyTransitsResponse> getDailyTransit(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+            @Body WesternAstrologySimpleRequestTwo westernAstrologySimpleRequestTwo
     );
 
     @POST("tropical_transits/weekly")

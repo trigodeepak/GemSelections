@@ -36,13 +36,19 @@ public class WesternHoroscopeHouseAdapter extends RecyclerView.Adapter<WesternHo
         if (obList.get(position).getSign() == null) holder.signTextView.setText("Sign : ");
         else holder.signTextView.setText(("Sign : " + obList.get(position).getSign()));
 
-        if ((String.valueOf(obList.get(position).getHouse())) == null)
+        if (String.valueOf(obList.get(position).getHouse()) == null || obList.get(position).getHouse() == 0 )
             holder.houseTextView.setText("House : ");
-        else holder.houseTextView.setText("House : " + obList.get(position).getHouse() + "");
+        else holder.houseTextView.setText("House : " + obList.get(position).getHouse());
+
+//        if (String.valueOf(obList.get(position).getEndDegree()) == null || obList.get(position).getEndDegree() == 0)
+//            holder.houseTextView.setText("End Degree : 0");
+//        else holder.houseTextView.setText("End Degree : " + obList.get(position).getHouse());
 
         if (String.valueOf(obList.get(position).getDegree()) == null)
             holder.degreeTextView.setText("Degree : ");
-        else holder.degreeTextView.setText("Degree : " + (obList.get(position).getDegree()) + "");
+        else holder.degreeTextView.setText("Degree : " + (obList.get(position).getDegree()));
+
+
 
     }
 

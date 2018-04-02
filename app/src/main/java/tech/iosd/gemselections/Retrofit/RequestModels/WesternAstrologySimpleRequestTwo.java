@@ -24,9 +24,13 @@ public class WesternAstrologySimpleRequestTwo {
     @SerializedName("tzone")
     float tzone;
     @SerializedName("prediction_timezone")
-    int prediction_timezone;
+    float prediction_timezone;
 
-    public WesternAstrologySimpleRequestTwo(int day, int month, int year, int hour, int min, float lat, float lon, float tzone, int prediction_timezone) {
+    public WesternAstrologySimpleRequestTwo() {
+    }
+
+    public WesternAstrologySimpleRequestTwo(int day, int month, int year, int hour, int min, float lat, float lon, float tzone, float prediction_timezone) {
+
         this.day = day;
         this.month = month;
         this.year = year;
@@ -36,9 +40,6 @@ public class WesternAstrologySimpleRequestTwo {
         this.lon = lon;
         this.tzone = tzone;
         this.prediction_timezone = prediction_timezone;
-    }
-
-    public WesternAstrologySimpleRequestTwo() {
     }
 
     public int getDay() {
@@ -105,11 +106,11 @@ public class WesternAstrologySimpleRequestTwo {
         this.tzone = tzone;
     }
 
-    public int getPrediction_timezone() {
+    public float getPrediction_timezone() {
         return prediction_timezone;
     }
 
-    public void setPrediction_timezone(int prediction_timezone) {
+    public void setPrediction_timezone(float prediction_timezone) {
         this.prediction_timezone = prediction_timezone;
     }
 }

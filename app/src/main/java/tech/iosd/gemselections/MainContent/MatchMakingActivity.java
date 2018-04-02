@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import tech.iosd.gemselections.AstrologyFragments.MatchMakingListFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchMakingListFragment;
 import tech.iosd.gemselections.R;
 
 /**

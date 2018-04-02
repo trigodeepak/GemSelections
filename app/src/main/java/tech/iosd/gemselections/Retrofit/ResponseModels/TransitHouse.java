@@ -18,7 +18,7 @@ public class TransitHouse {
     private String ascendant;
     @SerializedName("transit_house")
     @Expose
-    private List<TransitHouse> transitHouse = null;
+    private List<TransitHouses> transitHouse = null;
     @SerializedName("transit_relation")
     @Expose
     private List<TransitRelation> transitRelation = null;
@@ -45,11 +45,11 @@ public class TransitHouse {
         this.ascendant = ascendant;
     }
 
-    public List<TransitHouse> getTransitHouse() {
+    public List<TransitHouses> getTransitHouse() {
         return transitHouse;
     }
 
-    public void setTransitHouse(List<TransitHouse> transitHouse) {
+    public void setTransitHouse(List<TransitHouses> transitHouse) {
         this.transitHouse = transitHouse;
     }
 
