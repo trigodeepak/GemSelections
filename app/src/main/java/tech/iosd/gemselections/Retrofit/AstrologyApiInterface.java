@@ -232,42 +232,43 @@ public interface AstrologyApiInterface {
     );
 
     @POST("match_birth_details")
-    Call<MatchBirthDetailResponse> getMatchBirthDetailResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest
-    );
-@POST("match_ashtakoot_points")
-    Call<MatchAshtakootPointsResponse> getMatchAshtakootPointsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    Call<MatchBirthDetailResponse> getMatchBirthDetailResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-@POST("match_obstructions")
-    Call<MatchObstructionsResponse> getMatchObstructionsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    @POST("match_ashtakoot_points")
+    Call<MatchAshtakootPointsResponse> getMatchAshtakootPointsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-@POST("match_astro_detail")
-    Call<MatchAstroDetailsResponse> getMatchAstroDetailsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    @POST("match_obstructions")
+    Call<MatchObstructionsResponse> getMatchObstructionsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-@POST("match_planet_details")
-    Call<MatchPlanetDetailsResponse> getMAtchPlanetDetailsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    @POST("match_astro_detail")
+    Call<MatchAstroDetailsResponse> getMatchAstroDetailsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-@POST("match_manglik_report")
-    Call<MatchManglikReportResponse> getMatchManglikReportResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    @POST("match_planet_details")
+    Call<MatchPlanetDetailsResponse> getMAtchPlanetDetailsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-@POST("match_making_report")
-    Call<MatchMakingReportResponse> getMatchMakingReportResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    @POST("match_manglik_report")
+    Call<MatchManglikReportResponse> getMatchManglikReportResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-@POST("match_simple_report")
-    Call<MatchSimpleReportResponse> getMatchSimpleReportResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
-@POST("match_making_detailed_report")
-    Call<MatchMakingDetailedReportResponse> getMatchMakingDetailedReportResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    @POST("match_making_report")
+    Call<MatchMakingReportResponse> getMatchMakingReportResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+    @POST("match_simple_report")
+    Call<MatchSimpleReportResponse> getMatchSimpleReportResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+
+    @POST("match_making_detailed_report")
+    Call<MatchMakingDetailedReportResponse> getMatchMakingDetailedReportResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
 
-@POST("match_dashakoot_points")
-    Call<MatchDashakootPointsResponse> getMatchMakingDashakootPointsResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    @POST("match_dashakoot_points")
+    Call<MatchDashakootPointsResponse> getMatchMakingDashakootPointsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-@POST("match_percentage")
-    Call<MatchPercentageResponse> getMatchPercentageResponse(@Header("Authorization") String token,@Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    @POST("match_percentage")
+    Call<MatchPercentageResponse> getMatchPercentageResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-@POST("partner_report")
+    @POST("partner_report")
     Call<PartnerReportResponse> getPartnerReportResponse(@Header("Authorization") String token, @Body MatchMakingPartnerReport matchMakingPartnerReport);
 
-@POST("papasamyam_details")
+    @POST("papasamyam_details")
     Call<PapasamyamDetailsResponse> getpapaResponse(@Header("Authorization") String token, @Body MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest);
 
 

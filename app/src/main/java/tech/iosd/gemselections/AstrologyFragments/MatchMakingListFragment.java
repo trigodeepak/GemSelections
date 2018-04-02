@@ -33,8 +33,10 @@ public class MatchMakingListFragment extends Fragment {
             , "Partner Report"
             , "Custom Match Profiles"
             , "Papasamyam Details"
-            };
+    };
 
+    MatchMakingInputFragment1 matchMakingInputFragment1 = new MatchMakingInputFragment1();
+    Bundle args = new Bundle();
     public MatchMakingListFragment() {
         // Required empty public constructor
     }
@@ -55,14 +57,34 @@ public class MatchMakingListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
+
                     case 0:
-                        setFragment(new MatchBirthDetailFragment());
+
+
+                        args.putInt("caseNo", 0);
+                        matchMakingInputFragment1.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+                        // setFragment(new MatchBirthDetailFragment());
                         break;
                     case 1:
-                        setFragment(new MatchAshtakootPointsFragment());
+
+
+                        args.putInt("caseNo", 1);
+                        matchMakingInputFragment1.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+                       // setFragment(new MatchAshtakootPointsFragment());
                         break;
                     case 2:
-                        setFragment(new MatchVedhaObstructionsFragment());
+                        args.putInt("caseNo", 2);
+                        matchMakingInputFragment1.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+                        //setFragment(new MatchVedhaObstructionsFragment());
                         break;
                     case 3:
                         setFragment(new MatchAstroDetailsFragment());
@@ -74,22 +96,57 @@ public class MatchMakingListFragment extends Fragment {
                         setFragment(new MatchManglikReportFragment());
                         break;
                     case 6:
-                        setFragment(new MatchMakingReportFragment());
+                        args.putInt("caseNo", 6);
+                        matchMakingInputFragment1.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+                        //setFragment(new MatchMakingReportFragment());
                         break;
                     case 7:
-                        setFragment(new MatchSimpleReportFragment());
+                        args.putInt("caseNo", 7);
+                        matchMakingInputFragment1.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+                       // setFragment(new MatchSimpleReportFragment());
                         break;
                     case 8:
-                        setFragment(new MatchMakingdetailedReportFragment());
+
+                        args.putInt("caseNo", 8);
+                        matchMakingInputFragment1.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+
+                        //setFragment(new MatchMakingdetailedReportFragment());
                         break;
+
                     case 9:
-                        setFragment(new MatchDashakootPointsFragment());
+                        args.putInt("caseNo", 9);
+                        matchMakingInputFragment1.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+                      //  setFragment(new MatchDashakootPointsFragment());
                         break;
                     case 10:
-                        setFragment(new MatchpercentageFragment());
+                        args.putInt("caseNo", 10);
+                        matchMakingInputFragment1.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+                        //setFragment(new MatchpercentageFragment());
                         break;
                     case 11:
-                        setFragment(new PartnerReportFragment());
+                        args.putInt("caseNo", 11);
+                        MatchMakingInputFragment2 matchMakingInputFragment2 = new MatchMakingInputFragment2();
+                        matchMakingInputFragment2.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
+
+                       // setFragment(new PartnerReportFragment());
                         break;
                     case 12:
                         setFragment(new CustomMatchProfilesFragment());
@@ -104,14 +161,14 @@ public class MatchMakingListFragment extends Fragment {
         return view;
     }
 
-    public void setFragment (Fragment fragment){
+    public void setFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.match_making_container,fragment)
+                .replace(R.id.match_making_container, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .addToBackStack("Main")
                 .commit();
     }
-    }
+}
 
 
