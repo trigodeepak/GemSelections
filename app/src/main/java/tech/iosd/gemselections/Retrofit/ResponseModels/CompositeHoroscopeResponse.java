@@ -12,10 +12,10 @@ import java.util.List;
 public class CompositeHoroscopeResponse {
     @SerializedName("first")
     @Expose
-    private List<First> first = null;
+    private List<Planet> first = null;
     @SerializedName("second")
     @Expose
-    private List<Second> second = null;
+    private List<Planet> second = null;
     @SerializedName("composite")
     @Expose
     private Composite composite;
@@ -23,19 +23,19 @@ public class CompositeHoroscopeResponse {
     @Expose
     private Synastry synastry;
 
-    public List<First> getFirst() {
+    public List<Planet> getFirst() {
         return first;
     }
 
-    public void setFirst(List<First> first) {
+    public void setFirst(List<Planet> first) {
         this.first = first;
     }
 
-    public List<Second> getSecond() {
+    public List<Planet> getSecond() {
         return second;
     }
 
-    public void setSecond(List<Second> second) {
+    public void setSecond(List<Planet> second) {
         this.second = second;
     }
 

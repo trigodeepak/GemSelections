@@ -26,6 +26,7 @@ public class WesternAstrologySimpleRequestTwo {
     @SerializedName("prediction_timezone")
     float prediction_timezone;
 
+
     public WesternAstrologySimpleRequestTwo() {
     }
 

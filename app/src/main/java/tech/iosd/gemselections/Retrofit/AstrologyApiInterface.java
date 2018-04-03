@@ -152,7 +152,7 @@ public interface AstrologyApiInterface {
     );
 
     @POST("synastry_horoscope")
-    Call<List<Synastry>> getSynastryHoroscope(
+    Call<CompositeHoroscopeResponse> getSynastryHoroscope(
             @Header("Authorization") String token,
             @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
