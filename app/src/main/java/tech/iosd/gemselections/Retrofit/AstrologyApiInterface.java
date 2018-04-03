@@ -40,6 +40,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.PartnerReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalityReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalizedPlanetPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PredictionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticCoupleForecastResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticForecastResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticPersonalityResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.SolarReturnHouseResponse;
@@ -172,7 +173,6 @@ public interface AstrologyApiInterface {
     @POST("personalized_planet_prediction/daily/{planetName}")
     Call<PersonalizedPlanetPredictionResponse> getPersonalizedPrediction(
             @Header("Authorization") String token,
-            @Path("planetName") String planetName,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
 
@@ -185,7 +185,7 @@ public interface AstrologyApiInterface {
     @POST("romantic_forecast_report/tropical")
     Call<RomanticForecastResponse> getRomanticForecastReport(
             @Header("Authorization") String token,
-            @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
 
 
@@ -208,7 +208,7 @@ public interface AstrologyApiInterface {
     );
 
     @POST("romantic_forecast_couple_report/tropical")
-    Call<RomanticForecastResponse> getRomanticCoupleForecast(
+    Call<RomanticCoupleForecastResponse> getRomanticCoupleForecast(
             @Header("Authorization") String token,
             @Body WesternAstrologyComplexRequest westernAstrologyComplexRequest
     );
@@ -221,7 +221,7 @@ public interface AstrologyApiInterface {
     );
 
     @POST("compatibility/{sunSign}/{risingSign}/{partnerSunSign}/{partnerRisingSign}")
-    Call<SunsignCompatibilityResponse> getRomanticForecastReport(
+    Call<SunsignCompatibilityResponse> getSunSignCompatibilityReport(
             @Header("Authorization") String token,
             @Path("sunSign") String sunSign,
             @Path("risingSign") String risingSun,

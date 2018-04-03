@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by anubhavmalik on 27/03/18.
  */
 
-class SunsignCompatibilityResponse {
+public class SunsignCompatibilityResponse {
     @SerializedName("your_sign")
     @Expose
     private String yourSign;
