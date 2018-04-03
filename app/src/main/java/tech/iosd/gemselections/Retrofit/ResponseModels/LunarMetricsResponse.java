@@ -13,13 +13,13 @@ public class LunarMetricsResponse {
     private String month;
     @SerializedName("within_perigee_range")
     @Expose
-    private boolean withinPerigeeRange;
+    private String withinPerigeeRange;
     @SerializedName("distance")
     @Expose
     private String distance;
     @SerializedName("within_apogee_range")
     @Expose
-    private boolean withinApogeeRange;
+    private String withinApogeeRange;
     @SerializedName("apogee_distance")
     @Expose
     private String apogeeDistance;
@@ -32,11 +32,11 @@ public class LunarMetricsResponse {
         this.month = month;
     }
 
-    public boolean isWithinPerigeeRange() {
+    public String getWithinPerigeeRange() {
         return withinPerigeeRange;
     }
 
-    public void setWithinPerigeeRange(boolean withinPerigeeRange) {
+    public void setWithinPerigeeRange(String withinPerigeeRange) {
         this.withinPerigeeRange = withinPerigeeRange;
     }
 
@@ -48,11 +48,11 @@ public class LunarMetricsResponse {
         this.distance = distance;
     }
 
-    public boolean isWithinApogeeRange() {
+    public String getWithinApogeeRange() {
         return withinApogeeRange;
     }
 
-    public void setWithinApogeeRange(boolean withinApogeeRange) {
+    public void setWithinApogeeRange(String withinApogeeRange) {
         this.withinApogeeRange = withinApogeeRange;
     }
 

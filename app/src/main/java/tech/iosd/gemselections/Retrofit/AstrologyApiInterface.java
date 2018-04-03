@@ -128,7 +128,7 @@ public interface AstrologyApiInterface {
     );
 
     @POST("solar_return_planets")
-    Call<SolarReturnPlanetsResponse> getSolarReturnPlanet(
+    Call<List<SolarReturnPlanetsResponse>> getSolarReturnPlanet(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );

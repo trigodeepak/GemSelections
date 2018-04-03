@@ -3,43 +3,57 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * Created by anubhavmalik on 26/03/18.
  */
 //https://json.astrologyapi.com/v1/solar_return_house_cusps
 public class SolarReturnHouseResponse {
 
-    @SerializedName("planet_name")
+    @SerializedName("houses")
     @Expose
-    private String planetName;
-    @SerializedName("house")
+    private List<House> houses = null;
+    @SerializedName("ascendant")
     @Expose
-    private long house;
-    @SerializedName("report")
+    private double ascendant;
+    @SerializedName("midheaven")
     @Expose
-    private String report;
+    private double midheaven;
+    @SerializedName("vertex")
+    @Expose
+    private double vertex;
 
-    public String getPlanetName() {
-        return planetName;
+    public List<House> getHouses() {
+        return houses;
     }
 
-    public void setPlanetName(String planetName) {
-        this.planetName = planetName;
+    public void setHouses(List<House> houses) {
+        this.houses = houses;
     }
 
-    public long getHouse() {
-        return house;
+    public double getAscendant() {
+        return ascendant;
     }
 
-    public void setHouse(long house) {
-        this.house = house;
+    public void setAscendant(double ascendant) {
+        this.ascendant = ascendant;
     }
 
-    public String getReport() {
-        return report;
+    public double getMidheaven() {
+        return midheaven;
     }
 
-    public void setReport(String report) {
-        this.report = report;
+    public void setMidheaven(double midheaven) {
+        this.midheaven = midheaven;
     }
+
+    public double getVertex() {
+        return vertex;
+    }
+
+    public void setVertex(double vertex) {
+        this.vertex = vertex;
+    }
+
 }

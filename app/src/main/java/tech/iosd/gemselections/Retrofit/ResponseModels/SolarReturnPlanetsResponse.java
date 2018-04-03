@@ -16,10 +16,10 @@ public class SolarReturnPlanetsResponse {
     private double fullDegree;
     @SerializedName("normDegree")
     @Expose
-    private double normDegree;
+    private String normDegree;
     @SerializedName("speed")
     @Expose
-    private long speed;
+    private String speed;
     @SerializedName("isRetro")
     @Expose
     private boolean isRetro;
@@ -46,19 +46,19 @@ public class SolarReturnPlanetsResponse {
         this.fullDegree = fullDegree;
     }
 
-    public double getNormDegree() {
+    public String getNormDegree() {
         return normDegree;
     }
 
-    public void setNormDegree(double normDegree) {
+    public void setNormDegree(String normDegree) {
         this.normDegree = normDegree;
     }
 
-    public long getSpeed() {
+    public String getSpeed() {
         return speed;
     }
 
-    public void setSpeed(long speed) {
+    public void setSpeed(String speed) {
         this.speed = speed;
     }
 
