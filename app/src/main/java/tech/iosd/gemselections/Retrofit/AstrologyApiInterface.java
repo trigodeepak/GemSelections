@@ -2,25 +2,44 @@ package tech.iosd.gemselections.Retrofit;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Url;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPapasamyamReportRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
+import tech.iosd.gemselections.Retrofit.RequestModels.PdfRequestModel;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologyComplexRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequestTwo;
+import tech.iosd.gemselections.Retrofit.ResponseModels.AyanmshaResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.BasicAstroDetailsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.BasicAstroPlanetsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.BasicAstroResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.BasicGemSuggestionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.BasicPanchangResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CompositeHoroscopeResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.CurrentCharDashaResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.DailyTransitsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.FriendshipReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.GeneralAscendantReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.GeneralHoroscopeChartReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.GeneralHouseReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.GeneralMoonBioRythmResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.GeneralPlanetNatureResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.KalSarpaDetailsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.KarmaDestinyResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LifeForecastResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LoveCompatibilityResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LunarMetricsResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MadhyaBhavResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MajorCharDashaResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.MajorYoginiDashaResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MatchAshtakootPointsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MatchAstroDetailsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MatchBirthDetailResponse;
@@ -35,10 +54,17 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.MatchSimpleReportResponse
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MonthlyTransitResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.NextPredictionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.NumeroDailyPredictionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.NumeroFavTimeResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.NumeroGemSuggestionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.NumeroPlaceVastuResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.NumerologyReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PapasamyamDetailsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PartnerReportResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.PdfHoroscopeResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalityReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalizedPlanetPredictionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.PlanetPanchangResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticCoupleForecastResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticForecastResponse;
@@ -46,11 +72,13 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticPersonalityRespon
 import tech.iosd.gemselections.Retrofit.ResponseModels.SolarReturnHouseResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.SolarReturnPlanetsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.SolarReturnResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.Synastry;
+import tech.iosd.gemselections.Retrofit.ResponseModels.SubCharDashaResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.SubSubDasha;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WeeklyPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WeeklyTransitResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WesternChartResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WesternHoroscopeResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.YoginiDashaResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.ZodiacCompatibilityResponse;
 
 /**
@@ -62,7 +90,9 @@ public interface AstrologyApiInterface {
     String HEADER_TOKEN = "Basic NjAxNjk2Ojg1MTBlNTM3YmNjNDI0ZTE1NGEzODYwZTcwZTkyMjA5"; //follow convention if using somewhere else
 
 
-/** --------------------------------------------------------------------DAILY HOROSCOPE -------------------------------------------------------------*/
+    /**
+     * --------------------------------------------------------------------DAILY HOROSCOPE -------------------------------------------------------------
+     */
 
 
     @POST("sun_sign_prediction/daily/{horoscope}")
@@ -95,7 +125,9 @@ public interface AstrologyApiInterface {
             @Path("horoscope") String horoscope
     );
 
-    /** ------------------------------------------------------------WESTERN ASTROLOGY ---------------------------------------------------------*/
+    /**
+     * ------------------------------------------------------------WESTERN ASTROLOGY ---------------------------------------------------------
+     */
 
 
     @Headers("Content-Type:application/json")
@@ -237,7 +269,9 @@ public interface AstrologyApiInterface {
     );
 
 
-/** --------------------------------------------------------------MATCH MAKING---------------------------------------------------------------- */
+    /**
+     * --------------------------------------------------------------MATCH MAKING----------------------------------------------------------------
+     */
 
 
     @POST("match_birth_details")
@@ -267,7 +301,6 @@ public interface AstrologyApiInterface {
     @POST("match_making_detailed_report")
     Call<MatchMakingDetailedReportResponse> getMatchMakingDetailedReportResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-
     @POST("match_dashakoot_points")
     Call<MatchDashakootPointsResponse> getMatchMakingDashakootPointsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
@@ -278,9 +311,146 @@ public interface AstrologyApiInterface {
     Call<PartnerReportResponse> getPartnerReportResponse(@Header("Authorization") String token, @Body MatchMakingPartnerReport matchMakingPartnerReport);
 
     @POST("papasamyam_details")
-    Call<PapasamyamDetailsResponse> getpapaResponse(@Header("Authorization") String token, @Body MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest);
+    Call<PapasamyamDetailsResponse> getPapaResponse(@Header("Authorization") String token, @Body MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest);
 
 
-    /**---------------------------------------------------------------PDF HOROSCOPE----------------------------------------------------------*/
+    /**
+     * ---------------------------------------------------------------PDF HOROSCOPE----------------------------------------------------------
+     */
 
+    @Headers("Content-Type:application/json")
+    @POST("basic_horoscope_pdf")
+    Call<PdfHoroscopeResponse> sendPdfDetails(
+            @Header("Authorization") String token,
+            @Body PdfRequestModel pdfRequestModel
+    );
+
+    @POST
+    Call<ResponseBody> getPdfHoroscope(
+            @Header("Authorization") String token,
+            @Url String url);
+
+    /**----------------------------------------------------------- Indian Astrology ---------------------------------------------------------*/
+
+    @POST("general_house_report/{:planet_name}")
+    Call<GeneralHouseReportResponse> getGeneralHouseReport(
+            @Header("Authorization") String token,
+            @Path(":planet_name") String planetName,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("general_ascendant_report")
+    Call<GeneralAscendantReportResponse> getGeneralAscendantReport(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("planet_nature")
+    Call<GeneralPlanetNatureResponse> getGeneralPlanetNatureReport(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("moon_biorhythm")
+    Call<GeneralMoonBioRythmResponse> getGeneralMoonBioRythmReport(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("horo_chart/{:chart_id}")
+    Call<GeneralHoroscopeChartReportResponse> getGeneralHoroscopeChartReport(
+            @Header("Authorization") String token,
+            @Path(":chart_id") String chartId,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("kalsarpa_details")
+    Call<KalSarpaDetailsResponse> getKalSarpaDetails(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("basic_astro")
+    Call<BasicAstroResponse> getBasicAstro(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("astro_details")
+    Call<BasicAstroDetailsResponse> getBasicAstroDetails(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("planets")
+    Call<BasicAstroPlanetsResponse> getBasicAstroPlanets(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("bhav_madhya")
+    Call<MadhyaBhavResponse> getBasicAstroMadhyaBhav(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("ayanamsha")
+    Call<AyanmshaResponse> getAyanmsha(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("major_chardasha")
+    Call<MajorCharDashaResponse> getMajorCharDasha(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("current_chardasha")
+    Call<CurrentCharDashaResponse> getCurrentCharDasha(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("sub_chardasha")
+    Call<SubCharDashaResponse> getSubCharDasha(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("sub_sub_chardasha")
+    Call<SubSubDasha> getSubSubCharDasha(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("basic_gem_suggestion")
+    Call<BasicGemSuggestionResponse> getBasicGemSuggestion(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("numero_gem_suggestion")
+    Call<NumeroGemSuggestionResponse> getNumeroGemSuggestion(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("basic_panchang")
+    Call<BasicPanchangResponse> getBasicPanchang(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("planet_panchang")
+    Call<PlanetPanchangResponse> getPlanetPanchang(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("major_yogini_dasha")
+    Call<MajorYoginiDashaResponse> getMajorYoginiDasha(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("numero_report")
+    Call<NumerologyReportResponse> getNumerologyReport(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("numero_fav_time")
+    Call<NumeroFavTimeResponse> getNumeroFavTime(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("numero_place_vastu")
+    Call<NumeroPlaceVastuResponse> getNumeroPlaceVastu(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("numero_prediction/daily")
+    Call<NumeroDailyPredictionResponse> getNumeroDailyPrediction(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 }

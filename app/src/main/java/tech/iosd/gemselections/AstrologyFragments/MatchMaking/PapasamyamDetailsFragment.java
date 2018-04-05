@@ -17,9 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Retrofit.AstrologyApiInterface;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPapasamyamReportRequest;
-import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PapasamyamDetailsResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.PartnerReportResponse;
 
 /**
  * Created by kushalgupta on 27/03/18.
@@ -42,7 +40,7 @@ public class PapasamyamDetailsFragment extends Fragment {
         final MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest = new MatchMakingPapasamyamReportRequest(17, 03,
                 1997,  29, 11, 1997,(float)19.2056,(float)25.2056,"male" );
         astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
-        Call<PapasamyamDetailsResponse> call = astrologyApiInterface.getpapaResponse(AstrologyApiInterface.HEADER_TOKEN, matchMakingPapasamyamReportRequest);
+        Call<PapasamyamDetailsResponse> call = astrologyApiInterface.getPapaResponse(AstrologyApiInterface.HEADER_TOKEN, matchMakingPapasamyamReportRequest);
         call.enqueue(new Callback<PapasamyamDetailsResponse>() {
             @Override
             public void onResponse(Call<PapasamyamDetailsResponse> call, Response<PapasamyamDetailsResponse> response) {

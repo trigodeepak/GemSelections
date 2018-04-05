@@ -83,7 +83,7 @@ public class AstrologyAdapter extends RecyclerView.Adapter<tech.iosd.gemselectio
 
                     case 3:
                         context.startActivity(new Intent(
-                                context, GemStuddedActivity.class
+                                context, PdfHoroscopeActivity.class
                         ));
 
                         break;
