@@ -442,11 +442,11 @@
         <activity
             android:name=".PaytmActivity"
             android:theme="@style/Theme.AppCompat" />
-
         <activity android:name=".MainContent.AstrologyActivity" />
-        <activity android:name=".MainContent.WesternAstrologyActivity"></activity>
-
-        <activity android:name=".MainContent.MatchMakingActivity"/>
+        <activity android:name=".MainContent.WesternAstrologyActivity" />
+        <activity android:name=".MainContent.MatchMakingActivity" />
+        <activity android:name=".MainContent.DailyHoroscopeActivity" />
+        <activity android:name=".MainContent.PdfHoroscopeActivity"></activity>
     </application>
 
 </manifest>

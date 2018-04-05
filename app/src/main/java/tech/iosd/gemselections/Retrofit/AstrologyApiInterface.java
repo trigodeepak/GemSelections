@@ -61,6 +61,10 @@ public interface AstrologyApiInterface {
 
     String HEADER_TOKEN = "Basic NjAxNjk2Ojg1MTBlNTM3YmNjNDI0ZTE1NGEzODYwZTcwZTkyMjA5"; //follow convention if using somewhere else
 
+
+/** --------------------------------------------------------------------DAILY HOROSCOPE -------------------------------------------------------------*/
+
+
     @POST("sun_sign_prediction/daily/{horoscope}")
     Call<PredictionResponse> getTodaysHoroscope(
             @Header("Authorization") String token,
@@ -90,6 +94,9 @@ public interface AstrologyApiInterface {
             @Header("Authorization") String token,
             @Path("horoscope") String horoscope
     );
+
+    /** ------------------------------------------------------------WESTERN ASTROLOGY ---------------------------------------------------------*/
+
 
     @Headers("Content-Type:application/json")
     @POST("western_horoscope")
@@ -229,6 +236,10 @@ public interface AstrologyApiInterface {
             @Path("partnerRisingSign") String partnerRisingSign
     );
 
+
+/** --------------------------------------------------------------MATCH MAKING---------------------------------------------------------------- */
+
+
     @POST("match_birth_details")
     Call<MatchBirthDetailResponse> getMatchBirthDetailResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
@@ -269,5 +280,7 @@ public interface AstrologyApiInterface {
     @POST("papasamyam_details")
     Call<PapasamyamDetailsResponse> getpapaResponse(@Header("Authorization") String token, @Body MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest);
 
+
+    /**---------------------------------------------------------------PDF HOROSCOPE----------------------------------------------------------*/
 
 }
