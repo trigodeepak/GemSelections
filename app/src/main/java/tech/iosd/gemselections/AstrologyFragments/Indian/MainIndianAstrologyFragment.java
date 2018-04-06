@@ -22,7 +22,7 @@ public class MainIndianAstrologyFragment extends Fragment {
             , "General Ascendant Report"
             , "General Planet Nature Report"
             , "General Moon Biorythm Report"
-            , "Generacl Horoscope Report Chart"
+            , "Moon Horoscope Report Chart"
             , "Kal Sarpa Details"
             , "Basic Astrology Report"
             , "Basic Astrology Details"
@@ -34,7 +34,7 @@ public class MainIndianAstrologyFragment extends Fragment {
             , "Sub Char Dasha"
             , "Sub Sub Char Dasha"
             , "Gemstone Suggestion"
-            , "Numerology Gem Suggestion"
+//            , "Numerology Gem Suggestion"
             , "Basic Panchang"
             , "Planet Panchang"
             , "Yogini Dasha"
@@ -71,7 +71,7 @@ public class MainIndianAstrologyFragment extends Fragment {
                         setFragment(new GeneralMoonBioRythmReportFragment());
                         break;
                     case 4:
-                        setFragment(new cGeneralHoroscopeReportChartFragment());
+                        setFragment(new GeneralHoroscopeReportChartFragment());
                         break;
                     case 5:
                         setFragment(new KalSarpaDetailsFragment());

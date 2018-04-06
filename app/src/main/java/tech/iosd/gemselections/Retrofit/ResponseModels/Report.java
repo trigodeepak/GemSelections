@@ -3,7 +3,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-class Report {
+public class Report {
     @SerializedName("house_id")
     @Expose
     private long houseId;

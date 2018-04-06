@@ -22,12 +22,10 @@ import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Retrofit.AstrologyApiClient;
 import tech.iosd.gemselections.Retrofit.AstrologyApiInterface;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
-import tech.iosd.gemselections.Retrofit.ResponseModels.CurrentCharDashaResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.SubCharDashaResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.SubSubDasha;
+import tech.iosd.gemselections.Retrofit.ResponseModels.CurrentYoginiDashaResponse;
 import tech.iosd.gemselections.Utils.Constants;
 
-public class SubSubCharDashaFragment  extends Fragment {
+public class CurrentYoginiDashaFragment extends Fragment {
     Retrofit retrofit;
     ArrayList<String> arrayList = new ArrayList<>();
 
@@ -62,12 +60,12 @@ public class SubSubCharDashaFragment  extends Fragment {
 //                ,Constants.TIMEZONE);
 
 
-            Call<CurrentCharDashaResponse> call = astrologyApiInterface
-                    .getSubSubCharDasha(AstrologyApiInterface.HEADER_TOKEN, westernAstrologySimpleRequest);
+            Call<CurrentYoginiDashaResponse> call = astrologyApiInterface
+                    .getCurrentYoginiDasha(AstrologyApiInterface.HEADER_TOKEN, westernAstrologySimpleRequest);
 
-            call.enqueue(new Callback<CurrentCharDashaResponse>() {
+            call.enqueue(new Callback<CurrentYoginiDashaResponse>() {
                 @Override
-                public void onResponse(Call<CurrentCharDashaResponse> call, Response<CurrentCharDashaResponse> response) {
+                public void onResponse(Call<CurrentYoginiDashaResponse> call, Response<CurrentYoginiDashaResponse> response) {
                     Log.d("TAGGER", "RESPONSE CODE : " + response.code());
                     Log.d("TAGGER", "RESPONSE BODY : " + response.body());
                     progressDialog.dismiss();
@@ -76,37 +74,29 @@ public class SubSubCharDashaFragment  extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                            responseString = responseString.concat(response.body().getReport().get(i));
                         try {
-                            responseTextView.append("\n\n ");
-                            responseTextView.append("Dasha Date : "+response.body().getDashaDate());
                             responseTextView.append("\n\nMAJOR DASHA : \n");
-                            responseTextView.append("\n\t\tSign Name : "+response.body().getMajorDasha().getSignName());
-                            responseTextView.append("\n\t\tDuration : "+response.body().getMajorDasha().getDuration());
-                            responseTextView.append("\n\t\tStart Date : "+response.body().getMajorDasha().getStartDate());
-                            responseTextView.append("\n\t\tEnd Date : "+response.body().getMajorDasha().getEndDate());
+                            responseTextView.append("\n\t\tDasha Name : " + response.body().getMajorDasha().getDashaName());
+                            responseTextView.append("\n\t\tDuration : " + response.body().getMajorDasha().getDuration());
+                            responseTextView.append("\n\t\tStart Date : " + response.body().getMajorDasha().getStartDate());
+                            responseTextView.append("\n\t\tEnd Date : " + response.body().getMajorDasha().getEndDate());
 
                             responseTextView.append("\n\nSUB DASHA : \n");
-                            responseTextView.append("\n\t\tSign Name : "+response.body().getSubDasha().getSignName());
-                            responseTextView.append("\n\t\tDuration : "+response.body().getSubDasha().getDuration());
-                            responseTextView.append("\n\t\tStart Date : "+response.body().getSubDasha().getStartDate());
-                            responseTextView.append("\n\t\tEnd Date : "+response.body().getSubDasha().getEndDate());
+                            responseTextView.append("\n\t\tDasha Name : " + response.body().getSubDasha().getDashaName());
+                            responseTextView.append("\n\t\tStart Date : " + response.body().getSubDasha().getStartDate());
+                            responseTextView.append("\n\t\tEnd Date : " + response.body().getSubDasha().getEndDate());
 
-                            responseTextView.append("\n\nSUB SUB DASHA ");
-
-
-                            for (int i = 0; i < response.body().getSubSubDasha().size(); i++) {
-                                responseTextView.append("\n\t\tSign Name : " + response.body().getSubSubDasha().get(i).getSignName());
-                                responseTextView.append("\n\t\tStart Date : " + response.body().getSubSubDasha().get(i).getStartDate());
-                                responseTextView.append("\n\t\tEnd Date : " + response.body().getSubSubDasha().get(i).getEndDate());
-                            }
+                            responseTextView.append("\n\nSUB SUB DASHA \n");
+                            responseTextView.append("\n\t\tSign Name : " + response.body().getSubSubDasha().getDashaName());
+                            responseTextView.append("\n\t\tStart Date : " + response.body().getSubSubDasha().getStartDate());
+                            responseTextView.append("\n\t\tEnd Date : " + response.body().getSubSubDasha().getEndDate());
 
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 }
-
                 @Override
-                public void onFailure(Call<CurrentCharDashaResponse> call, Throwable t) {
+                public void onFailure(Call<CurrentYoginiDashaResponse> call, Throwable t) {
 
                     Log.d("TAGGER", "RESPONSE FAILURE");
                     Log.d("TAGGER", t.getMessage());

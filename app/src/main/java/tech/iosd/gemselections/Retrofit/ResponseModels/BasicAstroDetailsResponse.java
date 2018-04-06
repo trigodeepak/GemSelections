@@ -4,6 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class BasicAstroDetailsResponse {
+    @SerializedName("ascendant")
+    @Expose
+    private String ascendant;
     @SerializedName("Varna")
     @Expose
     private String varna;
@@ -13,24 +16,56 @@ public class BasicAstroDetailsResponse {
     @SerializedName("Yoni")
     @Expose
     private String yoni;
-    @SerializedName("sign_lord")
+    @SerializedName("Gan")
     @Expose
-    private long signLord;
+    private String gan;
+    @SerializedName("Nadi")
+    @Expose
+    private String nadi;
+    @SerializedName("SignLord")
+    @Expose
+    private String signLord;
     @SerializedName("sign")
     @Expose
     private String sign;
     @SerializedName("Naksahtra")
     @Expose
     private String naksahtra;
-    @SerializedName("naksahtra_lord")
+    @SerializedName("NaksahtraLord")
     @Expose
     private String naksahtraLord;
-    @SerializedName("nakshatra_charan")
+    @SerializedName("Charan")
     @Expose
-    private long nakshatraCharan;
+    private long charan;
+    @SerializedName("Yog")
+    @Expose
+    private String yog;
+    @SerializedName("Karan")
+    @Expose
+    private String karan;
+    @SerializedName("Tithi")
+    @Expose
+    private String tithi;
+    @SerializedName("yunja")
+    @Expose
+    private String yunja;
+    @SerializedName("tatva")
+    @Expose
+    private String tatva;
     @SerializedName("name_alphabet")
     @Expose
     private String nameAlphabet;
+    @SerializedName("paya")
+    @Expose
+    private String paya;
+
+    public String getAscendant() {
+        return ascendant;
+    }
+
+    public void setAscendant(String ascendant) {
+        this.ascendant = ascendant;
+    }
 
     public String getVarna() {
         return varna;
@@ -56,11 +91,27 @@ public class BasicAstroDetailsResponse {
         this.yoni = yoni;
     }
 
-    public long getSignLord() {
+    public String getGan() {
+        return gan;
+    }
+
+    public void setGan(String gan) {
+        this.gan = gan;
+    }
+
+    public String getNadi() {
+        return nadi;
+    }
+
+    public void setNadi(String nadi) {
+        this.nadi = nadi;
+    }
+
+    public String getSignLord() {
         return signLord;
     }
 
-    public void setSignLord(long signLord) {
+    public void setSignLord(String signLord) {
         this.signLord = signLord;
     }
 
@@ -88,12 +139,52 @@ public class BasicAstroDetailsResponse {
         this.naksahtraLord = naksahtraLord;
     }
 
-    public long getNakshatraCharan() {
-        return nakshatraCharan;
+    public long getCharan() {
+        return charan;
     }
 
-    public void setNakshatraCharan(long nakshatraCharan) {
-        this.nakshatraCharan = nakshatraCharan;
+    public void setCharan(long charan) {
+        this.charan = charan;
+    }
+
+    public String getYog() {
+        return yog;
+    }
+
+    public void setYog(String yog) {
+        this.yog = yog;
+    }
+
+    public String getKaran() {
+        return karan;
+    }
+
+    public void setKaran(String karan) {
+        this.karan = karan;
+    }
+
+    public String getTithi() {
+        return tithi;
+    }
+
+    public void setTithi(String tithi) {
+        this.tithi = tithi;
+    }
+
+    public String getYunja() {
+        return yunja;
+    }
+
+    public void setYunja(String yunja) {
+        this.yunja = yunja;
+    }
+
+    public String getTatva() {
+        return tatva;
+    }
+
+    public void setTatva(String tatva) {
+        this.tatva = tatva;
     }
 
     public String getNameAlphabet() {
@@ -103,4 +194,13 @@ public class BasicAstroDetailsResponse {
     public void setNameAlphabet(String nameAlphabet) {
         this.nameAlphabet = nameAlphabet;
     }
+
+    public String getPaya() {
+        return paya;
+    }
+
+    public void setPaya(String paya) {
+        this.paya = paya;
+    }
+
 }

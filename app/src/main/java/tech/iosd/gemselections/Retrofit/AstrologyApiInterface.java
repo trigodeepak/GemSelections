@@ -13,6 +13,7 @@ import retrofit2.http.Url;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPapasamyamReportRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
+import tech.iosd.gemselections.Retrofit.RequestModels.NumerologyReportRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.PdfRequestModel;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologyComplexRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
@@ -25,6 +26,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.BasicGemSuggestionRespons
 import tech.iosd.gemselections.Retrofit.ResponseModels.BasicPanchangResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CompositeHoroscopeResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CurrentCharDashaResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.CurrentYoginiDashaResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.DailyTransitsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.FriendshipReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.GeneralAscendantReportResponse;
@@ -73,12 +75,10 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.SolarReturnHouseResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.SolarReturnPlanetsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.SolarReturnResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.SubCharDashaResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.SubSubDasha;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WeeklyPredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WeeklyTransitResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WesternChartResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.WesternHoroscopeResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.YoginiDashaResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.ZodiacCompatibilityResponse;
 
 /**
@@ -375,7 +375,7 @@ public interface AstrologyApiInterface {
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("planets")
-    Call<BasicAstroPlanetsResponse> getBasicAstroPlanets(
+    Call<List<BasicAstroPlanetsResponse>> getBasicAstroPlanets(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
@@ -385,12 +385,12 @@ public interface AstrologyApiInterface {
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("ayanamsha")
-    Call<AyanmshaResponse> getAyanmsha(
+    Call<List<AyanmshaResponse>> getAyanmsha(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("major_chardasha")
-    Call<MajorCharDashaResponse> getMajorCharDasha(
+    Call<List<MajorCharDashaResponse>> getMajorCharDasha(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
@@ -405,7 +405,7 @@ public interface AstrologyApiInterface {
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("sub_sub_chardasha")
-    Call<SubSubDasha> getSubSubCharDasha(
+    Call<CurrentCharDashaResponse> getSubSubCharDasha(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
@@ -425,32 +425,37 @@ public interface AstrologyApiInterface {
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("planet_panchang")
-    Call<PlanetPanchangResponse> getPlanetPanchang(
+    Call<List<PlanetPanchangResponse>> getPlanetPanchang(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("major_yogini_dasha")
-    Call<MajorYoginiDashaResponse> getMajorYoginiDasha(
+    Call<List<MajorYoginiDashaResponse>> getMajorYoginiDasha(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+
+    @POST("current_yogini_dasha")
+    Call<CurrentYoginiDashaResponse> getCurrentYoginiDasha(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("numero_report")
     Call<NumerologyReportResponse> getNumerologyReport(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+            @Body NumerologyReportRequest numerologyReportRequest);
 
     @POST("numero_fav_time")
     Call<NumeroFavTimeResponse> getNumeroFavTime(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+            @Body NumerologyReportRequest numerologyReportRequest);
 
     @POST("numero_place_vastu")
     Call<NumeroPlaceVastuResponse> getNumeroPlaceVastu(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+            @Body NumerologyReportRequest numerologyReportRequest);
 
     @POST("numero_prediction/daily")
     Call<NumeroDailyPredictionResponse> getNumeroDailyPrediction(
             @Header("Authorization") String token,
-            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
+            @Body NumerologyReportRequest numerologyReportRequest);
 }

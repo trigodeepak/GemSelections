@@ -4,103 +4,125 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class BasicAstroResponse {
-    @SerializedName("Varna")
+    @SerializedName("year")
     @Expose
-    private String varna;
-    @SerializedName("Vashya")
+    private long year;
+    @SerializedName("month")
     @Expose
-    private String vashya;
-    @SerializedName("Yoni")
+    private long month;
+    @SerializedName("day")
     @Expose
-    private String yoni;
-    @SerializedName("sign_lord")
+    private long day;
+    @SerializedName("hour")
     @Expose
-    private long signLord;
-    @SerializedName("sign")
+    private long hour;
+    @SerializedName("minute")
     @Expose
-    private String sign;
-    @SerializedName("Naksahtra")
+    private long minute;
+    @SerializedName("latitude")
     @Expose
-    private String naksahtra;
-    @SerializedName("naksahtra_lord")
+    private double latitude;
+    @SerializedName("longitude")
     @Expose
-    private String naksahtraLord;
-    @SerializedName("nakshatra_charan")
+    private double longitude;
+    @SerializedName("timezone")
     @Expose
-    private long nakshatraCharan;
-    @SerializedName("name_alphabet")
+    private double timezone;
+    @SerializedName("sunrise")
     @Expose
-    private String nameAlphabet;
+    private String sunrise;
+    @SerializedName("sunset")
+    @Expose
+    private String sunset;
+    @SerializedName("ayanamsha")
+    @Expose
+    private double ayanamsha;
 
-    public String getVarna() {
-        return varna;
+    public long getYear() {
+        return year;
     }
 
-    public void setVarna(String varna) {
-        this.varna = varna;
+    public void setYear(long year) {
+        this.year = year;
     }
 
-    public String getVashya() {
-        return vashya;
+    public long getMonth() {
+        return month;
     }
 
-    public void setVashya(String vashya) {
-        this.vashya = vashya;
+    public void setMonth(long month) {
+        this.month = month;
     }
 
-    public String getYoni() {
-        return yoni;
+    public long getDay() {
+        return day;
     }
 
-    public void setYoni(String yoni) {
-        this.yoni = yoni;
+    public void setDay(long day) {
+        this.day = day;
     }
 
-    public long getSignLord() {
-        return signLord;
+    public long getHour() {
+        return hour;
     }
 
-    public void setSignLord(long signLord) {
-        this.signLord = signLord;
+    public void setHour(long hour) {
+        this.hour = hour;
     }
 
-    public String getSign() {
-        return sign;
+    public long getMinute() {
+        return minute;
     }
 
-    public void setSign(String sign) {
-        this.sign = sign;
+    public void setMinute(long minute) {
+        this.minute = minute;
     }
 
-    public String getNaksahtra() {
-        return naksahtra;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setNaksahtra(String naksahtra) {
-        this.naksahtra = naksahtra;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
-    public String getNaksahtraLord() {
-        return naksahtraLord;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setNaksahtraLord(String naksahtraLord) {
-        this.naksahtraLord = naksahtraLord;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
-    public long getNakshatraCharan() {
-        return nakshatraCharan;
+    public double getTimezone() {
+        return timezone;
     }
 
-    public void setNakshatraCharan(long nakshatraCharan) {
-        this.nakshatraCharan = nakshatraCharan;
+    public void setTimezone(double timezone) {
+        this.timezone = timezone;
     }
 
-    public String getNameAlphabet() {
-        return nameAlphabet;
+    public String getSunrise() {
+        return sunrise;
     }
 
-    public void setNameAlphabet(String nameAlphabet) {
-        this.nameAlphabet = nameAlphabet;
+    public void setSunrise(String sunrise) {
+        this.sunrise = sunrise;
+    }
+
+    public String getSunset() {
+        return sunset;
+    }
+
+    public void setSunset(String sunset) {
+        this.sunset = sunset;
+    }
+
+    public double getAyanamsha() {
+        return ayanamsha;
+    }
+
+    public void setAyanamsha(double ayanamsha) {
+        this.ayanamsha = ayanamsha;
     }
 }
