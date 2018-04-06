@@ -3,7 +3,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-class LUCKY {
+public class LUCKY {
     @SerializedName("name")
     @Expose
     private String name;

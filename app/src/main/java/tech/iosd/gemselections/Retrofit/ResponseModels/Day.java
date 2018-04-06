@@ -2,7 +2,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 
 import com.google.gson.annotations.SerializedName;
 
-class Day {
+ public class Day {
     @SerializedName("start_time")
     private String startTime;
     @SerializedName("end_time")

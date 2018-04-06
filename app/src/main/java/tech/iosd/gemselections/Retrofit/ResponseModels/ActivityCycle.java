@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-class ActivityCycle {
+public class ActivityCycle {
     @SerializedName("day")
     private List<Day> day = null;
     @SerializedName("night")

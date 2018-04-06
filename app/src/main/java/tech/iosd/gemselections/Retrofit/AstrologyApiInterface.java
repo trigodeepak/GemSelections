@@ -354,7 +354,7 @@ public interface AstrologyApiInterface {
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("horo_chart/{:chart_id}")
-    Call<GeneralHoroscopeChartReportResponse> getGeneralHoroscopeChartReport(
+    Call<List<GeneralHoroscopeChartReportResponse>> getGeneralHoroscopeChartReport(
             @Header("Authorization") String token,
             @Path(":chart_id") String chartId,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);

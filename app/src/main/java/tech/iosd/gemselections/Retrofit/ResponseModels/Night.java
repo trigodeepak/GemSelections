@@ -2,7 +2,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 
 import com.google.gson.annotations.SerializedName;
 
-class Night {
+public class Night {
     @SerializedName("start_time")
     private String startTime;
     @SerializedName("end_time")

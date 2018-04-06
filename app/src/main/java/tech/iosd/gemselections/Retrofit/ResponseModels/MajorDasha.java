@@ -3,7 +3,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-class MajorDasha {
+public class MajorDasha {
     @SerializedName("sign_id")
     @Expose
     private long signId;

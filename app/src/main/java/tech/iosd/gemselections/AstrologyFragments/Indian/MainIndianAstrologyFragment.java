@@ -22,7 +22,7 @@ public class MainIndianAstrologyFragment extends Fragment {
             , "General Ascendant Report"
             , "General Planet Nature Report"
             , "General Moon Biorythm Report"
-            , "General Horoscope Report Chart"
+            , "Generacl Horoscope Report Chart"
             , "Kal Sarpa Details"
             , "Basic Astrology Report"
             , "Basic Astrology Details"
@@ -71,7 +71,7 @@ public class MainIndianAstrologyFragment extends Fragment {
                         setFragment(new GeneralMoonBioRythmReportFragment());
                         break;
                     case 4:
-                        setFragment(new GeneralHoroscopeReportChartFragment());
+                        setFragment(new cGeneralHoroscopeReportChartFragment());
                         break;
                     case 5:
                         setFragment(new KalSarpaDetailsFragment());

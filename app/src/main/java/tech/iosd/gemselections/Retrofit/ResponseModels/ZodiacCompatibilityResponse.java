@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by anubhavmalik on 26/03/18.
  */
-//ttps://json.astrologyapi.com/v1/zodiac_compatibility/:zodiacName/:partnerZodiacName
+//https://json.astrologyapi.com/v1/zodiac_compatibility/:zodiacName/:partnerZodiacName
 public class ZodiacCompatibilityResponse {
     @SerializedName("your_sign")
     @Expose
