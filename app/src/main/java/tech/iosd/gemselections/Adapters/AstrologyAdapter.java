@@ -21,6 +21,7 @@ import java.util.List;
 import tech.iosd.gemselections.JewelleryAlpha.GemStudded.GemStuddedActivity;
 import tech.iosd.gemselections.JewelleryAlpha.Victorian.VictorianActivity;
 import tech.iosd.gemselections.MainContent.DailyHoroscopeActivity;
+import tech.iosd.gemselections.MainContent.IndianAstrologyActivity;
 import tech.iosd.gemselections.MainContent.MatchMakingActivity;
 import tech.iosd.gemselections.MainContent.PdfHoroscopeActivity;
 import tech.iosd.gemselections.MainContent.WesternAstrologyActivity;
@@ -90,7 +91,7 @@ public class AstrologyAdapter extends RecyclerView.Adapter<tech.iosd.gemselectio
 
                     case 4:
                         context.startActivity(new Intent(
-                                context, PdfHoroscopeActivity.class
+                                context, IndianAstrologyActivity.class
                         ));
                     default:
                         Log.e("Jewel Types", "Wrong item clicked");

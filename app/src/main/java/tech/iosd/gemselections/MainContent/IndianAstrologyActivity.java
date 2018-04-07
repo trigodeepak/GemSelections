@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import tech.iosd.gemselections.AstrologyFragments.Indian.MainIndianAstrologyFragment;
 import tech.iosd.gemselections.AstrologyFragments.Western.MainWesternListFragment;
 import tech.iosd.gemselections.R;
 
@@ -18,7 +19,7 @@ public class IndianAstrologyActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         fragmentManager.beginTransaction()
-                .add(R.id.indian_astrology_main_container, new MainWesternListFragment())
+                .add(R.id.indian_astrology_main_container, new MainIndianAstrologyFragment())
 //                .addToBackStack("Main")
                 .commit();
     }

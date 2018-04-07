@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tech.iosd.gemselections.Adapters.AstrologyAdapter;
-import tech.iosd.gemselections.Adapters.JewelTypesAdapter;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Banner;
 
@@ -45,8 +44,8 @@ public class AstrologyActivity extends AppCompatActivity {
         typesList.add(new Banner(getResources().getDrawable(R.drawable.category_diamond_jewellery), "Western Astrology"));
 //        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_victorian_jewellery_), "Vedic Astrology"));
         typesList.add(new Banner(getResources().getDrawable(R.drawable.category_gem_studded_jewellery), "Daily Horoscopes"));
-        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_gem_studded_jewellery),"PDF Horoscope"));
-//typesList.add(new Banner(getResources().getDrawable(R.drawable.category_victorian_jewellery_),"Match Making"));
+        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_gem_studded_jewellery), "PDF Horoscope"));
+        typesList.add(new Banner(getResources().getDrawable(R.drawable.category_victorian_jewellery_), "Indian Astrology"));
 
         adapater = new AstrologyAdapter(this, typesList);
         recyclerView.setAdapter(adapater);

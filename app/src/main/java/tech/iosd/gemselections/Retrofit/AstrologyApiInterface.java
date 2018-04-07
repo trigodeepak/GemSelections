@@ -42,6 +42,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.LunarMetricsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MadhyaBhavResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MajorCharDashaResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MajorYoginiDashaResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.ManglikDetailResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MatchAshtakootPointsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MatchAstroDetailsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MatchBirthDetailResponse;
@@ -66,6 +67,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.PartnerReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PdfHoroscopeResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalityReportResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalizedPlanetPredictionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.PitraDoshResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PlanetPanchangResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PredictionResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticCoupleForecastResponse;
@@ -330,12 +332,14 @@ public interface AstrologyApiInterface {
             @Header("Authorization") String token,
             @Url String url);
 
-    /**----------------------------------------------------------- Indian Astrology ---------------------------------------------------------*/
+    /**
+     * ----------------------------------------------------------- Indian Astrology ---------------------------------------------------------
+     */
 
-    @POST("general_house_report/{:planet_name}")
+    @POST("general_house_report/{planet_name}")
     Call<GeneralHouseReportResponse> getGeneralHouseReport(
             @Header("Authorization") String token,
-            @Path(":planet_name") String planetName,
+            @Path("planet_name") String planetName,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("general_ascendant_report")
@@ -458,4 +462,16 @@ public interface AstrologyApiInterface {
     Call<NumeroDailyPredictionResponse> getNumeroDailyPrediction(
             @Header("Authorization") String token,
             @Body NumerologyReportRequest numerologyReportRequest);
+
+    @POST("manglik")
+    Call<ManglikDetailResponse> getManglikDetails(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+    );
+
+    @POST("pitra_dosha_report")
+    Call<PitraDoshResponse> getPitraDoshDetails(
+            @Header("Authorization") String token,
+            @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
+    );
 }

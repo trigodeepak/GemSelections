@@ -139,7 +139,7 @@ public class MainIndianAstrologyFragment extends Fragment {
     public void setFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.western_astrology_container, fragment)
+                .replace(R.id.indian_astrology_main_container, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .addToBackStack("Main")
                 .commit();

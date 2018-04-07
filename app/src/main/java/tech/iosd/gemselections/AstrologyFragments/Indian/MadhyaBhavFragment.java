@@ -76,28 +76,28 @@ public class MadhyaBhavFragment  extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                            responseString = responseString.concat(response.body().getReport().get(i));
                         try {
-                            responseTextView.append("\n\n ");
+                            responseTextView.append("\n ");
                             responseTextView.append("Ascendant : "+response.body().getAscendant());
-                            responseTextView.append("Midheaven : "+response.body().getMidheaven());
-                            responseTextView.append("Ayanmsha : "+response.body().getAyanamsha());
+                            responseTextView.append("\n\nMidheaven : "+response.body().getMidheaven());
+                            responseTextView.append("\n\nAyanmsha : "+response.body().getAyanamsha());
 
                             responseTextView.append("\n\n\nMadhya Bhav ");
 
 
                             for (int i = 0; i < response.body().getBhavMadhya().size(); i++) {
-                                responseTextView.append("\nHouse : " + response.body().getBhavMadhya().get(i).getHouse());
-                                responseTextView.append("\nDegree : " + response.body().getBhavMadhya().get(i).getDegree());
-                                responseTextView.append("\nSign : " + response.body().getBhavMadhya().get(i).getSign());
-                                responseTextView.append("\nNorm Degree : " + response.body().getBhavMadhya().get(i).getNormDegree());
+                                responseTextView.append("\n\n\t\tHouse : " + response.body().getBhavMadhya().get(i).getHouse());
+                                responseTextView.append("\n\t\tDegree : " + response.body().getBhavMadhya().get(i).getDegree());
+                                responseTextView.append("\n\t\tSign : " + response.body().getBhavMadhya().get(i).getSign());
+                                responseTextView.append("\n\t\tNorm Degree : " + response.body().getBhavMadhya().get(i).getNormDegree());
                             }
 
                             responseTextView.append("\n\n\nBhav Sandhi ");
 
                             for (int i = 0; i < response.body().getBhavSandhi().size(); i++) {
-                                responseTextView.append("\nHouse : " + response.body().getBhavSandhi().get(i).getHouse());
-                                responseTextView.append("\nDegree : " + response.body().getBhavSandhi().get(i).getDegree());
-                                responseTextView.append("\nSign : " + response.body().getBhavSandhi().get(i).getSign());
-                                responseTextView.append("\nNorm Degree : " + response.body().getBhavSandhi().get(i).getNormDegree());
+                                responseTextView.append("\n\n\n\t\tHouse : " + response.body().getBhavSandhi().get(i).getHouse());
+                                responseTextView.append("\n\t\tDegree : " + response.body().getBhavSandhi().get(i).getDegree());
+                                responseTextView.append("\n\t\tSign : " + response.body().getBhavSandhi().get(i).getSign());
+                                responseTextView.append("\n\t\tNorm Degree : " + response.body().getBhavSandhi().get(i).getNormDegree());
                             }
 
                         } catch (Exception e) {
