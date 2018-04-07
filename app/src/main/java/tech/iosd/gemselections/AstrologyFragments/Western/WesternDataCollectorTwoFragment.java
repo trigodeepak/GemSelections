@@ -25,11 +25,7 @@ import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Constants;
 import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 
-/**
- * Created by anubhavmalik on 27/03/18.
- */
-
-public class WesternDataCollectorOneFragment extends Fragment {
+public class WesternDataCollectorTwoFragment extends Fragment {
     TextView dateTextView;
     TextView timeTextView;
     TextView nameTextView;
@@ -268,4 +264,5 @@ public class WesternDataCollectorOneFragment extends Fragment {
     }
 
 }
+
 

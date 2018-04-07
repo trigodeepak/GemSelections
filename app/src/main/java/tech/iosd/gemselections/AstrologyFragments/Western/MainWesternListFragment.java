@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Utils.Constants;
 
 /**
  * Created by anubhavmalik on 26/03/18.
@@ -45,6 +46,8 @@ public class MainWesternListFragment extends Fragment {
             , "Zodiac Compatibility"
             , "Sunsign Compatibility"};
 
+    Fragment fragment;
+
 
     @Nullable
     @Override
@@ -56,77 +59,102 @@ public class MainWesternListFragment extends Fragment {
         ListView listView = view.findViewById(R.id.western_astrology_list_view);
         listView.setAdapter(arrayAdapter);
 
+        final Bundle bundle = new Bundle();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        setFragment(new WesternHoroscopeFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 1:
-                        setFragment(new WesternChartFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 2:
-                        setFragment(new DailyTransitsFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 3:
-                        setFragment(new WeeklyTransitFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 4:
-                        setFragment(new MonthlyTransitFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 5:
-                        setFragment(new SolarReturnFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 6:
-                        setFragment(new SolarReturnPlanetFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 7:
-                        setFragment(new SolarReturnHouseFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 8:
-                        setFragment(new LunarMetricsFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 9:
-                        setFragment(new CompositeHoroscopeFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 10:
-                        setFragment(new SynastryFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 11:
-                        setFragment(new PersonalityReportFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 12:
-                        setFragment(new RomanticPersonalityFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 13:
-                        setFragment(new PersonalizedPlanetPredictionFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 14:
-                        setFragment(new LifeForecastFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 15:
-                        setFragment(new RomanticForecastFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 16:
-                        setFragment(new FriendshipReportFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 17:
-                        setFragment(new KarmaDestinyFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 18:
-                        setFragment(new LoveCompatibilityFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 19:
-                        setFragment(new RomanticForecastCoupleReportFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 20:
-                        setFragment(new ZodiacCompatibilityFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 21:
-                        setFragment(new LoveCompatibilityFragment());
+                        fragment = new WesternDataCollectorOneFragment();
+                        bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                 }
+                fragment.setArguments(bundle);
+                setFragment(fragment);
             }
         });
         return view;

@@ -59,4 +59,12 @@ public class Constants {
     public static final float SECONDARY_LNG = (float) 77.1025; //28.7041° N, 77.1025° E
 
     public static final float TIMEZONE = (float) 5.5;
+
+    /**
+     * < ----------------------------------------------------------------BUNDLE_CONSTANTS--------------------------------------------------------------- >
+     */
+
+    public static final String FRAGMENT_ID = "FRAGMENT_ID";
+
+    public static final String FRAGMENT_STATUS = "FRAGMENT_STATUS";
 }

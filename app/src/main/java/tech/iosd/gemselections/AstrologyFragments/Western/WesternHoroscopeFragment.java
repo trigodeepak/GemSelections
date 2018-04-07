@@ -66,7 +66,7 @@ public class WesternHoroscopeFragment extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-        bundle = new Bundle();
+//        bundle = new Bundle();
         if(bundle!=null){
 
         WesternAstrologySimpleRequest westernAstrologySimpleRequest  =  new WesternAstrologySimpleRequest(20,2,1992,12,12,Constants.PRIMARY_LAT,Constants.PRIMARY_LNG,Constants.TIMEZONE);
