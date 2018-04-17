@@ -60,6 +60,14 @@ public class Constants {
 
     public static final float TIMEZONE = (float) 5.5;
 
+    public static final String PRIMARY_ZODIAC = "PRIMARY_ZODIAC";
+
+    public static final String SECONDARY_ZODIAC = "SECONDARY_ZODIAC";
+
+    public static final String PRIMARY_RISING_SUN = "PRIMARY_RISING_SUN";
+
+    public static final String SECONDARY_RISING_SUN = "SECONDARY_RISING_SUN";
+
     /**
      * < ----------------------------------------------------------------BUNDLE_CONSTANTS--------------------------------------------------------------- >
      */
@@ -67,4 +75,6 @@ public class Constants {
     public static final String FRAGMENT_ID = "FRAGMENT_ID";
 
     public static final String FRAGMENT_STATUS = "FRAGMENT_STATUS";
+
+
 }

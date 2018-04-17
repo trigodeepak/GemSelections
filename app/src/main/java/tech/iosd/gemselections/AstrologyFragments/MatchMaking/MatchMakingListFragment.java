@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import tech.iosd.gemselections.AstrologyFragments.RequestFragments.MatchMakingInputFragment1;
+import tech.iosd.gemselections.AstrologyFragments.RequestFragments.MatchMakingInputFragment2;
 import tech.iosd.gemselections.R;
 
 /**
@@ -136,7 +138,7 @@ public class MatchMakingListFragment extends Fragment {
                         getFragmentManager().beginTransaction().replace(R.id.match_making_container,
                                 matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                 .addToBackStack("Main").commit();
-                        //setFragment(new MatchpercentageFragment());
+                        //setFragment(new MatchPercentageFragment());
                         break;
                     case 11:
                         args.putInt("caseNo", 11);

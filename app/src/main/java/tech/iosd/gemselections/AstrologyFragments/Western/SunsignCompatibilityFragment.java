@@ -21,9 +21,7 @@ import retrofit2.Retrofit;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Retrofit.AstrologyApiClient;
 import tech.iosd.gemselections.Retrofit.AstrologyApiInterface;
-import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.LifeForecast;
-import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticForecastResponse;
 import tech.iosd.gemselections.Retrofit.SunsignCompatibilityResponse;
 import tech.iosd.gemselections.Utils.Constants;
 
@@ -52,26 +50,15 @@ public class SunsignCompatibilityFragment extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-        bundle = new Bundle();
         if (bundle != null) {
-
-            WesternAstrologySimpleRequest westernAstrologySimpleRequest = new WesternAstrologySimpleRequest(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE);
-//                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
-//                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
-//                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
-//                ,bundle.getInt(Constants.PRIMARY_HOUR,1)
-//                ,bundle.getInt(Constants.PRIMARY_MIN,1)
-//                ,Constants.PRIMARY_LAT
-//                ,Constants.PRIMARY_LNG
-//                ,Constants.TIMEZONE);
 
 
             Call<SunsignCompatibilityResponse> call = astrologyApiInterface
                     .getSunSignCompatibilityReport(AstrologyApiInterface.HEADER_TOKEN
-                            , "Virgo"
-                            , "Virgo"
-                            , "Virgo"
-                            , "Virgo");
+                            , bundle.getString(Constants.PRIMARY_ZODIAC)
+                            , bundle.getString(Constants.PRIMARY_RISING_SUN)
+                            , bundle.getString(Constants.SECONDARY_ZODIAC)
+                            , bundle.getString(Constants.SECONDARY_RISING_SUN));
 
             call.enqueue(new Callback<SunsignCompatibilityResponse>() {
                 @Override
@@ -84,10 +71,10 @@ public class SunsignCompatibilityFragment extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                        arrayList.addAll(response.body().getLifeForecast());
 //                            responseString = responseString.concat(response.body().getReport().get(i));
-                            responseTextView.append("\n Your Sign : " + response.body().getYourSign());
-                            responseTextView.append("\n Your Partner Sign : " + response.body().getYourPartnerSign());
-                            responseTextView.append("\n Compatibility Report : " + response.body().getCompatibilityReport());
-                            responseTextView.append("\n\n");
+                        responseTextView.append("\n Your Sign : " + response.body().getYourSign());
+                        responseTextView.append("\n Your Partner Sign : " + response.body().getYourPartnerSign());
+                        responseTextView.append("\n Compatibility Report : " + response.body().getCompatibilityReport());
+                        responseTextView.append("\n\n");
 
 
 //                        responseTextView.append("\n Key Quality : "+response.body().getKeyQuality());

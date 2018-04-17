@@ -229,7 +229,6 @@ public interface AstrologyApiInterface {
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
 
-
     @POST("friendship_report/tropical")
     Call<FriendshipReportResponse> getFriendshipReport(
             @Header("Authorization") String token,

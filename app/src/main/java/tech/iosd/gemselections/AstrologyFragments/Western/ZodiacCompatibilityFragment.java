@@ -19,7 +19,6 @@ import retrofit2.Retrofit;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Retrofit.AstrologyApiClient;
 import tech.iosd.gemselections.Retrofit.AstrologyApiInterface;
-import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.ZodiacCompatibilityResponse;
 import tech.iosd.gemselections.Utils.Constants;
 
@@ -47,22 +46,12 @@ public class ZodiacCompatibilityFragment extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-        bundle = new Bundle();
         if (bundle != null) {
 
-            WesternAstrologySimpleRequest westernAstrologySimpleRequest = new WesternAstrologySimpleRequest(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE);
-//                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
-//                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
-//                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
-//                ,bundle.getInt(Constants.PRIMARY_HOUR,1)
-//                ,bundle.getInt(Constants.PRIMARY_MIN,1)
-//                ,Constants.PRIMARY_LAT
-//                ,Constants.PRIMARY_LNG
-//                ,Constants.TIMEZONE);
-
-
             Call<ZodiacCompatibilityResponse> call = astrologyApiInterface
-                    .getZodiacCompatibility(AstrologyApiInterface.HEADER_TOKEN, "Virgo","Sagittarius");
+                    .getZodiacCompatibility(AstrologyApiInterface.HEADER_TOKEN
+                            , bundle.getString(Constants.PRIMARY_ZODIAC)
+                            , bundle.getString(Constants.SECONDARY_ZODIAC));
 
             call.enqueue(new Callback<ZodiacCompatibilityResponse>() {
                 @Override
@@ -75,7 +64,7 @@ public class ZodiacCompatibilityFragment extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                        arrayList.addAll(response.body().getLifeForecast());
 //                            responseString = responseString.concat(response.body().getReport().get(i));
-                        responseTextView.append("\t\t\t\t\t\t"+"ZODIAC COMPATIBILITY");
+                        responseTextView.append("\t\t\t\t\t\t" + "ZODIAC COMPATIBILITY");
                         responseTextView.append("\n\n Your Sign : " + response.body().getYourSign());
                         responseTextView.append("\n\n Your Partner's Sign : " + response.body().getYourPartnerSign());
                         responseTextView.append("\n\n Compatibility Report : " + response.body().getCompatibilityReport());

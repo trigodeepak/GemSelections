@@ -32,7 +32,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.MatchPercentageResponse;
  * Created by kushalgupta on 27/03/18.
  */
 
-public class MatchpercentageFragment extends Fragment {
+public class MatchPercentageFragment extends Fragment {
     Retrofit retrofit;
     AstrologyApiInterface astrologyApiInterface;
     TextView ashtakootaPerc,manglikPerc,vedhaperc,perc,rajjuperc;

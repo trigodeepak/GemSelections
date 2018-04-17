@@ -1,4 +1,4 @@
-package tech.iosd.gemselections.AstrologyFragments.Western;
+package tech.iosd.gemselections.AstrologyFragments.RequestFragments;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -21,11 +21,36 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import tech.iosd.gemselections.AstrologyFragments.Western.CompositeHoroscopeFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.DailyTransitsFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.FriendshipReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.KarmaDestinyFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.LifeForecastFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.LoveCompatibilityFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.LunarMetricsFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.MonthlyTransitFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.PersonalityReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.PersonalizedPlanetPredictionFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.RomanticForecastCoupleReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.RomanticForecastFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.RomanticPersonalityFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnHouseFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnPlanetFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.SynastryFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.WeeklyTransitFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.WesternChartFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.WesternHoroscopeFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.ZodiacCompatibilityFragment;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Constants;
 import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 
-public class WesternDataCollectorTwoFragment extends Fragment {
+/**
+ * Created by anubhavmalik on 27/03/18.
+ */
+
+public class WesternDataCollectorOneFragment extends Fragment {
     TextView dateTextView;
     TextView timeTextView;
     TextView nameTextView;
@@ -34,7 +59,8 @@ public class WesternDataCollectorTwoFragment extends Fragment {
     int monthNumber;
     int yearNumber;
     SharedPreferences sharedPreferences;
-    Bundle bundle;
+    Bundle bundle, dataBundle;
+//    String name;
 
 
     @Nullable
@@ -43,6 +69,7 @@ public class WesternDataCollectorTwoFragment extends Fragment {
         View view = inflater.inflate(R.layout.western_data_collection_one_layout, container, false);
 
         bundle = getArguments();
+        dataBundle = new Bundle();
 
         sharedPreferences = getContext().getSharedPreferences(SharedPreferencesUtils.prefsUserName, Context.MODE_PRIVATE);
 
@@ -77,12 +104,16 @@ public class WesternDataCollectorTwoFragment extends Fragment {
         hourOfTheDay = sharedPreferences.getInt(SharedPreferencesUtils.prefsAstroHour, -1);
         minute = sharedPreferences.getInt(SharedPreferencesUtils.prefsAstroMinute, -1);
         nameTextView.setText(sharedPreferences.getString(SharedPreferencesUtils.prefsAstroName, ""));
+        dateTextView.setText(dayNumber + "/" + monthNumber + "/" + yearNumber);
+        timeTextView.setText(hourOfTheDay + ":" + minute);
 
         view.findViewById(R.id.data_collection_submit_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!timeTextView.getText().toString().equals("00:00") && !dateTextView.getText().toString().equals("00/00/0000") && !nameTextView.getText().toString().isEmpty()) {
-//                    int i = bundle.getInt(Constants.FRAGMENT_ID, 0);
+
+                if (!timeTextView.getText().toString().equals("00:00")
+                        && !dateTextView.getText().toString().equals("00/00/0000")
+                        && !nameTextView.getText().toString().isEmpty()) {
 
                     sharedPreferences.edit()
                             .putString(SharedPreferencesUtils.prefsAstroName, nameTextView.getText().toString())
@@ -93,9 +124,14 @@ public class WesternDataCollectorTwoFragment extends Fragment {
                             .putInt(SharedPreferencesUtils.prefsAstroYear, getYearNumber())
                             .apply();
 
-//                    getFragmentManager().popBackStack();
+                    dataBundle.putInt(Constants.PRIMARY_DAY, dayNumber);
+                    dataBundle.putInt(Constants.PRIMARY_HOUR, hourOfTheDay);
+                    dataBundle.putInt(Constants.PRIMARY_MIN, minute);
+                    dataBundle.putInt(Constants.PRIMARY_YEAR, yearNumber);
+                    dataBundle.putInt(Constants.PRIMARY_MONTH, monthNumber);
 
-                    int i = bundle.getInt(Constants.FRAGMENT_ID, 0);
+//                    extractData();
+                    int i = bundle.getInt(Constants.FRAGMENT_ID, -1);
                     if (i >= 0) {
 
                         switch (i) {
@@ -165,6 +201,9 @@ public class WesternDataCollectorTwoFragment extends Fragment {
                             case 21:
                                 setFragment(new LoveCompatibilityFragment());
                                 break;
+
+                            default:
+                                Toast.makeText(getContext(), "Something went wrong.", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -256,6 +295,7 @@ public class WesternDataCollectorTwoFragment extends Fragment {
 
     public void setFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
+        fragment.setArguments(dataBundle);
         fragmentManager.beginTransaction()
                 .replace(R.id.western_astrology_container, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
@@ -263,6 +303,24 @@ public class WesternDataCollectorTwoFragment extends Fragment {
                 .commit();
     }
 
-}
+    private void extractData() {
+        String dateString = dateTextView.getText().toString();
 
+        int date = Integer.parseInt(dateString.substring(0, 2));
+        int month = Integer.parseInt(dateString.substring(3, 5));
+        int year = Integer.parseInt(dateString.substring(6, 10));
+
+        String timeString = dateTextView.getText().toString();
+
+        int hour = Integer.parseInt(timeString.substring(0, 2));
+        int minute = Integer.parseInt(timeString.substring(3, 5));
+
+        setDayNumber(date);
+        setHourOfTheDay(hour);
+        setMinute(minute);
+        setMonthNumber(month);
+        setYearNumber(year);
+    }
+
+}
 

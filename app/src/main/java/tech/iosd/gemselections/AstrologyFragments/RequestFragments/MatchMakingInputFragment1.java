@@ -1,4 +1,4 @@
-package tech.iosd.gemselections.AstrologyFragments.MatchMaking;
+package tech.iosd.gemselections.AstrologyFragments.RequestFragments;
 
 import android.app.DatePickerDialog;
 import android.graphics.Color;
@@ -19,6 +19,14 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchAshtakootPointsFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchBirthDetailFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchDashakootPointsFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchMakingReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchMakingdetailedReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchPercentageFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchSimpleReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchVedhaObstructionsFragment;
 import tech.iosd.gemselections.R;
 
 /**
@@ -193,11 +201,11 @@ public class MatchMakingInputFragment1 extends Fragment {
                                     .addToBackStack("Main").commit();
                             break;
                         case 10:
-                            MatchpercentageFragment matchpercentageFragment = new MatchpercentageFragment();
+                            MatchPercentageFragment matchPercentageFragment = new MatchPercentageFragment();
 
-                            matchpercentageFragment.setArguments(args);
+                            matchPercentageFragment.setArguments(args);
                             getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                    matchpercentageFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                    matchPercentageFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                     .addToBackStack("Main").commit();
 
 

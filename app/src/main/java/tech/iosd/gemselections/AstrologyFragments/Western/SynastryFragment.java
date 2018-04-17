@@ -77,11 +77,25 @@ public class SynastryFragment extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-        bundle = new Bundle();
         if (bundle != null) {
 
-            WesternAstrologyComplexRequest westernAstrologyComplexRequest = new WesternAstrologyComplexRequest(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE, 21,11,1997,12,12,Constants.SECONDARY_LAT,Constants.SECONDARY_LNG,Constants.TIMEZONE);
-//                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
+
+            WesternAstrologyComplexRequest westernAstrologyComplexRequest = new WesternAstrologyComplexRequest(bundle.getInt(Constants.PRIMARY_DAY)
+                    , bundle.getInt(Constants.PRIMARY_MONTH)
+                    , bundle.getInt(Constants.PRIMARY_YEAR)
+                    , bundle.getInt(Constants.PRIMARY_HOUR)
+                    , bundle.getInt(Constants.PRIMARY_MIN)
+                    , Constants.PRIMARY_LAT
+                    , Constants.PRIMARY_LNG
+                    , Constants.TIMEZONE
+                    , bundle.getInt(Constants.SECONDARY_DAY)
+                    , bundle.getInt(Constants.SECONDARY_MONTH)
+                    , bundle.getInt(Constants.SECONDARY_YEAR)
+                    , bundle.getInt(Constants.SECONDARY_HOUR)
+                    , bundle.getInt(Constants.SECONDARY_MIN)
+                    , Constants.PRIMARY_LAT
+                    , Constants.PRIMARY_LNG
+                    , Constants.TIMEZONE);//  //         //                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
 //                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
 //                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
 //                ,bundle.getInt(Constants.PRIMARY_HOUR,1)

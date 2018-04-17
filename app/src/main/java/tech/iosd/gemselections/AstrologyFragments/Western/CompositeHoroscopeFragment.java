@@ -23,23 +23,14 @@ import retrofit2.Retrofit;
 import tech.iosd.gemselections.Adapters.WesternHoroscopeAspectAdapter;
 import tech.iosd.gemselections.Adapters.WesternHoroscopeHouseAdapter;
 import tech.iosd.gemselections.Adapters.WesternHoroscopePlanetAdapter;
-import tech.iosd.gemselections.Adapters.WesternTransitHouseAdapter;
-import tech.iosd.gemselections.Adapters.WesternTransitRelationAdapter;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Retrofit.AstrologyApiClient;
 import tech.iosd.gemselections.Retrofit.AstrologyApiInterface;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologyComplexRequest;
-import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequestTwo;
 import tech.iosd.gemselections.Retrofit.ResponseModels.Aspect;
-import tech.iosd.gemselections.Retrofit.ResponseModels.Composite;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CompositeHoroscopeResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.DailyTransitsResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.First;
 import tech.iosd.gemselections.Retrofit.ResponseModels.House;
 import tech.iosd.gemselections.Retrofit.ResponseModels.Planet;
-import tech.iosd.gemselections.Retrofit.ResponseModels.Second;
-import tech.iosd.gemselections.Retrofit.ResponseModels.TransitHouses;
-import tech.iosd.gemselections.Retrofit.ResponseModels.TransitRelation;
 import tech.iosd.gemselections.Utils.Constants;
 
 /**
@@ -57,11 +48,12 @@ public class CompositeHoroscopeFragment extends Fragment {
     ArrayList<Planet> firstArrayList = new ArrayList<>();
     ArrayList<Planet> secondArrayList = new ArrayList<>();
     ArrayList<Aspect> aspectArrayList = new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.western_composite_horoscope_frag, container, false);
-
+//TODO: COMPLETE BY COMPLEX REQUEST
         compositeAspectRecyclerView = view.findViewById(R.id.western_composite_aspect_recycler_list);
         compositeFirstRecyclerView = view.findViewById(R.id.western_composite_first_recycler_list);
         compositeHouseRecyclerView = view.findViewById(R.id.western_composite_house_recycler_list);
@@ -82,11 +74,24 @@ public class CompositeHoroscopeFragment extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-        bundle = new Bundle();
         if (bundle != null) {
 
-            WesternAstrologyComplexRequest westernAstrologyComplexRequest = new WesternAstrologyComplexRequest(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE, 21,11,1997,12,12,Constants.SECONDARY_LAT,Constants.SECONDARY_LNG,Constants.TIMEZONE);
-//                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
+            WesternAstrologyComplexRequest westernAstrologyComplexRequest = new WesternAstrologyComplexRequest(bundle.getInt(Constants.PRIMARY_DAY)
+                    , bundle.getInt(Constants.PRIMARY_MONTH)
+                    , bundle.getInt(Constants.PRIMARY_YEAR)
+                    , bundle.getInt(Constants.PRIMARY_HOUR)
+                    , bundle.getInt(Constants.PRIMARY_MIN)
+                    , Constants.PRIMARY_LAT
+                    , Constants.PRIMARY_LNG
+                    , Constants.TIMEZONE
+                    , bundle.getInt(Constants.SECONDARY_DAY)
+                    , bundle.getInt(Constants.SECONDARY_MONTH)
+                    , bundle.getInt(Constants.SECONDARY_YEAR)
+                    , bundle.getInt(Constants.SECONDARY_HOUR)
+                    , bundle.getInt(Constants.SECONDARY_MIN)
+                    , Constants.PRIMARY_LAT
+                    , Constants.PRIMARY_LNG
+                    , Constants.TIMEZONE);//  //                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
 //                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
 //                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
 //                ,bundle.getInt(Constants.PRIMARY_HOUR,1)
@@ -106,8 +111,8 @@ public class CompositeHoroscopeFragment extends Fragment {
                     Log.d("TAGGER", "RESPONSE BODY : " + response.body());
                     progressDialog.dismiss();
                     if (response.isSuccessful()) {
-                        ascendantTextView.append(response.body().getComposite().getAscendant()+"");
-                        midHeavenTextView.append(response.body().getComposite().getMidheaven()+"");
+                        ascendantTextView.append(response.body().getComposite().getAscendant() + "");
+                        midHeavenTextView.append(response.body().getComposite().getMidheaven() + "");
                         Log.d("TAGGER", "RESPONSE SUCCESS");
                         if (response.body().getComposite().getAspects() != null) {
                             Log.d("TAGGER", "RESPONSE SUCCESS1");

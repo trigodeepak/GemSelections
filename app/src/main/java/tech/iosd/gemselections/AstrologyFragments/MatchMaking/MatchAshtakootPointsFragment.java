@@ -25,7 +25,6 @@ import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Retrofit.AstrologyApiInterface;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MatchAshtakootPointsResponse;
-import tech.iosd.gemselections.Retrofit.ResponseModels.MatchBirthDetailResponse;
 
 /**
  * Created by kushalgupta on 27/03/18.
@@ -38,13 +37,10 @@ public class MatchAshtakootPointsFragment extends Fragment {
     TextView varnaDescription, maleKootAttriVal, femaleKootAttriVal,
             vashyaDescription, vashyamaleKootAttriVal, vashyafemaleKootAttriVal,
             taraDescription, yoniDescription,
-    maitriDescription, maitrimaleKootAttriVal, maitrifemaleKootAttriVal,
+            maitriDescription, maitrimaleKootAttriVal, maitrifemaleKootAttriVal,
             ganDescription, ganmaleKootAttriVal, ganfemaleKootAttriVal,
             bhakutDescription, bhakutmaleKootAttriVal, bhakutfemaleKootAttriVal,
-            nadiDescription, nadimaleKootAttriVal, nadifemaleKootAttriVal
-            ,conclusion;
-
-
+            nadiDescription, nadimaleKootAttriVal, nadifemaleKootAttriVal, conclusion;
 
 
     @Nullable
@@ -65,8 +61,8 @@ public class MatchAshtakootPointsFragment extends Fragment {
         maitrimaleKootAttriVal = view.findViewById(R.id.maitri_male_koot_atri_val);
         maitrifemaleKootAttriVal = view.findViewById(R.id.maitri_female_koot_atri_val);
         ganDescription = view.findViewById(R.id.tv_gan_description);
-       ganmaleKootAttriVal = view.findViewById(R.id.gan_male_koot_atri_val);
-      ganfemaleKootAttriVal = view.findViewById(R.id.gan_female_koot_atri_val);
+        ganmaleKootAttriVal = view.findViewById(R.id.gan_male_koot_atri_val);
+        ganfemaleKootAttriVal = view.findViewById(R.id.gan_female_koot_atri_val);
         bhakutDescription = view.findViewById(R.id.tv_bhakut_description);
         bhakutmaleKootAttriVal = view.findViewById(R.id.bhakut_male_koot_atri_val);
         bhakutfemaleKootAttriVal = view.findViewById(R.id.bhakut_female_koot_atri_val);
@@ -79,7 +75,6 @@ public class MatchAshtakootPointsFragment extends Fragment {
         progressDialog.setTitle("Please Wait");
         progressDialog.setMessage("Loading ... ");
         progressDialog.show();
-
 
 
         int mdob = getArguments().getInt("mdob");
@@ -180,11 +175,11 @@ public class MatchAshtakootPointsFragment extends Fragment {
                 maitrifemaleKootAttriVal.setText(maitriFemaleKoot);
 
                 //gan
-String ganDes = matchAshtakootPointsResponse.getGan().getDescription();
+                String ganDes = matchAshtakootPointsResponse.getGan().getDescription();
 
                 String ganMaleKoot = matchAshtakootPointsResponse.getGan().getMaleKootAttribute();
                 String ganFemaleKoot = matchAshtakootPointsResponse.getGan().getFemaleKootAttribute();
-               // Toast.makeText(view.getContext(), "gan:"+ganMaleKoot+ganFemaleKoot, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(view.getContext(), "gan:"+ganMaleKoot+ganFemaleKoot, Toast.LENGTH_SHORT).show();
                 ganDescription.setText(ganDes);
                 ganmaleKootAttriVal.setText(ganMaleKoot);
                 ganfemaleKootAttriVal.setText(ganFemaleKoot);

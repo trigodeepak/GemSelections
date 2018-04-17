@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import tech.iosd.gemselections.AstrologyFragments.RequestFragments.WesternComplexDataCollectorFragment;
+import tech.iosd.gemselections.AstrologyFragments.RequestFragments.WesternDataCollectorOneFragment;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Constants;
 
@@ -101,11 +103,11 @@ public class MainWesternListFragment extends Fragment {
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 9:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternComplexDataCollectorFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 10:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternComplexDataCollectorFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 11:
@@ -125,31 +127,31 @@ public class MainWesternListFragment extends Fragment {
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 15:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternComplexDataCollectorFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 16:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternComplexDataCollectorFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 17:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternComplexDataCollectorFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 18:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternComplexDataCollectorFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 19:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternComplexDataCollectorFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 20:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternDataCollectorOneFragment(); //TODO: ALAG LAYOUT
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 21:
-                        fragment = new WesternDataCollectorOneFragment();
+                        fragment = new WesternDataCollectorOneFragment(); //TODO: ALAG LAYOUT
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                 }

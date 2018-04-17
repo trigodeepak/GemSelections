@@ -1,4 +1,4 @@
-package tech.iosd.gemselections.AstrologyFragments.MatchMaking;
+package tech.iosd.gemselections.AstrologyFragments.RequestFragments;
 
 import android.app.DatePickerDialog;
 import android.graphics.Color;
@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.PartnerReportFragment;
 import tech.iosd.gemselections.R;
 
 /**

@@ -28,7 +28,6 @@ import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequ
 import tech.iosd.gemselections.Retrofit.ResponseModels.DailyTransitsResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.TransitHouses;
 import tech.iosd.gemselections.Retrofit.ResponseModels.TransitRelation;
-import tech.iosd.gemselections.Retrofit.ResponseModels.WesternHoroscopeResponse;
 import tech.iosd.gemselections.Utils.Constants;
 
 /**
@@ -62,18 +61,18 @@ public class DailyTransitsFragment extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-        bundle = new Bundle();
         if (bundle != null) {
 
-            WesternAstrologySimpleRequestTwo westernAstrologySimpleRequest = new WesternAstrologySimpleRequestTwo(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE, Constants.TIMEZONE);
-//                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
-//                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
-//                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
-//                ,bundle.getInt(Constants.PRIMARY_HOUR,1)
-//                ,bundle.getInt(Constants.PRIMARY_MIN,1)
-//                ,Constants.PRIMARY_LAT
-//                ,Constants.PRIMARY_LNG
-//                ,Constants.TIMEZONE);
+            WesternAstrologySimpleRequestTwo westernAstrologySimpleRequest //= new WesternAstrologySimpleRequestTwo(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE, Constants.TIMEZONE);
+                    = new WesternAstrologySimpleRequestTwo(bundle.getInt(Constants.PRIMARY_DAY, 1)
+                    , bundle.getInt(Constants.PRIMARY_MONTH, 1)
+                    , bundle.getInt(Constants.PRIMARY_YEAR, 2018)
+                    , bundle.getInt(Constants.PRIMARY_HOUR, 1)
+                    , bundle.getInt(Constants.PRIMARY_MIN, 1)
+                    , Constants.PRIMARY_LAT
+                    , Constants.PRIMARY_LNG
+                    , Constants.TIMEZONE
+                    , 5);
 
 
             Call<DailyTransitsResponse> call = astrologyApiInterface

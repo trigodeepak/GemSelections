@@ -69,7 +69,14 @@ public class WesternHoroscopeFragment extends Fragment {
 //        bundle = new Bundle();
         if(bundle!=null){
 
-        WesternAstrologySimpleRequest westernAstrologySimpleRequest  =  new WesternAstrologySimpleRequest(20,2,1992,12,12,Constants.PRIMARY_LAT,Constants.PRIMARY_LNG,Constants.TIMEZONE);
+        WesternAstrologySimpleRequest westernAstrologySimpleRequest  =  new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY)
+                ,bundle.getInt(Constants.PRIMARY_MONTH)
+                ,bundle.getInt(Constants.PRIMARY_YEAR)
+                ,bundle.getInt(Constants.PRIMARY_HOUR)
+                ,bundle.getInt(Constants.PRIMARY_MIN)
+                ,Constants.PRIMARY_LAT
+                ,Constants.PRIMARY_LNG
+                ,Constants.TIMEZONE);
 //                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
 //                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
 //                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
