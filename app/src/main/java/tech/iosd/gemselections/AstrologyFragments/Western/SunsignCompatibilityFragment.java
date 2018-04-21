@@ -52,7 +52,6 @@ public class SunsignCompatibilityFragment extends Fragment {
         Bundle bundle = this.getArguments();
         if (bundle != null) {
 
-
             Call<SunsignCompatibilityResponse> call = astrologyApiInterface
                     .getSunSignCompatibilityReport(AstrologyApiInterface.HEADER_TOKEN
                             , bundle.getString(Constants.PRIMARY_ZODIAC)
@@ -76,10 +75,8 @@ public class SunsignCompatibilityFragment extends Fragment {
                         responseTextView.append("\n Compatibility Report : " + response.body().getCompatibilityReport());
                         responseTextView.append("\n\n");
 
-
 //                        responseTextView.append("\n Key Quality : "+response.body().getKeyQuality());
 //                        responseTextView.append("\n Spiritual Lesson : "+ response.body().getSpiritualLesson());
-
                     }
                 }
 

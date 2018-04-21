@@ -85,9 +85,6 @@ public class DailyRecommendationsFragment extends Fragment{
 
         youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
 
-
-
-
         return view;
     }
 
