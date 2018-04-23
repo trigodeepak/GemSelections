@@ -15,39 +15,41 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
-import tech.iosd.gemselections.AstrologyFragments.Western.CompositeHoroscopeFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.DailyTransitsFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.FriendshipReportFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.KarmaDestinyFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.LifeForecastFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.LoveCompatibilityFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.LunarMetricsFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.MonthlyTransitFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.PersonalityReportFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.PersonalizedPlanetPredictionFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.RomanticForecastCoupleReportFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.RomanticForecastFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.RomanticPersonalityFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnHouseFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnPlanetFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.SynastryFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.WeeklyTransitFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.WesternChartFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.WesternHoroscopeFragment;
-import tech.iosd.gemselections.AstrologyFragments.Western.ZodiacCompatibilityFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.AyanmshaFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.BasicAstrologyDetailsFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.BasicAstrologyReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.BasicPanchangFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.BasicPlanetAstrologyFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.CurrentCharDashaFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.GemstoneSuggestionFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.GeneralAscendantReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.GeneralHoroscopeReportChartFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.GeneralHouseReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.GeneralMoonBioRythmReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.GeneralPlanetNatureReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.KalSarpaDetailsFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.MadhyaBhavFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.MajorCharDashaFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.NumerologyDailyPredictionFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.NumerologyFavorableTimeFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.NumerologyGemstoneSuggestionFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.NumerologyPlaceVastuFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.NumerologyReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.PlanetPanchangFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.SubCharDashaFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.SubSubCharDashaFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.YoginiDashaFragment;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Constants;
 import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 
-public class IndianDropDownFragment extends Fragment {
+public class IndianDataCollectorOneFragment extends Fragment {
     TextView dateTextView;
     TextView timeTextView;
     TextView nameTextView;
@@ -57,24 +59,22 @@ public class IndianDropDownFragment extends Fragment {
     int yearNumber;
     SharedPreferences sharedPreferences;
     Bundle bundle, dataBundle;
-    Spinner spinner;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.indian_dropdown_fragment, container, false);
+        View view = inflater.inflate(R.layout.indian_data_collector_fragment, container, false);
 
         bundle = getArguments();
         dataBundle = new Bundle();
-        spinner = view.findViewById(R.id.indian_data_collection_spinner);
 
         sharedPreferences = getContext().getSharedPreferences(SharedPreferencesUtils.prefsUserName, Context.MODE_PRIVATE);
 
-        timeTextView = view.findViewById(R.id.data_collection_time_text_view);
-        dateTextView = view.findViewById(R.id.data_collection_date_text_view);
-        nameTextView = view.findViewById(R.id.data_collection_name_edit_text);
+        timeTextView = view.findViewById(R.id.indian_data_collection_time_text_view);
+        dateTextView = view.findViewById(R.id.indian_data_collection_date_text_view);
+        nameTextView = view.findViewById(R.id.indian_data_collection_name_edit_text);
 
-        view.findViewById(R.id.collect_info_time_picker_button).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.indian_collect_info_time_picker_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar calendar = Calendar.getInstance();
@@ -84,7 +84,7 @@ public class IndianDropDownFragment extends Fragment {
             }
         });
 
-        view.findViewById(R.id.collect_info_date_picker_button).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.indian_collect_info_date_picker_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar newCalendar = Calendar.getInstance();
@@ -104,7 +104,7 @@ public class IndianDropDownFragment extends Fragment {
         dateTextView.setText(dayNumber + "/" + monthNumber + "/" + yearNumber);
         timeTextView.setText(hourOfTheDay + ":" + minute);
 
-        view.findViewById(R.id.data_collection_submit_button).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.indian_data_collection_submit_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -127,76 +127,81 @@ public class IndianDropDownFragment extends Fragment {
                     dataBundle.putInt(Constants.PRIMARY_YEAR, yearNumber);
                     dataBundle.putInt(Constants.PRIMARY_MONTH, monthNumber);
 
-//                    extractData();
                     int i = bundle.getInt(Constants.FRAGMENT_ID, -1);
                     if (i >= 0) {
 
                         switch (i) {
                             case 0:
-                                setFragment(new WesternHoroscopeFragment());
+                                setFragment(new GeneralHouseReportFragment());
                                 break;
                             case 1:
-                                setFragment(new WesternChartFragment());
+                                setFragment(new GeneralAscendantReportFragment());
                                 break;
                             case 2:
-                                setFragment(new DailyTransitsFragment());
+                                setFragment(new GeneralPlanetNatureReportFragment());
                                 break;
                             case 3:
-                                setFragment(new WeeklyTransitFragment());
+                                setFragment(new GeneralMoonBioRythmReportFragment());
                                 break;
                             case 4:
-                                setFragment(new MonthlyTransitFragment());
+                                setFragment(new GeneralHoroscopeReportChartFragment()); //TODO: BAAD MEIN KARENGE
                                 break;
                             case 5:
-                                setFragment(new SolarReturnFragment());
+                                setFragment(new KalSarpaDetailsFragment());
                                 break;
                             case 6:
-                                setFragment(new SolarReturnPlanetFragment());
+                                setFragment(new BasicAstrologyReportFragment());
                                 break;
                             case 7:
-                                setFragment(new SolarReturnHouseFragment());
+                                setFragment(new BasicAstrologyDetailsFragment());
                                 break;
                             case 8:
-                                setFragment(new LunarMetricsFragment());
+                                setFragment(new BasicPlanetAstrologyFragment());
                                 break;
                             case 9:
-                                setFragment(new CompositeHoroscopeFragment());
+                                setFragment(new MadhyaBhavFragment());
                                 break;
                             case 10:
-                                setFragment(new SynastryFragment());
+                                setFragment(new AyanmshaFragment());
                                 break;
                             case 11:
-                                setFragment(new PersonalityReportFragment());
+                                setFragment(new MajorCharDashaFragment());
                                 break;
                             case 12:
-                                setFragment(new RomanticPersonalityFragment());
+                                setFragment(new CurrentCharDashaFragment());
                                 break;
                             case 13:
-                                setFragment(new PersonalizedPlanetPredictionFragment());
+                                setFragment(new SubCharDashaFragment());
                                 break;
                             case 14:
-                                setFragment(new LifeForecastFragment());
+                                setFragment(new SubSubCharDashaFragment());
                                 break;
                             case 15:
-                                setFragment(new RomanticForecastFragment());
+                                setFragment(new GemstoneSuggestionFragment());
                                 break;
                             case 16:
-                                setFragment(new FriendshipReportFragment());
+                                setFragment(new NumerologyGemstoneSuggestionFragment()); //TODO: KARNA HAI
                                 break;
                             case 17:
-                                setFragment(new KarmaDestinyFragment());
+                                setFragment(new BasicPanchangFragment());
                                 break;
                             case 18:
-                                setFragment(new LoveCompatibilityFragment());
+                                setFragment(new PlanetPanchangFragment());
                                 break;
                             case 19:
-                                setFragment(new RomanticForecastCoupleReportFragment());
+                                setFragment(new YoginiDashaFragment());
                                 break;
                             case 20:
-                                setFragment(new ZodiacCompatibilityFragment());
+                                setFragment(new NumerologyReportFragment()); //TODO: ALAG LAYOUT
                                 break;
                             case 21:
-                                setFragment(new LoveCompatibilityFragment());
+                                setFragment(new NumerologyFavorableTimeFragment()); //TODO: ALAG LAYOUT
+                                break;
+                            case 22:
+                                setFragment(new NumerologyPlaceVastuFragment());//TODO: ALAG LAYOUT
+                                break;
+                            case 23:
+                                setFragment(new NumerologyDailyPredictionFragment());//TODO: ALAG LAYOUT
                                 break;
 
                             default:
@@ -294,7 +299,7 @@ public class IndianDropDownFragment extends Fragment {
         FragmentManager fragmentManager = getFragmentManager();
         fragment.setArguments(dataBundle);
         fragmentManager.beginTransaction()
-                .replace(R.id.western_astrology_container, fragment)
+                .replace(R.id.indian_astrology_main_container, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .addToBackStack("Main")
                 .commit();

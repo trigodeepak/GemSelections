@@ -47,19 +47,17 @@ public class GeneralAscendantReportFragment  extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-        bundle = new Bundle();
         if (bundle != null) {
 
-            WesternAstrologySimpleRequest westernAstrologySimpleRequest = new WesternAstrologySimpleRequest(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE);
-//                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
-//                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
-//                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
-//                ,bundle.getInt(Constants.PRIMARY_HOUR,1)
-//                ,bundle.getInt(Constants.PRIMARY_MIN,1)
-//                ,Constants.PRIMARY_LAT
-//                ,Constants.PRIMARY_LNG
-//                ,Constants.TIMEZONE);
-
+            WesternAstrologySimpleRequest westernAstrologySimpleRequest //= new WesternAstrologySimpleRequest(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE);
+                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
+                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
+                ,bundle.getInt(Constants.PRIMARY_YEAR,1997)
+                ,bundle.getInt(Constants.PRIMARY_HOUR,1)
+                ,bundle.getInt(Constants.PRIMARY_MIN,1)
+                ,Constants.PRIMARY_LAT
+                ,Constants.PRIMARY_LNG
+                ,Constants.TIMEZONE);
 
             Call<GeneralAscendantReportResponse> call = astrologyApiInterface
                     .getGeneralAscendantReport(AstrologyApiInterface.HEADER_TOKEN, westernAstrologySimpleRequest);
