@@ -23,6 +23,7 @@ import tech.iosd.gemselections.Retrofit.AstrologyApiClient;
 import tech.iosd.gemselections.Retrofit.AstrologyApiInterface;
 import tech.iosd.gemselections.Retrofit.RequestModels.NumerologyReportRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.NumeroFavTimeResponse;
+import tech.iosd.gemselections.Utils.Constants;
 
 public class NumerologyFavorableTimeFragment extends Fragment {
     Retrofit retrofit;
@@ -45,7 +46,6 @@ public class NumerologyFavorableTimeFragment extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-        bundle = new Bundle();
         if (bundle != null) {
 
 //            WesternAstrologySimpleRequest westernAstrologySimpleRequest = new WesternAstrologySimpleRequest(20, 2, 1992, 12, 12, Constants.PRIMARY_LAT, Constants.PRIMARY_LNG, Constants.TIMEZONE);
@@ -58,7 +58,11 @@ public class NumerologyFavorableTimeFragment extends Fragment {
 //                ,Constants.PRIMARY_LNG
 //                ,Constants.TIMEZONE);
 
-            NumerologyReportRequest numerologyReportRequest = new NumerologyReportRequest(2, 9, 1997, "Anubhav");
+            NumerologyReportRequest numerologyReportRequest
+                    = new NumerologyReportRequest(bundle.getInt(Constants.PRIMARY_DAY)
+                    , bundle.getInt(Constants.PRIMARY_MONTH)
+                    , bundle.getInt(Constants.PRIMARY_YEAR)
+                    , bundle.getString(Constants.PRIMARY_NAME));
 
             Call<NumeroFavTimeResponse> call = astrologyApiInterface
                     .getNumeroFavTime(AstrologyApiInterface.HEADER_TOKEN, numerologyReportRequest);

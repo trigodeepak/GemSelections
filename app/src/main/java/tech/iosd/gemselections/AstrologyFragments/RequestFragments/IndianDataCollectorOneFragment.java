@@ -192,16 +192,16 @@ public class IndianDataCollectorOneFragment extends Fragment {
                                 setFragment(new YoginiDashaFragment());
                                 break;
                             case 20:
-                                setFragment(new NumerologyReportFragment()); //TODO: ALAG LAYOUT
+                                setFragment(new NumerologyReportFragment());
                                 break;
                             case 21:
-                                setFragment(new NumerologyFavorableTimeFragment()); //TODO: ALAG LAYOUT
+                                setFragment(new NumerologyFavorableTimeFragment());
                                 break;
                             case 22:
-                                setFragment(new NumerologyPlaceVastuFragment());//TODO: ALAG LAYOUT
+                                setFragment(new NumerologyPlaceVastuFragment());
                                 break;
                             case 23:
-                                setFragment(new NumerologyDailyPredictionFragment());//TODO: ALAG LAYOUT
+                                setFragment(new NumerologyDailyPredictionFragment());
                                 break;
 
                             default:

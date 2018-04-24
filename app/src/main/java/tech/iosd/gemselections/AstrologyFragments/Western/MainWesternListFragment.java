@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 import tech.iosd.gemselections.AstrologyFragments.RequestFragments.WesternComplexDataCollectorFragment;
 import tech.iosd.gemselections.AstrologyFragments.RequestFragments.WesternDataCollectorOneFragment;
+import tech.iosd.gemselections.AstrologyFragments.RequestFragments.WesternZodiacCompatibilityDataCollectionFragment;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Constants;
 
@@ -46,7 +47,7 @@ public class MainWesternListFragment extends Fragment {
             , "Love Compatibility Report"
             , "Romantic Forecast Couple Report"
             , "Zodiac Compatibility"
-            , "Sunsign Compatibility"};
+            , "Sun Sign Compatibility"};
 
     Fragment fragment;
 
@@ -147,11 +148,11 @@ public class MainWesternListFragment extends Fragment {
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 20:
-                        fragment = new WesternDataCollectorOneFragment(); //TODO: ALAG LAYOUT
+                        fragment = new WesternZodiacCompatibilityDataCollectionFragment(); //TODO: ALAG LAYOUT
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 21:
-                        fragment = new WesternDataCollectorOneFragment(); //TODO: ALAG LAYOUT
+                        fragment = new WesternZodiacCompatibilityDataCollectionFragment(); //TODO: ALAG LAYOUT
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                 }

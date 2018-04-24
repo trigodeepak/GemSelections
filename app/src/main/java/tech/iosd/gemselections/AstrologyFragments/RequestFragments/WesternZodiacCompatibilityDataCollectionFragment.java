@@ -15,6 +15,7 @@ import android.widget.Button;
 import com.pepperonas.materialdialog.MaterialDialog;
 
 import tech.iosd.gemselections.AstrologyFragments.Western.SunsignCompatibilityFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.ZodiacCompatibilityFragment;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.Constants;
 
@@ -24,10 +25,11 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
     Button primaryRisingSignButton;
     Button secondarySunSignButton;
     Button secondaryRisingSignButton;
-    String var1, var2, var3, var4;
+    String var1="", var2="", var3="", var4="";
     Bundle bundle;
+    int fragmentId;
 
-    String[] sunSignList = {"Aries (Mar. 21–Apr. 19)\n",
+    String[] sunSignListToShow = {"Aries (Mar. 21–Apr. 19)\n",
             "Taurus (Apr. 20–May 20)\n",
             "Gemini (May 21–June 21)\n",
             "Cancer (June 22–July 22)\n",
@@ -39,6 +41,20 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
             "Capricorn (Dec. 22–Jan. 19)\n",
             "Aquarius (Jan. 20–Feb. 18)\n",
             "Pisces (Feb. 19–Mar. 20)"};
+    String[] sunSignList = {"Aries",
+            "Taurus",
+            "Gemini",
+            "Cancer",
+            "Leo",
+            "Virgo",
+            "Libra",
+            "Scorpio",
+            "Sagittarius",
+            "Capricorn",
+            "Aquarius",
+            "Pisces"};
+
+    Bundle fragmentIdBundle;
 
     @Nullable
     @Override
@@ -50,6 +66,18 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
         secondarySunSignButton = view.findViewById(R.id.sun_sign_secondary_button);
         secondaryRisingSignButton = view.findViewById(R.id.rising_sign_secondary_button);
 
+        fragmentIdBundle = getArguments();
+
+        if (fragmentIdBundle.getInt(Constants.FRAGMENT_ID) == 20) {
+            secondaryRisingSignButton.setEnabled(false);
+            secondaryRisingSignButton.setVisibility(View.GONE);
+
+            primaryRisingSignButton.setEnabled(false);
+            primaryRisingSignButton.setVisibility(View.GONE);
+            fragmentId = 20;
+        } else
+            fragmentId = 21;
+
         primarySunSignButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,13 +88,13 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
                         .negativeText("Cancel")
                         .positiveColor(R.color.colorAccent)
                         .negativeColor(R.color.colorAccent)
-                        .listItemsSingleSelection(true, sunSignList)
+                        .listItemsSingleSelection(true, sunSignListToShow)
                         .selection(0)
                         .itemClickListener(new MaterialDialog.ItemClickListener() {
                             @Override
                             public void onClick(View v, int position, long id) {
                                 super.onClick(v, position, id);
-                                primarySunSignButton.setText(sunSignList[position]);
+                                primarySunSignButton.setText(sunSignListToShow[position]);
                                 var1 = sunSignList[position];
                             }
                         })
@@ -90,13 +118,13 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
                         .negativeText("Cancel")
                         .positiveColor(R.color.colorAccent)
                         .negativeColor(R.color.colorAccent)
-                        .listItemsSingleSelection(true, sunSignList)
+                        .listItemsSingleSelection(true, sunSignListToShow)
                         .selection(0)
                         .itemClickListener(new MaterialDialog.ItemClickListener() {
                             @Override
                             public void onClick(View v, int position, long id) {
                                 super.onClick(v, position, id);
-                                primaryRisingSignButton.setText(sunSignList[position]);
+                                primaryRisingSignButton.setText(sunSignListToShow[position]);
                                 var2 = sunSignList[position];
 
                             }
@@ -121,13 +149,13 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
                         .negativeText("Cancel")
                         .positiveColor(R.color.colorAccent)
                         .negativeColor(R.color.colorAccent)
-                        .listItemsSingleSelection(true, sunSignList)
+                        .listItemsSingleSelection(true, sunSignListToShow)
                         .selection(0)
                         .itemClickListener(new MaterialDialog.ItemClickListener() {
                             @Override
                             public void onClick(View v, int position, long id) {
                                 super.onClick(v, position, id);
-                                secondarySunSignButton.setText(sunSignList[position]);
+                                secondarySunSignButton.setText(sunSignListToShow[position]);
                                 var3 = sunSignList[position];
 
                             }
@@ -152,13 +180,13 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
                         .negativeText("Cancel")
                         .positiveColor(R.color.colorAccent)
                         .negativeColor(R.color.colorAccent)
-                        .listItemsSingleSelection(true, sunSignList)
+                        .listItemsSingleSelection(true, sunSignListToShow)
                         .selection(0)
                         .itemClickListener(new MaterialDialog.ItemClickListener() {
                             @Override
                             public void onClick(View v, int position, long id) {
                                 super.onClick(v, position, id);
-                                secondaryRisingSignButton.setText(sunSignList[position]);
+                                secondaryRisingSignButton.setText(sunSignListToShow[position]);
                                 var4 = sunSignList[position];
 
                             }
@@ -176,15 +204,20 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
         view.findViewById(R.id.sun_sign_submit_buttom).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!var1.isEmpty() && !var2.isEmpty() && !var3.isEmpty() && !var4.isEmpty()) {
+                if (!var1.isEmpty() && !var2.isEmpty() && !var3.isEmpty() && !var4.isEmpty()&&fragmentId==21 || !var1.isEmpty() && !var3.isEmpty() && fragmentId==20) {
                     bundle = new Bundle();
                     bundle.putString(Constants.PRIMARY_ZODIAC, var1);
                     bundle.putString(Constants.PRIMARY_RISING_SUN, var2);
                     bundle.putString(Constants.SECONDARY_ZODIAC, var3);
                     bundle.putString(Constants.SECONDARY_RISING_SUN, var4);
 
-                    setFragment(new SunsignCompatibilityFragment());
-
+                    if (fragmentId==21)
+                        setFragment(new SunsignCompatibilityFragment());
+                    else if(fragmentId==20) {
+                        bundle.putString(Constants.PRIMARY_ZODIAC,var1);
+                        bundle.putString(Constants.SECONDARY_ZODIAC,var3);
+                        setFragment(new ZodiacCompatibilityFragment());
+                    }
                 }
             }
         });

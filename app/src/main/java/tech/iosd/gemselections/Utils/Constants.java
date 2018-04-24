@@ -25,6 +25,9 @@ public class Constants {
     /**
      * < ------------------------------------------------------------FRAGMENT_CONSTANTS---------------------------------------------------------------- >
      */
+    public static final String PRIMARY_NAME = "PRIMARY_NAME";
+
+    public static final String SECONDARY_NAME = "SECONDARY_NAME";
 
     public static final String PRIMARY_DATE = "PRIMARY_DATE";
 

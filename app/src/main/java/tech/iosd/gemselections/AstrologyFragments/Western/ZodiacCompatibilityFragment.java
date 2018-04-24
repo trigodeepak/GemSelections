@@ -64,7 +64,7 @@ public class ZodiacCompatibilityFragment extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                        arrayList.addAll(response.body().getLifeForecast());
 //                            responseString = responseString.concat(response.body().getReport().get(i));
-                        responseTextView.append("\t\t\t\t\t\t" + "ZODIAC COMPATIBILITY");
+                        responseTextView.append("\t\t\t\t\t\t\t\t\t" + "ZODIAC COMPATIBILITY");
                         responseTextView.append("\n\n Your Sign : " + response.body().getYourSign());
                         responseTextView.append("\n\n Your Partner's Sign : " + response.body().getYourPartnerSign());
                         responseTextView.append("\n\n Compatibility Report : " + response.body().getCompatibilityReport());

@@ -72,7 +72,8 @@ public class SunsignCompatibilityFragment extends Fragment {
 //                            responseString = responseString.concat(response.body().getReport().get(i));
                         responseTextView.append("\n Your Sign : " + response.body().getYourSign());
                         responseTextView.append("\n Your Partner Sign : " + response.body().getYourPartnerSign());
-                        responseTextView.append("\n Compatibility Report : " + response.body().getCompatibilityReport());
+                        responseTextView.append("\n\n Compatibility Percentage : "+ response.body().getCompatibilityPercentage());
+                        responseTextView.append("\n\n Compatibility Report : " + response.body().getCompatibilityReport());
                         responseTextView.append("\n\n");
 
 //                        responseTextView.append("\n Key Quality : "+response.body().getKeyQuality());

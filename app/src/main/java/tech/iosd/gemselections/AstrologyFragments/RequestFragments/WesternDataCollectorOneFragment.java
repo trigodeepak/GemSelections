@@ -37,6 +37,7 @@ import tech.iosd.gemselections.AstrologyFragments.Western.RomanticPersonalityFra
 import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnFragment;
 import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnHouseFragment;
 import tech.iosd.gemselections.AstrologyFragments.Western.SolarReturnPlanetFragment;
+import tech.iosd.gemselections.AstrologyFragments.Western.SunsignCompatibilityFragment;
 import tech.iosd.gemselections.AstrologyFragments.Western.SynastryFragment;
 import tech.iosd.gemselections.AstrologyFragments.Western.WeeklyTransitFragment;
 import tech.iosd.gemselections.AstrologyFragments.Western.WesternChartFragment;
@@ -124,6 +125,7 @@ public class WesternDataCollectorOneFragment extends Fragment {
                             .putInt(SharedPreferencesUtils.prefsAstroYear, getYearNumber())
                             .apply();
 
+                    dataBundle.putString(Constants.PRIMARY_NAME,nameTextView.getText().toString());
                     dataBundle.putInt(Constants.PRIMARY_DAY, dayNumber);
                     dataBundle.putInt(Constants.PRIMARY_HOUR, hourOfTheDay);
                     dataBundle.putInt(Constants.PRIMARY_MIN, minute);
@@ -199,7 +201,7 @@ public class WesternDataCollectorOneFragment extends Fragment {
                                 setFragment(new ZodiacCompatibilityFragment());
                                 break;
                             case 21:
-                                setFragment(new LoveCompatibilityFragment());
+                                setFragment(new SunsignCompatibilityFragment());
                                 break;
 
                             default:

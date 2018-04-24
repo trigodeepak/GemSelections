@@ -53,7 +53,6 @@ public class CompositeHoroscopeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.western_composite_horoscope_frag, container, false);
-//TODO: COMPLETE BY COMPLEX REQUEST
         compositeAspectRecyclerView = view.findViewById(R.id.western_composite_aspect_recycler_list);
         compositeFirstRecyclerView = view.findViewById(R.id.western_composite_first_recycler_list);
         compositeHouseRecyclerView = view.findViewById(R.id.western_composite_house_recycler_list);
