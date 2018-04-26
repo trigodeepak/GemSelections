@@ -55,7 +55,7 @@ public class AstrologyAdapter extends RecyclerView.Adapter<tech.iosd.gemselectio
     public void onBindViewHolder(tech.iosd.gemselections.Adapters.AstrologyAdapter.ViewHolder holder, int position) {
         holder.text.setText(typesList.get(position).getName());
         holder.mainImage.setImageDrawable(typesList.get(position).getMainImage());
-        holder.mainImage.setScaleType(ImageView.ScaleType.FIT_XY);
+        holder.mainImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         final int pos = position;
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,17 +84,20 @@ public class AstrologyAdapter extends RecyclerView.Adapter<tech.iosd.gemselectio
 
                     case 3:
                         context.startActivity(new Intent(
-                                context, PdfHoroscopeActivity.class
+                                context, IndianAstrologyActivity.class
                         ));
 
                         break;
 
                     case 4:
                         context.startActivity(new Intent(
-                                context, IndianAstrologyActivity.class
+                                context, PdfHoroscopeActivity.class
                         ));
+
+                        break;
                     default:
                         Log.e("Jewel Types", "Wrong item clicked");
+                        break;
                 }
             }
         });

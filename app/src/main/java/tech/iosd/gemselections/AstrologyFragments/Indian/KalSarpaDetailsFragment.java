@@ -74,7 +74,7 @@ public class KalSarpaDetailsFragment extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                            responseString = responseString.concat(response.body().getReport().get(i));
                         try {
-                            responseTextView.append("\n\n ");
+                            responseTextView.append("");
 
                             responseTextView.append("\nPresent : " + response.body().isPresent());
                             responseTextView.append("\nType : " + response.body().getType());
