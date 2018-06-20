@@ -9,11 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubeStandalonePlayer;
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 
+import tech.iosd.gemselections.Astro_RemediesFragment;
 import tech.iosd.gemselections.R;
 
 /**
@@ -39,6 +42,7 @@ public class videoAdapter extends RecyclerView.Adapter<videoAdapter.VideoInfoHol
 
     @Override
     public void onBindViewHolder(final VideoInfoHolder holder, final int position) {
+        holder.episode.setText("Episode "+(position+1));
         holder.youTubeThumbnailView.initialize(DEVELOPER_KEY, new YouTubeThumbnailView.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubeThumbnailView youTubeThumbnailView, final YouTubeThumbnailLoader youTubeThumbnailLoader) {
@@ -49,7 +53,6 @@ public class videoAdapter extends RecyclerView.Adapter<videoAdapter.VideoInfoHol
                     public void onThumbnailLoaded(YouTubeThumbnailView youTubeThumbnailView, String s) {
                         youTubeThumbnailLoader.release();
                         youTubeThumbnailView.setVisibility(View.VISIBLE);
-                        holder.relativeLayoutOverYouTubeThumbnailView.setVisibility(View.VISIBLE);
                     }
 
                     @Override
@@ -63,6 +66,13 @@ public class videoAdapter extends RecyclerView.Adapter<videoAdapter.VideoInfoHol
             public void onInitializationFailure(YouTubeThumbnailView youTubeThumbnailView, YouTubeInitializationResult youTubeInitializationResult) {
             }
         });
+        holder.youTubeThumbnailView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = YouTubeStandalonePlayer.createVideoIntent((Activity) ctx, DEVELOPER_KEY, VideoID[position]);
+                ((Activity) ctx).startActivityForResult(intent,0);
+            }
+        });
     }
 
     @Override
@@ -72,16 +82,15 @@ public class videoAdapter extends RecyclerView.Adapter<videoAdapter.VideoInfoHol
 
     public class VideoInfoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        protected RelativeLayout relativeLayoutOverYouTubeThumbnailView;
         YouTubeThumbnailView youTubeThumbnailView;
-        protected ImageView playButton;
+        TextView episode;
 
         public VideoInfoHolder(View itemView) {
             super(itemView);
-            playButton=(ImageView)itemView.findViewById(R.id.btnYoutube_player);
-            playButton.setOnClickListener(this);
-            relativeLayoutOverYouTubeThumbnailView = (RelativeLayout) itemView.findViewById(R.id.relativeLayout_over_youtube_thumbnail);
             youTubeThumbnailView = (YouTubeThumbnailView) itemView.findViewById(R.id.youtube_thumbnail);
+            episode=itemView.findViewById(R.id.episode);
+
+
         }
 
         @Override

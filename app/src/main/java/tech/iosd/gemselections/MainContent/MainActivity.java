@@ -180,6 +180,21 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==0)
+        {
+            Fragment fr=new Astro_RemediesFragment();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(tech.iosd.gemselections.R.id.container_main, fr);
+            fragmentTransaction.addToBackStack("Main");
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // Will show transitioning as fragments change
+            fragmentTransaction.commit();
+
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -409,7 +424,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 startActivity(
                         new Intent(MainActivity.this, WebViewActivity.class)
-                                .putExtra("URL", "http://www.khannagems.com")
+                                .putExtra("URL", "http://www.khannagems.com/index.php/")
                                 .putExtra("parent", "MainActivity")
                 );
             }
@@ -830,4 +845,6 @@ public class MainActivity extends AppCompatActivity
         ConnectAdapter adapter = new ConnectAdapter(optionses, MainActivity.this);
         view.setAdapter(adapter);
     }
+
+
 }

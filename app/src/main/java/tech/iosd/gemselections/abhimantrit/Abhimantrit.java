@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,10 +46,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Abhimantrit extends Fragment {
+public class Abhimantrit extends Fragment implements View.OnClickListener {
 
 
-    private YouTubePlayer YPlayer;
+    private  ImageView panna,neelam,pukhraj;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
     private static final int RECOVERY_REQUEST = 1;
 
@@ -56,54 +57,56 @@ public class Abhimantrit extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_abhimantrit, container, false);
-
-        YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
-
-        youTubePlayerFragment.initialize(DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
-
+        panna=view.findViewById(R.id.abhi_panna);
+        neelam=view.findViewById(R.id.abhi_neelam);
+        pukhraj=view.findViewById(R.id.abhi_pukhraj);
+        panna.setOnClickListener(this);
+        neelam.setOnClickListener(this);
+        pukhraj.setOnClickListener(this);
+        InputStream is;
+        try {
+            is = getActivity().getAssets().open("images/abhi_neelam.PNG");
+            neelam.setImageBitmap(BitmapFactory.decodeStream(is));
+            is = getActivity().getAssets().open("images/abhi_panna.PNG");
+            panna.setImageBitmap(BitmapFactory.decodeStream(is));
+            is = getActivity().getAssets().open("images/abhi_pukhraj.PNG");
+            pukhraj.setImageBitmap(BitmapFactory.decodeStream(is));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        panna.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
-
-                if (!wasRestored) {
-                    YPlayer = player;
-                    List<String> videos = new ArrayList<String>();
-                    videos.add("Pu_NqgEa0TQ");
-                    videos.add("Kt99XEBQ3pw");
-                    videos.add("QcjlAmjn_-U");
-                    YPlayer.cueVideos(videos);
-
-                    YPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
-                        @Override
-                        public void onFullscreen(boolean b) {
-                            if(!b){
-
-                                if(getActivity().getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT)
-                                {
-                                    getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                                }
-                            }
-                        }
-                    });
-                }
-
-
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
-                if (arg1.isUserRecoverableError()) {
-                    arg1.getErrorDialog(getActivity(), RECOVERY_REQUEST).show();
-                } else {
-                    String error = String.format(getString(tech.iosd.gemselections.R.string.player_error), arg1.toString());
-                    Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
-                }
+            public void onClick(View view) {
+              Toast.makeText(getContext(),"Panna clicked",Toast.LENGTH_SHORT);
+              Intent i=new Intent(getActivity(),Panna.class);
+              i.putExtra("V",1);
+              startActivity(i);
             }
         });
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(tech.iosd.gemselections.R.id.youtube_fragment, youTubePlayerFragment).commit();
+        neelam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Toast.makeText(getContext(),"Neelam clicked",Toast.LENGTH_SHORT);
+                Intent i=new Intent(getContext(),Panna.class);
+                i.putExtra("V",2);
+                startActivity(i);
+
+            }
+        });
+        pukhraj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getContext(),"Pukhraj clicked",Toast.LENGTH_SHORT);
+                Intent i=new Intent(getActivity(),Panna.class);
+                i.putExtra("V",3);
+                startActivity(i);
+            }
+        });
         return view;
     }
+
 
 
     @Override
@@ -114,6 +117,9 @@ public class Abhimantrit extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
 
 
+    }
 }
