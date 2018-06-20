@@ -26,7 +26,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon">>
+        tools:replace="android:icon">
+        >
         <meta-data
             android:name="tech.iosd.gemselections.Utils.AirShipAutoPilot"
             android:value="tech.iosd.gemselections.Utils.AirShipAutoPilot" />
@@ -447,7 +448,8 @@
         <activity android:name=".MainContent.MatchMakingActivity" />
         <activity android:name=".MainContent.DailyHoroscopeActivity" />
         <activity android:name=".MainContent.PdfHoroscopeActivity" />
-        <activity android:name=".MainContent.IndianAstrologyActivity"></activity>
+        <activity android:name=".MainContent.IndianAstrologyActivity" />
+        <activity android:name=".abhimantrit.Panna" />
     </application>
 
 </manifest>
