@@ -27,7 +27,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        >
         <meta-data
             android:name="tech.iosd.gemselections.Utils.AirShipAutoPilot"
             android:value="tech.iosd.gemselections.Utils.AirShipAutoPilot" />
@@ -411,7 +410,7 @@
             android:label="Return Policy"
             android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainContent.FaqIntentAcitivity" />
+        <activity android:name=".MainContent.FaqIntentActivity" />
         <activity
             android:name=".MainContent.NewWebView"
             android:configChanges="orientation|keyboardHidden|screenSize"
