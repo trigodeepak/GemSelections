@@ -157,6 +157,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         if (v == _signup) {
+            finish();
             startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
         }
 
@@ -167,7 +168,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+            finish();
             startActivity(new Intent(LoginActivity.this, ForgetPassActivity.class));
         }
 
@@ -186,6 +187,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         if(loginReady==true){
             Intent intent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+            finish();
             startActivityForResult(intent,RC_SIGN_IN);
         }}
 
@@ -354,7 +356,7 @@ if(user !=null) {
     private void updateUI() {
 
         Toast.makeText(context, "You are loged in", Toast.LENGTH_SHORT).show();
-
+        finish();
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 

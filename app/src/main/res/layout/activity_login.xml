@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/login_container"
-
     android:background="@drawable/side_nav_bar"
     android:padding="10dp"
+    android:layout_gravity="center_vertical"
     tools:context="tech.iosd.gemselections.AuthRelated.LoginActivity">
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button_fb"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="90dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
             />
 
 
@@ -68,8 +73,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/login_button"
@@ -111,4 +116,4 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

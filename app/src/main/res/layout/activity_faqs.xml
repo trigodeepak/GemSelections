@@ -16,11 +16,9 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         android:popupTheme="@style/AppTheme.PopupOverlay"
         tools:targetApi="LOLLIPOP">
-
     </Toolbar>
 
     <ScrollView
-        android:padding="10dp"
         android:id="@+id/faq_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,12 +33,14 @@
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 ></com.google.android.youtube.player.YouTubePlayerView>
 
 
 
             <LinearLayout
-                android:id="@+id/faq_how_towear"
+                android:id="@+id/faq12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -87,7 +87,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary1"/>
             <TextView
-                android:layout_marginTop="10dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -95,9 +95,9 @@
                 android:fontFamily="serif"
                 android:textStyle="bold"
                 android:padding="10dp"
-
                 android:textColor="@color/colorPrimaryDark2"
-                android:text="@string/faq3"/>
+                android:text="@string/faq3"
+                />
         </LinearLayout>
 
         </LinearLayout>
@@ -117,7 +117,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary1"/>
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -148,7 +147,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary1"/>
             <TextView
-                android:layout_marginTop="10dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -179,7 +178,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary1"/>
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -210,7 +208,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary1"/>
             <TextView
-                android:layout_marginTop="10dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -239,7 +237,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary1"/>
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -268,7 +265,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary1"/>
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
