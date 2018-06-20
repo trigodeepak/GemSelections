@@ -306,6 +306,7 @@ public class MainActivity extends AppCompatActivity
                 );
                 break;
 
+
             case tech.iosd.gemselections.R.id.ac_about_us:
                 display_selected_item(tech.iosd.gemselections.R.id.ac_about_us);
                 break;
@@ -644,11 +645,26 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_faq:
-
                 startActivity(
                         new Intent(MainActivity.this, FAQsActivity.class)
                 );
+                break;
 
+            case R.id.nav_forum:
+                startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "https://forums.khannagems.com/")
+                                .putExtra("parent", "MainActivity")
+
+                );
+                break;
+            case R.id.nav_live:
+                startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "https://khannagems.com/gemselectionslive/")
+                                .putExtra("parent", "MainActivity")
+
+                );
                 break;
             case R.id.nav_sarva_mannokaamna_prapti_yugal:
                 fragment = new SarvaManokaamnaPraptiYugal();

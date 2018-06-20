@@ -74,36 +74,36 @@ public class Abhimantrit extends Fragment implements View.OnClickListener {
         }catch (IOException e){
             e.printStackTrace();
         }
-        panna.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              Toast.makeText(getContext(),"Panna clicked",Toast.LENGTH_SHORT);
-              Intent i=new Intent(getActivity(),Panna.class);
-              i.putExtra("V",1);
-              startActivity(i);
-            }
-        });
-        neelam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getContext(),"Neelam clicked",Toast.LENGTH_SHORT);
-                Intent i=new Intent(getContext(),Panna.class);
-                i.putExtra("V",2);
-                startActivity(i);
-
-            }
-        });
-        pukhraj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getContext(),"Pukhraj clicked",Toast.LENGTH_SHORT);
-                Intent i=new Intent(getActivity(),Panna.class);
-                i.putExtra("V",3);
-                startActivity(i);
-            }
-        });
+//        panna.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//              Toast.makeText(getContext(),"Panna clicked",Toast.LENGTH_SHORT);
+//              Intent i=new Intent(getActivity(),Panna.class);
+//              i.putExtra("V",1);
+//              startActivity(i);
+//            }
+//        });
+//        neelam.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(getContext(),"Neelam clicked",Toast.LENGTH_SHORT);
+//                Intent i=new Intent(getContext(),Panna.class);
+//                i.putExtra("V",2);
+//                startActivity(i);
+//
+//            }
+//        });
+//        pukhraj.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(getContext(),"Pukhraj clicked",Toast.LENGTH_SHORT);
+//                Intent i=new Intent(getActivity(),Panna.class);
+//                i.putExtra("V",3);
+//                startActivity(i);
+//            }
+//        });
         return view;
     }
 

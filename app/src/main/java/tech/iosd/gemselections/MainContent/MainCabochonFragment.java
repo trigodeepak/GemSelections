@@ -70,7 +70,7 @@ public class MainCabochonFragment extends Fragment implements AdapterView.OnItem
                 break;
 
             case 2:
-                fragment=new EmeraldCabochon();
+//                fragment=new EmeraldCabochon();
                // show_dialog("Emerald Cabochon", tech.iosd.gemselections.R.string.cabochon3,"images/emerald-cabochon.jpg");
                 break;
 
