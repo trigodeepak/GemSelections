@@ -91,9 +91,10 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
         setSupportActionBar(toolbar);
-        /** startActivity(new Intent(
-         MainActivity.this, DiamondStudded.class
-         ));*/
+
+//        Todo: Make My account Activity
+        startActivity(new Intent(MainActivity.this,MyAccountActivity.class));
+
 
         fragmentManager = getSupportFragmentManager();
 
