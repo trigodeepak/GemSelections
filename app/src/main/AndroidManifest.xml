@@ -449,6 +449,13 @@
         <activity android:name=".MainContent.PdfHoroscopeActivity" />
         <activity android:name=".MainContent.IndianAstrologyActivity" />
         <activity android:name=".abhimantrit.Panna" />
+        <activity android:name=".MainContent.MyAccountActivity"
+            android:label="My Account"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
