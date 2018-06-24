@@ -91,9 +91,10 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
         setSupportActionBar(toolbar);
-        /** startActivity(new Intent(
-         MainActivity.this, DiamondStudded.class
-         ));*/
+
+//        Todo: Make My account Activity
+        startActivity(new Intent(MainActivity.this,MyAccountActivity.class));
+
 
         fragmentManager = getSupportFragmentManager();
 
@@ -305,6 +306,7 @@ public class MainActivity extends AppCompatActivity
                         new Intent(MainActivity.this, FAQsActivity.class)
                 );
                 break;
+
 
             case tech.iosd.gemselections.R.id.ac_about_us:
                 display_selected_item(tech.iosd.gemselections.R.id.ac_about_us);
@@ -644,11 +646,26 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_faq:
-
                 startActivity(
                         new Intent(MainActivity.this, FAQsActivity.class)
                 );
+                break;
 
+            case R.id.nav_forum:
+                startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "https://forums.khannagems.com/")
+                                .putExtra("parent", "MainActivity")
+
+                );
+                break;
+            case R.id.nav_live:
+                startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "https://khannagems.com/gemselectionslive/")
+                                .putExtra("parent", "MainActivity")
+
+                );
                 break;
             case R.id.nav_sarva_mannokaamna_prapti_yugal:
                 fragment = new SarvaManokaamnaPraptiYugal();

@@ -100,6 +100,14 @@
             android:id="@+id/nav_faq"
             android:icon="@drawable/ic_info"
             android:title="Frequently Asked Ques." />
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_info"
+            android:title="Join the Gem Selections™ Forums" />
+        <item
+            android:id="@+id/nav_live"
+            android:icon="@drawable/ic_info"
+            android:title="Watch Gem Selections™ LIVE" />
     </group>
 
     <item android:title="Contact Us">
