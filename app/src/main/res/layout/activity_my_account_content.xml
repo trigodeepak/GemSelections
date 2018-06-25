@@ -1,120 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="tech.iosd.gemselections.MainContent.MyAccountActivity">
-
-<LinearLayout
     android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:padding="5dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp">
+    android:paddingTop="?android:attr/actionBarSize">
 
-    <ImageView
-        android:id="@+id/profile_image"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:paddingLeft="5dp"
-        app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="25sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
-        android:text="Deepak" />
-</LinearLayout>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:background="@color/black"
-    />
-
-<LinearLayout
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:padding="5dp"
-    android:layout_marginTop="5dp"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/label2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="15sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
-        android:text="Email"
-        android:textColor="#000"/>
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp">
 
-    <TextView
-        android:id="@+id/email_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="25sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
-        android:text="deepak@gmail.com"/>
-</LinearLayout>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:background="@color/black"
-    />
-<LinearLayout
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:padding="5dp"
-    android:layout_marginTop="5dp"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/label3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="15sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
-        android:text="Phone Number"
-        android:textColor="#000"/>
-    <TextView
-        android:id="@+id/pno_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="25sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
-        android:text="9999999999"/>
-</LinearLayout>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:background="@color/black"
-    />
-</LinearLayout>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#f7f7f7"
+            android:layout_marginBottom="10dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <android.support.v7.widget.CardView
+                        android:paddingRight="10dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:elevation="12dp"
+                        android:id="@+id/view2"
+                        app:cardCornerRadius="39dp"
+                        android:layout_centerHorizontal="true"
+                        android:innerRadius="0dp"
+                        android:shape="ring"
+                        android:thicknessRatio="1.9">
+                        <ImageView
+                            android:layout_height="80dp"
+                            android:layout_width="match_parent"
+                            android:id="@+id/profile"
+                            android:src="@drawable/com_facebook_profile_picture_blank_portrait"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true">
+                        </ImageView>
+                    </android.support.v7.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:padding="10dp"
+                            android:text="Deepak"
+                            android:layout_alignParentLeft="true" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#dfdfdf"
+                    android:layout_height="1dp"/>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textSize="20sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="deepak@gmail.com"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#dfdfdf"
+                    android:layout_height="1dp"/>
+
+                <TextView
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:text="Change my password "
+                    android:drawableRight="@drawable/ic_navigate_next"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
