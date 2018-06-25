@@ -49,14 +49,6 @@ import tech.iosd.gemselections.abhimantrit.Abhimantrit;
 
 public class MyAccountActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    int k = 0;
-    private Bitmap img;
-
-    private View header;
-    private TextView _displayName, _displayEmail;
-    private Button _login, _logout;
-    private boolean ISHOMESHOWN;
-    private FragmentManager fragmentManager;
 
     private String mUser = "Deepak";
 
@@ -68,26 +60,23 @@ public class MyAccountActivity extends AppCompatActivity implements NavigationVi
         Autopilot autopilot = new Autopilot();
         autopilot.allowEarlyTakeOff(getApplicationContext());
 
-        Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
+        Toolbar toolbar = findViewById(tech.iosd.gemselections.R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fragmentManager = getSupportFragmentManager();
 
-
-
-        final DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
+        final DrawerLayout drawer = findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, tech.iosd.gemselections.R.string.navigation_drawer_open, tech.iosd.gemselections.R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(tech.iosd.gemselections.R.id.nav_view);
+        NavigationView navigationView =  findViewById(tech.iosd.gemselections.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        header = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        View header = navigationView.inflateHeaderView(R.layout.nav_header_main);
         header.setPadding(10, 10, 10, 10);
-        _displayName = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayName);
-        _displayEmail = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayEmail);
+        TextView _displayName =  header.findViewById(R.id.DisplayName);
+        TextView _displayEmail =  header.findViewById(R.id.DisplayEmail);
 
         display_selected_item(tech.iosd.gemselections.R.id.nav_home);
 
@@ -95,17 +84,20 @@ public class MyAccountActivity extends AppCompatActivity implements NavigationVi
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-
         int id = item.getItemId();
-
         display_selected_item(id);
-
         return true;
     }
 
     private void display_selected_item(int id) {
-        ISHOMESHOWN = id == tech.iosd.gemselections.R.id.nav_home;
-        Log.e("Print id",String.valueOf(id));
-
+        switch (id){
+            case R.id.home: break;
+            case R.id.ask_question: break;
+            case R.id.nav_forum: break;
+            case R.id.nav_live: break;
+            case R.id.read_later: break;
+            case R.id.watch_later: break;
+            case R.id.feedback: break;
+        }
     }
 }
