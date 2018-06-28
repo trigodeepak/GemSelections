@@ -59,10 +59,7 @@ public class MatchMakingListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
-
                     case 0:
-
-
                         args.putInt("caseNo", 0);
                         matchMakingInputFragment1.setArguments(args);
                         getFragmentManager().beginTransaction().replace(R.id.match_making_container,
@@ -71,8 +68,6 @@ public class MatchMakingListFragment extends Fragment {
                         // setFragment(new MatchBirthDetailFragment());
                         break;
                     case 1:
-
-
                         args.putInt("caseNo", 1);
                         matchMakingInputFragment1.setArguments(args);
                         getFragmentManager().beginTransaction().replace(R.id.match_making_container,

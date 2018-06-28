@@ -1,11 +1,14 @@
 package tech.iosd.gemselections.MainContent;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,6 +26,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
@@ -50,8 +54,6 @@ import tech.iosd.gemselections.abhimantrit.Abhimantrit;
 public class MyAccountActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
-    private String mUser = "Deepak";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,10 +77,9 @@ public class MyAccountActivity extends AppCompatActivity implements NavigationVi
 
         View header = navigationView.inflateHeaderView(R.layout.nav_header_main);
         header.setPadding(10, 10, 10, 10);
-        TextView _displayName =  header.findViewById(R.id.DisplayName);
-        TextView _displayEmail =  header.findViewById(R.id.DisplayEmail);
 
         display_selected_item(tech.iosd.gemselections.R.id.nav_home);
+
 
     }
     @SuppressWarnings("StatementWithEmptyBody")
@@ -92,12 +93,62 @@ public class MyAccountActivity extends AppCompatActivity implements NavigationVi
     private void display_selected_item(int id) {
         switch (id){
             case R.id.home: break;
-            case R.id.ask_question: break;
+            case R.id.ask_question: ask_question_dialog();break;
             case R.id.nav_forum: break;
             case R.id.nav_live: break;
             case R.id.read_later: break;
             case R.id.watch_later: break;
             case R.id.feedback: break;
+        }
+    }
+
+    private void ask_question_dialog() {
+        Dialog dialog = new Dialog(MyAccountActivity.this);
+        dialog.setContentView(R.layout.ask_question_dialog);
+        dialog.setTitle("Ask a question?");
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+        params.copyFrom(dialog.getWindow().getAttributes());
+        params.width = (WindowManager.LayoutParams.MATCH_PARENT);
+        params.height = (WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setAttributes(params);
+        dialog.show();
+    }
+
+    public class CustomDialogClass extends Dialog implements
+            android.view.View.OnClickListener {
+
+        public Button yes, no;
+
+        public CustomDialogClass(@NonNull Context context) {
+            super(context);
+        }
+
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
+            setContentView(R.layout.ask_question_dialog);
+            yes = (Button) findViewById(R.id.btn_yes);
+            no = (Button) findViewById(R.id.btn_no);
+            yes.setOnClickListener(this);
+            no.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.btn_yes:
+                    dismiss();
+                    break;
+                case R.id.btn_no:
+                    dismiss();
+                    break;
+                default:
+                    break;
+            }
+            dismiss();
         }
     }
 }

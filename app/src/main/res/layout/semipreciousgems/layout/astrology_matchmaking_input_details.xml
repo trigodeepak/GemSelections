@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     >
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -58,7 +58,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:layout_marginLeft="16dp" />
 
     <EditText
         android:hint="min"
@@ -70,7 +71,8 @@
         android:layout_marginTop="25dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/et_mhtob"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:layout_marginLeft="30dp" />
 
     <EditText
         android:id="@+id/et_mpob"
@@ -128,7 +130,8 @@ app:layout_constraintTop_toBottomOf="@+id/et_mpob"
         android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:layout_marginLeft="16dp" />
 
     <EditText
         android:hint="min"
@@ -140,7 +143,8 @@ app:layout_constraintTop_toBottomOf="@+id/et_mpob"
         android:layout_marginTop="25dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/et_fhtob"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:layout_marginLeft="30dp" />
 
     <EditText
         android:id="@+id/et_fpob"

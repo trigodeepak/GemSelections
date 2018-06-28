@@ -8,9 +8,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class MatchBirthDetailResponse {
-
-
-
     @SerializedName("male_birth_details")
     @Expose
     private MaleBirthDetails maleBirthDetails;

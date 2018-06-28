@@ -3,11 +3,14 @@ package tech.iosd.gemselections.AstrologyFragments.RequestFragments;
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +20,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.List;
 
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchAshtakootPointsFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchBirthDetailFragment;
@@ -28,6 +33,7 @@ import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchPercentageFra
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchSimpleReportFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchVedhaObstructionsFragment;
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
 
 /**
  * Created by kushalgupta on 28/03/18.
@@ -37,10 +43,10 @@ public class MatchMakingInputFragment1 extends Fragment {
     private TextView mDisplayDate, fDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private DatePickerDialog.OnDateSetListener fDateSetListener;
-    private Button submitButton;
     private EditText mmhtob, mmmtob, mmpob, ffhtob, ffmtob, ffpob;
     private int mmonth, myear, mday, fmonth, fyear, fday, mhtob, mmtob, fhtob, fmtob;
     private String mpob, fpob;
+    private float[] mloc,floc;
 
     @Nullable
     @Override
@@ -48,14 +54,15 @@ public class MatchMakingInputFragment1 extends Fragment {
         final View view = inflater.inflate(R.layout.astrology_matchmaking_input_details, container, false);
         mDisplayDate = (TextView) view.findViewById(R.id.tv_mDate);
         fDisplayDate = view.findViewById(R.id.tv_fDate);
-        submitButton = view.findViewById(R.id.bt_submit);
+        Button submitButton = view.findViewById(R.id.bt_submit);
         mmhtob = view.findViewById(R.id.et_mhtob);
         mmmtob = view.findViewById(R.id.et_mmtob);
         mmpob = view.findViewById(R.id.et_mpob);
         ffhtob = view.findViewById(R.id.et_fhtob);
         ffmtob = view.findViewById(R.id.et_fmtob);
         ffpob = view.findViewById(R.id.et_fpob);
-
+        mloc = new float[2];
+        floc = new float[2];
 
         //getting case no from last matchmakinglist fragment
         final int caseNo = getArguments().getInt("caseNo");
@@ -120,7 +127,6 @@ public class MatchMakingInputFragment1 extends Fragment {
             }
         };
 
-
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,18 +139,12 @@ public class MatchMakingInputFragment1 extends Fragment {
                 fpob = ffpob.getText().toString();
                 if (mhtob != 0 && fhtob != 0 && mmtob != 0 && fmtob != 0 && mpob != null && fpob != null) {
                     Bundle args = new Bundle();
-                    args.putInt("mdob", mday);
-                    args.putInt("mmob", mmonth);
-                    args.putInt("myob", myear);
-                    args.putInt("fdob", fday);
-                    args.putInt("fmob", fmonth);
-                    args.putInt("fyob", fyear);
-                    args.putInt("mhtob", mhtob);
-                    args.putInt("mmtob", mmtob);
-                    args.putInt("fhtob", fhtob);
-                    args.putInt("fmtob", fmtob);
-                    args.putString("mpob", mpob);
-                    args.putString("fpob", fpob);
+                    mloc = getLocationLatandLong(mpob);
+                    floc = getLocationLatandLong(fpob);
+                    MatchMakingSimpleRequest m = new MatchMakingSimpleRequest(mday,mmonth,myear,mhtob,mmtob,mloc[0],mloc[1],(float)5.5
+                    ,fday,fmonth,fyear,fhtob,fmtob,floc[0],floc[1],(float)5.5);
+                    args.putSerializable("match_making_obj",m);
+
                     switch (caseNo) {
                         case 0:
                             MatchBirthDetailFragment matchBirthDetailFragment = new MatchBirthDetailFragment();
@@ -217,6 +217,25 @@ public class MatchMakingInputFragment1 extends Fragment {
             }
         });
         return view;
+    }
+
+    private float[] getLocationLatandLong(String location) {
+        if (Geocoder.isPresent()) {
+            try {
+                float[] loc = new float[2];
+                Geocoder gc = new Geocoder(getContext());
+                List<Address> addresses = gc.getFromLocationName(location, 5); // get the found Address Objects
+                loc[0] = (float) addresses.get(0).getLatitude();
+                loc[1] = (float) addresses.get(0).getLongitude();
+                //  TimeZone tz=TimeZone.getDefault();
+                Log.d("check Location", "onCreateView: " + loc[0] + "," +loc[1]+ ",");//+tz.getDisplayName(false,TimeZone.SHORT));
+                return loc;
+            } catch (IOException e) {
+                // handle the exception
+            }
+        }
+        float[] loc = {0.0f,0.0f};
+        return loc;
     }
 
 }

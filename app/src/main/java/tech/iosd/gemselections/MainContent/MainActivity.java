@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 //        Todo: Make My account Activity
-        startActivity(new Intent(MainActivity.this,MyAccountActivity.class));
+//        startActivity(new Intent(MainActivity.this,MyAccountActivity.class));
 
 
         fragmentManager = getSupportFragmentManager();
