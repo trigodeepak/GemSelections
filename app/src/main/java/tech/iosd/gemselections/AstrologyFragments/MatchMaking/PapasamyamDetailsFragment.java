@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,21 +32,24 @@ public class PapasamyamDetailsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.papasamyam_report_astrology, container, false);
-
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://json.astrologyapi.com/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest = (MatchMakingPapasamyamReportRequest) getArguments().getSerializable("match_making_object");
+        //checking input
+        Log.d("Check input",matchMakingPapasamyamReportRequest.getGender().toString());
         astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
         Call<PapasamyamDetailsResponse> call = astrologyApiInterface.getPapaResponse(AstrologyApiInterface.HEADER_TOKEN, matchMakingPapasamyamReportRequest);
         call.enqueue(new Callback<PapasamyamDetailsResponse>() {
             @Override
             public void onResponse(Call<PapasamyamDetailsResponse> call, Response<PapasamyamDetailsResponse> response) {
+                //todo response is not coming correct and make layout to display
                 PapasamyamDetailsResponse partnerReportResponse = response.body();
                 // List<FemalePlanetDetail> list = matchPlanetDetailsResponse.getFemalePlanetDetails();
-                Toast.makeText(view.getContext(), "response:" + partnerReportResponse, Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "response:" + partnerReportResponse.getAscendant().getTotal(), Toast.LENGTH_SHORT).show();
+                Log.d("Response","response :"+partnerReportResponse.toString());
             }
 
             @Override

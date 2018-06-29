@@ -1,6 +1,7 @@
 package tech.iosd.gemselections.AstrologyFragments.RequestFragments;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
@@ -135,8 +136,8 @@ public class MatchMakingInputFragment1 extends Fragment {
                 fpob = ffpob.getText().toString();
                 if (mhtob != 0 && fhtob != 0 && mmtob != 0 && fmtob != 0 && mpob != null && fpob != null) {
                     Bundle args = new Bundle();
-                    mloc = getLocationLatandLong(mpob);
-                    floc = getLocationLatandLong(fpob);
+                    mloc = getLocationLatandLong(mpob,getContext());
+                    floc = getLocationLatandLong(fpob,getContext());
                     MatchMakingSimpleRequest m = new MatchMakingSimpleRequest(mday,mmonth,myear,mhtob,mmtob,mloc[0],mloc[1],(float)5.5
                     ,fday,fmonth,fyear,fhtob,fmtob,floc[0],floc[1],(float)5.5);
                     args.putSerializable("match_making_obj",m);
@@ -170,18 +171,21 @@ public class MatchMakingInputFragment1 extends Fragment {
                             getFragmentManager().beginTransaction().replace(R.id.match_making_container,
                                     matchAstroDetailsFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                     .addToBackStack("Main").commit();
+                            break;
                         case 4:
                             MatchPlanetDetailsFragment matchPlanetDetailsFragment = new MatchPlanetDetailsFragment();
                             matchPlanetDetailsFragment.setArguments(args);
                             getFragmentManager().beginTransaction().replace(R.id.match_making_container,
                                     matchPlanetDetailsFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                     .addToBackStack("Main").commit();
+                            break;
                         case 5:
                             MatchManglikReportFragment matchManglikReportFragment = new MatchManglikReportFragment();
                             matchManglikReportFragment.setArguments(args);
                             getFragmentManager().beginTransaction().replace(R.id.match_making_container,
                                     matchManglikReportFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                     .addToBackStack("Main").commit();
+                            break;
                         case 6:
                             MatchMakingReportFragment matchMakingReportFragment = new MatchMakingReportFragment();
                             matchMakingReportFragment.setArguments(args);
@@ -221,6 +225,7 @@ public class MatchMakingInputFragment1 extends Fragment {
                             getFragmentManager().beginTransaction().replace(R.id.match_making_container,
                                     matchPercentageFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                     .addToBackStack("Main").commit();
+                            break;
 
 
 
@@ -233,11 +238,11 @@ public class MatchMakingInputFragment1 extends Fragment {
         return view;
     }
 
-    private float[] getLocationLatandLong(String location) {
+    public static float[] getLocationLatandLong(String location,Context context) {
         if (Geocoder.isPresent()) {
             try {
                 float[] loc = new float[2];
-                Geocoder gc = new Geocoder(getContext());
+                Geocoder gc = new Geocoder(context);
                 List<Address> addresses = gc.getFromLocationName(location, 5); // get the found Address Objects
                 loc[0] = (float) addresses.get(0).getLatitude();
                 loc[1] = (float) addresses.get(0).getLongitude();

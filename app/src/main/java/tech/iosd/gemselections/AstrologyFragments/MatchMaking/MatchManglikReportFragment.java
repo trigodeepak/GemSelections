@@ -39,7 +39,7 @@ public class MatchManglikReportFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.match_manglik_report_astrology, container, false);
-//todo check response and do the layout and it will work fine
+        //todo response is correct make the layout and it will work fine
         report = view.findViewById(R.id.report);
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Please Wait");
@@ -61,8 +61,7 @@ public class MatchManglikReportFragment extends Fragment {
                 progressDialog.dismiss();
                 MatchManglikReportResponse matchManglikReportResponse = response.body();
                 // List<FemalePlanetDetail> list = matchPlanetDetailsResponse.getFemalePlanetDetails();
-                //todo remove error here the response is not correctly decoded
-                Toast.makeText(view.getContext(), "response:" + matchManglikReportResponse.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "response:" + matchManglikReportResponse.getMale().getManglikPresentRule().getBasedOnAspect().toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

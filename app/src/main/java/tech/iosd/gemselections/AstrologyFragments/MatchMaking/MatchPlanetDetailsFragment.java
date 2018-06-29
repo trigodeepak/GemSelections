@@ -39,7 +39,6 @@ public class MatchPlanetDetailsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.match_planet_details_astrology, container, false);
-        //todo check response and do the layout and it will work fine
         report = view.findViewById(R.id.report);
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Please Wait");
@@ -54,12 +53,13 @@ public class MatchPlanetDetailsFragment extends Fragment {
         //Getting request object from previous fragment
         MatchMakingSimpleRequest matchMakingSimpleRequest = (MatchMakingSimpleRequest) getArguments().getSerializable("match_making_obj");
         astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
+        //todo correct the response the response is not proper and make layout
         Call<MatchPlanetDetailsResponse> call = astrologyApiInterface.getMAtchPlanetDetailsResponse(AstrologyApiInterface.HEADER_TOKEN, matchMakingSimpleRequest);
-        progressDialog.dismiss();
+
         call.enqueue(new Callback<MatchPlanetDetailsResponse>() {
             @Override
             public void onResponse(Call<MatchPlanetDetailsResponse> call, Response<MatchPlanetDetailsResponse> response) {
-
+                progressDialog.dismiss();
                 MatchPlanetDetailsResponse matchPlanetDetailsResponse = response.body();
                 List<FemalePlanetDetail> list = matchPlanetDetailsResponse.getFemalePlanetDetails();
                 Toast.makeText(view.getContext(), "response:" + list.get(0).getName(), Toast.LENGTH_SHORT).show();
