@@ -37,7 +37,6 @@ public class MatchMakingListFragment extends Fragment {
             , "Papasamyam Details"
     };
 
-    MatchMakingInputFragment1 matchMakingInputFragment1 = new MatchMakingInputFragment1();
     Bundle args = new Bundle();
     public MatchMakingListFragment() {
         // Required empty public constructor
@@ -54,91 +53,43 @@ public class MatchMakingListFragment extends Fragment {
 
         ListView listView = view.findViewById(R.id.match_making_list_view);
         listView.setAdapter(arrayAdapter);
-
+        //Todo Fragments keep on overlapping to each other Correct it
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
-
                     case 0:
-
-
-                        args.putInt("caseNo", 0);
-                        matchMakingInputFragment1.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-                        // setFragment(new MatchBirthDetailFragment());
+                        callMatchMakingInputFragment1(0);
                         break;
                     case 1:
-
-
-                        args.putInt("caseNo", 1);
-                        matchMakingInputFragment1.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-                       // setFragment(new MatchAshtakootPointsFragment());
+                        callMatchMakingInputFragment1(1);
                         break;
                     case 2:
-                        args.putInt("caseNo", 2);
-                        matchMakingInputFragment1.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-                        //setFragment(new MatchVedhaObstructionsFragment());
+                        callMatchMakingInputFragment1(2);
                         break;
                     case 3:
-                        setFragment(new MatchAstroDetailsFragment());
+                        callMatchMakingInputFragment1(3);
                         break;
                     case 4:
-                        setFragment(new MatchPlanetDetailsFragment());
+                        callMatchMakingInputFragment1(4);
                         break;
                     case 5:
-                        setFragment(new MatchManglikReportFragment());
+                        callMatchMakingInputFragment1(5);
                         break;
                     case 6:
-                        args.putInt("caseNo", 6);
-                        matchMakingInputFragment1.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-                        //setFragment(new MatchMakingReportFragment());
+                        callMatchMakingInputFragment1(6);
                         break;
                     case 7:
-                        args.putInt("caseNo", 7);
-                        matchMakingInputFragment1.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-                       // setFragment(new MatchSimpleReportFragment());
+                        callMatchMakingInputFragment1(7);
                         break;
                     case 8:
-
-                        args.putInt("caseNo", 8);
-                        matchMakingInputFragment1.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-
-                        //setFragment(new MatchMakingdetailedReportFragment());
+                        callMatchMakingInputFragment1(8);
                         break;
-
                     case 9:
-                        args.putInt("caseNo", 9);
-                        matchMakingInputFragment1.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-                      //  setFragment(new MatchDashakootPointsFragment());
+                        callMatchMakingInputFragment1(9);
                         break;
                     case 10:
-                        args.putInt("caseNo", 10);
-                        matchMakingInputFragment1.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-                        //setFragment(new MatchPercentageFragment());
+                        callMatchMakingInputFragment1(10);
                         break;
                     case 11:
                         args.putInt("caseNo", 11);
@@ -146,17 +97,20 @@ public class MatchMakingListFragment extends Fragment {
                         matchMakingInputFragment2.setArguments(args);
                         getFragmentManager().beginTransaction().replace(R.id.match_making_container,
                                 matchMakingInputFragment2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-
-                       // setFragment(new PartnerReportFragment());
+                        .addToBackStack("Main").commit();
                         break;
                     case 12:
+                        //todo weird activity
                         setFragment(new CustomMatchProfilesFragment());
                         break;
                     case 13:
-                        setFragment(new PapasamyamDetailsFragment());
+                        args.putInt("caseNo", 13);
+                        MatchMakingInputFragment3 matchMakingInputFragment3 = new MatchMakingInputFragment3();
+                        matchMakingInputFragment3.setArguments(args);
+                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                matchMakingInputFragment3).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                .addToBackStack("Main").commit();
                         break;
-
                 }
             }
         });
@@ -170,6 +124,14 @@ public class MatchMakingListFragment extends Fragment {
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .addToBackStack("Main")
                 .commit();
+    }
+    public void callMatchMakingInputFragment1(int i){
+        MatchMakingInputFragment1 matchMakingInputFragment1 = new MatchMakingInputFragment1();
+        args.putInt("caseNo", i);
+        matchMakingInputFragment1.setArguments(args);
+        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                matchMakingInputFragment1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack("Main").commit();
     }
 }
 

@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class FemaleBirthDetails {
 
+    //todo this is a redundant file and can be deleted
     @SerializedName("year")
     @Expose
     private int year;

@@ -16,7 +16,7 @@ public class MatchAstroDetailsResponse {
     private MaleAstroDetails maleAstroDetails;
     @SerializedName("female_astro_details")
     @Expose
-    private FemaleAstroDetails femaleAstroDetails;
+    private MaleAstroDetails femaleAstroDetails;
 
     public MaleAstroDetails getMaleAstroDetails() {
         return maleAstroDetails;
@@ -26,11 +26,11 @@ public class MatchAstroDetailsResponse {
         this.maleAstroDetails = maleAstroDetails;
     }
 
-    public FemaleAstroDetails getFemaleAstroDetails() {
+    public MaleAstroDetails getFemaleAstroDetails() {
         return femaleAstroDetails;
     }
 
-    public void setFemaleAstroDetails(FemaleAstroDetails femaleAstroDetails) {
+    public void setFemaleAstroDetails(MaleAstroDetails femaleAstroDetails) {
         this.femaleAstroDetails = femaleAstroDetails;
     }
 

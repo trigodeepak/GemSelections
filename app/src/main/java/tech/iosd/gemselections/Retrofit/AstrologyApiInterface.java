@@ -276,7 +276,7 @@ public interface AstrologyApiInterface {
 
 
     @POST("match_birth_details")
-    Call<MatchBirthDetailResponse> getMatchBirthDetailResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
+    Call<MatchBirthDetailResponse> getMatchBirthDetailsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
     @POST("match_ashtakoot_points")
     Call<MatchAshtakootPointsResponse> getMatchAshtakootPointsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
@@ -284,7 +284,7 @@ public interface AstrologyApiInterface {
     @POST("match_obstructions")
     Call<MatchObstructionsResponse> getMatchObstructionsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
-    @POST("match_astro_detail")
+    @POST("match_astro_details")
     Call<MatchAstroDetailsResponse> getMatchAstroDetailsResponse(@Header("Authorization") String token, @Body MatchMakingSimpleRequest matchMakingSimpleRequest);
 
     @POST("match_planet_details")

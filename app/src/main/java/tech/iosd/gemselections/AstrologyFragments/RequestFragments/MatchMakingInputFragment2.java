@@ -21,6 +21,7 @@ import java.util.Calendar;
 
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.PartnerReportFragment;
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
 
 /**
  * Created by kushalgupta on 31/03/18.
@@ -65,10 +66,8 @@ public class MatchMakingInputFragment2 extends Fragment {
 
                 DatePickerDialog dialog = new DatePickerDialog(
                         view.getContext(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
                         myear, mmonth, mday);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
@@ -95,10 +94,8 @@ public class MatchMakingInputFragment2 extends Fragment {
 
                 DatePickerDialog dialog = new DatePickerDialog(
                         view.getContext(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         fDateSetListener,
                         fyear, fmonth, fday);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
@@ -117,34 +114,21 @@ public class MatchMakingInputFragment2 extends Fragment {
             @Override
             public void onClick(View view) {
 
-
                 mgender = mgendeR.getText().toString();
                 fgendera = fgender.getText().toString();
                 fName = nameOfPartner.getText().toString();
                 if (mday!=0 && mmonth!=0 && myear!=0 && fday!=0 && fmonth!=0 && fyear!=0 && mgender!=null && fgender!=null && fName!=null) {
                     Bundle args = new Bundle();
-                    args.putInt("mdob", mday);
-                    args.putInt("mmob", mmonth);
-                    args.putInt("myob", myear);
-                    args.putInt("fdob", fday);
-                    args.putInt("fmob", fmonth);
-                    args.putInt("fyob", fyear);
-
-                    args.putString("mgender", mgender);
-                    args.putString("fgender", fgendera);
-                    args.putString("fName",fName);
+                    MatchMakingPartnerReport matchMakingPartnerReport = new MatchMakingPartnerReport(mday, mmonth,
+                            myear, mgender, fday, fmonth, fyear, fgendera, fName);
+                    args.putSerializable("match_making_object",matchMakingPartnerReport);
                     switch (caseNo) {
                         case 11:
-
                             PartnerReportFragment partnerReportFragment = new PartnerReportFragment();
-
                             partnerReportFragment.setArguments(args);
                             getFragmentManager().beginTransaction().replace(R.id.match_making_container,
                                     partnerReportFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                     .addToBackStack("Main").commit();
-
-
-
                     }
                 } else {
                     Toast.makeText(view.getContext(), "All fields are mandatory", Toast.LENGTH_SHORT).show();

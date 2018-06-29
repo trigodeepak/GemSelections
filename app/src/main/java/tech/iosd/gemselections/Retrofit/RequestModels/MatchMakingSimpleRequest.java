@@ -1,12 +1,16 @@
 package tech.iosd.gemselections.Retrofit.RequestModels;
 
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 
 /**
  * Created by kushalgupta on 27/03/18.
  */
 
-public class MatchMakingSimpleRequest {
+public class MatchMakingSimpleRequest implements Serializable {
     @SerializedName("m_day")
     private int mdob;
 

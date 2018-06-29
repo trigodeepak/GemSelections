@@ -44,10 +44,7 @@ public class AstrologyAdapter extends RecyclerView.Adapter<tech.iosd.gemselectio
 
     @Override
     public tech.iosd.gemselections.Adapters.AstrologyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.layout_banner, parent, false);
-
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_banner, parent, false);
         return new tech.iosd.gemselections.Adapters.AstrologyAdapter.ViewHolder(view);
     }
 
@@ -62,38 +59,19 @@ public class AstrologyAdapter extends RecyclerView.Adapter<tech.iosd.gemselectio
             public void onClick(View v) {
                 switch (pos) {
                     case 0:
-                        context.startActivity(new Intent(
-                                context, MatchMakingActivity.class
-                        ));
-
+                        context.startActivity(new Intent(context, MatchMakingActivity.class));
                         break;
-
                     case 1:
-                        context.startActivity(new Intent(
-                                context, WesternAstrologyActivity.class
-                        ));
-
+                        context.startActivity(new Intent(context, WesternAstrologyActivity.class));
                         break;
-
                     case 2:
-                        context.startActivity(new Intent(
-                                context, DailyHoroscopeActivity.class
-                        ));
-
+                        context.startActivity(new Intent(context, DailyHoroscopeActivity.class));
                         break;
-
                     case 3:
-                        context.startActivity(new Intent(
-                                context, IndianAstrologyActivity.class
-                        ));
-
+                        context.startActivity(new Intent(context, IndianAstrologyActivity.class));
                         break;
-
                     case 4:
-                        context.startActivity(new Intent(
-                                context, PdfHoroscopeActivity.class
-                        ));
-
+                        context.startActivity(new Intent(context, PdfHoroscopeActivity.class));
                         break;
                     default:
                         Log.e("Jewel Types", "Wrong item clicked");
@@ -111,18 +89,13 @@ public class AstrologyAdapter extends RecyclerView.Adapter<tech.iosd.gemselectio
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView text;
-
         private ImageView mainImage;
-
         private CardView linearLayout;
-
         public ViewHolder(View itemView) {
-
             super(itemView);
-
-            text = (TextView) itemView.findViewById(R.id.banner_name_tv);
-            mainImage = (ImageView) itemView.findViewById(R.id.banner_main_image);
-            linearLayout = (CardView) itemView.findViewById(R.id.banner_cv);
+            text = itemView.findViewById(R.id.banner_name_tv);
+            mainImage = itemView.findViewById(R.id.banner_main_image);
+            linearLayout = itemView.findViewById(R.id.banner_cv);
         }
     }
 }

@@ -2,11 +2,13 @@ package tech.iosd.gemselections.Retrofit.RequestModels;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by kushalgupta on 27/03/18.
  */
 
-public class MatchMakingPapasamyamReportRequest {
+public class MatchMakingPapasamyamReportRequest implements Serializable {
 
     @SerializedName("day")
     private int mdob;
