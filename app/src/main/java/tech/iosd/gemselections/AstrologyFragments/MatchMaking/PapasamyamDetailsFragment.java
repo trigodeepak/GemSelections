@@ -37,8 +37,7 @@ public class PapasamyamDetailsFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        final MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest = new MatchMakingPapasamyamReportRequest(17, 03,
-                1997,  29, 11, 1997,(float)19.2056,(float)25.2056,"male" );
+        MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest = (MatchMakingPapasamyamReportRequest) getArguments().getSerializable("match_making_object");
         astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
         Call<PapasamyamDetailsResponse> call = astrologyApiInterface.getPapaResponse(AstrologyApiInterface.HEADER_TOKEN, matchMakingPapasamyamReportRequest);
         call.enqueue(new Callback<PapasamyamDetailsResponse>() {

@@ -60,7 +60,7 @@
             android:text="Submit"
             android:backgroundTint="@color/amber_500"
             android:layout_weight="1"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold" />
     </LinearLayout>
 

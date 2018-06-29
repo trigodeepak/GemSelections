@@ -1,12 +1,9 @@
-package tech.iosd.gemselections.AstrologyFragments.RequestFragments;
+package tech.iosd.gemselections.AstrologyFragments.MatchMaking;
 
 import android.app.DatePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,18 +13,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.support.v4.app.Fragment;
 import java.util.Calendar;
-
-import tech.iosd.gemselections.AstrologyFragments.MatchMaking.PartnerReportFragment;
 import tech.iosd.gemselections.R;
-import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
+import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPapasamyamReportRequest;
 
-/**
- * Created by kushalgupta on 31/03/18.
- */
-
-public class MatchMakingInputFragment2 extends Fragment {
+public class MatchMakingInputFragment3 extends Fragment {
     private TextView mDisplayDate, fDisplayDate;
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -36,8 +27,6 @@ public class MatchMakingInputFragment2 extends Fragment {
     private EditText mgendeR,fgender,nameOfPartner;
     private int mmonth, myear, mday, fmonth, fyear, fday, mhtob, mmtob, fhtob, fmtob;
     private String mgender, fgendera,fName;
-
-
 
     @Nullable
     @Override
@@ -119,15 +108,15 @@ public class MatchMakingInputFragment2 extends Fragment {
                 fName = nameOfPartner.getText().toString();
                 if (mday!=0 && mmonth!=0 && myear!=0 && fday!=0 && fmonth!=0 && fyear!=0 && mgender!=null && fgender!=null && fName!=null) {
                     Bundle args = new Bundle();
-                    MatchMakingPartnerReport matchMakingPartnerReport = new MatchMakingPartnerReport(mday, mmonth,
-                            myear, mgender, fday, fmonth, fyear, fgendera, fName);
-                    args.putSerializable("match_making_object",matchMakingPartnerReport);
+                    MatchMakingPapasamyamReportRequest matchMakingPapasamyamReportRequest = new MatchMakingPapasamyamReportRequest(17, 03,
+                            1997,  29, 11, 1997,(float)19.2056,(float)25.2056,"male" );
+                    args.putSerializable("match_making_object",matchMakingPapasamyamReportRequest);
                     switch (caseNo) {
-                        case 11:
-                            PartnerReportFragment partnerReportFragment = new PartnerReportFragment();
-                            partnerReportFragment.setArguments(args);
+                        case 13:
+                            PapasamyamDetailsFragment papasamyamDetailsFragment = new PapasamyamDetailsFragment();
+                            papasamyamDetailsFragment.setArguments(args);
                             getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                    partnerReportFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                    papasamyamDetailsFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                     .addToBackStack("Main").commit();
                     }
                 } else {
@@ -139,5 +128,4 @@ public class MatchMakingInputFragment2 extends Fragment {
         return view;
 
     }
-
 }

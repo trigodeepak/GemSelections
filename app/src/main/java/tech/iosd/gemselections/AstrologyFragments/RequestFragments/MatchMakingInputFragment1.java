@@ -25,11 +25,14 @@ import java.util.Calendar;
 import java.util.List;
 
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchAshtakootPointsFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchAstroDetailsFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchBirthDetailFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchDashakootPointsFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchMakingReportFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchMakingdetailedReportFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchManglikReportFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchPercentageFragment;
+import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchPlanetDetailsFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchSimpleReportFragment;
 import tech.iosd.gemselections.AstrologyFragments.MatchMaking.MatchVedhaObstructionsFragment;
 import tech.iosd.gemselections.R;
@@ -76,13 +79,10 @@ public class MatchMakingInputFragment1 extends Fragment {
                 myear = 1997;
                 mmonth = cal.get(Calendar.MONTH);
                 mday = cal.get(Calendar.DAY_OF_MONTH);
-
                 DatePickerDialog dialog = new DatePickerDialog(
                         view.getContext(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
                         myear, mmonth, mday);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
@@ -106,13 +106,10 @@ public class MatchMakingInputFragment1 extends Fragment {
                 fyear = 1997;
                 fmonth = cal.get(Calendar.MONTH);
                 fday = cal.get(Calendar.DAY_OF_MONTH);
-
                 DatePickerDialog dialog = new DatePickerDialog(
                         view.getContext(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         fDateSetListener,
                         fyear, fmonth, fday);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
@@ -121,7 +118,6 @@ public class MatchMakingInputFragment1 extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int fyear, int fmonth, int fday) {
                 fmonth = fmonth + 1;
-
                 String date = fmonth + "/" + fday + "/" + fyear;
                 fDisplayDate.setText(date);
             }
@@ -168,6 +164,24 @@ public class MatchMakingInputFragment1 extends Fragment {
                                     matchVedhaObstructionsFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                                     .addToBackStack("Main").commit();
                             break;
+                        case 3:
+                            MatchAstroDetailsFragment matchAstroDetailsFragment = new MatchAstroDetailsFragment();
+                            matchAstroDetailsFragment.setArguments(args);
+                            getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                    matchAstroDetailsFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                    .addToBackStack("Main").commit();
+                        case 4:
+                            MatchPlanetDetailsFragment matchPlanetDetailsFragment = new MatchPlanetDetailsFragment();
+                            matchPlanetDetailsFragment.setArguments(args);
+                            getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                    matchPlanetDetailsFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                    .addToBackStack("Main").commit();
+                        case 5:
+                            MatchManglikReportFragment matchManglikReportFragment = new MatchManglikReportFragment();
+                            matchManglikReportFragment.setArguments(args);
+                            getFragmentManager().beginTransaction().replace(R.id.match_making_container,
+                                    matchManglikReportFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                                    .addToBackStack("Main").commit();
                         case 6:
                             MatchMakingReportFragment matchMakingReportFragment = new MatchMakingReportFragment();
                             matchMakingReportFragment.setArguments(args);

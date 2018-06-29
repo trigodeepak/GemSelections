@@ -46,26 +46,12 @@ public class PartnerReportFragment extends Fragment {
         progressDialog.setMessage("Loading ... ");
         progressDialog.show();
 
-
-        int mdob = getArguments().getInt("mdob");
-        int mmob = getArguments().getInt("mmob");
-        int myob = getArguments().getInt("myob");
-        int fdob = getArguments().getInt("fdob");
-        int fmob = getArguments().getInt("fmob");
-        int fyob = getArguments().getInt("fyob");
-        String mgender = getArguments().getString("mgender");
-        String fgender = getArguments().getString("fgender");
-
-        String fname = getArguments().getString("fName");
-
-
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://json.astrologyapi.com/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        final MatchMakingPartnerReport matchMakingPartnerReport = new MatchMakingPartnerReport(mdob, mmob,
-                myob, mgender, fdob, fmob, fyob, fgender, fname);
+        MatchMakingPartnerReport matchMakingPartnerReport = (MatchMakingPartnerReport) getArguments().getSerializable("match_making_object");
         astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
         Call<PartnerReportResponse> call = astrologyApiInterface.getPartnerReportResponse(AstrologyApiInterface.HEADER_TOKEN, matchMakingPartnerReport);
         call.enqueue(new Callback<PartnerReportResponse>() {
