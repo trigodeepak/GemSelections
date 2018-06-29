@@ -13,7 +13,7 @@ public class MatchBirthDetailResponse {
     private MaleBirthDetails maleBirthDetails;
     @SerializedName("female_birth_details")
     @Expose
-    private FemaleBirthDetails femaleBirthDetails;
+    private MaleBirthDetails femaleBirthDetails;
 
     public MaleBirthDetails getMaleBirthDetails() {
         return maleBirthDetails;
@@ -23,11 +23,11 @@ public class MatchBirthDetailResponse {
         this.maleBirthDetails = maleBirthDetails;
     }
 
-    public FemaleBirthDetails getFemaleBirthDetails() {
+    public MaleBirthDetails getFemaleBirthDetails() {
         return femaleBirthDetails;
     }
 
-    public void setFemaleBirthDetails(FemaleBirthDetails femaleBirthDetails) {
+    public void setFemaleBirthDetails(MaleBirthDetails femaleBirthDetails) {
         this.femaleBirthDetails = femaleBirthDetails;
     }
 

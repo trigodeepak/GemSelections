@@ -17,7 +17,7 @@ public class MatchManglikReportResponse {
     private Male male;
     @SerializedName("female")
     @Expose
-    private Female female;
+    private Male female;
     @SerializedName("conclusion")
     @Expose
     private Conclusion conclusion;
@@ -30,11 +30,11 @@ public class MatchManglikReportResponse {
         this.male = male;
     }
 
-    public Female getFemale() {
+    public Male getFemale() {
         return female;
     }
 
-    public void setFemale(Female female) {
+    public void setFemale(Male female) {
         this.female = female;
     }
 

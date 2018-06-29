@@ -10,7 +10,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class FemaleAstroDetails {
-
+    //todo this file is redundant and can be deleted
     @SerializedName("Varna")
     @Expose
     private String varna;

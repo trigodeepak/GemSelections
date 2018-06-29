@@ -39,8 +39,7 @@ public class MatchMakingInputFragment3 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.match_making_input3, container, false);
-        //todo make layout to take input of data only one person and gender at last
-        mDisplayDate = (TextView) view.findViewById(R.id.tv_mDate);
+        mDisplayDate = view.findViewById(R.id.tv_mDate);
         Button submitButton = view.findViewById(R.id.bt_submit);
         mmhtob = view.findViewById(R.id.et_mhtob);
         mmmtob = view.findViewById(R.id.et_mmtob);
@@ -103,10 +102,9 @@ public class MatchMakingInputFragment3 extends Fragment {
                 }
             }
         });
-
         return view;
-
     }
+
     public static float[] getLocationLatandLong(String location,Context context) {
         if (Geocoder.isPresent()) {
             try {

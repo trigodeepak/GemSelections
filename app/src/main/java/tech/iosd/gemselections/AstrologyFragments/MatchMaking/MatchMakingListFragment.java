@@ -37,7 +37,6 @@ public class MatchMakingListFragment extends Fragment {
             , "Papasamyam Details"
     };
 
-    MatchMakingInputFragment1 matchMakingInputFragment1 = new MatchMakingInputFragment1();
     Bundle args = new Bundle();
     public MatchMakingListFragment() {
         // Required empty public constructor
@@ -59,7 +58,6 @@ public class MatchMakingListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
-                    //todo have some error in a switch case
                     case 0:
                         callMatchMakingInputFragment1(0);
                         break;
@@ -128,6 +126,7 @@ public class MatchMakingListFragment extends Fragment {
                 .commit();
     }
     public void callMatchMakingInputFragment1(int i){
+        MatchMakingInputFragment1 matchMakingInputFragment1 = new MatchMakingInputFragment1();
         args.putInt("caseNo", i);
         matchMakingInputFragment1.setArguments(args);
         getFragmentManager().beginTransaction().replace(R.id.match_making_container,

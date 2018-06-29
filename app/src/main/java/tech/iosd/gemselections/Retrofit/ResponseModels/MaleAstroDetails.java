@@ -172,6 +172,7 @@ public class MaleAstroDetails {
     }
 
     public String getNameAlphabet() {
+        //todo this is a list of strings in the api
         return nameAlphabet;
     }
 

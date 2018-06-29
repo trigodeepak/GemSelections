@@ -10,7 +10,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Female {
-
+    //todo this file should be deleted it is same as male model
     @SerializedName("manglik_present_rule")
     @Expose
     private ManglikPresentRule_ manglikPresentRule;
