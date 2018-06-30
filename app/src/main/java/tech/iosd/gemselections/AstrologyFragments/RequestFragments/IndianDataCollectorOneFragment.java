@@ -179,28 +179,28 @@ public class IndianDataCollectorOneFragment extends Fragment {
                             case 15:
                                 setFragment(new GemstoneSuggestionFragment());
                                 break;
+//                            case 16:
+//                                setFragment(new NumerologyGemstoneSuggestionFragment()); //TODO: KARNA HAI
+//                                break;
                             case 16:
-                                setFragment(new NumerologyGemstoneSuggestionFragment()); //TODO: KARNA HAI
-                                break;
-                            case 17:
                                 setFragment(new BasicPanchangFragment());
                                 break;
-                            case 18:
+                            case 17:
                                 setFragment(new PlanetPanchangFragment());
                                 break;
-                            case 19:
+                            case 18:
                                 setFragment(new YoginiDashaFragment());
                                 break;
-                            case 20:
+                            case 19:
                                 setFragment(new NumerologyReportFragment());
                                 break;
-                            case 21:
+                            case 20:
                                 setFragment(new NumerologyFavorableTimeFragment());
                                 break;
-                            case 22:
+                            case 21:
                                 setFragment(new NumerologyPlaceVastuFragment());
                                 break;
-                            case 23:
+                            case 22:
                                 setFragment(new NumerologyDailyPredictionFragment());
                                 break;
 
