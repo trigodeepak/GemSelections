@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -271,6 +272,10 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<MonthlyPredictionResponse> call, Throwable t) {
                 Toast.makeText(DailyHoroscopeActivity.this, "Failed to connect. "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("Response",t.getMessage());
+                //You can not deserialize the same JSON in two ways, as array and as an object, if your JSON is an array,
+                // deserialize it as an array, if you JSON is an object deserialize it
+                // as an object but you can not deserialize in both ways.//todo Solve this error expecting string but giving array
 
             }
         });

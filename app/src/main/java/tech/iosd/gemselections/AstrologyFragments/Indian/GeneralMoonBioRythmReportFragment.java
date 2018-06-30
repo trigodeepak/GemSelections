@@ -164,7 +164,7 @@ public class GeneralMoonBioRythmReportFragment extends Fragment {
                         }
 
                         try {
-                            responseTextView.append("\nDay : \n");
+                            responseTextView.append("\nDay : ");
 
                             for (int i = 0; i < response.body().getActivityCycle().getDay().size(); i++) {
                                 responseTextView.append("\nStart Time : " + response.body().getActivityCycle().getDay().get(i).getStartTime());
@@ -179,14 +179,14 @@ public class GeneralMoonBioRythmReportFragment extends Fragment {
                         }
 
                         try {
-                            responseTextView.append("\nNight : \n");
+                            responseTextView.append("\nNight : ");
 
                             for (int i = 0; i < response.body().getActivityCycle().getNight().size(); i++) {
-                                responseTextView.append("Start Time : " + response.body().getActivityCycle().getNight().get(i).getStartTime());
-                                responseTextView.append("End Time : " + response.body().getActivityCycle().getNight().get(i).getEndTime());
-                                responseTextView.append("Start Hours : " + response.body().getActivityCycle().getNight().get(i).getStartHours());
-                                responseTextView.append("End Hours : " + response.body().getActivityCycle().getNight().get(i).getEndHours());
-                                responseTextView.append("Activity : " + response.body().getActivityCycle().getNight().get(i).getActivity());
+                                responseTextView.append("\nStart Time : " + response.body().getActivityCycle().getNight().get(i).getStartTime());
+                                responseTextView.append("\nEnd Time : " + response.body().getActivityCycle().getNight().get(i).getEndTime());
+                                responseTextView.append("\nStart Hours : " + response.body().getActivityCycle().getNight().get(i).getStartHours());
+                                responseTextView.append("\nEnd Hours : " + response.body().getActivityCycle().getNight().get(i).getEndHours());
+                                responseTextView.append("\nActivity : " + response.body().getActivityCycle().getNight().get(i).getActivity());
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

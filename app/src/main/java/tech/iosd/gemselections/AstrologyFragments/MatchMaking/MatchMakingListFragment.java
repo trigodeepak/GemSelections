@@ -53,7 +53,7 @@ public class MatchMakingListFragment extends Fragment {
 
         ListView listView = view.findViewById(R.id.match_making_list_view);
         listView.setAdapter(arrayAdapter);
-        //Todo Fragments keep on overlapping to each other Correct it
+        //Todo There is fragment inconsistency correct it
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
