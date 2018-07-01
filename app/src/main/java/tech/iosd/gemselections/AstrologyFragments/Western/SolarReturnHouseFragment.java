@@ -54,6 +54,7 @@ public class SolarReturnHouseFragment extends Fragment {
         vertexTextView = view.findViewById(R.id.solar_house_return_vertex);
         midheavenTextView = view.findViewById(R.id.solar_house_return_midheaven);
         solarReturnPlanetRecyclerView = view.findViewById(R.id.western_solar_return_house_recycler_view);
+        solarReturnPlanetRecyclerView.setNestedScrollingEnabled(false);
 
         AstrologyApiInterface astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
 

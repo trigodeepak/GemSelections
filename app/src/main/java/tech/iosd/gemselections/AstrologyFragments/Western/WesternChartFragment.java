@@ -48,6 +48,9 @@ public class WesternChartFragment extends Fragment {
         houseRecyclerView = view.findViewById(R.id.western_horoscope_house_recycler_list);
         aspectRecyclerView = view.findViewById(R.id.western_horoscope_aspect_recycler_list);
 //        planetRecyclerView = view.findViewById(R.id.western_horoscope_planet_recycler_list);
+        houseRecyclerView.setNestedScrollingEnabled(false);
+        aspectRecyclerView.setNestedScrollingEnabled(false);
+
         view.findViewById(R.id.western_chart_card_2).setVisibility(View.INVISIBLE);
 
 

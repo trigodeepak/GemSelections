@@ -50,6 +50,10 @@ public class MonthlyTransitFragment extends Fragment {
         View view = inflater.inflate(R.layout.western_weekly_transit_frag, container, false);
         weeklyTransitRecyclerView = view.findViewById(R.id.weekly_transit_recycler_view);
         weeklyMoonPhaseRecyclerView = view.findViewById(R.id.weekly_transit_moon_phase_recycler_view);
+
+        weeklyMoonPhaseRecyclerView.setNestedScrollingEnabled(false);
+        weeklyTransitRecyclerView.setNestedScrollingEnabled(false);
+
         startDateTextView = view.findViewById(R.id.weekly_transit_week_start_date);
         endDateTextView = view.findViewById(R.id.weekly_transit_week_end_date);
         ascendantTextView = view.findViewById(R.id.weekly_transit_ascendant);

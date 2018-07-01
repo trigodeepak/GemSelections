@@ -61,10 +61,14 @@ public class SynastryFragment extends Fragment {
 //        final TextView ascendantTextView = view.findViewById(R.id.western_composite_ascendant);
 //        final TextView midHeavenTextView = view.findViewById(R.id.western_composite_midheaven);
 
+        compositeAspectRecyclerView.setNestedScrollingEnabled(false);
+        compositeFirstRecyclerView.setNestedScrollingEnabled(false);
+        compositeHouseRecyclerView.setNestedScrollingEnabled(false);
+        compositeSecondRecyclerView.setNestedScrollingEnabled(false);
 
-        view.findViewById(R.id.western_composite_chart_card_0).setVisibility(View.INVISIBLE);
-        view.findViewById(R.id.western_composite_chart_card_3).setVisibility(View.INVISIBLE);
-        view.findViewById(R.id.western_composite_chart_card_4).setVisibility(View.INVISIBLE);
+        view.findViewById(R.id.western_composite_chart_card_0).setVisibility(View.GONE);
+        view.findViewById(R.id.western_composite_chart_card_3).setVisibility(View.GONE);
+        view.findViewById(R.id.western_composite_chart_card_4).setVisibility(View.GONE);
 
         final AstrologyApiClient astrologyApiClient = new AstrologyApiClient();
         retrofit = astrologyApiClient.getRetrofit();

@@ -58,6 +58,14 @@ public class CompositeHoroscopeFragment extends Fragment {
         compositeHouseRecyclerView = view.findViewById(R.id.western_composite_house_recycler_list);
         compositeSecondRecyclerView = view.findViewById(R.id.western_composite_second_recycler_list);
         compositePlanetRecyclerView = view.findViewById(R.id.western_composite_planet_recycler_list);
+
+        compositeAspectRecyclerView.setNestedScrollingEnabled(false);
+        compositeFirstRecyclerView.setNestedScrollingEnabled(false);
+        compositeHouseRecyclerView.setNestedScrollingEnabled(false);
+        compositeSecondRecyclerView.setNestedScrollingEnabled(false);
+        compositePlanetRecyclerView.setNestedScrollingEnabled(false);
+
+
         final TextView ascendantTextView = view.findViewById(R.id.western_composite_ascendant);
         final TextView midHeavenTextView = view.findViewById(R.id.western_composite_midheaven);
 
