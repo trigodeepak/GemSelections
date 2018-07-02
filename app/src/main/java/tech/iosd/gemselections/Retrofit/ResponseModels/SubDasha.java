@@ -10,9 +10,6 @@ public class SubDasha {
     @SerializedName("sign_name")
     @Expose
     private String signName;
-    @SerializedName("dasha_name")
-    @Expose
-    private String dashaName;
     @SerializedName("duration")
     @Expose
     private String duration;
@@ -57,14 +54,6 @@ public class SubDasha {
 
     public String getEndDate() {
         return endDate;
-    }
-
-    public String getDashaName() {
-        return dashaName;
-    }
-
-    public void setDashaName(String dashaName) {
-        this.dashaName = dashaName;
     }
 
     public void setEndDate(String endDate) {

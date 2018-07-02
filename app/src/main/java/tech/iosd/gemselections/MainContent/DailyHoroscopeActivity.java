@@ -262,7 +262,11 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             public void onResponse(Call<MonthlyPredictionResponse> call, Response<MonthlyPredictionResponse> response) {
                 if(response.isSuccessful()){
                     titleTextView.setText(sunSign+" for "+response.body().getPredictionMonth());
-                    detailsTextView.setText(response.body().getPrediction());
+                    StringBuffer sb = new StringBuffer("");
+                    for(int i=0;i<response.body().getPrediction().size();i++){
+                        sb.append(response.body().getPrediction().get(i));
+                    }
+                    detailsTextView.setText(sb.toString());
                 }
                 else
                     Toast.makeText(DailyHoroscopeActivity.this, "Couldn't connect. Error : " + response.code(), Toast.LENGTH_SHORT).show();
@@ -273,10 +277,6 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             public void onFailure(Call<MonthlyPredictionResponse> call, Throwable t) {
                 Toast.makeText(DailyHoroscopeActivity.this, "Failed to connect. "+t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("Response",t.getMessage());
-                //You can not deserialize the same JSON in two ways, as array and as an object, if your JSON is an array,
-                // deserialize it as an array, if you JSON is an object deserialize it
-                // as an object but you can not deserialize in both ways.//todo Solve this error expecting string but giving array
-
             }
         });
     }

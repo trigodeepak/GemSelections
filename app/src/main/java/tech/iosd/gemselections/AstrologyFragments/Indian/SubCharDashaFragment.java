@@ -69,6 +69,7 @@ public class SubCharDashaFragment extends Fragment {
                     Log.d("TAGGER", "RESPONSE CODE : " + response.code());
                     Log.d("TAGGER", "RESPONSE BODY : " + response.body());
                     progressDialog.dismiss();
+//                    todo response is not coming correct
                     if (response.isSuccessful() && response.body() != null) {
 //                        String responseString = "";
                         Log.d("TAGGER", "RESPONSE SUCCESS");
@@ -81,11 +82,11 @@ public class SubCharDashaFragment extends Fragment {
                             responseTextView.append("\nEnd Date : " + response.body().getMajorDasha().getEndDate()+"\n\n");
 
 
-                            for (int i = 0; i < response.body().getSubDasha().size(); i++) {
-                                responseTextView.append("\n\t\tSign Name : " + response.body().getSubDasha().get(i).getSignName());
-                                responseTextView.append("\n\t\tStart Date : " + response.body().getSubDasha().get(i).getStartDate());
-                                responseTextView.append("\n\t\tEnd Date : " + response.body().getSubDasha().get(i).getEndDate() + "\n");
-                            }
+//                            for (int i = 0; i < response.body().getSubDasha().size(); i++) {
+//                                responseTextView.append("\n\t\tSign Name : " + response.body().getSubDasha().get(i).getSignName());
+//                                responseTextView.append("\n\t\tStart Date : " + response.body().getSubDasha().get(i).getStartDate());
+//                                responseTextView.append("\n\t\tEnd Date : " + response.body().getSubDasha().get(i).getEndDate() + "\n");
+//                            }
 
                         } catch (Exception e) {
                             e.printStackTrace();

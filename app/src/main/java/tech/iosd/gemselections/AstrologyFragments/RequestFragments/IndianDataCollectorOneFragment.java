@@ -144,7 +144,7 @@ public class IndianDataCollectorOneFragment extends Fragment {
                                 setFragment(new GeneralMoonBioRythmReportFragment());
                                 break;
                             case 4:
-                                setFragment(new GeneralHoroscopeReportChartFragment()); //TODO: BAAD MEIN KARENGE
+                                setFragment(new GeneralHoroscopeReportChartFragment());
                                 break;
                             case 5:
                                 setFragment(new KalSarpaDetailsFragment());

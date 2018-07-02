@@ -18,7 +18,7 @@ public class BasicAstroPlanetsResponse {
     private double normDegree;
     @SerializedName("speed")
     @Expose
-    private long speed;
+    private double speed;
     @SerializedName("isRetro")
     @Expose
     private boolean isRetro;
@@ -70,7 +70,7 @@ public class BasicAstroPlanetsResponse {
         this.normDegree = normDegree;
     }
 
-    public long getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 

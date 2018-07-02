@@ -3,6 +3,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by anubhavmalik on 06/03/18.
@@ -16,13 +17,9 @@ public class MonthlyPredictionResponse implements Serializable {
     private String predictionMonth;
 
     @SerializedName("prediction")
-    private String prediction;
+    private List<String> prediction;
 
-    public MonthlyPredictionResponse() {
-    }
-
-    public MonthlyPredictionResponse(String sunSign, String predictionMonth, String prediction) {
-
+    public MonthlyPredictionResponse(String sunSign, String predictionMonth, List<String> prediction) {
         this.sunSign = sunSign;
         this.predictionMonth = predictionMonth;
         this.prediction = prediction;
@@ -44,11 +41,16 @@ public class MonthlyPredictionResponse implements Serializable {
         this.predictionMonth = predictionMonth;
     }
 
-    public String getPrediction() {
+    public List<String> getPrediction() {
         return prediction;
     }
 
-    public void setPrediction(String prediction) {
+    public void setPrediction(List<String> prediction) {
         this.prediction = prediction;
     }
+
+    public MonthlyPredictionResponse() {
+    }
+
+
 }

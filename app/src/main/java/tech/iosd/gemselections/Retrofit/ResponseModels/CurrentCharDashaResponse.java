@@ -3,6 +3,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CurrentCharDashaResponse {
@@ -15,9 +16,10 @@ public class CurrentCharDashaResponse {
     @SerializedName("sub_dasha")
     @Expose
     private SubDasha subDasha;
+    //todo error is here Expected BEGIN_ARRAY but was BEGIN_OBJECT still not resolved
     @SerializedName("sub_sub_dasha")
     @Expose
-    private List<SubSubDasha> subSubDasha = null;
+    private SubDashaArrayObj subSubDashaObject;
 
     public String getDashaDate() {
         return dashaDate;
@@ -43,12 +45,30 @@ public class CurrentCharDashaResponse {
         this.subDasha = subDasha;
     }
 
-    public List<SubSubDasha> getSubSubDasha() {
-        return subSubDasha;
+    public SubDashaArrayObj getSubSubDasha() {
+        return subSubDashaObject;
     }
 
-    public void setSubSubDasha(List<SubSubDasha> subSubDasha) {
-        this.subSubDasha = subSubDasha;
+    public void setSubSubDasha(SubDashaArrayObj subSubDasha) {
+        this.subSubDashaObject = subSubDasha;
     }
 
+    public class SubDashaArrayObj {
+        private SubSubDasha[] subSubDashas = new SubSubDasha[12];
+
+        public SubSubDasha[] getSubSubDashas() {
+            return subSubDashas;
+        }
+
+        public void setSubSubDashas(SubSubDasha[] subSubDashas) {
+            this.subSubDashas = subSubDashas;
+        }
+        public SubDashaArrayObj(){
+
+        }
+
+        public SubDashaArrayObj(SubSubDasha[] subSubDashas) {
+            this.subSubDashas = subSubDashas;
+        }
+    }
 }

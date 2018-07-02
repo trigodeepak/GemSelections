@@ -76,7 +76,7 @@ public class MajorCharDashaFragment  extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                            responseString = responseString.concat(response.body().getReport().get(i));
                         try {
-                            responseTextView.append("\n\n\nMajor Char Dasha : ");
+                            responseTextView.append("Major Char Dasha : \n");
 
 
                             for (int i = 0; i < response.body().size(); i++) {
