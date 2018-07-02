@@ -48,7 +48,7 @@ public class SolarReturnPlanetFragment extends Fragment{
         retrofit = astrologyApiClient.getRetrofit();
 
         solarReturnPlanetRecyclerView = view.findViewById(R.id.western_solar_return_planet_recycler_view);
-
+        solarReturnPlanetRecyclerView.setNestedScrollingEnabled(false);
         AstrologyApiInterface astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
 
         final ProgressDialog progressDialog = new ProgressDialog(getContext());

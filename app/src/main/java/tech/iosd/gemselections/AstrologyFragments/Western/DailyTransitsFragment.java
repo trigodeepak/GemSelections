@@ -49,7 +49,8 @@ public class DailyTransitsFragment extends Fragment {
 
         transitHouseRecyclerView = view.findViewById(R.id.western_transit_recycler_list_one);
         transitRelationRecyclerView = view.findViewById(R.id.western_transit_recycler_list_two);
-
+        transitHouseRecyclerView.setNestedScrollingEnabled(false);
+        transitRelationRecyclerView.setNestedScrollingEnabled(false);
         AstrologyApiClient astrologyApiClient = new AstrologyApiClient();
         retrofit = astrologyApiClient.getRetrofit();
 
