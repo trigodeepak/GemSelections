@@ -271,7 +271,7 @@ public class DailyHoroscopesFragment extends Fragment {
             public void onResponse(Call<MonthlyPredictionResponse> call, Response<MonthlyPredictionResponse> response) {
                 if(response.isSuccessful()){
                     titleTextView.setText(sunSign+" for "+response.body().getPredictionMonth());
-                    detailsTextView.setText(response.body().getPrediction());
+                    detailsTextView.setText(response.body().getPrediction().get(0));
                 }
                 else
                     Toast.makeText(getContext(), "Couldn't connect. Error : " + response.code(), Toast.LENGTH_SHORT).show();

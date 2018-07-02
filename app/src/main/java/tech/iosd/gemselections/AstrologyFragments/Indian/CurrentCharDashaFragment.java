@@ -91,12 +91,13 @@ public class CurrentCharDashaFragment  extends Fragment {
 
                             responseTextView.append("\n\nSUB SUB DASHA ");
 
-
-                            for (int i = 0; i < response.body().getSubSubDasha().size(); i++) {
-                                responseTextView.append("\n\t\tSign Name : " + response.body().getSubSubDasha().get(i).getSignName());
-                                responseTextView.append("\n\t\tStart Date : " + response.body().getSubSubDasha().get(i).getStartDate());
-                                responseTextView.append("\n\t\tEnd Date : " + response.body().getSubSubDasha().get(i).getEndDate());
-                            }
+                            CurrentCharDashaResponse.SubDashaArrayObj obj = response.body().getSubSubDasha();
+                            Log.d("REsponse"," "+obj.getSubSubDashas()[0].getEndDate());
+//                            for (int i = 0; i <12; i++) {
+//                                responseTextView.append("\n\t\tSign Name : " + .get(i).getSignName());
+//                                responseTextView.append("\n\t\tStart Date : " + response.body().getSubSubDasha().getSubSubDashas().get(i).getStartDate());
+//                                responseTextView.append("\n\t\tEnd Date : " + response.body().getSubSubDasha().getSubSubDashas().get(i).getEndDate());
+//                            }
 
                         } catch (Exception e) {
                             e.printStackTrace();

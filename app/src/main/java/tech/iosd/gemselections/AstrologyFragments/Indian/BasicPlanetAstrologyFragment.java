@@ -75,7 +75,7 @@ public class BasicPlanetAstrologyFragment extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                            responseString = responseString.concat(response.body().getReport().get(i));
                         try {
-                            responseTextView.append("\n\n ");
+                            responseTextView.append("");
 
                             for (int i = 0; i < response.body().size(); i++) {
                                 responseTextView.append("\nName : " + response.body().get(i).getName());

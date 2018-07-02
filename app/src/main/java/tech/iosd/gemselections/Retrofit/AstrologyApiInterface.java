@@ -210,7 +210,7 @@ public interface AstrologyApiInterface {
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
-
+    //add planet Name
     @POST("personalized_planet_prediction/daily/{planetName}")
     Call<PersonalizedPlanetPredictionResponse> getPersonalizedPrediction(
             @Header("Authorization") String token,
@@ -356,10 +356,9 @@ public interface AstrologyApiInterface {
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
-    @POST("horo_chart/{:chart_id}")
+    @POST("horo_chart/MOON")
     Call<List<GeneralHoroscopeChartReportResponse>> getGeneralHoroscopeChartReport(
             @Header("Authorization") String token,
-            @Path(":chart_id") String chartId,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
     @POST("kalsarpa_details")
@@ -367,7 +366,7 @@ public interface AstrologyApiInterface {
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);
 
-    @POST("basic_astro")
+    @POST("birth_details")
     Call<BasicAstroResponse> getBasicAstro(
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest);

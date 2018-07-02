@@ -26,6 +26,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.CurrentYoginiDashaRespons
 import tech.iosd.gemselections.Utils.Constants;
 
 public class CurrentYoginiDashaFragment extends Fragment {
+    //todo this fragment is never used and is replaced by another working fragment can be deleted
     Retrofit retrofit;
     ArrayList<String> arrayList = new ArrayList<>();
 
@@ -75,20 +76,18 @@ public class CurrentYoginiDashaFragment extends Fragment {
 //                            responseString = responseString.concat(response.body().getReport().get(i));
                         try {
                             responseTextView.append("\n\nMAJOR DASHA : \n");
-                            responseTextView.append("\n\t\tDasha Name : " + response.body().getMajorDasha().getDashaName());
                             responseTextView.append("\n\t\tDuration : " + response.body().getMajorDasha().getDuration());
                             responseTextView.append("\n\t\tStart Date : " + response.body().getMajorDasha().getStartDate());
                             responseTextView.append("\n\t\tEnd Date : " + response.body().getMajorDasha().getEndDate());
 
-                            responseTextView.append("\n\nSUB DASHA : \n");
-                            responseTextView.append("\n\t\tDasha Name : " + response.body().getSubDasha().getDashaName());
-                            responseTextView.append("\n\t\tStart Date : " + response.body().getSubDasha().getStartDate());
-                            responseTextView.append("\n\t\tEnd Date : " + response.body().getSubDasha().getEndDate());
-
-                            responseTextView.append("\n\nSUB SUB DASHA \n");
-                            responseTextView.append("\n\t\tSign Name : " + response.body().getSubSubDasha().getDashaName());
-                            responseTextView.append("\n\t\tStart Date : " + response.body().getSubSubDasha().getStartDate());
-                            responseTextView.append("\n\t\tEnd Date : " + response.body().getSubSubDasha().getEndDate());
+//                            responseTextView.append("\n\nSUB DASHA : \n");
+//                            responseTextView.append("\n\t\tStart Date : " + response.body().getSubDasha().getStartDate());
+//                            responseTextView.append("\n\t\tEnd Date : " + response.body().getSubDasha().getEndDate());
+//
+//                            responseTextView.append("\n\nSUB SUB DASHA \n");
+//
+//                            responseTextView.append("\n\t\tStart Date : " + response.body().getSubSubDasha().getStartDate());
+//                            responseTextView.append("\n\t\tEnd Date : " + response.body().getSubSubDasha().getEndDate());
 
                         } catch (Exception e) {
                             e.printStackTrace();

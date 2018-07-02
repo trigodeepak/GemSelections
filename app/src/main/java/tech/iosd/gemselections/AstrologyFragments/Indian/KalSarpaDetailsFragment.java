@@ -39,13 +39,13 @@ public class KalSarpaDetailsFragment extends Fragment {
 
         AstrologyApiInterface astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
         final TextView responseTextView = view.findViewById(R.id.general_report_text_view);
-
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Please Wait");
         progressDialog.setMessage("Loading ... ");
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
+
 //        bundle = new Bundle();
         if (bundle != null) {
 
@@ -62,6 +62,7 @@ public class KalSarpaDetailsFragment extends Fragment {
 
             Call<KalSarpaDetailsResponse> call = astrologyApiInterface
                     .getKalSarpaDetails(AstrologyApiInterface.HEADER_TOKEN, westernAstrologySimpleRequest);
+
 
             call.enqueue(new Callback<KalSarpaDetailsResponse>() {
                 @Override
@@ -80,7 +81,14 @@ public class KalSarpaDetailsFragment extends Fragment {
                             responseTextView.append("\nType : " + response.body().getType());
                             responseTextView.append("\nOne Line : " + response.body().getOneLine());
                             responseTextView.append("\nHouse Id : " + response.body().getReport().getHouseId());
-                            responseTextView.append("\nReport : " + response.body().getReport().getReport());
+                            String report = response.body().getReport().getReport();
+                            report = report.replace("<p>","");
+                            report = report.replace("</p>","");
+                            responseTextView.append("\nReport : " + report);
+                            //To remove the last hanging words
+                            responseTextView.setPadding(0,0,0,30);
+
+
 
                         } catch (Exception e) {
                             e.printStackTrace();

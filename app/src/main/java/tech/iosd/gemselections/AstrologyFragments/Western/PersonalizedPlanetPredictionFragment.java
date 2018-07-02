@@ -40,7 +40,7 @@ public class PersonalizedPlanetPredictionFragment extends Fragment {
 
         AstrologyApiClient astrologyApiClient = new AstrologyApiClient();
         retrofit = astrologyApiClient.getRetrofit();
-        //todo response is not correct
+
         AstrologyApiInterface astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
         final TextView responseTextView = view.findViewById(R.id.general_report_text_view);
 
@@ -68,7 +68,7 @@ public class PersonalizedPlanetPredictionFragment extends Fragment {
 //                ,Constants.PRIMARY_LNG
 //                ,Constants.TIMEZONE);
 
-
+            //todo the request is not proper and response is half
             Call<PersonalizedPlanetPredictionResponse> call = astrologyApiInterface
                     .getPersonalizedPrediction(AstrologyApiInterface.HEADER_TOKEN, westernAstrologySimpleRequest);
 
