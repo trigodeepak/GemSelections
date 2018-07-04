@@ -54,21 +54,24 @@ public class MatchBirthDetailFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        //todo correct the response code or there is api error
         astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
         Call<MatchBirthDetailResponse> call = astrologyApiInterface.getMatchBirthDetailsResponse(AstrologyApiInterface.HEADER_TOKEN, matchMakingSimpleRequest);
         call.enqueue(new Callback<MatchBirthDetailResponse>() {
             @Override
             public void onResponse(Call<MatchBirthDetailResponse> call, Response<MatchBirthDetailResponse> response) {
-                Log.d("Testing api",String.valueOf(response.body()));
+                if (response.isSuccessful()){
+                    Log.d("error77","success\n"+String.valueOf(response));
+
+                }
+                Log.d("Testing api",String.valueOf(response));
                 MatchBirthDetailResponse matchBirthDetailResponse = response.body();
                 Log.d("Testing api",String.valueOf(matchBirthDetailResponse));
-                Toast.makeText(view.getContext(), "response:" + matchBirthDetailResponse.getMaleBirthDetails(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "response:" + matchBirthDetailResponse.getMaleBirthDetails().getDay(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<MatchBirthDetailResponse> call, Throwable t) {
-
+                Log.d("error77",t.getMessage());
             }
         });
         return view;

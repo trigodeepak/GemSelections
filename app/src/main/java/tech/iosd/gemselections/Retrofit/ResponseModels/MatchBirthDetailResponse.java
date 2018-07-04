@@ -8,19 +8,19 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class MatchBirthDetailResponse {
-    @SerializedName("male_birth_details")
+    @SerializedName("male_astro_details")
     @Expose
-    private MaleBirthDetails maleBirthDetails;
-    @SerializedName("female_birth_details")
+    private MaleBirthDetails male_birth_details;
+    @SerializedName("female_astro_details")
     @Expose
     private MaleBirthDetails femaleBirthDetails;
 
     public MaleBirthDetails getMaleBirthDetails() {
-        return maleBirthDetails;
+        return male_birth_details;
     }
 
     public void setMaleBirthDetails(MaleBirthDetails maleBirthDetails) {
-        this.maleBirthDetails = maleBirthDetails;
+        this.male_birth_details = maleBirthDetails;
     }
 
     public MaleBirthDetails getFemaleBirthDetails() {
@@ -30,5 +30,6 @@ public class MatchBirthDetailResponse {
     public void setFemaleBirthDetails(MaleBirthDetails femaleBirthDetails) {
         this.femaleBirthDetails = femaleBirthDetails;
     }
+
 
 }
