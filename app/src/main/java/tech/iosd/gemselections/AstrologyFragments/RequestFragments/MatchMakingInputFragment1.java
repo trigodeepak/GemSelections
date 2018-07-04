@@ -227,8 +227,6 @@ public class MatchMakingInputFragment1 extends Fragment {
                                     .addToBackStack("Main").commit();
                             break;
 
-
-
                     }
                 } else {
                     Toast.makeText(view.getContext(), "All fields are mandatory", Toast.LENGTH_SHORT).show();
