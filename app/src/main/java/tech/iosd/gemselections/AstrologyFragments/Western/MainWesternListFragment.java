@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import tech.iosd.gemselections.AstrologyFragments.RequestFragments.WesternComplexDataCollectorFragment;
 import tech.iosd.gemselections.AstrologyFragments.RequestFragments.WesternDataCollectorOneFragment;
@@ -150,10 +151,14 @@ public class MainWesternListFragment extends Fragment {
                     case 20:
                         fragment = new WesternZodiacCompatibilityDataCollectionFragment(); //TODO: ALAG LAYOUT
                         bundle.putInt(Constants.FRAGMENT_ID,i);
+                        //Toast.makeText(getContext(),"hey",Toast.LENGTH_LONG).show();
+
                         break;
                     case 21:
                         fragment = new WesternZodiacCompatibilityDataCollectionFragment(); //TODO: ALAG LAYOUT
                         bundle.putInt(Constants.FRAGMENT_ID,i);
+                        //Toast.makeText(getContext(),"hey",Toast.LENGTH_LONG).show();
+
                         break;
                 }
                 fragment.setArguments(bundle);
