@@ -82,8 +82,12 @@ public class MatchManglikReportFragment extends Fragment {
         String details = "Manglik present rule:\n" +
                 "1. based on aspect: "+object.getManglikPresentRule().getBasedOnHouse()+"\n" +
                 "2. based on house: "+object.getManglikPresentRule().getBasedOnAspect()+"\n" +
-                "\n" +
-                "Manglik cancel rule: "+object.getManglikCancelRule()+"\n" +
+                "\n" ;
+        if(object.getManglikCancelRule().size()!=0){
+            details = details + "Manglik cancel rule: "+object.getManglikCancelRule().get(0)+"\n" ;
+
+        }
+        details =  details +
                 "Is mars manglik cancelled: "+object.isIsMarsManglikCancelled()+"\n" +
                 "Manglik status: "+object.getManglikStatus()+"\n" +
                 "percentage manglik present: "+object.getPercentageManglikPresent()+"\n" +

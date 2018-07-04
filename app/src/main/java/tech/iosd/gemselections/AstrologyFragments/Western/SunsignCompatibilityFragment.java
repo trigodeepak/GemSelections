@@ -85,7 +85,7 @@ public class SunsignCompatibilityFragment extends Fragment {
                 public void onFailure(Call<SunsignCompatibilityResponse> call, Throwable t) {
 
                     Log.d("TAGGER", "RESPONSE FAILURE");
-                    Log.d("TAGGER", t.getMessage());
+                    Log.d("error77", t.getMessage());
                     Snackbar.make(responseTextView, "PLEASE RETRY", Snackbar.LENGTH_INDEFINITE);
 
                     progressDialog.dismiss();

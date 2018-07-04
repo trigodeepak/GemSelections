@@ -5,6 +5,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
  */
 
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -16,7 +17,7 @@ public class Male {
     private ManglikPresentRule manglikPresentRule;
     @SerializedName("manglik_cancel_rule")
     @Expose
-    private List<String> manglikCancelRule = null;
+    private ArrayList<String> manglikCancelRule;
     @SerializedName("is_mars_manglik_cancelled")
     @Expose
     private boolean isMarsManglikCancelled;
@@ -44,11 +45,11 @@ public class Male {
         this.manglikPresentRule = manglikPresentRule;
     }
 
-    public List<String> getManglikCancelRule() {
+    public  ArrayList<String> getManglikCancelRule() {
         return manglikCancelRule;
     }
 
-    public void setManglikCancelRule(List<String> manglikCancelRule) {
+    public void setManglikCancelRule( ArrayList<String> manglikCancelRule) {
         this.manglikCancelRule = manglikCancelRule;
     }
 
