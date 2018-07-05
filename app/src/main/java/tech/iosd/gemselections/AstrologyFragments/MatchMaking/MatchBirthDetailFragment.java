@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -40,6 +41,7 @@ public class MatchBirthDetailFragment extends Fragment {
     AstrologyApiInterface astrologyApiInterface;
     public static final String TAG = "latlong";
     double mlat,mlongilo,flat,flongilo;
+    TextView mainTV;
 
     @Nullable
     @Override
@@ -48,6 +50,8 @@ public class MatchBirthDetailFragment extends Fragment {
         // getting arguments from matchmakinginputfrag1 getting the whole object
         MatchMakingSimpleRequest matchMakingSimpleRequest = (MatchMakingSimpleRequest) getArguments().getSerializable("match_making_obj");
         Log.d("Check Object",String.valueOf(matchMakingSimpleRequest.getFdob()));
+
+        mainTV =  view.findViewById(R.id.match_birth_details_main_textview);
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://json.astrologyapi.com/v1/")
@@ -67,6 +71,41 @@ public class MatchBirthDetailFragment extends Fragment {
                 MatchBirthDetailResponse matchBirthDetailResponse = response.body();
                 Log.d("Testing api",String.valueOf(matchBirthDetailResponse));
                 Toast.makeText(view.getContext(), "response:" + matchBirthDetailResponse.getMaleBirthDetails().getDay(), Toast.LENGTH_SHORT).show();
+                mainTV.append("MALE BIRTH DETAILS\n");
+                mainTV.append("year: "+matchBirthDetailResponse.getMaleBirthDetails().getYear()+"\n");
+                mainTV.append("month: "+matchBirthDetailResponse.getMaleBirthDetails().getMonth()+"\n");
+                mainTV.append("day: "+matchBirthDetailResponse.getMaleBirthDetails().getDay()+"\n");
+                mainTV.append("hour: "+matchBirthDetailResponse.getMaleBirthDetails().getHour()+"\n");
+                mainTV.append("minute: "+matchBirthDetailResponse.getMaleBirthDetails().getMinute()+"\n");
+                mainTV.append("latitude: "+matchBirthDetailResponse.getMaleBirthDetails().getLatitude()+"\n");
+                mainTV.append("longitude: "+matchBirthDetailResponse.getMaleBirthDetails().getLongitude()+"\n");
+                mainTV.append("time zone: "+matchBirthDetailResponse.getMaleBirthDetails().getTimezone()+"\n");
+                mainTV.append("sunrise: "+matchBirthDetailResponse.getMaleBirthDetails().getSunrise()+"\n");
+                mainTV.append("sunset: "+matchBirthDetailResponse.getMaleBirthDetails().getSunset()+"\n");
+                mainTV.append("ayanamsha: "+matchBirthDetailResponse.getMaleBirthDetails().getAyanamsha()+"\n");
+
+                mainTV.append("\nFEMALE BIRTH DETAILS\n");
+                mainTV.append("year: "+matchBirthDetailResponse.getFemaleBirthDetails().getYear()+"\n");
+                mainTV.append("month: "+matchBirthDetailResponse.getFemaleBirthDetails().getMonth()+"\n");
+                mainTV.append("day: "+matchBirthDetailResponse.getFemaleBirthDetails().getDay()+"\n");
+                mainTV.append("hour: "+matchBirthDetailResponse.getFemaleBirthDetails().getHour()+"\n");
+                mainTV.append("minute: "+matchBirthDetailResponse.getFemaleBirthDetails().getMinute()+"\n");
+                mainTV.append("latitude: "+matchBirthDetailResponse.getFemaleBirthDetails().getLatitude()+"\n");
+                mainTV.append("longitude: "+matchBirthDetailResponse.getFemaleBirthDetails().getLongitude()+"\n");
+                mainTV.append("time zone: "+matchBirthDetailResponse.getFemaleBirthDetails().getTimezone()+"\n");
+                mainTV.append("sunrise: "+matchBirthDetailResponse.getFemaleBirthDetails().getSunrise()+"\n");
+                mainTV.append("sunset: "+matchBirthDetailResponse.getFemaleBirthDetails().getSunset()+"\n");
+                mainTV.append("ayanamsha: "+matchBirthDetailResponse.getFemaleBirthDetails().getAyanamsha()+"\n");
+
+
+
+
+
+
+
+
+
+
             }
 
             @Override

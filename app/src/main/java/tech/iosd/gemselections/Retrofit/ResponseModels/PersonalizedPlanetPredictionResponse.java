@@ -3,6 +3,7 @@ package tech.iosd.gemselections.Retrofit.ResponseModels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class PersonalizedPlanetPredictionResponse {
     private String reportDate;
     @SerializedName("personalised_report")
     @Expose
-    private List<String> personalisedReport = null;
+    private ArrayList<String> personalisedReport ;
 
     public String getReportDate() {
         return reportDate;
@@ -25,11 +26,11 @@ public class PersonalizedPlanetPredictionResponse {
         this.reportDate = reportDate;
     }
 
-    public List<String> getPersonalisedReport() {
+    public ArrayList<String> getPersonalisedReport() {
         return personalisedReport;
     }
 
-    public void setPersonalisedReport(List<String> personalisedReport) {
+    public void setPersonalisedReport(ArrayList<String> personalisedReport) {
         this.personalisedReport = personalisedReport;
     }
 }
