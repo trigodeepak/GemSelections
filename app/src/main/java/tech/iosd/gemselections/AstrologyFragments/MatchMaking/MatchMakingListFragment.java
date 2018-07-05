@@ -33,8 +33,7 @@ public class MatchMakingListFragment extends Fragment {
             , "Match Dashakoot Points"
             , "Match percentage"
             , "Partner Report"
-            , "Custom Match Profiles"
-            , "Papasamyam Details"
+
     };
 
     Bundle args = new Bundle();
@@ -99,18 +98,7 @@ public class MatchMakingListFragment extends Fragment {
                                 matchMakingInputFragment2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .addToBackStack("Main").commit();
                         break;
-                    case 12:
-                        //todo weird activity
-                        setFragment(new CustomMatchProfilesFragment());
-                        break;
-                    case 13:
-                        args.putInt("caseNo", 13);
-                        MatchMakingInputFragment3 matchMakingInputFragment3 = new MatchMakingInputFragment3();
-                        matchMakingInputFragment3.setArguments(args);
-                        getFragmentManager().beginTransaction().replace(R.id.match_making_container,
-                                matchMakingInputFragment3).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                .addToBackStack("Main").commit();
-                        break;
+
                 }
             }
         });

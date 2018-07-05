@@ -15,6 +15,7 @@ import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingPartnerReport;
 import tech.iosd.gemselections.Retrofit.RequestModels.MatchMakingSimpleRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.NumerologyReportRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.PdfRequestModel;
+import tech.iosd.gemselections.Retrofit.RequestModels.SipmleMoonPhaseRequst;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologyComplexRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequestTwo;
@@ -70,6 +71,7 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.PersonalizedPlanetPredict
 import tech.iosd.gemselections.Retrofit.ResponseModels.PitraDoshResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PlanetPanchangResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.PredictionResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.ResponseForMoonPhaseReport;
 import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticCoupleForecastResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticForecastResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.RomanticPersonalityResponse;
@@ -472,4 +474,9 @@ public interface AstrologyApiInterface {
             @Header("Authorization") String token,
             @Body WesternAstrologySimpleRequest westernAstrologySimpleRequest
     );
+
+    @POST("moon_phase_report")
+    Call<ResponseForMoonPhaseReport> getMoonPhaseReport(
+            @Header("Authorization") String token, @Body SipmleMoonPhaseRequst sipmleMoonPhaseRequst
+            );
 }
