@@ -148,11 +148,11 @@ public class MainWesternListFragment extends Fragment {
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 20:
-                        fragment = new WesternZodiacCompatibilityDataCollectionFragment(); //TODO: ALAG LAYOUT
+                        fragment = new WesternZodiacCompatibilityDataCollectionFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 21:
-                        fragment = new WesternZodiacCompatibilityDataCollectionFragment(); //TODO: ALAG LAYOUT
+                        fragment = new WesternZodiacCompatibilityDataCollectionFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                 }
