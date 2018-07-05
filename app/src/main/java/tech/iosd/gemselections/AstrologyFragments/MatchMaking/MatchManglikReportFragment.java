@@ -92,7 +92,7 @@ public class MatchManglikReportFragment extends Fragment {
                 "Manglik status: "+object.getManglikStatus()+"\n" +
                 "percentage manglik present: "+object.getPercentageManglikPresent()+"\n" +
                 "percentage manglik after cancellation: "+object.getPercentageManglikAfterCancellation()+"\n" +
-                "Manglik report: "+object.getManglikReport()+"\n" +
+                "Manglik mainTV: "+object.getManglikReport()+"\n" +
                 "Is present ? : "+object.isIsPresent();
         return details;
     }
