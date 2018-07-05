@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,6 +25,8 @@ import tech.iosd.gemselections.Retrofit.AstrologyApiInterface;
 import tech.iosd.gemselections.Retrofit.RequestModels.WesternAstrologySimpleRequest;
 import tech.iosd.gemselections.Retrofit.ResponseModels.CurrentCharDashaResponse;
 import tech.iosd.gemselections.Retrofit.ResponseModels.MadhyaBhavResponse;
+import tech.iosd.gemselections.Retrofit.ResponseModels.SubDasha;
+import tech.iosd.gemselections.Retrofit.ResponseModels.SubSubDasha;
 import tech.iosd.gemselections.Utils.Constants;
 
 public class CurrentCharDashaFragment  extends Fragment {
@@ -91,13 +94,13 @@ public class CurrentCharDashaFragment  extends Fragment {
 
                             responseTextView.append("\n\nSUB SUB DASHA ");
 
-                            CurrentCharDashaResponse.SubDashaArrayObj obj = response.body().getSubSubDasha();
-                            Log.d("REsponse"," "+obj.getSubSubDashas()[0].getEndDate());
-//                            for (int i = 0; i <12; i++) {
-//                                responseTextView.append("\n\t\tSign Name : " + .get(i).getSignName());
-//                                responseTextView.append("\n\t\tStart Date : " + response.body().getSubSubDasha().getSubSubDashas().get(i).getStartDate());
-//                                responseTextView.append("\n\t\tEnd Date : " + response.body().getSubSubDasha().getSubSubDashas().get(i).getEndDate());
-//                            }
+                            SubSubDasha obj = response.body().getSubSubDasha();
+                            //Log.d("REsponse"," "+obj.size());
+                              //for (int i = 0; i <12; i++) {
+                                  responseTextView.append("\n\t\tSign Name : " + obj.getSignName());
+                                  responseTextView.append("\n\t\tStart Date : " + obj.getStartDate());
+                                  responseTextView.append("\n\t\tEnd Date : " + obj.getEndDate());
+                             // }
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -109,8 +112,8 @@ public class CurrentCharDashaFragment  extends Fragment {
                 public void onFailure(Call<CurrentCharDashaResponse> call, Throwable t) {
 
                     Log.d("TAGGER", "RESPONSE FAILURE");
-                    Log.d("TAGGER", t.getMessage());
-                    Snackbar.make(responseTextView, "PLEASE RETRY", Snackbar.LENGTH_INDEFINITE);
+                    Log.d("error77", t.getMessage());
+                    Snackbar.make(responseTextView, "PLEASE RETRY", Snackbar.LENGTH_SHORT).show();
 
                     progressDialog.dismiss();
                 }
