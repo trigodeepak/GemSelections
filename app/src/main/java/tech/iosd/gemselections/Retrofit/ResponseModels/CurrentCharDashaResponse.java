@@ -19,7 +19,15 @@ public class CurrentCharDashaResponse {
     //todo error is here Expected BEGIN_ARRAY but was BEGIN_OBJECT still not resolved
     @SerializedName("sub_sub_dasha")
     @Expose
-    private SubDashaArrayObj subSubDashaObject;
+    private SubSubDasha subSubDasha;
+
+    public SubSubDasha getSubSubDasha() {
+        return subSubDasha;
+    }
+
+    public void setSubSubDasha(SubSubDasha subSubDasha) {
+        this.subSubDasha = subSubDasha;
+    }
 
     public String getDashaDate() {
         return dashaDate;
@@ -45,29 +53,26 @@ public class CurrentCharDashaResponse {
         this.subDasha = subDasha;
     }
 
-    public SubDashaArrayObj getSubSubDasha() {
-        return subSubDashaObject;
+    /*public SubDashaArrayObj getSubSubDasha() {
+        return subSubDasha;
     }
 
     public void setSubSubDasha(SubDashaArrayObj subSubDasha) {
-        this.subSubDashaObject = subSubDasha;
+        this.subSubDasha = subSubDasha;
     }
-
+*/
     public class SubDashaArrayObj {
-        private SubSubDasha[] subSubDashas = new SubSubDasha[12];
+        private SubDasha[] subSubDashas = new SubDasha[12];
 
-        public SubSubDasha[] getSubSubDashas() {
+        public SubDasha[] getSubSubDashas() {
             return subSubDashas;
         }
 
-        public void setSubSubDashas(SubSubDasha[] subSubDashas) {
+        public void setSubSubDashas(SubDasha[] subSubDashas) {
             this.subSubDashas = subSubDashas;
         }
-        public SubDashaArrayObj(){
 
-        }
-
-        public SubDashaArrayObj(SubSubDasha[] subSubDashas) {
+        public SubDashaArrayObj(SubDasha[] subSubDashas) {
             this.subSubDashas = subSubDashas;
         }
     }

@@ -32,12 +32,15 @@ import tech.iosd.gemselections.Utils.Constants;
 public class SunsignCompatibilityFragment extends Fragment {
     Retrofit retrofit;
     ArrayList<LifeForecast> arrayList = new ArrayList<>();
+    private String primaryZodiac,secondaryZodiac;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.general_report_frag, container, false);
 
+        primaryZodiac = "null";
+        secondaryZodiac = "null";
         AstrologyApiClient astrologyApiClient = new AstrologyApiClient();
         retrofit = astrologyApiClient.getRetrofit();
 
@@ -51,7 +54,8 @@ public class SunsignCompatibilityFragment extends Fragment {
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-
+            primaryZodiac = bundle.getString(Constants.PRIMARY_ZODIAC);
+            secondaryZodiac = bundle.getString(Constants.SECONDARY_ZODIAC);
             Call<SunsignCompatibilityResponse> call = astrologyApiInterface
                     .getSunSignCompatibilityReport(AstrologyApiInterface.HEADER_TOKEN
                             , bundle.getString(Constants.PRIMARY_ZODIAC)
@@ -70,8 +74,8 @@ public class SunsignCompatibilityFragment extends Fragment {
                         Log.d("TAGGER", "RESPONSE SUCCESS");
 //                        arrayList.addAll(response.body().getLifeForecast());
 //                            responseString = responseString.concat(response.body().getReport().get(i));
-                        responseTextView.append("\n Your Sign : " + response.body().getYourSign());
-                        responseTextView.append("\n Your Partner Sign : " + response.body().getYourPartnerSign());
+                        responseTextView.append("\n Your Sign : " + primaryZodiac);
+                        responseTextView.append("\n Your Partner Sign : " + secondaryZodiac);
                         responseTextView.append("\n\n Compatibility Percentage : "+ response.body().getCompatibilityPercentage());
                         responseTextView.append("\n\n Compatibility Report : " + response.body().getCompatibilityReport());
                         responseTextView.append("\n\n");
@@ -85,7 +89,7 @@ public class SunsignCompatibilityFragment extends Fragment {
                 public void onFailure(Call<SunsignCompatibilityResponse> call, Throwable t) {
 
                     Log.d("TAGGER", "RESPONSE FAILURE");
-                    Log.d("TAGGER", t.getMessage());
+                    Log.d("error77", t.getMessage());
                     Snackbar.make(responseTextView, "PLEASE RETRY", Snackbar.LENGTH_INDEFINITE);
 
                     progressDialog.dismiss();

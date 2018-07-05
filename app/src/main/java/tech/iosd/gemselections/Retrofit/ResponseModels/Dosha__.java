@@ -16,7 +16,7 @@ public class Dosha__ {
     private int position;
     @SerializedName("doshaUnits")
     @Expose
-    private int doshaUnits;
+    private float doshaUnits;
 
     public String getPlanet() {
         return planet;
@@ -34,11 +34,11 @@ public class Dosha__ {
         this.position = position;
     }
 
-    public int getDoshaUnits() {
+    public float getDoshaUnits() {
         return doshaUnits;
     }
 
-    public void setDoshaUnits(int doshaUnits) {
+    public void setDoshaUnits(float doshaUnits) {
         this.doshaUnits = doshaUnits;
     }
 

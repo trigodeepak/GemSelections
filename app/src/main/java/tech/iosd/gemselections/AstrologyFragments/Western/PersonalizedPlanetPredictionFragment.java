@@ -81,6 +81,7 @@ public class PersonalizedPlanetPredictionFragment extends Fragment {
                     if (response.isSuccessful() && response.body() != null) {
 //                        String responseString = "";
                         Log.d("TAGGER", "RESPONSE SUCCESS");
+                        Log.d("error77","size : "+response.body().getPersonalisedReport().size());
                         arrayList.addAll(response.body().getPersonalisedReport());
                         responseTextView.append("Report Date : " + response.body().getReportDate() + "\n");
                         for (int i = 0; i < response.body().getPersonalisedReport().size(); i++) {
