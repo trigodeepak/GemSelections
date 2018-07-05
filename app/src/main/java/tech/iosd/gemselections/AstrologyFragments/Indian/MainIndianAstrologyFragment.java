@@ -79,7 +79,7 @@ public class MainIndianAstrologyFragment extends Fragment {
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 4:
-                        setFragment(new IndianDataCollectorOneFragment());
+                        setFragment(new MoonPhaseReport());
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
                     case 5:

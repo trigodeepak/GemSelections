@@ -1,5 +1,6 @@
 package tech.iosd.gemselections.AstrologyFragments.MatchMaking;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,11 +28,15 @@ import tech.iosd.gemselections.Retrofit.ResponseModels.PapasamyamDetailsResponse
 public class PapasamyamDetailsFragment extends Fragment {
     Retrofit retrofit;
     AstrologyApiInterface astrologyApiInterface;
+    ProgressDialog progressDialog;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.papasamyam_report_astrology, container, false);
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Please wait.");
+        progressDialog.setCancelable(false);
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://json.astrologyapi.com/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -41,11 +46,13 @@ public class PapasamyamDetailsFragment extends Fragment {
         //checking input
         Log.d("Check input",matchMakingPapasamyamReportRequest.getGender().toString());
         astrologyApiInterface = retrofit.create(AstrologyApiInterface.class);
+        progressDialog.show();
         Call<PapasamyamDetailsResponse> call = astrologyApiInterface.getPapaResponse(AstrologyApiInterface.HEADER_TOKEN, matchMakingPapasamyamReportRequest);
         call.enqueue(new Callback<PapasamyamDetailsResponse>() {
             @Override
             public void onResponse(Call<PapasamyamDetailsResponse> call, Response<PapasamyamDetailsResponse> response) {
                 //todo response is not coming correct and make layout to display
+                progressDialog.dismiss();
                 PapasamyamDetailsResponse partnerReportResponse = response.body();
                 // List<FemalePlanetDetail> list = matchPlanetDetailsResponse.getFemalePlanetDetails();
                 Toast.makeText(view.getContext(), "response:" + partnerReportResponse.getAscendant().getTotal(), Toast.LENGTH_SHORT).show();
@@ -54,6 +61,9 @@ public class PapasamyamDetailsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<PapasamyamDetailsResponse> call, Throwable t) {
+                progressDialog.dismiss();
+                Log.d("error77",t.getMessage());
+                getFragmentManager().popBackStack();
 
             }
         });

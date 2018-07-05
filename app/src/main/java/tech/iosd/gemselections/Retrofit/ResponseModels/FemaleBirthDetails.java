@@ -27,13 +27,13 @@ public class FemaleBirthDetails {
     private int minute;
     @SerializedName("latitude")
     @Expose
-    private int latitude;
+    private float latitude;
     @SerializedName("longitude")
     @Expose
-    private int longitude;
+    private float longitude;
     @SerializedName("timezone")
     @Expose
-    private int timezone;
+    private float timezone;
     @SerializedName("sunrise")
     @Expose
     private String sunrise;
@@ -84,7 +84,7 @@ public class FemaleBirthDetails {
         this.minute = minute;
     }
 
-    public int getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
@@ -92,7 +92,7 @@ public class FemaleBirthDetails {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
@@ -100,11 +100,11 @@ public class FemaleBirthDetails {
         this.longitude = longitude;
     }
 
-    public int getTimezone() {
+    public float getTimezone() {
         return timezone;
     }
 
-    public void setTimezone(int timezone) {
+    public void setTimezone(float timezone) {
         this.timezone = timezone;
     }
 

@@ -25,7 +25,7 @@ public class FemalePlanetDetail {
     private double normDegree;
     @SerializedName("speed")
     @Expose
-    private int speed;
+    private double speed;
     @SerializedName("isRetro")
     @Expose
     private boolean isRetro;
@@ -86,11 +86,11 @@ public class FemalePlanetDetail {
         this.normDegree = normDegree;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 

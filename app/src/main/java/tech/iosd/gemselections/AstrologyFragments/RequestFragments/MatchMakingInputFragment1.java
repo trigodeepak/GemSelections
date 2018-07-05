@@ -227,8 +227,6 @@ public class MatchMakingInputFragment1 extends Fragment {
                                     .addToBackStack("Main").commit();
                             break;
 
-
-
                     }
                 } else {
                     Toast.makeText(view.getContext(), "All fields are mandatory", Toast.LENGTH_SHORT).show();
@@ -244,13 +242,18 @@ public class MatchMakingInputFragment1 extends Fragment {
                 float[] loc = new float[2];
                 Geocoder gc = new Geocoder(context);
                 List<Address> addresses = gc.getFromLocationName(location, 5); // get the found Address Objects
-                loc[0] = (float) addresses.get(0).getLatitude();
-                loc[1] = (float) addresses.get(0).getLongitude();
+                if(addresses.size()!=0){
+                    loc[0] = (float) addresses.get(0).getLatitude();
+                    loc[1] = (float) addresses.get(0).getLongitude();
+                }
+
                 //  TimeZone tz=TimeZone.getDefault();
-                Log.d("check Location", "onCreateView: " + loc[0] + "," +loc[1]+ ",");//+tz.getDisplayName(false,TimeZone.SHORT));
+                Log.d("checkLocation", "onCreateView: " + loc[0] + "," +loc[1]+ ",");//+tz.getDisplayName(false,TimeZone.SHORT));
                 return loc;
             } catch (IOException e) {
                 // handle the exception
+                Toast.makeText(context,"location error",Toast.LENGTH_LONG).show();
+                Log.d("error77","location error\n"+e.getMessage());
             }
         }
         float[] loc = {0.0f,0.0f};

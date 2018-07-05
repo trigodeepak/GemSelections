@@ -226,6 +226,7 @@ public class WesternZodiacCompatibilityDataCollectionFragment extends Fragment {
     }
 
     private void setFragment(Fragment fragment) {
+        bundle.putInt("id",fragmentId);
         FragmentManager fragmentManager = getFragmentManager();
         fragment.setArguments(bundle);
         fragmentManager.beginTransaction()
