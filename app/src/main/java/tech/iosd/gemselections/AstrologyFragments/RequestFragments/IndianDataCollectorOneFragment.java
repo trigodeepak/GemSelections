@@ -36,6 +36,7 @@ import tech.iosd.gemselections.AstrologyFragments.Indian.GeneralPlanetNatureRepo
 import tech.iosd.gemselections.AstrologyFragments.Indian.KalSarpaDetailsFragment;
 import tech.iosd.gemselections.AstrologyFragments.Indian.MadhyaBhavFragment;
 import tech.iosd.gemselections.AstrologyFragments.Indian.MajorCharDashaFragment;
+import tech.iosd.gemselections.AstrologyFragments.Indian.MoonPhaseReport;
 import tech.iosd.gemselections.AstrologyFragments.Indian.NumerologyDailyPredictionFragment;
 import tech.iosd.gemselections.AstrologyFragments.Indian.NumerologyFavorableTimeFragment;
 import tech.iosd.gemselections.AstrologyFragments.Indian.NumerologyGemstoneSuggestionFragment;
@@ -144,7 +145,7 @@ public class IndianDataCollectorOneFragment extends Fragment {
                                 setFragment(new GeneralMoonBioRythmReportFragment());
                                 break;
                             case 4:
-                                setFragment(new GeneralHoroscopeReportChartFragment());
+                                setFragment(new MoonPhaseReport());
                                 break;
                             case 5:
                                 setFragment(new KalSarpaDetailsFragment());
