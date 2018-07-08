@@ -37,13 +37,9 @@ import static tech.iosd.gemselections.MainContent.FAQsActivity.DEVELOPER_KEY;
  * Created by anonymous on 18/6/17.
  */
 
-public class RudBeadFragment extends Fragment implements View.OnClickListener,YouTubePlayer.OnInitializedListener{
+public class RudBeadFragment extends Fragment implements View.OnClickListener{
 
     private ImageView _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _trijuti, _ganesh, _gauri;
-    private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
-    private static final int RECOVERY_REQUEST = 1;
-    YouTubePlayerView playerView;
-    public String link;
 
     @Nullable
     @Override
@@ -167,82 +163,18 @@ public class RudBeadFragment extends Fragment implements View.OnClickListener,Yo
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         loadImage();
-
         getActivity().setTitle("Beads");
     }
+
     private void show_dialog(String title, int content, final String url) {
-        final Dialog dialog = new Dialog(getActivity());
-        link = url;
-        dialog.setTitle(title);
-        dialog.setContentView(tech.iosd.gemselections.R.layout.dialog_beads);
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.copyFrom(dialog.getWindow().getAttributes());
-
-        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-        layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
-
-        dialog.show();
-        dialog.getWindow().setAttributes(layoutParams);
-
-        TextView textView  = (TextView)dialog.findViewById(tech.iosd.gemselections.R.id.content);
-        textView.setText(getString(content));
-        //todo have a frame layout having youtube video playing in it Remove the the button and make youtube video view inside dialog
-//        playerView = dialog.findViewById(R.id.rudraksha_video);
-//        playerView.initialize(DEVELOPER_KEY, this);
-
-
-//        Button button = (Button)dialog.findViewById(tech.iosd.gemselections.R.id.watch_video);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setData(Uri.parse("https://www.youtube.com/watch?v="+url));
-//                startActivity(intent);
-//                dialog.dismiss();
-//            }
-//        });
+        Intent intent = new Intent(getActivity(),YoutubeDialogActivity.class);
+        intent.putExtra("title",title);
+        intent.putExtra("string",content);
+        intent.putExtra("link",url);
+        startActivity(intent);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == FAQsActivity.RECOVERY_REQUEST)
-            getYouTubePlayerProvider().initialize(FAQsActivity.DEVELOPER_KEY, this);
-    }
-
-    protected YouTubePlayer.Provider getYouTubePlayerProvider() {
-        return playerView;
-    }
-
-    @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-        if(!b){
-            youTubePlayer.cueVideo(link);
-            Log.e("Posting link",link+" ");
-//            youTubePlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
-//                @Override
-//                public void onFullscreen(boolean b) {
-//                    if(!b){
-//                        //youTubePlayer.setFullscreen(false);
-//                        if(getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT)
-//                            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-//                    }
-//                }
-//            });
-        }
-    }
-
-    @Override
-    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-        if (youTubeInitializationResult.isUserRecoverableError()) {
-            youTubeInitializationResult.getErrorDialog(getActivity(), RudBeadFragment.RECOVERY_REQUEST).show();
-        }
-        else {
-            String error = String.format(getString(tech.iosd.gemselections.R.string.player_error), youTubeInitializationResult.toString());
-            Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show();
-        }
-    }
 
     private void show_dialog2(String title, int content) {
         final Dialog dialog = new Dialog(getActivity());
