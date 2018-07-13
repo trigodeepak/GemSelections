@@ -69,7 +69,6 @@ public class WesternHoroscopeFragment extends Fragment {
         progressDialog.show();
 
         Bundle bundle = this.getArguments();
-//        bundle = new Bundle();
         if(bundle!=null){
 
         WesternAstrologySimpleRequest westernAstrologySimpleRequest  =  new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY)
@@ -80,14 +79,7 @@ public class WesternHoroscopeFragment extends Fragment {
                 ,Constants.PRIMARY_LAT
                 ,Constants.PRIMARY_LNG
                 ,Constants.TIMEZONE);
-//                = new WesternAstrologySimpleRequest(bundle.getInt(Constants.PRIMARY_DAY,1)
-//                ,bundle.getInt(Constants.PRIMARY_MONTH,1)
-//                ,bundle.getInt(Constants.PRIMARY_YEAR,2018)
-//                ,bundle.getInt(Constants.PRIMARY_HOUR,1)
-//                ,bundle.getInt(Constants.PRIMARY_MIN,1)
-//                ,Constants.PRIMARY_LAT
-//                ,Constants.PRIMARY_LNG
-//                ,Constants.TIMEZONE);
+
 
         Call<WesternHoroscopeResponse> call = astrologyApiInterface
                 .getWesternHoroscope(AstrologyApiInterface.HEADER_TOKEN, westernAstrologySimpleRequest);

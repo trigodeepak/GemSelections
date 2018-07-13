@@ -147,6 +147,7 @@ public class WesternDataCollectorOneFragment extends Fragment {
                                 setFragment(new DailyTransitsFragment());
                                 break;
                             case 3:
+                                //todo weekly tropical trasit stopped working
                                 setFragment(new WeeklyTransitFragment());
                                 break;
                             case 4:

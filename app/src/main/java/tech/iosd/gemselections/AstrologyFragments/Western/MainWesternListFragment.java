@@ -65,100 +65,43 @@ public class MainWesternListFragment extends Fragment {
 
         final Bundle bundle = new Bundle();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //todo romantic personality report
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
+                    //Calling the basic fragment of these cases
                     case 0:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 1:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 2:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 3:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 4:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 5:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 6:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 7:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 8:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
-                    case 9:
-                        fragment = new WesternComplexDataCollectorFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
-                    case 10:
-                        fragment = new WesternComplexDataCollectorFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 11:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 12:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 13:
-                        fragment = new WesternDataCollectorOneFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 14:
                         fragment = new WesternDataCollectorOneFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
+                    //Now cases for Western Complex Data Fragment
+                    case 9:
+                    case 10:
                     case 15:
-                        fragment = new WesternComplexDataCollectorFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 16:
-                        fragment = new WesternComplexDataCollectorFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 17:
-                        fragment = new WesternComplexDataCollectorFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 18:
-                        fragment = new WesternComplexDataCollectorFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        break;
                     case 19:
                         fragment = new WesternComplexDataCollectorFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
                         break;
+                    //Call next Fragment WesternZodiacCompatibilityDataCollectionFragment
                     case 20:
-                        fragment = new WesternZodiacCompatibilityDataCollectionFragment();
-                        bundle.putInt(Constants.FRAGMENT_ID,i);
-                        //Toast.makeText(getContext(),"hey",Toast.LENGTH_LONG).show();
-
-                        break;
                     case 21:
                         fragment = new WesternZodiacCompatibilityDataCollectionFragment();
                         bundle.putInt(Constants.FRAGMENT_ID,i);
-                        //Toast.makeText(getContext(),"hey",Toast.LENGTH_LONG).show();
-
                         break;
                 }
                 fragment.setArguments(bundle);

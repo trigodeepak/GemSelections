@@ -17,13 +17,15 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8dp">
+            >
 
             <TextView
                 android:id="@+id/general_report_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
                 android:textSize="16sp"
                 android:scrollbars="vertical" />

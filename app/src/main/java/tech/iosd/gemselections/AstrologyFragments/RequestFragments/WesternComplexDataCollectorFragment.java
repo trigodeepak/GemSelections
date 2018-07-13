@@ -48,6 +48,7 @@ import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 
 public class WesternComplexDataCollectorFragment extends Fragment {
 
+    //todo this file is useless and all other fragments are solved by WesternDataCollectorOneFragment
     TextView dateTextView, partnerDateTextView;
     TextView timeTextView, partnerTimeTextView;
     TextView nameTextView, partnerNameTextView;
