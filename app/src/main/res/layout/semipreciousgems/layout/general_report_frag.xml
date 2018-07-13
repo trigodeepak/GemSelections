@@ -12,21 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/back"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             >
 
             <TextView
                 android:id="@+id/general_report_text_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
+                android:paddingBottom="30dp"
                 android:textSize="16sp"
                 android:scrollbars="vertical" />
 
